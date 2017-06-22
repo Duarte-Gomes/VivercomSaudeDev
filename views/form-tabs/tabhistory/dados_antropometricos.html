@@ -1,0 +1,507 @@
+<h4>Dados Antropométricas</h4>
+    <div class="row">
+        <div class="col-sm-3">
+            <label for="bioType">Biotipo</label>
+            <select ng-model="clientHist.biotipo" class="form-control" id="bioType" ng-options="x for x in bioTypes">
+            </select>  
+        </div>
+
+        <div class="col-sm-3">
+            <label for="bioType">Cronotipo</label>
+            <select ng-model="clientHist.cronotipo" class="form-control" id="cronoType" ng-options="x for x in cronoTypes">
+            </select>  
+        </div>
+
+    </div>
+    <table class="table" id="antropo" style="margin-top: 20px;">
+        <thead>
+            <tr>
+                <td style="width: 80px;">Data</td>
+                <td>Altura</td>
+                <td>Peso</td>
+                <td>Massa Gorda</td>
+                <td>Água Corporal</td>
+                <td>Massa Magra</td>
+                <td>Gordura Visceral</td>
+                <td>Perímetro Cintura</td>
+                <td>Perímetro Abdominal</td>
+                <td>Anca</td>
+                <td>Pescoço</td>
+                <td>Ombros</td>
+                <td>Peito</td>
+                <td>Braço Esq</td>
+                <td>Braço Drt</td>
+                <td>Coxa Esq</td>
+                <td>Coxa Drt</td>
+                <td>Perna Esq</td>
+                <td>Perna Drt</td>
+                <td>Gemêo Esq</td>
+                <td>Gemêo Drt</td>
+                <td>Peso Ideal</td>
+            </tr>
+        </thead>
+       <!-- {{hist}}-->
+        <tbody>
+            <tr>
+                <td class="td-style">
+                    <!--<input class="form-control text-center" ng-model="clientHist.da_01_01" type=text style="width: 100%">-->
+                    <input type="text" class="form-control" moment-picker="hist.dateString_01" 
+                        locale="pt"
+                        format="L"
+                        max-view="day"
+                        start-view="month"
+                        autoclose="true"
+                        today="true"
+                        keyboard="true" ng-model="hist.date_01">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_02" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_03" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_04" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_05" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_07" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_06" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_08" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_09" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_10" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_11" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_12" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_13" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_15" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_16" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_17" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_18" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_19" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_20" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_21" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_22" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_14" type=text style="width: 100%">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-style">
+                    <!--<input class="form-control text-center" ng-model="clientHist.da_02_01" type=text style="width: 100%">-->
+                    <input type="text" class="form-control" moment-picker="hist.dateString_02" 
+                        locale="pt"
+                        format="L"
+                        max-view="day"
+                        start-view="month"
+                        autoclose="true"
+                        today="true"
+                        keyboard="true" ng-model="hist.date_02">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_02" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_03" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_04" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_05" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_07" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_06" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_08" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_09" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_10" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_11" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_12" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_13" type=text style="width: 100%">
+                </td>
+                 <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_15" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_16" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_17" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_18" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_19" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_20" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_21" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_22" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_14" type=text style="width: 100%">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-style">
+                    <!--<input class="form-control text-center" ng-model="clientHist.da_03_01" type=text style="width: 100%">-->
+                    <input type="text" class="form-control" moment-picker="hist.dateString_03" 
+                        locale="pt"
+                        format="L"
+                        max-view="day"
+                        start-view="month"
+                        autoclose="true"
+                        today="true"
+                        keyboard="true" ng-model="hist.date_03">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_02" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_03" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_04" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_05" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_07" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_06" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_08" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_09" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_10" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_11" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_12" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_13" type=text style="width: 100%">
+                </td>
+                 <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_15" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_16" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_17" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_18" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_19" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_20" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_21" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_22" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_14" type=text style="width: 100%">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-style">
+                    <!--<input class="form-control text-center" ng-model="clientHist.da_04_01" type=text style="width: 100%">-->
+                    <input type="text" class="form-control" moment-picker="hist.dateString_04" 
+                        locale="pt"
+                        format="L"
+                        max-view="day"
+                        start-view="month"
+                        autoclose="true"
+                        today="true"
+                        keyboard="true" ng-model="hist.date_04">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_02" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_03" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_04" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_05" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_07" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_06" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_08" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_09" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_10" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_11" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_12" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_13" type=text style="width: 100%">
+                </td>
+                 <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_15" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_16" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_17" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_18" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_19" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_20" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_21" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_22" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_14" type=text style="width: 100%">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-style">
+                    <!--<input class="form-control text-center" ng-model="clientHist.da_05_01" type=text style="width: 100%">-->
+                    <input type="text" class="form-control" moment-picker="hist.dateString_05" 
+                        locale="pt"
+                        format="L"
+                        max-view="day"
+                        start-view="month"
+                        autoclose="true"
+                        today="true"
+                        keyboard="true" ng-model="hist.date_05">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_02" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_03" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_04" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_05" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_07" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_06" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_08" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_09" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_10" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_11" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_12" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_13" type=text style="width: 100%">
+                </td>
+                 <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_15" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_16" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_17" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_18" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_19" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_20" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_21" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_22" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_14" type=text style="width: 100%">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="td-style">
+                    <!--<input class="form-control text-center" ng-model="clientHist.da_06_01" type=text style="width: 100%">-->
+                    <input type="text" class="form-control" moment-picker="hist.dateString_06" 
+                        locale="pt"
+                        format="L"
+                        max-view="day"
+                        start-view="month"
+                        autoclose="true"
+                        today="true"
+                        keyboard="true" ng-model="hist.date_06">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_02" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_03" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_04" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_05" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_07" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_06" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_08" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_09" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_10" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_11" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_12" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_16" type=text style="width: 100%">
+                </td>
+                 <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_15" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_16" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_17" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_18" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_19" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_20" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_21" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_22" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_14" type=text style="width: 100%">
+                </td>
+            </tr>
+        </tbody>
+    </table>

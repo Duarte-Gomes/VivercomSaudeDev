@@ -1,0 +1,52 @@
+<div class="container" style="margin-top: 80px; margin-bottom: 80px;">
+    <div class="row">
+        <div class="col-lg-12">
+            {{firebaseUser.uid}}
+            <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Nome" ng-model="clientDetail.name">
+            </div>
+            <div class="form-group">
+                <label for="datanescimento">Data Nascimento</label>
+                <input type="text" class="form-control" id="datanascimento" placeholder="Data Nascimento" ng-model="clientDetail.birthDay">
+            </div>
+            <div class="form-group">
+                <label for="idade">Idade</label>
+                <input type="text" class="form-control" id="idade" placeholder="Idade" ng-model="clientDetail.age">
+            </div>
+            <div class="form-group">
+                <label for="profissao">Profissão</label>
+                <input type="text" class="form-control" id="profissao" placeholder="Profissão" ng-model="clientDetail.profissao">
+            </div> 
+            <div class="form-group">
+                <label for="morada">Morada</label>
+                <input type="text" class="form-control" id="morada" placeholder="Morada" ng-model="clientDetail.address">
+            </div>
+            <div class="form-group">
+                <label for="codpostal">Código Postal</label>
+                <input type="text" class="form-control" id="codpostal" placeholder="Código Postal" ng-model="clientDetail.zipcode">
+            </div>
+            <div class="form-group">
+                <label for="localidade">Localidade</label>
+                <input type="text" class="form-control" id="localidade" placeholder="Localidade" ng-model="clientDetail.place">
+            </div>
+            <div class="form-group">
+                <label for="cartaocidadao">BI / Cartão Cidadão</label>
+                <input type="text" class="form-control" id="cartaocidadao" placeholder="BI / Cartão Cidadão" ng-model="clientDetail.cc">
+            </div>
+            <div class="form-group">
+                <label for="contribuinte">N Contribuinte</label>
+                <input type="text" class="form-control" id="contribuinte" placeholder="N Contribuinte" ng-model="clientDetail.nif">
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="text" class="form-control" id="telefone" placeholder="Telefone" ng-model="clientDetail.phone">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" ng-model="clientDetail.email">
+            </div>
+            <button type="button" class="btn btn-default" ng-click="saveNewUser()">Gravar</button>
+        </div>
+    </div>
+</div>

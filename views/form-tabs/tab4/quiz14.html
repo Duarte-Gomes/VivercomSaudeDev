@@ -1,0 +1,75 @@
+<div class="col-sm-12">
+    <h4>Apresenta algum dos seguintes problemas?</h4>
+</div>
+<div class="col-sm-12">
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz14_1">
+                Ansiedade
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz14_2">
+                Depressão
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz14_3">
+                Perturbações do sono
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz14_4">
+                Cefaleias/enxaquecas
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz14_5">
+                Epilepsia
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz14_6">
+                Alterações da visão/ouvido
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz14_7">
+                Perturbações na memoria
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-8" style="display: inline-flex;">
+        <div class="checkbox" style="margin-right: 10px;">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz14_8">
+                Outros?
+            </label>
+        </div>
+        <div ng-show="clientForm.quiz14_8" style="display: inline-flex; width: 100%;">
+            <input  type="text" class="form-control" ng-model="clientForm.quiz14_8_1">
+        </div>
+    </div>
+</div>
+<div class="col-sm-12" style="margin: 15px 0;">
+    <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
+</div>

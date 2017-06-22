@@ -1,0 +1,17 @@
+.souButton {
+    border: 0;
+    border-radius: 6px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    font-weight: bold;
+}
+.souPTitle {
+    color: white;
+    font-weight:bold;
+    font-size: 26px;
+
+}
+.souPDesc {
+    color: white;
+}

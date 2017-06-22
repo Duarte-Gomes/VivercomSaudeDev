@@ -1,0 +1,257 @@
+<div class="container-fluid" ng-cloak="">
+    <div class="main-login" ng-hide="firebaseUser">
+        <div>
+            <input type="text" class="form-control" ng-model="email" placeholder="Email">
+            <input type="password" class="form-control" ng-model="password" placeholder="Password">
+            <!--Email: <input type="text" ng-model="email">
+            Password: <input type="text" ng-model="password">-->
+            <button type="button" class="btn btn-info" ng-click="loginUser()">Login</button>
+            <button type="button" class="btn btn-info" ng-click="createUser()">Create User</button>
+        </div>
+    
+        <div style="background-color: orangered; margin-top: 30px;" ng-hide="firebaseUser">
+            <p ng-if="firebaseUser">Signed in user: <strong>{{ user }}</strong></p>
+            <p ng-if="message">Message: <strong>{{ message }}</strong></p>
+            <p ng-if="error">Error: <strong>{{ error }}</strong></p>
+            <!--<button ng-click="deleteUser()">Delete User</button>-->
+        </div>
+    </div>
+    <div class="main-welcome" ng-show="firebaseUser" style="margin-bottom: 80px;">
+        <!--<p>Form result: {{client_form}}</p>-->
+        <!--<button type="button" class="btn btn-info" ng-click="auth.$signOut()">Log Out</button>-->
+
+        <div ng-hide="showDetails">
+            <h1 class="text-center">Lista de utilizadores</h1> 
+            <table datatable="ng" class="row-border hover">
+                <thead>
+                    <tr>
+                        <!--<td>Id</td>-->
+                        <td>#</td>
+                        <!--<td>Activo</td>-->
+                        <td>Cód. Empresa</td>
+                        <td>Local</td>
+                        <td>Externo</td>
+                        <td>Nome</td>
+                        <td>Data Nascimento</td>
+                        <td>Telefone</td>
+                        <td>Email</td>
+                        <td>Profissão</td>
+                        <td>Data Prox. Consulta</td>
+                        <!--#2-->
+                        <!--<td>Data workshop</td>
+                        <td>Perfil</td>-->
+                        <!--#1-->
+                        <!--<td>faz exercicio</td>
+                        <td>ansiedade</td>
+                        <td>nivel de motivaçao</td>-->
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in usersList">
+                        <!--<td>{{user.$id}}</td>-->
+                        <td>{{user.client_number}}</td>
+                        <!--<td>
+                            <div style="height: 30px; background-color: red; width: 30px;"></div>
+                        </td>-->
+                        <td>{{user.client_detail.codBis}}</td>
+                        <td>{{user.client_detail.locConsulta}}</td>
+                        <td>{{user.client_detail.external}}</td>
+                        <td>{{user.client_detail.name}}</td>
+                        <td>{{user.client_detail.birthday}}</td>
+                        <td>{{user.client_detail.phone}}</td>
+                        <td>{{user.client_detail.email}}</td>
+                        <td>{{user.client_detail.profession}}</td>
+                        <td>{{user.client_detail.proxConsult}}</td>
+                        <!--#2-->
+                        <!--<td>{{user.client_detail.quizSpyder.quizDate}}</td>
+                        <td>{{user.client_detail.quizSpyder.spyderType.type}}</td>-->
+                        <!--#1-->
+                        <!--<td>{{user.client_form.quiz17}}</td>
+                        <td>{{user.client_form.quiz14_1}}</td>
+                        <td>{{user.client_form.quiz03_2}}</td>-->
+                        <td>
+                            <button type="button" class="btn btn-default" ng-click="getDetails(user.$id)">
+                                <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div ng-show="showDetails">
+            <!--<p>Form result: {{client_form}}</p>-->
+
+            <div class="col-sm-2" style="display: inline-grid; padding-right: 20px;">
+                <button type="button" class="btn btn-default btn-menu" style="margin-top: 50px;" ng-click="atras()">Inicio</button>
+                <button type="button" class="btn btn-default btn-menu" ng-click="adminHome()">Dashboard</button>
+                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientDetails()">Dados Pessoais</button>
+                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientHistory()">Histórico</button>
+                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientAntropo()">Dados Antropométricos</button>
+                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientQuizFunc()">Questionário Funcional</button>
+                
+            </div>
+            
+            <div class="col-sm-10" ng-show="adminDivHome">
+                <div class="row" style="padding: 15px 0;">
+                    <table class="table">  
+                        <tr>
+                            <td>Altura(cm)</td>
+                            <td>Peso (kg)</td>
+                            <td>% massa gorda</td>
+                        </tr>
+                        <tr>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_02" type=text style="width: 100%">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_03" type=text style="width: 100%">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_04" type=text style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>% agua corporal</td>
+                            <td>visceral fat</td>
+                            <td>% massa magra</td>
+                        </tr>
+                        <tr>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_05" type=text style="width: 100%">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_06" type=text style="width: 100%">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_07" type=text style="width: 100%">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-10" ng-show="adminDivClientDetails">
+                <div class="row" style="padding: 15px 0;">
+                    <!--<div ng-include="'views/form-tabs/tab1/quiz.html'"></div>-->
+                    <div ng-include="'views/form-tabs/tab1/quiz_admin.html'"></div>
+                </div>
+                <br>
+                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
+                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
+            </div>
+
+            <div class="col-sm-10" ng-show="adminDivClientHistory">
+                <div class="row" style="padding: 15px 0;">
+                    <div class="col-sm-12">
+                        <div ng-include="'views/form-tabs/tabhistory/his01.html'"></div>
+                    </div>
+                </div>
+                <br>
+                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
+                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
+            </div>
+
+            <div class="col-sm-10" ng-show="adminDivClientAntropo">
+                <div class="row" style="padding: 15px 0;">
+                    
+                        <div ng-include="'views/form-tabs/tabhistory/dados_antropometricos.html'"></div>
+                    
+                </div>
+                <br>
+                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
+                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
+            </div>
+
+            <div class="col-sm-10" ng-show="adminDivClientQuizFunc">
+                <h1 class="text-center">Questionário Funcional</h1>  
+                <div ng-repeat="user in usersList">
+                    <!--{{user.from}}-->
+                </div>
+                <md-content>
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        
+                        <md-tab label="Objectivos e Motivação">
+                            <md-content class="md-padding">  
+                                <div class="row" style="background-color: #ffff99; padding: 15px 0;">
+                                    <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab2/quiz3_2.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
+
+                                    <div ng-include="'views/form-tabs/tab2/quiz24.html'"></div>
+                                    
+                                </div>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Nutrição e Suplementação">
+                            <md-content class="md-padding">  
+                                <div class="row" style="background-color: #ccffe5; padding: 15px 0;">
+                                    <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
+
+                                    <div ng-include="'views/form-tabs/tab3/quiz25.html'"></div>
+                                    
+                                </div>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Saude e Medicina">
+                            <md-content class="md-padding">  
+                                <div class="row" style="background-color: #cce0ff; padding: 15px 0;">
+                                    <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
+
+                                    <div ng-include="'views/form-tabs/tab4/quiz26.html'"></div>
+                                    
+                                </div>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Actividade Fisica e Desporto">
+                            <md-content class="md-padding"> 
+                                <div class="row" style="background-color: #ffe6e6; padding: 15px 0;"> 
+                                    <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
+
+                                    <div ng-include="'views/form-tabs/tab5/quiz27.html'"></div>
+                                    
+                                </div>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
+                <br>
+                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
+                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
+            </div>
+            <!--<div class="navbar-fixed-bottom">
+                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
+                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
+            </div>-->
+        </div>
+        <!-- fim da lista de utilizadores-->
+
+        <!--<form class="notification-form ng-pristine ng-valid ng-scope">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control ng-pristine ng-valid ng-not-empty ng-touched" id="title" placeholder="Notification Title" ng-model="title">
+            </div>
+            <div class="form-group">
+                <label for="message">Notification Text</label>
+                <textarea class="form-control ng-pristine ng-untouched ng-valid ng-not-empty" rows="3" id="message" placeholder="Notification Text" ng-model="text"></textarea>
+            </div>
+            <button type="button" class="show-button btn btn-primary ng-isolate-scope" notification-title="title" notification-text="text">Show Notification</button>
+        </form>-->
+    </div>        
+</div>

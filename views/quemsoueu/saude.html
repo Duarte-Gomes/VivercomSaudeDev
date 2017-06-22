@@ -1,0 +1,79 @@
+<!--<div style="margin-top: 50px;">-->
+    <div class="col-sm-6 col-sm-offset-3">
+        <h2 class="text-center">Bem Estar e Saúde</h2>
+        <div style="background-color: white; margin-bottom: 20px;">
+            <p style="background-color: #ABFFAB; padding: 10px 20px; margin: 0; font-size: 18px; font-weight: bold;">Qual o seu objectivo?</p>
+            <div style="padding: 10px 20px;">
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="quemQuiz.saude_01" value="1" required>
+                        {{groupSaudeObjective01.objective}}
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="quemQuiz.saude_01" value="2" required>
+                        {{groupSaudeObjective02.objective}}
+                    </label>
+                </div>
+            </div>
+        </div>
+    <!--</div>
+    <div class="col-sm-4" style="padding: 0 20px;">-->
+        <div style="background-color: white; margin-bottom: 20px;">
+            <p style="background-color: #ABFFAB; padding: 10px 20px; margin: 0; font-size: 18px; font-weight: bold;">Tem por hábito consumir alimentos processados:</p>
+            <div style="padding: 10px 20px;">
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="quemQuiz.saude_02" value="1" required>
+                        Raramente ou nunca
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="quemQuiz.saude_02" value="2" required>
+                        Alguns dias por semana
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="quemQuiz.saude_02" value="3" required>
+                        Todos os dias da semana
+                    </label>
+                </div>
+            </div>
+        </div>
+    <!--</div>
+    <div class="col-sm-4" style="padding: 0 20px;">-->
+        <div style="background-color: white; margin-bottom: 20px;">
+            <p style="background-color: #ABFFAB; padding: 10px 20px; margin: 0; font-size: 18px; font-weight: bold;">Está disposto a alterar hábitos?</p>
+            <div style="padding: 10px 20px;">
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="quemQuiz.saude_03" value="4" required>
+                        Bastante
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="quemQuiz.saude_03" value="5" required>
+                        Muito
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" ng-model="quemQuiz.saude_03" value="6" required>
+                        Pouco
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center">  
+            <button style="background-color: #61EAEA; border: 0; padding: 10px 20px; font-weight: bold; margin: 0 auto;" ng-click="checkTypeResult('massa')">Calcular Resultado</button>
+        </div>
+    </div>
+    <div class="col-sm-1 text-right">
+        <button ng-click="setType('profile')" style="font-size: 20px; border: 0; background-color: transparent;"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+    </div>
+<!--</div>-->

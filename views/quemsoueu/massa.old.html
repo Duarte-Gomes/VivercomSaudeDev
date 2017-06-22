@@ -1,0 +1,94 @@
+<form ng-submit="checkTypeResult()">
+    <div style="background-image: url(images/grupo_praia.png); background-size: cover">
+        <h2 class="text-center">Perder Peso</h2>
+        <p class="text-center" style="font-size: 12px;">(Selecione uma opção para cada pergunta)</p>
+        
+        
+                <div style="background-color: white; margin-bottom: 20px;">
+                    <p style="background-color: #ABFFAB; padding: 10px 20px; margin: 0; font-size: 18px; font-weight: bold;">Qual o seu objectivo?</p>
+                    <div style="padding: 10px 20px;">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="quemQuiz.massa_01" value="10" ng-required="!quemQuiz.massa_01">
+                                {{groupMassaObjective01.objective}}
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="quemQuiz.massa_01" value="1030" ng-required="!quemQuiz.massa_01">
+                                {{groupMassaObjective02.objective}}
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="quemQuiz.massa_01" value="30" ng-required="!quemQuiz.massa_01">
+                                {{groupMassaObjective03.objective}}
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            
+                <div style="background-color: white; margin-bottom: 20px;">
+                    <p style="background-color: #ABFFAB; padding: 10px 20px; margin: 0; font-size: 18px; font-weight: bold;">Está disposto a deixar de consumir?</p>
+                    <div style="padding: 10px 20px;">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="quemQuiz.massa_02" value="1" ng-required="!quemQuiz.massa_02">
+                                Todos os alimentos processados
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="quemQuiz.massa_02" value="2" ng-required="!quemQuiz.massa_02">
+                                Alguns alimentos processados
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="quemQuiz.massa_02" value="3" ng-required="!quemQuiz.massa_02">
+                                Não consigo abdicar de alimentos processados
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            
+                <div style="background-color: white; margin-bottom: 20px;">
+                    <p style="background-color: #ABFFAB; padding: 10px 20px; margin: 0; font-size: 18px; font-weight: bold;">Consome ou está disposto a consumir?</p>
+                    <div style="padding: 10px 20px;">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="quemQuiz.massa_03" value="4" ng-required="!quemQuiz.massa_03">
+                                Legumes todos os dias
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="quemQuiz.massa_03" value="5" ng-required="!quemQuiz.massa_03">
+                                Legumes pelo menos 3x semana
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" ng-model="quemQuiz.massa_03" value="6" ng-required="!quemQuiz.massa_03">
+                                Não consigo comer legumes
+                            </label>
+                        </div>
+                    </div>
+                </div>
+     
+
+        
+
+        
+
+        
+        
+        <div class="text-center">  
+            <button type="submit" style="background-color: #61EAEA; border: 0; padding: 10px 20px; font-weight: bold; margin: 0 auto;">Calcular Resultado</button>
+        </div>
+
+    </div>
+</form>
+<div class="col-sm-1 text-right">
+    <button ng-click="setType('profile')" style="font-size: 30px; border: 0; background-color: transparent;"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+</div>

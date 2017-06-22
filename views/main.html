@@ -1,0 +1,211 @@
+<div class="container">
+    
+    <div id="loading"></div>
+ 
+    <div class="main-login col-sm-6 col-sm-offset-3" style="margin-top: 60px;" ng-hide="firebaseUser">
+        <div id="loginWindow" ng-show="isUser">
+            <input type="text" class="form-control" ng-model="email" placeholder="Email">
+            <input id="userPass" type="password" class="form-control" ng-model="password" placeholder="Password" ng-keyup="$event.keyCode == 13 && loginUser()">
+            <button type="button" class="btn btn-info" ng-click="loginUser()">Iniciar Sessão</button>
+            <button type="button" class="btn btn-info text-center" style="margin: 30px auto auto 0" ng-click="checkResetPass()">Reset Password</button>
+            <p ng-if="message" style="font-size: 12px; margin-top: 10px;">{{ message }}</p>
+        </div>
+        <!--<div style="background-color: orangered; margin-top: 30px;">
+            <p ng-if="message">Message: <strong>{{ message }}</strong></p>
+            <p ng-if="error">Error: <strong>{{ error }}</strong></p>-->
+            <!--<button ng-click="deleteUser()">Delete User</button>-->
+        <!--</div>-->
+        <div style="background-color: white; padding: 10px 10px" ng-show="isUser">
+            <button type="button" class="btn btn-info" ng-click="checkLoginWindowType()">Selecione aqui para criar novo Utilizador</button>
+        </div>
+
+        <div id="newUserWindow" ng-show="isNewUser">
+            <input type="text" class="form-control" ng-model="email" placeholder="Email">
+            <input type="password" class="form-control" ng-model="password" placeholder="Password" ng-keyup="$event.keyCode == 13 && loginUser()">
+            <!--Email: <input type="text" ng-model="email">
+            Password: <input type="text" ng-model="password">-->
+            <button type="button" class="btn btn-info" ng-click="createUser()">Criar Utilizador</button>
+            <p ng-if="message" style="font-size: 12px; margin-top: 10px;">{{ message }}</p>
+        </div>
+
+        <div id="passwordResetWindow" ng-show="isPassReset">
+            <input type="text" class="form-control" ng-model="email" placeholder="Email">
+            <button type="button" class="btn btn-info" ng-click="resetUserPass(email)">Reset Password</button>
+        </div>
+    </div>
+
+    <div class="main-welcome" style="margin-bottom: 80px;" ng-show="firebaseUser">
+        <!--<p>Form result: {{client_form}}</p>-->
+        <!--<p class="main-log-user">Olá, <a ng-href="#/user">{{ firebaseUser.displayName }}</a></p>-->
+        <div id="buttons" class="row">
+            <div style="float: right;">
+                <button type="button" class="btn btn-info button-log button-style" ng-click="home()" style="margin-top: 10px; margin-left: 15px;">Início</button>                  
+                <button type="button" class="btn btn-info button-log button-style" ng-click="showPersonQuiz()" style="margin-top: 10px; margin-left: 15px;">Questionário Funcional</button>
+                <!--<button type="button" class="btn btn-info button-log button-style" ng-hide="spyderQuizComplete" ng-click="showPersonSpyder()" style="margin-top: 10px; margin-left: 15px;">Questionário Perfil</button>-->
+                <!--<a href="/spyder" class="button-log button-style" style="padding: 8px 12px; margin-left: 15px; color: white; top: 6px; position:relative;">Questionário Perfil</a>-->             
+                <button type="button" class="btn btn-info button-log button-style" ng-click="showPersonDetails()" style="margin-top: 10px; margin-left: 15px;">Dados Pessoais</button>
+                <button type="button" class="btn btn-info button-log button-style" ng-click="auth.$signOut()" style="margin-top: 10px; margin-left: 15px;" id="logout">Sair</button>                  
+            </div>
+        </div>
+
+        <div id="areas" ng-hide="notWelcome" class="row" style="margin-top: 20px;">
+            <div class="col-sm-8 col-sm-offset-2">
+                <img style="width: 100%; padding-top: 30px;" src="images/imagem welcome.jpg" alt="Welcome">
+            </div>
+        </div>
+
+        <div id="personDetails" ng-show="isPersonDetails" class="row">
+            <h2 class="text-center">Dados Pessoais</h2>
+            <div ng-include="'views/form-tabs/tab1/quiz.html'"></div>
+            <div ng-include="'views/form-tabs/tab1/quiz_authorize.html'"></div>
+            <br>    
+            <button class="btn btn-success button-style" ng-click="saveUserDetails()">Gravar</button>
+            <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonDetails()">Voltar Atrás</button> 
+        </div>
+
+        <div id="personSpyder" ng-show="isPersonSpyder" class="dialogdemoBasicUsage">
+            <h2 class="text-center">Questionário Perfil</h2>
+            <div class="col-sm-12" style="margin-top: 30px;">
+                <div ng-hide="isSpyder">
+                    <p><b style="font-size: 18px;">Verdadeiro - </b>Sou algumas/muitas vezes assim. <span style="font-size: 12px;">(Assinale a caixa com visto caso seja verdadeiro)</span></p>
+                    <p><b style="font-size: 18px;">Falso - </b>Não sou quase nunca/nunca assim. <span style="font-size: 12px;">(Deixe em branco caso seja falso)</span></p>
+                </div>
+                <div ng-show="isSpyder">
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="col-sm-12" style="margin-top: 30px;">
+                <div layout-wrap="" layout-gt-sm="row">
+                    <md-checkbox ng-model="quizSpyder.pe01" aria-label="Checkbox 1">
+                        No meu dia a dia costumo agir por impulso em diferentes contextos. Se me apetecer ligar a alguém ligo, se tiver algo a dizer a alguém não hesito.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pe02" aria-label="Checkbox 2">
+                        Gosto de experimentar novas coisas no meu dia-a-dia. Seja uma comida nova ou ir a um sitio diferente. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pe03" aria-label="Checkbox 3">
+                        Quando surge um obstáculo opto por recorrer à estratégia que já conheço para o enfrentar e superar.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pm04" aria-label="Checkbox 4">
+                        Antes de tomar uma decisão gosto de analisar e ponderar os prós e contras para então avançar.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pm05" aria-label="Checkbox 5">
+                        Costumo reparar em pormenores e detalhes do que me rodeia. Observo muito, mesmo as pessoas e os seus comportamentos.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pm06" aria-label="Checkbox 6">
+                        Quando sou confrontado com uma dificuldade, gosto de pensar em várias estratégias e depois escolho a que julgo ser a mais adequada mesmo que isso implique experimentar algo diferente.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.ee07" aria-label="Checkbox 7">
+                        Valorizo muito uma visão global das situações e dos objectivos, por isso envolvo-me nas questões de uma forma profunda e dou muito de mim.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.ee08" aria-label="Checkbox 8">
+                        Para mim é importante fazer parte de um grupo de ajuda humanitária, ou envolver-me num projecto de intervenção. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.ee09" aria-label="Checkbox 9">
+                        O contacto com os outros é algo imprescindível para mim. Preciso de me sentir conectado para estar bem.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.em10" aria-label="Checkbox 10">
+                        Preciso de sentir segurança e certeza para avançar para uma nova situação. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.em11" aria-label="Checkbox 11">
+                        O conforto e a segurança são tão importantes para mim que tenho alguma dificuldade em olhar os obstáculos como oportunidades. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.em12" aria-label="Checkbox 12">
+                        A maioria das vezes prefiro locais calmos e silenciosos para estar com amigos ou até comigo mesmo.
+                    </md-checkbox>
+                </div>
+            </div>
+            <button class="btn btn-success button-style" ng-click="whatsSpyder()">Gravar</button>
+            <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonSpyder()">Voltar Atrás</button> 
+            <!--<button class="btn btn-default" ng-click="whatsSpyder()">Submit</button>
+            <button class="btn btn-default" ng-click="refresca()">Começar de novo</button>-->
+            
+        </div>
+
+        <div id="personQuiz" ng-show="isPersonQuiz" class="row">
+            <h2 class="text-center">Perfil Pessoal</h2>  
+            <h5 class="text-center">Navegue pelo questionário utilizando os 4 separadores em baixo</h5>
+            <!--<div ng-repeat="user in usersList">-->
+                <!--{{user.from}}-->
+            <!--</div>-->
+            <md-content>
+                <md-tabs md-selected="selectedTab" md-dynamic-height md-border-bottom>
+                    <md-tab label="Objectivos e Motivação">
+                        <md-content class="md-padding">  
+                            <div class="row" style="background-color: #ffff99; padding: 15px 0;">
+                                <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
+                                <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
+                                <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
+                                <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Nutrição e Suplementação">
+                        <md-content class="md-padding">  
+                            <div class="row" style="background-color: #ccffe5; padding: 15px 0;">
+                                <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
+                                <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
+                                <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
+                                <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
+                                <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
+                                <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
+                                <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
+                                <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Saúde e Medicina">
+                        <md-content class="md-padding">  
+                            <div class="row" style="background-color: #cce0ff; padding: 15px 0;">
+                                <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
+                                <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
+                                <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
+                                <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
+                                <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
+                                <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
+                                <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Actividade Física e Desporto">
+                        <md-content class="md-padding"> 
+                            <div class="row" style="background-color: #ffe6e6; padding: 15px 0;"> 
+                                <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
+                                <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
+                                <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
+                            </div>
+                        </md-content>
+                    </md-tab>
+                    <!--<md-tab label="Dados Pessoais">
+                        <md-content class="md-padding">
+                            <div class="row" style="background-color: #ffffff; padding: 15px 0;">
+                                <div ng-include="'views/form-tabs/tab1/quiz.html'"></div>
+                            </div>
+                        </md-content>
+                    </md-tab>-->
+                </md-tabs>
+            </md-content>
+            <br>
+            <button class="btn btn-warning button-style" id="anterior" ng-click="prevTab()" ng-hide="selectedTab == 0"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Anterior</button>
+            <button class="btn btn-success button-style" ng-click="saveUserDetails()">Gravar</button>
+            <!--<button class="btn btn-warning button-style" id="seguinte" ng-click="saveUserDetailsButton()">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>-->
+            <button class="btn btn-warning button-style" id="seguinte" ng-click="nextTab()" ng-hide="selectedTab == 4">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+            <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonQuiz()">Voltar Atrás</button>
+        </div>
+    </div>
+</div>
+
+<div class="footer navbar-fixed-bottom footer-style">
+    <div class="container-fluid">
+        <div class="container">
+            <p class="text-center" ng-hide="ccggii">&#169; 2017 Healthy Habits - 
+                <span>Contactos: <i class="fa fa-envelope-square" aria-hidden="true"></i> geral<i class="fa fa-at" aria-hidden="true"></i>vivercomsaude.pt / </span>
+                <span>apoiotecnico<i class="fa fa-at" aria-hidden="true"></i>vivercomsaude.pt </span>
+                <span><i class="fa fa-phone-square" aria-hidden="true"></i> 218 048 199</span>
+            </p>
+            <p class="text-center" ng-show="ccggii">&#169; 2017 Healthy Habits - 
+                <span>Contactos: <i class="fa fa-envelope-square" aria-hidden="true"></i> cgi<i class="fa fa-at" aria-hidden="true"></i>healthyhabits.pt / </span>
+                <span><i class="fa fa-phone-square" aria-hidden="true"></i> 218 048 199</span>
+            </p>
+        </div>
+    </div>
+</div>

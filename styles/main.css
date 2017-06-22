@@ -1,0 +1,157 @@
+html {
+  background-color: #e6e6e6;
+}
+body {
+  padding: 0;
+  background-color: transparent !important;
+}
+h1 {
+  margin-top: 0;
+}
+/* NAVBAR*/
+.navbar {
+  min-height: 75px;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.navbar-default {
+  background-color: #424242;
+  border: 0;
+}
+.logo-style {
+  height: 65px;
+}
+.navbar-brand {
+  padding: 5px 0;
+}
+#loginWindow{
+  background-color: lightgray;
+  padding: 10px 10px;
+}
+#newUserWindow {
+  background-color: lightgray;
+  padding: 10px 10px;
+}
+.main-login {
+ /* width: 500px;
+  margin: auto;*/
+}
+.main-login input {
+  margin-bottom: 30px;
+  border-radius: 0;
+}
+.main-login button {
+  width: 100%;
+  border-radius: 0;
+}
+.main-log-user {
+  color: white;
+  font-size: 18px;
+}
+.main-log-user a {
+  color: white; 
+}
+.main-log-window button {
+  float: right;
+  margin-top: 20px;
+}
+.form-frame h4 {
+  font-weight: bold;
+}
+.form-control {
+  border: none;
+}
+.table > tbody > tr > td.td-style {
+  padding: 6px 3px;
+}
+.table > tbody > tr > td.td-title {
+  vertical-align: middle;
+}
+.table {
+  margin-bottom: 0;
+}
+.label-qual {
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 30%;
+  margin-left: 10px;
+}
+.label-qual-cigarro {
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 22%;
+  margin-left: 10px;
+}
+.md-datepicker-input-container {
+  width: 168px;
+}
+/* FOOTER */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+.button-style {
+  border: none;
+  border-radius: 0;
+}
+.button-log {
+  background-color: #2952a3;
+}
+.button-log:hover {
+  background-color: #1f3d7a;
+}
+.btn:focus,
+.btn-info:focus, 
+.btn-info:hover,
+.newUserButton:focus,
+.newUserButton:hover {
+  outline: none;
+}
+.newUserButton {
+  padding: 8px 0;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: black;
+}
+.main-welcome input {
+  border-radius: 0;
+}
+tr {
+  border-color: black;
+}
+.form-control:focus {
+  border-color: black;
+}
+textarea {
+  width: 100%;
+  border: 0;
+  height: 75px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+.panel-title > a > span {
+  margin-left: 15px;
+  font-size: 23px;
+}
+
+.footer-style {
+  background-color: white; 
+  height: 40px; 
+  padding-top: 10px;
+}
+
+.form-control {
+    border-radius: 0;
+}
+
+.md-padding {
+  padding-top: 0;
+}
+@media screen and (max-width: 480px) {
+    .footer-style {
+        height: 80px;
+    }
+}

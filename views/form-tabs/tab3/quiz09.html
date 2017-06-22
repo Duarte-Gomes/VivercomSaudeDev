@@ -1,0 +1,21 @@
+<div class="col-sm-12">
+    <!--<h4>É alérgico a algum alimento ou tem intolerâncias alimentares?</h4>-->
+    <h4>Tem alergias ou alguma intolerância alimentar?</h4>
+</div>
+<div class="col-sm-12">
+    <div class="col-sm-12" style="display: inline-flex;">
+        <div class="checkbox" style="margin-right: 10px;">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz09">
+                Sim
+            </label>
+        </div>
+        <div ng-show="clientForm.quiz09" style="display: inline-flex; width: 100%;">
+            <label class="control-label" style="width: 9%; margin-top: 10px; margin-right: 10px;">Qual/Quais?</label>
+            <input class="form-control" type="text" ng-model="clientForm.quiz09_1">
+        </div>
+    </div>
+</div>
+<div class="col-sm-12" style="margin: 15px 0;">
+    <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
+</div>

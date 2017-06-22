@@ -1,0 +1,234 @@
+
+<div class="col-sm-12" style="margin-top: 20px;">
+    <div class="col-sm-7">
+        <!--<md-input-container class="md-block">
+            <label>Nome</label>
+            <input ng-model="clientDetail.name" type="text">
+        </md-input-container>-->
+        <div class="form-group">
+            <label for="InputName">Nome Completo</label>
+            <input type="text" class="form-control" id="InputName" ng-model="clientDetail.name">
+        </div>
+    </div>
+
+    <div class="col-sm-1">
+        <label> Sexo
+            <div class="radio" style="margin-top: 0;">
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientDetail.sex" value="masculino">
+                    Masculino
+                </label>
+                <label class="radio-inline" style="margin-left: 0;">
+                    <input type="radio" ng-model="clientDetail.sex" value="feminino">
+                    Feminino
+                </label>
+            </div>
+        </label>
+    </div>
+
+    <div class="col-sm-1">
+        <div class="form-group">
+            <label for="dayBirth">Dia</label>
+            <select ng-model="clientDetail.dayBirth" class="form-control" id="dayBirth" ng-options="x for x in dayList"></select>
+        </div>
+    </div>
+
+    <div class="col-sm-2">
+        <div class="form-group">
+            <label for="monthBirth">Mês</label>
+            <select ng-model="clientDetail.monthBirth" class="form-control" id="monthBirth" ng-options="x for x in monthList">
+            </select>
+        </div>
+    </div>
+
+    <div class="col-sm-1">
+        <div class="form-group">
+            <label for="yearBirth">Ano</label>
+            <input type="text" class="form-control" id="yearBirth" ng-model="clientDetail.yearBirth" maxlength="4">
+        </div>
+    </div>
+
+
+    <!--<div class="col-sm-1">
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientDetail.male">
+                    Masculino
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-1">
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientDetail.female">
+                    Feminino
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">-->
+        <!--<md-input-container class="md-block"> 
+            <label>Data de Nascimento</label>
+            <md-datepicker ng-model="clientDetail.birthday" md-hide-icons="triangle" md-placeholder="ex. 01/01/2017"></md-datepicker>
+        </md-input-container>-->
+        <!--<div class="form-group">
+            <label for="InputBirthday">Data de Nascimento</label>
+            <input type="text" class="form-control" id="InputBirthday" ng-model="clientDetail.birthday" placeholder="ex: 25/07/2015">
+        </div>-->
+
+       <!-- <div class="form-group">
+            <label for="InputBirthday">Data de Nascimento</label>
+            <input type="text" class="form-control" moment-picker="clientDetail.birthday" 
+                locale="pt"
+                format="L"
+                max-view="day"
+                start-view="month"
+                autoclose="true"
+                today="true"
+                keyboard="true" id="InputBirthday" ng-model="aniversario.text">
+        </div>
+    </div>-->
+    
+</div>
+
+<div class="col-sm-12">
+
+    <div class="col-sm-4" ng-hide="clientDetail.codBis">
+        <div class="form-group">
+            <label for="InputLConsulta">Local / Ginásio / Box</label>
+            <select ng-model="clientDetail.locConsulta" class="form-control" id="InputLConsulta" ng-options="x for x in consultLocal">
+            </select>
+        </div>
+    </div>
+
+    <div class="col-sm-4" ng-show="clientDetail.codBis">
+        <div class="form-group">
+            <label for="CodEmpresarial">Código Empresarial</label>
+            <input type="text" class="form-control" id="CodEmpresarial" placeholder="Se atribuido um código, preencha aqui" ng-model="clientDetail.codBis">
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <!--<md-input-container class="md-block">
+            <label>Telefone</label>
+            <input ng-model="clientDetail.phone">
+        </md-input-container>-->
+        <div class="form-group">
+            <label for="InputPhone">Telefone</label>
+            <input type="text" class="form-control" id="InputPhone" ng-model="clientDetail.phone">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <!--<md-input-container class="md-block">
+            <label>Email</label>
+            <input ng-model="clientDetail.email">
+        </md-input-container>-->
+        <div class="form-group">
+            <label for="InputEmail">Email</label>
+            <input type="text" class="form-control" id="InputEmail" ng-model="clientDetail.email">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <!--<md-input-container class="md-block">
+            <label>Profissão</label>
+            <input ng-model="clientDetail.profession">
+        </md-input-container>-->
+        <div class="form-group">
+            <label for="InputProfession">Profissão</label>
+            <input type="text" class="form-control" id="InputProfession" ng-model="clientDetail.profession">
+        </div>
+    </div>
+</div>
+<div class="col-sm-12" style="margin-bottom: 20px;" ng-show="clientDetail.downloadURL">
+    <div class="col-sm-4">
+        <label>Download Plano Nutricional</label>
+        <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+    </div>
+</div>
+<div class="col-sm-12" style="margin-bottom: 20px;">
+    <div class="col-sm-6">
+        <label>Autorizo ser contactado pelos seguintes meios:</label>
+        <br>
+        <!--<div class="checkbox" style="margin-bottom: 20px;">
+            <label>
+                <input type="checkbox" ng-model="clientDetail.authorize"> Autoriza o envio de newsletters e artigos seja via email, sms ou outro meio.
+            </label>
+        </div>-->
+        <label for="authsms" class="checkbox-inline">
+            <input type="checkbox" id="authsms" ng-model="clientDetail.authorize.sms"> SMS
+        </label>
+        <label for="authemail" class="checkbox-inline">
+            <input type="checkbox" id="authemail" ng-model="clientDetail.authorize.email"> Email
+        </label>
+        <label for="authnewsletter" class="checkbox-inline">
+            <input type="checkbox" id="authnewsletter" ng-model="clientDetail.authorize.newsletter"> Newsletter
+        </label>
+        <!--<label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox3" value="option3"> App
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox5" value="option5"> App Mobile
+        </label>
+        <label class="checkbox-inline">
+            <input type="checkbox" id="inlineCheckbox6" value="option6"> Notificações Desktop
+        </label>-->
+    </div>
+</div>
+
+<uib-accordion close-others="oneAtATime">
+    <div uib-accordion-group class="panel-default" heading="Dados Fiscais (carregar para abrir)" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+      
+        <div class="col-sm-12">
+            <!--<md-input-container class="md-block">
+                <label>Morada</label>
+                <input ng-model="clientDetail.address">
+            </md-input-container>-->
+            <div class="form-group">
+                <label for="InputMorada">Morada</label>
+                <input type="text" class="form-control" id="InputMorada" ng-model="clientDetail.address">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <!--<md-input-container class="md-block">
+                <label>Código Postal</label>
+                <input ng-model="clientDetail.zipcode">
+            </md-input-container>-->
+            <div class="form-group">
+                <label for="InputCodPostal">Código Postal</label>
+                <input type="text" class="form-control" id="InputCodPostal" ng-model="clientDetail.zipcode">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <!--<md-input-container class="md-block">
+                <label>Localidade</label>
+                <input ng-model="clientDetail.place">
+            </md-input-container>-->
+            <div class="form-group">
+                <label for="InputLocalidade">Localidade</label>
+                <input type="text" class="form-control" id="InputLocalidade" ng-model="clientDetail.place">
+            </div>
+        </div>
+        <!--<div class="col-sm-6">
+            <md-input-container class="md-block">
+                <label>BI / Cartão Cidadão</label>
+                <input ng-model="clientDetail.idcard">
+            </md-input-container>
+            <div class="form-group">
+                <label for="InputName">Nome</label>
+                <input type="text" class="form-control" id="InputName" ng-model="clientDetail.name">
+            </div>
+        </div>-->
+        <div class="col-sm-6">
+            <!--<md-input-container class="md-block">
+                <label>N Contribuinte</label>
+                <input ng-model="clientDetail.nif">
+            </md-input-container>-->
+            <div class="form-group">
+                <label for="InputNif">N Contribuinte</label>
+                <input type="text" class="form-control" id="InputNif" ng-model="clientDetail.nif">
+            </div>   
+        </div>
+    </div>
+</uib-accordion> 

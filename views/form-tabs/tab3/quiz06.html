@@ -1,0 +1,61 @@
+<div class="col-sm-12">
+    <h4>Toma suplementos alimentares?</h4>
+</div>
+<div class="col-sm-12">
+    <div class="col-sm-12">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz06">
+                Sim
+            </label>
+        </div>
+        <div ng-show="clientForm.quiz06">
+            <div class="col-sm-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="clientForm.quiz06_1_1">
+                        Whey Protein
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="clientForm.quiz06_1_2">
+                        BCAAs
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="clientForm.quiz06_1_3">
+                        Multivitaminico
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="clientForm.quiz06_1_4">
+                        Ómega-3
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-12" style="display: inline-flex;">
+                <div class="checkbox">
+                    <label style="margin-right: 10px;">
+                        <input type="checkbox" ng-model="clientForm.quiz06_2">
+                        Outro/s
+                    </label>
+                </div>
+                <div class="form-group" ng-show="clientForm.quiz06_2" style="display: inline-flex; width: 100%;">
+                    <input class="form-control" type="text" ng-model="clientForm.quiz06_2_1">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12" style="margin: 15px 0;">
+    <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
+</div>

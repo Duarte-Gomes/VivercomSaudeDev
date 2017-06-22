@@ -1,0 +1,71 @@
+.dataTables_wrapper {
+    background-color: lightgrey;
+}
+
+#loading {
+
+    width: 100%; 
+    height: 100vh; 
+    background: url("../images/giphy.gif") no-repeat center center;
+}
+
+.hide {
+        display: none;
+    }
+
+.btn-menu {
+    border: 0;
+    background-color: lightblue;
+    border-radius: 0;
+    margin: 15px 0;
+}
+
+.btn-menu:hover {
+    background-color: lightgreen;
+}
+.btn-menu:focus {
+    background-color: green;
+}
+.btn-menu:active {
+    background-color: green;
+}
+table#antropo thead td {
+    font-size: 11px;
+}
+
+table#antropo .form-control {
+    font-size: 12px;
+    padding: 6px;
+}
+
+.fa-file-pdf-o {
+    font-size: 46px;
+    color: red;
+    margin-left: 10px;
+
+}
+        
+.swiper-container {
+        width: 500px;
+        height: 300px;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }

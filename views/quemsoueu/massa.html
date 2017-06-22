@@ -1,0 +1,70 @@
+<form ng-submit="checkTypeResult()">
+    <div style="height: calc(100vh - 75px); background-image: url(images/grupo_praia.png); background-size: contain;">
+        <!--<h2 class="text-center">Perder Peso</h2>
+        <p class="text-center" style="font-size: 12px;">(Selecione uma opção para cada pergunta)</p>-->
+        
+        
+                <div class="text-center" style="margin-bottom: 20px;">
+                    <p class="souPTitle">Qual o seu objectivo?</p>
+                    <p class="souPDesc">Diga-nos aproximadamente o peso que acha que deve perder</p>
+                    <div style="padding: 10px 20px;">
+                        <button class="souButton">
+                            {{groupMassaObjective01.objective}}
+                        </button>
+                        <button class="souButton">
+                            {{groupMassaObjective02.objective}}
+                        </button>
+                        <button class="souButton">
+                            {{groupMassaObjective03.objective}}
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="text-center" style="margin-bottom: 20px;">
+                    <p class="souPTitle">Está disposto a deixar de consumir?</p>
+                    <p class="souPDesc">Exemplos de alimentos processados: Bolos, doces, batatas fritas, salgados, refrigerantes</p>
+                    <div style="padding: 10px 20px;">
+                        <button class="souButton">
+                            Todos os alimentos processados
+                        </button>
+                        <button class="souButton">
+                            Alguns alimentos processados
+                        </button>
+                        <button class="souButton">
+                            Não consigo abdicar de alimentos processados
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="text-center" style="margin-bottom: 20px;">
+                    <p class="souPTitle">Consome ou está disposto a consumir?</p>
+                    <p class="souPDesc">Diga-nos aproximadamente quantos vezes come legumes por semana</p>
+                    <div style="padding: 10px 20px;">
+                        <button class="souButton">
+                            Legumes todos os dias
+                        </button>
+                        <button class="souButton">
+                            Legumes pelo menos 3x semana
+                        </button>
+                        <button class="souButton">
+                            Não consigo comer legumes
+                        </button>
+                    </div>
+                </div>
+     
+
+        
+
+        
+
+        
+        
+        <div class="text-center">  
+            <button type="submit" style="background-color: #61EAEA; border: 0; padding: 10px 20px; font-weight: bold; margin: 0 auto;">Calcular Resultado</button>
+        </div>
+
+    </div>
+</form>
+<!--<div class="col-sm-1 text-right">
+    <button ng-click="setType('profile')" style="font-size: 30px; border: 0; background-color: transparent;"><i class="fa fa-window-close" aria-hidden="true"></i></button>
+</div>-->

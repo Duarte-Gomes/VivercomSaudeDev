@@ -1,0 +1,135 @@
+.left-border {
+    border-left: 1px rgb(0, 112, 192) solid;
+}
+
+.bottom-border {
+    border-bottom: 1px rgb(0, 112, 192) solid; 
+}
+
+.table-result {
+    background-color: white;
+}
+
+.table-result li {
+    font-size: 16px;
+}
+
+.q1, .q2, .q3, .q4 {
+    padding: 30px;
+}
+
+.q1-lett {
+    color: rgb(247, 150, 70);
+    font-weight: bold;
+    font-size: 25px;
+    padding-right: 20px;
+}
+
+.q2-lett {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.q3-lett {
+    color: rgb(155, 187, 89);
+    font-weight: bold;
+    font-size: 25px;
+    padding-top: 20px;
+}
+
+.q4-lett {
+    color: rgb(0, 112, 192);
+    font-weight: bold;
+    font-size: 25px;
+    padding-left: 20px;
+}
+
+.rotate-lett {
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.q1-border {
+    border: 3px rgb(247, 150, 70) solid;
+}
+
+.q2-border {
+    border: 3px rgb(255, 0, 0) solid;
+}
+
+.q3-border {
+    border: 3px rgb(155, 187, 89) solid;
+}
+
+.q4-border {
+    border: 3px rgb(0, 112, 192) solid;
+}
+
+.q1-lett-2 {
+    color: rgb(247, 150, 70);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.q2-lett-2 {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.q3-lett-2 {
+    color: rgb(155, 187, 89);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.q4-lett-2 {
+    color: rgb(0, 112, 192);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.q1-title {
+    color: rgb(247, 150, 70);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.q2-title {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.q3-title {
+    color: rgb(155, 187, 89);
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.q4-title {
+    color: rgb(0, 112, 192);
+    font-weight: bold;
+    font-size: 24px;
+}
+.spyder-res .fa {
+    font-size: 50px;
+    background-color: white;
+    padding: 15px;
+}
+.spyder-res .dash-p {
+    font-size: 45px;
+    font-weight: bold;
+    padding-top: 9px;
+}
+
+.spyder-res {
+    margin-top: 60px;
+    margin-bottom: 60px;
+}

@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Viver Com Saude</title>
+    <meta name="description" content="">
+    <base href="/">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    
+    <link rel="stylesheet" href="/dist/css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="/dist/css/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/dist/css/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="/dist/css/angular-datatables/angular-datatables.css" />
+    <link rel="stylesheet" href="/dist/css/angular-moment-picker/angular-moment-picker.css" />
+    <link rel="stylesheet" href="dist/css/angular-swiper/swiper.min.css">
+    <!--<link rel="stylesheet" href="bower_components/angular-ui-swiper/dist/angular-ui-swiper.css"/>-->
+
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/custom.css">
+    <link rel="stylesheet" href="/styles/tab.css">
+    <link rel="stylesheet" href="/styles/table.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+    <link rel="stylesheet" href="/styles/spyder.css">
+    <link rel="stylesheet" href="/styles/spyder-table.css">
+    <link rel="stylesheet" href="/styles/quemeusou.css">
+
+    
+    
+</head>
+<body ng-app="viverComSaudeApp" ng-cloak="">
+    <!--[if lte IE 8]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <div class="header">
+        <div class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>-->
+
+                    <a class="navbar-brand"><img class="logo-style" src="images/vcs-hh-logo.png" alt="Viver com Saude"></a>
+                </div>
+
+                <!--<div class="collapse navbar-collapse" id="js-navbar-collapse" ng-cloak>
+                    <ul class="nav navbar-nav" ng-show="firebaseUser">
+                        <li class="active"><a href="#/">Home</a></li>
+                        <li><a ng-href="#/about">About</a></li>
+                        <li><a ng-href="#/">Contact</a></li>
+                    </ul>
+                </div>-->
+            </div>
+        </div>
+    </div>
+    <div ng-view=""></div>
+    
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <script>
+        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+        (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+        }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+    </script>
+
+    <script src="/dist/js/jquery/jquery-3.1.1.js"></script>
+    <script src="/dist/js/angular-datatables/jquery.dataTables.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>-->
+    <script src="/dist/js/angular/angular.js"></script>
+    <script src="/dist/js/angular-datatables/angular-datatables.js"></script>
+
+    <script src="/dist/js/bootstrap/bootstrap.js"></script>
+    <script src="/dist/js/angular/angular-animate.js"></script>
+    <script src="/dist/js/angular/angular-aria.js"></script>
+    <script src="/dist/js/angular/angular-cookies.js"></script>
+    <script src="/dist/js/angular/angular-messages.js"></script>
+    <script src="/dist/js/angular/angular-resource.js"></script>
+    <script src="/dist/js/angular/angular-route.js"></script>
+    <script src="/dist/js/angular/angular-sanitize.js"></script>
+    <script src="/dist/js/angular/angular-touch.js"></script>
+    <script src="/dist/js/firebase/firebase.js"></script>
+    <!--<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>-->
+    <!--<script src="/dist/js/angularfire/angularfire.js"></script>-->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="/dist/js/angular-material/angular-material.js"></script>
+    <script src="/dist/js/angular-material/svg-assets-cache.js"></script>
+    <script src="/dist/js/ng-google-chart/ng-google-chart.js"></script>
+    <script src="/dist/js/angular-web-notification/web-notification.js"></script>
+    <script src="/dist/js/angular-web-notification/angular-web-notification.js"></script>
+    
+    <script src="/dist/js/angular-swiper/swiper.js"></script>
+    <script src="/dist/js/angular-swiper/angular-swiper.js"></script>
+    <!--<script src="bower_components/angular-ui-swiper/dist/angular-ui-swiper.js"></script>-->
+ 
+    
+    <script src="/dist/js/ui-bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="/dist/js/moment/moment-with-locales.js"></script>
+    <script src="/dist/js/angular-moment-picker/angular-moment-picker.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/admin.js"></script>
+    <script src="scripts/dashboard.js"></script>
+    <script src="scripts/spyder.js"></script>
+    <script src="scripts/quem.js"></script>
+</body>
+</html>

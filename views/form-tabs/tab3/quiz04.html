@@ -1,0 +1,110 @@
+<!--<div class="col-sm-12">
+    <h4>Como considera a sua alimentação?</h4>
+</div>
+<div class="col-sm-12">
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz04_1">
+                Alimentação monótona
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz04_2">
+                Alimentação desequilibrada
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz04_3">
+                Alimentação restritiva
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz04_4">
+                Existência de jejum prolongado
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz04_5">
+                Faço refeições frequentes fora de casa
+            </label>
+        </div>
+    </div>
+</div>-->
+<div class="col-sm-12">
+    <h4>Pratica ou praticou algum regime alimentar?</h4>
+</div>
+<div class="col-sm-12">
+    <div class="col-sm-12">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz04_6">
+                Sim
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-12" ng-show="clientForm.quiz04_6">
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz04_6_1">
+                    Regime alimentar macrobiótico
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz04_6_2">
+                    Regime alimentar vegetariano
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz04_6_3">
+                    Regime alimentar paleolítico
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-12" style="display: inline-flex;">
+            <div class="checkbox" >
+                <label style="margin-right:15px;">
+                    <input type="checkbox" ng-model="clientForm.quiz04_6_4">
+                    Outro/s
+                </label>
+            </div>
+            <div ng-show="clientForm.quiz04_6_4" style="display: inline-flex; width: 100%;">
+                <input class="form-control" type="text" ng-model="clientForm.quiz04_6_4_1">
+            </div>
+        </div>
+    </div>
+   <!-- <div class="col-sm-12" style="display: inline-flex;">
+        <div class="checkbox" style="width: 30%;">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz04_7">
+                Já praticou outro regime alimentar?
+            </label>
+        </div>
+        <div ng-show="clientForm.quiz04_7" style="display: inline-flex; width: 100%;">
+            <label class="label-qual" style="width:6%;">Qual?</label>
+            <input class="form-control" type="text" ng-model="clientForm.quiz04_7_1">
+        </div>
+    </div>  --> 
+</div>    
+<div class="col-sm-12" style="margin: 15px 0;">
+    <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
+</div>

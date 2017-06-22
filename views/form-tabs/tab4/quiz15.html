@@ -1,0 +1,20 @@
+<div class="col-sm-12">
+    <h4>Toma algum medicamento?</h4>
+</div>
+<div class="col-sm-12">
+    <div class="col-sm-12" style="display: inline-flex;">
+        <div class="checkbox" style="margin-right: 10px;">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz15">
+                Sim
+            </label>
+        </div>
+        <div ng-show="clientForm.quiz15" style="display: inline-flex; width: 100%;">
+            <label class="control-label" style="width: 9%; margin-top: 10px; margin-right: 10px;">Qual/Quais?</label>
+            <input type="text" class="form-control" ng-model="clientForm.quiz15_1">
+        </div>    
+    </div>
+</div>
+<div class="col-sm-12" style="margin: 15px 0;">
+    <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
+</div>

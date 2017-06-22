@@ -1,0 +1,61 @@
+<div class="container">
+    <div ng-hide="clientDetail.quizSpyder.spyderQuizComplete">
+        <div class="dialogdemoBasicUsage">
+            <h3 class="text-center">Questionário Perfil</h3>
+            <div class="col-sm-12" style="margin-top: 30px;">
+                <p><b style="font-size: 18px;">Verdadeiro - </b>Sou algumas/muitas vezes assim. <span style="font-size: 12px;">(Assinale a caixa com visto caso seja verdadeiro)</span></p>
+                <p><b style="font-size: 18px;">Falso - </b>Não sou quase nunca/nunca assim. <span style="font-size: 12px;">(Deixe em branco caso seja falso)</span></p>
+            </div>
+            <div class="col-sm-12" style="margin-top: 30px;">
+                <div layout-wrap="" layout-gt-sm="row">
+                    <md-checkbox ng-model="clientDetail.quizSpyder.pe01" aria-label="Checkbox 1">
+                        No meu dia a dia costumo agir por impulso em diferentes contextos. Se me apetecer ligar a alguém ligo, se tiver algo a dizer a alguém não hesito.
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.pe02" aria-label="Checkbox 2">
+                        Gosto de experimentar novas coisas no meu dia-a-dia. Seja uma comida nova ou ir a um sitio diferente. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.pe03" aria-label="Checkbox 3">
+                        Quando surge um obstáculo opto por recorrer à estratégia que já conheço para o enfrentar e superar.
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.pm04" aria-label="Checkbox 4">
+                        Antes de tomar uma decisão gosto de analisar e ponderar os prós e contras para então avançar.
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.pm05" aria-label="Checkbox 5">
+                        Costumo reparar em pormenores e detalhes do que me rodeia. Observo muito, mesmo as pessoas e os seus comportamentos.
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.pm06" aria-label="Checkbox 6">
+                        Quando sou confrontado com uma dificuldade, gosto de pensar em várias estratégias e depois escolho a que julgo ser a mais adequada mesmo que isso implique experimentar algo diferente.
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.ee07" aria-label="Checkbox 7">
+                        Valorizo muito uma visão global das situações e dos objectivos, por isso envolvo-me nas questões de uma forma profunda e dou muito de mim.
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.ee08" aria-label="Checkbox 8">
+                        Para mim é importante fazer parte de um grupo de ajuda humanitária, ou envolver-me num projecto de intervenção. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.ee09" aria-label="Checkbox 9">
+                        O contacto com os outros é algo imprescindível para mim. Preciso de me sentir conectado para estar bem.
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.em10" aria-label="Checkbox 10">
+                        Preciso de sentir segurança e certeza para avançar para uma nova situação. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.em11" aria-label="Checkbox 11">
+                        O conforto e a segurança são tão importantes para mim que tenho alguma dificuldade em olhar os obstáculos como oportunidades. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="clientDetail.quizSpyder.em12" aria-label="Checkbox 12">
+                        A maioria das vezes prefiro locais calmos e silenciosos para estar com amigos ou até comigo mesmo.
+                    </md-checkbox>
+                </div>
+            </div>
+            <button class="btn btn-success button-style" ng-click="whatsSpyder()">Gravar</button>
+            <!--<button class="btn btn-default" ng-click="whatsSpyder()">Submit</button>
+            <button class="btn btn-default" ng-click="refresca()">Começar de novo</button>-->
+            <div style="margin-bottom: 60px;"></div>
+        </div>
+    </div>
+    <div ng-show="clientDetail.quizSpyder.spyderQuizComplete">
+        <div class="col-sm-12 text-center">
+            <h3>O teu Perfil Pessoal é:</h3>
+            <h2>{{clientDetail.quizSpyder.spyderType.type}}</h2>
+        </div>
+    </div>
+</div>

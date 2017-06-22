@@ -1,0 +1,23 @@
+<div class="col-sm-12">
+    <h4>A motivação dele (dados internos)</h4>
+    <div class="col-sm-12">
+        <p style="display: inline">Qual o meu grau de comprometimento do paciente para este processo?</p>
+        <span style="font-size:11px;">(Em que 1 significa extremamente empenhado e 3 nada empenhado.)</span>
+    </div>
+</div>
+<div class="col-sm-12" style="margin-top: 10px;">
+    <div class="col-sm-12">
+        <label class="radio-inline">
+            <input type="radio" ng-model="clientForm.quiz03_1" value="1"> 1
+        </label>
+        <label class="radio-inline">
+            <input type="radio" ng-model="clientForm.quiz03_1" value="2"> 2
+        </label>
+        <label class="radio-inline">
+            <input type="radio" ng-model="clientForm.quiz03_1" value="3"> 3
+        </label>
+    </div>
+</div>
+<div class="col-sm-12" style="margin: 15px 0;">
+    <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
+</div>

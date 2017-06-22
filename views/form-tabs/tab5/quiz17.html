@@ -1,0 +1,38 @@
+<div class="col-sm-12">
+    <h4>Pratica exercício físico?</h4>
+</div>
+<div class="col-sm-12">
+    <div class="col-sm-12">
+        <div class="radio">
+            <label>
+                <input type="radio" name="showHideActividade" ng-model="clientForm.quiz17" ng-value="false">
+                Não
+            </label>
+            <label>
+                <input type="radio" name="showHideActividade" ng-model="clientForm.quiz17" ng-value="true">
+                Sim
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-12" ng-show="clientForm.quiz17">
+        <h4>Nível de intensidade do seu exercício:</h4>
+        <div class="radio">
+            <label>
+                <input type="radio" ng-model="clientForm.quiz17_1" value="1">
+                Pouco intenso (exº caminhadas, hidroginástica)
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" ng-model="clientForm.quiz17_1" value="2">
+                Intenso (exº Musculação; Bicicleta; Natação)
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" ng-model="clientForm.quiz17_1" value="3">
+                Extremamente intenso (exº Desportos de alta competição; HIIT; CrossFit, Natação de alta competição)
+            </label>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+.actividade .td-hora {
+    padding-right: 5px;
+    width: 75px;
+}
+.actividade .td-dur {
+    padding-left: 5px;
+    width: 75px;
+}
+.actividade .tr-treino {
+    padding-bottom: 0;
+    border: 0;
+}
+.actividade .td-geral {
+    padding: 4px;
+}
+.actividade input {
+    padding: 6px;
+}
+.actividade .td-row {
+    border-bottom: 1px grey solid;
+    margin-bottom: 15px;
+}

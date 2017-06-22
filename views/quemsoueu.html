@@ -1,0 +1,51 @@
+<div class="container-fluid" style="padding: 0;">
+    <div>
+        <div ng-show="profile">
+            <h2 class="text-center">Quem sou eu?</h2>
+            <div class="col-sm-4 text-center">   
+            <div style="background-color: white; box-shadow: 0 0 5px #888888;margin: 0 20px;">
+                    <img src="/images/grupo_praia.png" class="img-responsive" alt="">
+                    <div style="height: 200px;">
+                        <p style="font-weight: bold; font-size: 18px; padding: 30px;">Para quem tem como principal objectivo perder volume corporal e massa gorda</p>
+                    </div>
+                    <button ng-click="setType('massa')" style="margin-bottom: 20px;border: 0; background-color: green; color: white; padding: 8px 50px; font-size: 18px; font-weight: bold" >Perder Peso</button>
+            </div>
+            </div>
+            <div class="col-sm-4 text-center">  
+                <div style="background-color: white; box-shadow: 0 0 5px #888888;margin: 0 20px;">  
+                    <img src="/images/nutricao_desportiva.png" class="img-responsive" alt="">
+                    <div style="height: 200px;">
+                        <p style="font-weight: bold; font-size: 18px; padding: 30px;">Para quem tem como principal objectivo bater recordes pessoas e melhorar performance desportiva</p>            
+                    </div>
+                    <button ng-click="setType('desporto')" style="margin-bottom: 20px;border: 0; background-color: green; color: white; padding: 8px 50px; font-size: 18px; font-weight: bold" >Nutrição Desportiva</button>        
+                </div>
+            </div>
+            <div class="col-sm-4 text-center">   
+                <div style="background-color: white; box-shadow: 0 0 5px #888888;margin: 0 20px;">  
+                    <img src="/images/saude_bem_estar.png" class="img-responsive" alt="">
+                    <div style="height: 200px;">
+                        <p style="font-weight: bold; font-size: 18px; padding: 30px;">Para quem tem como principal objectivo reduzir sintomas de doenças crónicas ou mesmo prevenir doenças</p>            
+                    </div>
+                    <button ng-click="setType('saude')" style="margin-bottom: 20px;border: 0; background-color: green; color: white; padding: 8px 50px; font-size: 18px; font-weight: bold" >Bem Estar e Saúde</button>        
+                </div>
+            </div>
+        </div>
+        <div ng-show="massa">
+            <div ng-include="'views/quemsoueu/massa.html'"></div>      
+        </div>
+        <div ng-show="desporto">
+            <div ng-include="'views/quemsoueu/desporto.html'"></div>
+        </div>
+        <div ng-show="saude">
+            <div ng-include="'views/quemsoueu/saude.html'"></div>
+        </div>
+        <div ng-show="groupDiv">
+            {{objectiveDesc.objective}}
+            {{groupDesc.name}}
+            {{groupDesc.desc}}
+            <div>
+                <button>Proseguir para criar registo de utilizador</button>
+            </div>
+        </div>
+    </div>
+</div>
