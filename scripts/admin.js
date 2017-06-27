@@ -183,6 +183,10 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             "Consulta", "Contacto Email", "Contacto Telefónico", "Orientação"
         ]
 
+        $scope.bloodTypeList = [
+            "A", "B", "AB", "O"
+        ]
+
         usersList.$loaded().then(function() {
             $scope.usersList = usersList;
 
