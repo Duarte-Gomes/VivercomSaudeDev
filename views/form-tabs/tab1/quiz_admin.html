@@ -202,9 +202,9 @@
                 </label>
             </div>
 
-            <div class="col-sm-2">   
+            <div class="col-sm-1">   
                 <div class="form-group">
-                    <label for="ProxConsulta">Data Proxima Consulta</label>
+                    <label for="ProxConsulta">Próx. Consulta</label>
                     <input type="text" class="form-control" moment-picker="prox.proxConsult" 
                         locale="pt"
                         format="L"
@@ -217,10 +217,24 @@
                     <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
                 </div> 
             </div>
-            
+
             <div class="col-sm-2">
                 <div class="form-group">
-                    <label for="InputFirstConsult">Data 1ª Consulta</label>
+                    <div class="col-sm-12" >
+                        <label for="InputFirstConsultTime">Hora Consulta</label>
+                    </div>
+                    <div class="col-sm-6" style="width: 88px;">
+                        <input type="number" class="form-control" style="width: 58px" min="0" max="24" step=1 id="InputFirstConsultTime" ng-model="clientDetail.proxConsultHour">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control" style="width: 58px" min="0" max="59" step=5 ng-model="clientDetail.proxConsultMinutes">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-sm-1">
+                <div class="form-group">
+                    <label for="InputFirstConsult">1ª Consulta</label>
                     <input type="text" class="form-control" id="InputFirstConsult" ng-model="clientHist.quizhis_1_1" readonly>
                 </div>
             </div>
