@@ -180,7 +180,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         ];
 
         $scope.contactTypeList = [
-            "Consulta", "Contacto Email", "Contacto Telefónico"
+            "Consulta", "Contacto Email", "Contacto Telefónico", "Orientação"
         ]
 
         usersList.$loaded().then(function() {
