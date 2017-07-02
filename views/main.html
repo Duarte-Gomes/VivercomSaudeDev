@@ -34,7 +34,7 @@
         </div>
     </div>
 
-    <div class="main-welcome" style="margin-bottom: 80px;" ng-show="firebaseUser">
+    <div class="main-welcome" style="margin-top: 75px; margin-bottom: 80px;" ng-show="firebaseUser">
         <!--<p>Form result: {{client_form}}</p>-->
         <!--<p class="main-log-user">Olá, <a ng-href="#/user">{{ firebaseUser.displayName }}</a></p>-->
         <div id="buttons" class="row">
@@ -49,8 +49,8 @@
         </div>
 
         <div id="areas" ng-hide="notWelcome" class="row" style="margin-top: 20px;">
-            <div class="col-sm-8 col-sm-offset-2">
-                <img style="width: 100%; padding-top: 30px;" src="images/imagem welcome.jpg" alt="Welcome">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <img style="width: 80%; padding-top: 30px;" src="images/pagina_inicial_APP.png" alt="Welcome">
             </div>
         </div>
 
@@ -131,7 +131,7 @@
                 <md-tabs md-selected="selectedTab" md-dynamic-height md-border-bottom>
                     <md-tab label="Objectivos e Motivação">
                         <md-content class="md-padding">  
-                            <div class="row" style="background-color: #ffff99; padding: 15px 0;">
+                            <div class="row" style="background-color: #ffffcc; padding: 15px 0;">
                                 <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
                                 <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
                                 <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
@@ -141,7 +141,7 @@
                     </md-tab>
                     <md-tab label="Nutrição e Suplementação">
                         <md-content class="md-padding">  
-                            <div class="row" style="background-color: #ccffe5; padding: 15px 0;">
+                            <div class="row" style="background-color: #e6fff2; padding: 15px 0;">
                                 <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
                                 <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
                                 <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
@@ -155,7 +155,7 @@
                     </md-tab>
                     <md-tab label="Saúde e Medicina">
                         <md-content class="md-padding">  
-                            <div class="row" style="background-color: #cce0ff; padding: 15px 0;">
+                            <div class="row" style="background-color: #e6f0ff; padding: 15px 0;">
                                 <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
                                 <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
                                 <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>

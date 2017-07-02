@@ -16,7 +16,7 @@
             <!--<button ng-click="deleteUser()">Delete User</button>-->
         </div>
     </div>
-    <div class="main-welcome" ng-show="firebaseUser" style="margin-bottom: 80px;">
+    <div class="main-welcome" ng-show="firebaseUser" style="margin-bottom: 80px; margin-top: 75px;">
         <!--<p>Form result: {{client_form}}</p>-->
         <!--<button type="button" class="btn btn-info" ng-click="auth.$signOut()">Log Out</button>-->
 
@@ -82,17 +82,17 @@
         <div ng-show="showDetails">
             <!--<p>Form result: {{client_form}}</p>-->
 
-            <div class="col-sm-2" style="display: inline-grid; padding-right: 20px;">
+            <div class="col-sm-2" style="position: fixed; display: inline-grid; padding-right: 20px; height: 100vh; background-color: white;">
                 <button type="button" class="btn btn-default btn-menu" style="margin-top: 50px;" ng-click="atras()">Inicio</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminHome()">Dashboard</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientDetails()">Dados Pessoais</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientHistory()">Histórico</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientAntropo()">Dados Antropométricos</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientQuizFunc()">Questionário Funcional</button>
-                
+                <button type="button" class="btn btn-success btn-save" ng-click="saveUserDetails2(user.$id)">Gravar</button>
             </div>
             
-            <div class="col-sm-10" ng-show="adminDivHome">
+            <div class="col-sm-10" ng-show="adminDivHome" style="margin-left: 320px;">
                 <div class="row" style="padding: 15px 0;">
                     <table class="table">  
                         <tr>
@@ -130,39 +130,39 @@
                     </table>
                 </div>
             </div>
-            <div class="col-sm-10" ng-show="adminDivClientDetails">
+            <div class="col-sm-10" ng-show="adminDivClientDetails" style="margin-left: 320px;">
                 <div class="row" style="padding: 15px 0;">
                     <!--<div ng-include="'views/form-tabs/tab1/quiz.html'"></div>-->
                     <div ng-include="'views/form-tabs/tab1/quiz_admin.html'"></div>
                 </div>
                 <br>
-                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
+                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
+                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
             </div>
 
-            <div class="col-sm-10" ng-show="adminDivClientHistory">
+            <div class="col-sm-10" ng-show="adminDivClientHistory" style="margin-left: 320px;">
                 <div class="row" style="padding: 15px 0;">
                     <div class="col-sm-12">
                         <div ng-include="'views/form-tabs/tabhistory/his01.html'"></div>
                     </div>
                 </div>
                 <br>
-                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
+                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
+                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
             </div>
 
-            <div class="col-sm-10" ng-show="adminDivClientAntropo">
+            <div class="col-sm-10" ng-show="adminDivClientAntropo" style="margin-left: 320px;">
                 <div class="row" style="padding: 15px 0;">
                     
                         <div ng-include="'views/form-tabs/tabhistory/dados_antropometricos.html'"></div>
                     
                 </div>
                 <br>
-                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
+                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
+                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
             </div>
 
-            <div class="col-sm-10" ng-show="adminDivClientQuizFunc">
+            <div class="col-sm-10" ng-show="adminDivClientQuizFunc" style="margin-left: 320px;">
                 <h1 class="text-center">Questionário Funcional</h1>  
                 <div ng-repeat="user in usersList">
                     <!--{{user.from}}-->
@@ -229,8 +229,8 @@
                     </md-tabs>
                 </md-content>
                 <br>
-                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
+                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>-->
+                <!--<button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
             </div>
             <!--<div class="navbar-fixed-bottom">
                 <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>

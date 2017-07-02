@@ -1,17 +1,39 @@
+body {
+    font-family: 'Archivo Narrow', sans-serif;
+}
 .souButton {
     border: 0;
     border-radius: 6px;
-    padding: 10px 20px;
+    padding: 25px;
     background-color: rgba(255, 255, 255, 0.5);
     color: white;
     font-weight: bold;
+    font-size: 18px
 }
 .souPTitle {
     color: white;
     font-weight:bold;
     font-size: 26px;
-
 }
 .souPDesc {
     color: white;
 }
+/*.divMassa {
+  transition: all linear 2s;
+  position: relative;
+  top: 0;
+  left: 0;
+}*/
+
+@keyframes myChange {
+  from {
+      display: block;
+  } to {
+      display: none;
+  }
+}
+
+
+/*.ng-hide {
+  animation: 2s myChange;
+}*/

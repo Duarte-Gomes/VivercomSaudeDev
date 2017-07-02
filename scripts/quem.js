@@ -4,7 +4,12 @@ app.controller('QuemCtrl', ['$scope',
         $scope.profile = true;
         $scope.groupDesc = {};
         $scope.quemQuiz = {};
-                    
+        $scope.group = {};
+        $scope.preMassa1 = false;
+        $scope.preMassa2 = false;
+        $scope.preMassa3 = false;  
+        $scope.callMe = false;    
+             
         $scope.setType = function(param) {
             if (param == "profile") {
                 $scope.massa = false;
@@ -15,6 +20,7 @@ app.controller('QuemCtrl', ['$scope',
             }
             if (param == "massa") {
                 $scope.massa = true;
+                $scope.preMassa1 = true;
                 $scope.desporto = false;
                 $scope.saude = false;
                 $scope.profile = false;
@@ -31,71 +37,215 @@ app.controller('QuemCtrl', ['$scope',
                 $scope.massa = false;
                 $scope.desporto = false;
                 $scope.saude = true;
+                $scope.preSaude1 = true;
                 $scope.profile = false;
                 $scope.groupDiv = false;
             }
         }
 
-        $scope.groupMassaObjective01 = {
-            objective: "Perder menos de 10kg"
-        };
-        $scope.groupMassaObjective02 = {
-            objective: "Perder 10kg a 30kg" 
-        }
-        $scope.groupMassaObjective03 = {
-            objective: "Perder mais de 30kg" 
-        }
         $scope.groupDesportoObjective01 = {
             objective: "Atleta Recreativo"
         };
         $scope.groupDesportoObjective02 = {
             objective: "Atleta de alta competição" 
         }
-        $scope.groupSaudeObjective01 = {
-            objective: "Tenho alguma doença ou problema de saúde"
-        };
-        $scope.groupSaudeObjective02 = {
-            objective: "Procuro melhorar hábitos" 
-        }
+        
 
         var groupDesc01 = {
-            name: "group1",
-            desc: "description"
+            name: "Não podiamos estar mais satisfeitos com o seu empenho!",
+            desc: "Temos a certeza de que vai atingir os seus objetivos rapidamente."
         };
         var groupDesc02 = {
-            name: "group2",
-            desc: "description"
+            name: "Estamos aqui para o apoiar no alcance dos seus objetivos de forma sudável.",
+            desc: "Temos a certeza de que conseguiremos ajudar!"
         };
         var groupDesc03 = {
-            name: "group2",
-            desc: "description"
+            name: "Estamos aqui para o ajudar a atingir os seus objectivos de forma mais saudável, no entanto será necessário melhorar hábitos."
         };
         var groupDesc04 = {
-            name: "group4",
-            desc: "description"
+            name: "Não podiamos estar mais satisfeitos com a sua dedicação!",
+            desc: "Temos a certeza de que vai atingir os seus objetivos de forma eficaz."
         };
         var groupDesc05 = {
-            name: "group5",
-            desc: "description"
+            name: "Estamos aqui para o apoiar no alcance dos seus objetivos.",
+            desc: "Vamos ajuda-lo a planear as suas refeições de forma saudável."
         };
         var groupDesc06 = {
-            name: "group6",
-            desc: "description"
+            name: "Estamos aqui para o ajudar a atingir os seus objectivos de forma mais saudável.",
+            desc: "Vamos ajuda-lo a planear as suas refeições e a deixar os alimentos processados."
         };
         var groupDesc07 = {
-            name: "group7",
-            desc: "description"
+            name: "Não podiamos estar mais satisfeitos com o seu empenho!",
+            desc: "Temos a certeza de que vai atingir os seus objetivos rapidamente."
         };
         var groupDesc08 = {
-            name: "group8",
-            desc: "description"
+            name: "Estamos aqui para o apoiar na recuperação da sua saúde!",
+            desc: "Vamos orientá-lo para que faça as escolhas mais saudáveis."
         };
         var groupDesc09 = {
-            name: "group9",
-            desc: "description"
+            name: "Estamos aqui para o apoiar na recuperação da sua saúde!",
+            desc: "Rápidamente irá adquirir hábitos de vida saudável."
+        };
+        var groupDesc10 = {
+            name: "Estamos aqui para o ajudar a criar hábitos de vida saudável!",
+            desc: "Vamos orientá-lo para que faça as escolhas mais saudáveis."
+        };
+        var greenMassa = 0, orangeMassa = 0, greenDesporto = 0, orangeDesporto = 0, greenSaude = 0, orangeSaude = 0;
+
+        $scope.preM11 = function() {
+            $scope.preMassa1 = false;
+            $scope.preMassa2 = true;
+            $scope.groupMassaObjective = {
+                objective: "Perder menos de 10kg"
+            };
+        };
+        $scope.preM12 = function() {
+            $scope.preMassa1 = false;
+            $scope.preMassa2 = true;
+            $scope.groupMassaObjective = {
+                objective: "Perder 10kg a 30kg" 
+            }
+        };
+        $scope.preM13 = function() {
+            $scope.preMassa1 = false;
+            $scope.preMassa2 = true;
+            $scope.groupMassaObjective = {
+                objective: "Perder mais de 30kg" 
+            }
+        };
+        $scope.preM21 = function() {
+            $scope.preMassa2 = false;
+            $scope.preMassa3 = true;
+            greenMassa++;
+        };
+        $scope.preM22 = function() {
+            $scope.preMassa2 = false;
+            $scope.preMassa3 = true;
+            greenMassa++;
+        };
+        $scope.preM23 = function() {
+            $scope.preMassa2 = false;
+            $scope.preMassa3 = true;
+            orangeMassa++;
+        };
+        $scope.preM31 = function() {
+            $scope.preMassa3 = false;
+            $scope.preMassaResumo = true;
+            greenMassa++;
+            checkGroupMass()
+        };
+        $scope.preM32 = function() {
+            $scope.preMassa3 = false;
+            $scope.preMassaResumo = true;
+            greenMassa++;
+            checkGroupMass()
+        };
+        $scope.preM33 = function() {
+            $scope.preMassa3 = false;
+            $scope.preMassaResumo = true;
+            orangeMassa++;
+            checkGroupMass()
+        };
+        function checkGroupMass() {
+            if(greenMassa == 2) {
+                $scope.group = groupDesc01;
+            }
+            if(greenMassa == 1 && orangeMassa == 2) {
+                $scope.group = groupDesc02;
+            }
+            if(orangeMassa == 2) {
+                $scope.group = groupDesc03;
+            }
+        }
+        $scope.callMeMassa = function() {
+            $scope.preMassaResumo = false;
+            $scope.callMeDiv = true;
         };
 
-        $scope.checkTypeResult = function() {
+        $scope.preS11 = function() {
+            $scope.preSaude1 = false;
+            $scope.preSaude2 = true;
+            $scope.groupSaudeObjective = {
+                objective: "Tratar problema de saúde"
+            }
+        };
+        $scope.preS12 = function() {
+            $scope.preSaude1 = false;
+            $scope.preSaude2 = true;
+            $scope.groupSaudeObjective = {
+                objective: "Aprender a melhorar hábitos" 
+            }
+        };
+        /*$scope.preS13 = function() {
+            $scope.presSaude1 = false;
+            $scope.presSaude2 = true;
+            $scope.groupsSaudeObjective = {
+                objective: "Perder mais de 30kg" 
+            }
+        };*/
+        $scope.preS21 = function() {
+            $scope.preSaude2 = false;
+            $scope.preSaude3 = true;
+            greenSaude++;
+        };
+        $scope.preS22 = function() {
+            $scope.preSaude2 = false;
+            $scope.preSaude3 = true;
+            greenSaude++;
+        };
+        $scope.preS23 = function() {
+            $scope.preSaude2 = false;
+            $scope.preSaude3 = true;
+            orangeSaude++;
+        };
+        $scope.preS31 = function() {
+            $scope.preSaude3 = false;
+            $scope.preSaudeResumo = true;
+            greenSaude++;
+            checkGroupSaude($scope.groupSaudeObjective.objective)
+        };
+        $scope.preS32 = function() {
+            $scope.preSaude3 = false;
+            $scope.preSaudeResumo = true;
+            greenSaude++;
+            checkGroupSaude($scope.groupSaudeObjective.objective)
+        };
+        $scope.preS33 = function() {
+            $scope.preSaude3 = false;
+            $scope.preSaudeResumo = true;
+            orangeSaude++;
+            checkGroupSaude($scope.groupSaudeObjective.objective)
+        };
+        function checkGroupSaude(param) {
+            if(param == "Tratar problema de saúde") {
+                if(greenSaude == 2) {
+                    $scope.group = groupDesc07;
+                }
+                if(greenSaude == 1 && orangeSaude == 1) {
+                    $scope.group = groupDesc07;
+                }
+                if(orangeSaude == 2) {
+                    $scope.group = groupDesc08;
+                }
+            }
+            if(param = "Aprender a melhorar hábitos" ) {
+                if(greenSaude == 2) {
+                    $scope.group = groupDesc09;
+                }
+                if(greenSaude == 1 && orangeSaude == 1) {
+                    $scope.group = groupDesc09;
+                }
+                if(orangeSaude == 2) {
+                    $scope.group = groupDesc10;
+                }
+                console.log(greenSaude);
+            }
+        }
+        $scope.callMeSaude = function() {
+            $scope.preSaudeResumo = false;
+            $scope.callMeDiv = true;
+        };
+        /*$scope.checkTypeResult = function() {
             if ($scope.massa) {
                 
                 $scope.massa = false;
@@ -188,6 +338,6 @@ app.controller('QuemCtrl', ['$scope',
                     $scope.groupDesc = groupDesc09;
                 }
             }
-        }
+        }*/
     }
 ]);

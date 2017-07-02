@@ -17,9 +17,14 @@
     border: 0;
     background-color: lightblue;
     border-radius: 0;
-    margin: 15px 0;
+    margin: 0 0 -85px 0;
+    height: 45px;
 }
-
+.btn-save {
+    border: 0;
+    border-radius: 0;
+    margin: 35px 0;
+}
 .btn-menu:hover {
     background-color: lightgreen;
 }
@@ -44,28 +49,8 @@ table#antropo .form-control {
     margin-left: 10px;
 
 }
-        
-.swiper-container {
-        width: 500px;
-        height: 300px;
-        margin: 20px auto;
-    }
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-        background: #fff;
-        
-        /* Center slide text vertically */
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: -webkit-flex;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        -webkit-align-items: center;
-        align-items: center;
-    }
+
+.preQuizContact input {
+    display: block;
+    width: 100%;
+}
