@@ -19,7 +19,8 @@ h1 {
   border: 0;
 }
 .logo-style {
-  height: 65px;
+  height: 45px;
+  margin-top: 10px;
 }
 .navbar-brand {
   padding: 5px 0;

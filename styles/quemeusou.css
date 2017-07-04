@@ -20,6 +20,7 @@ button:focus, input:focus, textarea:focus {
 }
 .souPDesc {
     color: white;
+    font-size: 18px;
 }
 /*.divMassa {
   transition: all linear 2s;
@@ -30,6 +31,24 @@ button:focus, input:focus, textarea:focus {
 .souGroupDesc {
     color: black;
     font-size: 15px;
+}
+
+.divButtonOptions {
+    padding: 30px 20px;
+}
+.preMassaGroup {
+    background-color: rgba(255,255,255,0.9);
+    padding: 30px;
+}
+.preSaudeGroup {
+    background-color: rgba(255,255,255,0.9);
+    padding: 30px;
+}
+.preQuizContact {
+    margin-top: 115px;
+}
+.subPreQuizContact {
+    background-color: rgba(255,255,255,0.9); padding: 25px;
 }
 @keyframes myChange {
   from {
@@ -50,8 +69,8 @@ button:focus, input:focus, textarea:focus {
 .space-top {
     margin-top: 560px;
 }
-.preMassaGroup {
-    padding: 30px;
+.space-top-2 {
+    margin-top: 240px;
 }
 .groupName {
     color: green;
@@ -100,7 +119,16 @@ button:focus, input:focus, textarea:focus {
     padding: 10px 15px;
     border-radius: 4px;
 }
-
+.quemSouMainButton {
+    margin-bottom: 20px; 
+    border-radius: 4px; 
+    border: 0; 
+    background-color: green; 
+    color: white; 
+    padding: 8px 20px; 
+    font-size: 18px; 
+    font-weight: bold
+}
 
 
 

@@ -1,144 +1,140 @@
-<form ng-submit="checkTypeResult()">
-    <div style="background-image: url(images/imag_pp.png); background-size: cover; height: 100vh;">
-        <!--<h2 class="text-center">Perder Peso</h2>
-        <p class="text-center" style="font-size: 12px;">(Selecione uma opção para cada pergunta)</p>-->
-        <div class="container">
+<div style="background-image: url(images/imag_pp.png); background-size: cover; height: 100vh;">
+    <div class="container">
+        <div class="text-center preMassa1 divMassa space-top" ng-show="preMassa1">
+            <p class="souPTitle">QUAL O SEU OBJECTIVO?</p>
+            <p class="souPDesc">Diga-nos aproximadamente o peso que acha que deve perder</p>
+            <div class="divButtonOptions">
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preM11()>
+                        Perder menos de 10kg
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preM12()>
+                        Perder 10kg a 30kg
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preM13()>
+                        Perder mais de 30kg
+                    </button>
+                </div>
+            </div>
+        </div>
     
-            <div class="text-center preMassa1 divMassa space-top" ng-show="preMassa1">
-                <p class="souPTitle">QUAL O SEU OBJECTIVO?</p>
-                <p class="souPDesc">Diga-nos aproximadamente o peso que acha que deve perder</p>
-                <div style="padding: 30px 20px;">
-                    <div class="col-sm-4">
-                        <button class="souButton" ng-click=preM11()>
-                            Perder menos de 10kg
-                        </button>
-                    </div>
-                    <div class="col-sm-4">
-                        <button class="souButton" ng-click=preM12()>
-                            Perder 10kg a 30kg
-                        </button>
-                    </div>
-                    <div class="col-sm-4">
-                        <button class="souButton" ng-click=preM13()>
-                            Perder mais de 30kg
-                        </button>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="text-center preMassa2 divMassa space-top" ng-show="preMassa2">
-                <p class="souPTitle">Está disposto a deixar de consumir?</p>
-                <p class="souPDesc">Exemplos de alimentos processados: Bolos, doces, batatas fritas, salgados, refrigerantes</p>
-                <div style="padding: 30px 20px;">
-                    <div class="col-sm-4">
-                        <button class="souButton" style="height: 100px;" ng-click=preM21()>
-                            Todos os alimentos processados
-                        </button>
-                    </div>
-                    <div class="col-sm-4">
-                        <button class="souButton" style="height: 100px;" ng-click=preM22()>
-                            Alguns alimentos processados
-                        </button>
-                    </div>
-                    <div class="col-sm-4">
-                        <button class="souButton" style="height: 100px;" ng-click=preM23()>
-                            Não consigo abdicar de alimentos processados
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center preMassa3 divMassa space-top" ng-show="preMassa3">
-                <p class="souPTitle">Consome ou está disposto a consumir?</p>
-                <p class="souPDesc">Diga-nos aproximadamente quantos vezes come legumes por semana</p>
-                <div style="padding: 30px 20px;">
-                    <div class="col-sm-4">
-                        <button class="souButton" ng-click=preM31()>
-                            Legumes todos os dias
-                        </button>
-                    </div>
-                    <div class="col-sm-4">
-                        <button class="souButton" ng-click=preM32()>
-                            Legumes pelo menos 3x semana
-                        </button>
-                    </div>
-                    <div class="col-sm-4">
-                        <button class="souButton" ng-click=preM33()>
-                            Não consigo comer legumes
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="preMassaGroup divMassa" style="margin-top: 150px; background-color: rgba(255,255,255,0.9);" ng-show="preMassaResumo">
-                <p class="groupName">{{group.name}}</p>
-                <p class="groupDesc">{{group.desc}}</p>
-                <p>Temos para si:</p>
-                <p>Programa emagrecimento com duração de 3 a 12 meses</p>
-                <p class="groupProgramaTitle">Este programa inclui:</p>
-                <p>Consultas de Nutrição Funcional; coaching motivacional, massagem localizada anti-celulitica e/ou actividade fisica com os nossos personal trainers; fornecimento de refeições saudáveis BeFuncional, snacks saudáveis e/ou receitas de menus e snacks para realizar ao seu gosto quando quiser, água alcalina e anti-oxidantte AKUAY para mais rápida eliminação de massa gorda e melhor hidratação.</p>
-                <p>Na promeira consulta será realizada uma avaliação detalhada do seu perfil fisiológico, endocrinológico, compormantal, nutricional e estilo de vida. No sentido de identificar os factores que influenciaram o peso e, de que forma, poderão ser controlados. Esta consulta inclui: identificação do seu Biotipo, Morfotipo e Cronotipo. Avaliação dos seus seus parâmetros corporais e plano nutricional Funcional.</p>
-                <p>Será delineado o pragrama adequado às suas necessidades e objetivos pessoais. Saberá qual a duração do programa mais aconselhado ao seu caso, quais as áreas a trabalhar, a frequência das consultas e as estratégias de acompanhamento.</p>
-                <div class="text-center">
-                    <p class="buttonTitle">Não perca mais tempo, venha descobrir o plano nutricional da sua vida!</p>
-                    <button class="callMeStyle" ng-click="callMeMassa()">Nós ligamos  <i class="fa fa-comment" aria-hidden="true"></i></button>
-                </div>
-            </div>
-
-            <div class="preQuizContact" style="margin-top: 115px;" ng-show="callMeDiv">
-                <div class="col-sm-6 col-sm-offset-3" style="background-color: rgba(255,255,255,0.9); padding: 25px;">
-                    <p class="callMeTitle">NÓS LIGAMOS</p>
-                    <p>Não perca mais tempo, venha descobrir o plano nutricional da sua vida!</p>
-                    <p>A distância não é um obstáculo, fazemos acompanhamento presencial e à distância, Skype, Gmail, Facebook.</p>
-                    <p>Deixe-nos os seus dados e nós ligamos.</p>
-                    <input type="text" class="callMeInput" placeholder="Nome">
-                    <input type="text" class="callMeInput" placeholder="Telefone">
-                    <input type="email" class="callMeInput" placeholder="Email">
-                    <!--<input type="text" class="callMeInput" placeholder="Mensagem">-->
-                    <textarea class="callMeInput callMeTextarea"placeholder="A sua mensagem..."></textarea>
-                    <div class="text-center">
-                        <button class="callMeButtom">Enviar  |  <i class="fa fa-envelope-o" aria-hidden="true"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <!--<div class="text-center" style="margin-bottom: 20px;">
-                <p class="souPTitle">Está disposto a deixar de consumir?</p>
-                <p class="souPDesc">Exemplos de alimentos processados: Bolos, doces, batatas fritas, salgados, refrigerantes</p>
-                <div style="padding: 10px 20px;">
-                    <button class="souButton">
+        <div class="text-center preMassa2 divMassa space-top" ng-show="preMassa2">
+            <p class="souPTitle">Está disposto a deixar de consumir?</p>
+            <p class="souPDesc">Exemplos de alimentos processados: Bolos, doces, batatas fritas, salgados, refrigerantes</p>
+            <div class="divButtonOptions">
+                <div class="col-sm-4">
+                    <button class="souButton" style="height: 100px;" ng-click=preM21()>
                         Todos os alimentos processados
                     </button>
-                    <button class="souButton">
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" style="height: 100px;" ng-click=preM22()>
                         Alguns alimentos processados
                     </button>
-                    <button class="souButton">
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" style="height: 100px;" ng-click=preM23()>
                         Não consigo abdicar de alimentos processados
                     </button>
                 </div>
             </div>
-        
-            <div class="text-center" style="margin-bottom: 20px;">
-                <p class="souPTitle">Consome ou está disposto a consumir?</p>
-                <p class="souPDesc">Diga-nos aproximadamente quantos vezes come legumes por semana</p>
-                <div style="padding: 10px 20px;">
-                    <button class="souButton">
+        </div>
+
+        <div class="text-center preMassa3 divMassa space-top" ng-show="preMassa3">
+            <p class="souPTitle">Consome ou está disposto a consumir?</p>
+            <p class="souPDesc">Diga-nos aproximadamente quantos vezes come legumes por semana</p>
+            <div class="divButtonOptions">
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preM31()>
                         Legumes todos os dias
                     </button>
-                    <button class="souButton">
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preM32()>
                         Legumes pelo menos 3x semana
                     </button>
-                    <button class="souButton">
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preM33()>
                         Não consigo comer legumes
                     </button>
                 </div>
             </div>
-            <div class="text-center">  
-                <button type="submit" style="background-color: #61EAEA; border: 0; padding: 10px 20px; font-weight: bold; margin: 0 auto;">Calcular Resultado</button>
-            </div>-->
         </div>
+
+        <div class="preMassaGroup divMassa space-top-2" ng-show="preMassaResumo">
+            <p class="groupName">{{group.name}}</p>
+            <p class="groupDesc">{{group.desc}}</p>
+            <p class="groupProgramaTitle">Temos para si:</p>
+            <p>Programa emagrecimento com duração de 3 a 12 meses</p>
+            <p class="groupProgramaTitle">Este programa inclui:</p>
+            <p>Consultas de Nutrição Funcional; coaching motivacional, massagem localizada anti-celulitica e/ou actividade fisica com os nossos personal trainers; fornecimento de refeições saudáveis BeFuncional, snacks saudáveis e/ou receitas de menus e snacks para realizar ao seu gosto quando quiser, água alcalina e anti-oxidantte AKUAY para mais rápida eliminação de massa gorda e melhor hidratação.</p>
+            <p>Na promeira consulta será realizada uma avaliação detalhada do seu perfil fisiológico, endocrinológico, compormantal, nutricional e estilo de vida. No sentido de identificar os factores que influenciaram o peso e, de que forma, poderão ser controlados. Esta consulta inclui: identificação do seu Biotipo, Morfotipo e Cronotipo. Avaliação dos seus seus parâmetros corporais e plano nutricional Funcional.</p>
+            <p>Será delineado o pragrama adequado às suas necessidades e objetivos pessoais. Saberá qual a duração do programa mais aconselhado ao seu caso, quais as áreas a trabalhar, a frequência das consultas e as estratégias de acompanhamento.</p>
+            <div class="text-center">
+                <p class="buttonTitle">Não perca mais tempo, venha descobrir o plano nutricional da sua vida!</p>
+                <button class="callMeStyle" ng-click="callMeMassa()">Nós ligamos  <i class="fa fa-comment" aria-hidden="true"></i></button>
+            </div>
+        </div>
+
+        <div class="preQuizContact" ng-show="callMeDiv">
+            <div class="col-sm-6 col-sm-offset-3 subPreQuizContact">
+                <p class="callMeTitle">NÓS LIGAMOS</p>
+                <p>Não perca mais tempo, venha descobrir o plano nutricional da sua vida!</p>
+                <p>A distância não é um obstáculo, fazemos acompanhamento presencial e à distância, Skype, Gmail, Facebook.</p>
+                <p>Deixe-nos os seus dados e nós ligamos.</p>
+                <input type="text" class="callMeInput" placeholder="Nome">
+                <input type="text" class="callMeInput" placeholder="Telefone">
+                <input type="email" class="callMeInput" placeholder="Email">
+                <!--<input type="text" class="callMeInput" placeholder="Mensagem">-->
+                <textarea class="callMeInput callMeTextarea"placeholder="A sua mensagem..."></textarea>
+                <div class="text-center">
+                    <button class="callMeButtom">Enviar  |  <i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="text-center" style="margin-bottom: 20px;">
+            <p class="souPTitle">Está disposto a deixar de consumir?</p>
+            <p class="souPDesc">Exemplos de alimentos processados: Bolos, doces, batatas fritas, salgados, refrigerantes</p>
+            <div style="padding: 10px 20px;">
+                <button class="souButton">
+                    Todos os alimentos processados
+                </button>
+                <button class="souButton">
+                    Alguns alimentos processados
+                </button>
+                <button class="souButton">
+                    Não consigo abdicar de alimentos processados
+                </button>
+            </div>
+        </div>
+    
+        <div class="text-center" style="margin-bottom: 20px;">
+            <p class="souPTitle">Consome ou está disposto a consumir?</p>
+            <p class="souPDesc">Diga-nos aproximadamente quantos vezes come legumes por semana</p>
+            <div style="padding: 10px 20px;">
+                <button class="souButton">
+                    Legumes todos os dias
+                </button>
+                <button class="souButton">
+                    Legumes pelo menos 3x semana
+                </button>
+                <button class="souButton">
+                    Não consigo comer legumes
+                </button>
+            </div>
+        </div>
+        <div class="text-center">  
+            <button type="submit" style="background-color: #61EAEA; border: 0; padding: 10px 20px; font-weight: bold; margin: 0 auto;">Calcular Resultado</button>
+        </div>-->
     </div>
-</form>
+</div>
+
 <!--<div class="col-sm-1 text-right">
     <button ng-click="setType('profile')" style="font-size: 30px; border: 0; background-color: transparent;"><i class="fa fa-window-close" aria-hidden="true"></i></button>
 </div>-->

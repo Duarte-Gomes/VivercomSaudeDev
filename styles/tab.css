@@ -71,6 +71,9 @@ md-tabs md-ink-bar {
     background: black !important;
     height: 3px !important;
 }
+md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+  min-height: 610px;
+}
 /*#main-tabs ul li a {
   color: black;
   font-weight: bold;
