@@ -4,7 +4,7 @@
         <p class="text-center" style="font-size: 12px;">(Selecione uma opção para cada pergunta)</p>-->
         <div class="container">
     
-            <div class="text-center preMassa1 divMassa" style="margin-top: 150px;" ng-show="preMassa1">
+            <div class="text-center preMassa1 divMassa space-top" ng-show="preMassa1">
                 <p class="souPTitle">QUAL O SEU OBJECTIVO?</p>
                 <p class="souPDesc">Diga-nos aproximadamente o peso que acha que deve perder</p>
                 <div style="padding: 30px 20px;">
@@ -26,29 +26,29 @@
                 </div>
             </div>
         
-            <div class="text-center preMassa2 divMassa" style="margin-top: 150px;" ng-show="preMassa2">
+            <div class="text-center preMassa2 divMassa space-top" ng-show="preMassa2">
                 <p class="souPTitle">Está disposto a deixar de consumir?</p>
                 <p class="souPDesc">Exemplos de alimentos processados: Bolos, doces, batatas fritas, salgados, refrigerantes</p>
                 <div style="padding: 30px 20px;">
                     <div class="col-sm-4">
-                        <button class="souButton" ng-click=preM21()>
+                        <button class="souButton" style="height: 100px;" ng-click=preM21()>
                             Todos os alimentos processados
                         </button>
                     </div>
                     <div class="col-sm-4">
-                        <button class="souButton" ng-click=preM22()>
+                        <button class="souButton" style="height: 100px;" ng-click=preM22()>
                             Alguns alimentos processados
                         </button>
                     </div>
                     <div class="col-sm-4">
-                        <button class="souButton" ng-click=preM23()>
+                        <button class="souButton" style="height: 100px;" ng-click=preM23()>
                             Não consigo abdicar de alimentos processados
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div class="text-center preMassa3 divMassa" style="margin-top: 150px;" ng-show="preMassa3">
+            <div class="text-center preMassa3 divMassa space-top" ng-show="preMassa3">
                 <p class="souPTitle">Consome ou está disposto a consumir?</p>
                 <p class="souPDesc">Diga-nos aproximadamente quantos vezes come legumes por semana</p>
                 <div style="padding: 30px 20px;">
@@ -70,26 +70,35 @@
                 </div>
             </div>
 
-            <div class="text-center preMassaGroup divMassa" style="margin-top: 150px; background-color: rbga(255,255,255,0.5);" ng-show="preMassaResumo">
-                <p>{{group.name}}</p>
-                <p>{{group.desc}}</p>
+            <div class="preMassaGroup divMassa" style="margin-top: 150px; background-color: rgba(255,255,255,0.9);" ng-show="preMassaResumo">
+                <p class="groupName">{{group.name}}</p>
+                <p class="groupDesc">{{group.desc}}</p>
                 <p>Temos para si:</p>
                 <p>Programa emagrecimento com duração de 3 a 12 meses</p>
-                <p>Este programa inclui:</p>
+                <p class="groupProgramaTitle">Este programa inclui:</p>
                 <p>Consultas de Nutrição Funcional; coaching motivacional, massagem localizada anti-celulitica e/ou actividade fisica com os nossos personal trainers; fornecimento de refeições saudáveis BeFuncional, snacks saudáveis e/ou receitas de menus e snacks para realizar ao seu gosto quando quiser, água alcalina e anti-oxidantte AKUAY para mais rápida eliminação de massa gorda e melhor hidratação.</p>
                 <p>Na promeira consulta será realizada uma avaliação detalhada do seu perfil fisiológico, endocrinológico, compormantal, nutricional e estilo de vida. No sentido de identificar os factores que influenciaram o peso e, de que forma, poderão ser controlados. Esta consulta inclui: identificação do seu Biotipo, Morfotipo e Cronotipo. Avaliação dos seus seus parâmetros corporais e plano nutricional Funcional.</p>
                 <p>Será delineado o pragrama adequado às suas necessidades e objetivos pessoais. Saberá qual a duração do programa mais aconselhado ao seu caso, quais as áreas a trabalhar, a frequência das consultas e as estratégias de acompanhamento.</p>
-                <p>Não perca mais tempo, venha descobrir o plano nutricional da sua vida!</p>
-                <button ng-click="callMeMassa()">Nós ligamos</button>
+                <div class="text-center">
+                    <p class="buttonTitle">Não perca mais tempo, venha descobrir o plano nutricional da sua vida!</p>
+                    <button class="callMeStyle" ng-click="callMeMassa()">Nós ligamos  <i class="fa fa-comment" aria-hidden="true"></i></button>
+                </div>
             </div>
 
-            <div class="text-center preQuizContact" style="margin-top: 150px; display: block;" ng-show="callMeDiv">
-                <div class="col-sm-4 col-sm-offset-4">
-                    <input type="text" placeholder="Nome">
-                    <input type="text" placeholder="Contacto Telefónico">
-                    <input type="text" placeholder="Email">
-                    <input type="text" placeholder="Descrição">
-                    <button>Enviar</button>
+            <div class="preQuizContact" style="margin-top: 115px;" ng-show="callMeDiv">
+                <div class="col-sm-6 col-sm-offset-3" style="background-color: rgba(255,255,255,0.9); padding: 25px;">
+                    <p class="callMeTitle">NÓS LIGAMOS</p>
+                    <p>Não perca mais tempo, venha descobrir o plano nutricional da sua vida!</p>
+                    <p>A distância não é um obstáculo, fazemos acompanhamento presencial e à distância, Skype, Gmail, Facebook.</p>
+                    <p>Deixe-nos os seus dados e nós ligamos.</p>
+                    <input type="text" class="callMeInput" placeholder="Nome">
+                    <input type="text" class="callMeInput" placeholder="Telefone">
+                    <input type="email" class="callMeInput" placeholder="Email">
+                    <!--<input type="text" class="callMeInput" placeholder="Mensagem">-->
+                    <textarea class="callMeInput callMeTextarea"placeholder="A sua mensagem..."></textarea>
+                    <div class="text-center">
+                        <button class="callMeButtom">Enviar  |  <i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+                    </div>
                 </div>
             </div>
 

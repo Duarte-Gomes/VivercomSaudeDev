@@ -1,5 +1,5 @@
 body {
-    font-family: 'Archivo Narrow', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 .souButton {
     border: 0;
@@ -9,6 +9,9 @@ body {
     color: white;
     font-weight: bold;
     font-size: 18px
+}
+button:focus, input:focus, textarea:focus {
+    outline: 0;
 }
 .souPTitle {
     color: white;
@@ -24,7 +27,10 @@ body {
   top: 0;
   left: 0;
 }*/
-
+.souGroupDesc {
+    color: black;
+    font-size: 15px;
+}
 @keyframes myChange {
   from {
       display: block;
@@ -37,3 +43,69 @@ body {
 /*.ng-hide {
   animation: 2s myChange;
 }*/
+.pre-h2 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.space-top {
+    margin-top: 560px;
+}
+.preMassaGroup {
+    padding: 30px;
+}
+.groupName {
+    color: green;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+}
+.groupDesc {
+    font-weight: bold;
+    font-size: 18px;
+}
+.groupProgramaTitle {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+}
+.buttonTitle {
+    font-weight: bold;
+    font-size: 18px;
+}
+.callMeStyle {
+    background-color: green;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    padding: 10px;
+}
+.callMeTitle {
+    font-weight: bold;
+}
+.callMeInput {
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.callMeTextarea {
+    border: 1px solid rgba(0,0,0,0.4);
+}
+.callMeButtom {
+    border: 0;
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 4px;
+}
+
+
+
+
+@media screen and (max-width: 1366px) {
+    .space-top {
+        margin-top: 350px;
+    }
+}

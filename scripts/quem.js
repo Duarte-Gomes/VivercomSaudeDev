@@ -150,7 +150,7 @@ app.controller('QuemCtrl', ['$scope',
             if(greenMassa == 2) {
                 $scope.group = groupDesc01;
             }
-            if(greenMassa == 1 && orangeMassa == 2) {
+            if(greenMassa == 1 && orangeMassa == 1) {
                 $scope.group = groupDesc02;
             }
             if(orangeMassa == 2) {
