@@ -1,0 +1,52 @@
+<div class="row" style="padding-top: 15px;">
+    <div class="col-sm-3">
+        <div class="dashBox">
+            <p class="dashTitle">Altura(cm)</p>
+            <p class="dashValue">{{clientHist.da_01_02}}</p>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="dashBox">
+            <p class="dashTitle">Peso(kg)</p>
+            <p class="dashValue">{{front.dashPeso}}</p>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="dashBox">
+            <p class="dashTitle">Massa Gorda(%)</p>
+            <p class="dashValue">{{front.dashMassaGorda}}</p>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="dashBox">
+            <p class="dashTitle">Massa Magra(%)</p>
+            <p class="dashValue">{{front.dashMassaMagra}}</p>
+        </div>
+    </div>
+</div>
+<div class="row" style="padding-top: 15px;">
+    <div class="col-sm-3">
+        <div class="dashBox text-center">
+            <p class="dashTitle">Plano Nutricional</p>
+            <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o dashPlanoNutri" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="dashBox">
+            <p class="dashTitle">Água Corporal(%)</p>
+            <p class="dashValue">{{front.dashAgua}}</p>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="dashBox">
+            <p class="dashTitle">Gordura Visceral(%)</p>
+            <p class="dashValue">{{front.dashVisceral}}</p>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="dashBox">
+            <p class="dashTitle">Próx. Consulta</p>
+            <p class="dashValueProx">{{clientDetail.proxConsult}}</p>
+        </div>
+    </div>
+</div>

@@ -110,6 +110,10 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         templateUrl: 'views/quemsoueu.html',
         controller: 'QuemCtrl'
     })
+    .when('/:id', {
+        templateUrl: 'views/welcome.html',
+        controller: 'WelcomeCtrl'
+    })
     .when('/workshop', {
         templateUrl: 'views/resultados.html',
         controller: 'DashCtrl',

@@ -43,19 +43,38 @@
         </div>
     </div>
 </div>-->
-<div class="col-sm-12">
-    <h4>Pratica ou praticou algum regime alimentar?</h4>
-</div>
-<div class="col-sm-12">
-    <div class="col-sm-12">
-        <div class="checkbox">
+<div ng-show="clientTypeSaude || clientTypePeso || clientTypeDesporto">           
+    <div class="col-sm-12" style="display: inline-flex;">
+        <h4 class="newH4">Pratica ou praticou algum regime alimentar?</h4>
+        <div class="checkbox checkbox-title" style="width: 5%; margin-left: 20px;">
             <label>
                 <input type="checkbox" ng-model="clientForm.quiz04_6">
                 Sim
             </label>
         </div>
     </div>
-    <div class="col-sm-12" ng-show="clientForm.quiz04_6">
+    
+    <div class="col-sm-12" style="display: inline-flex;">
+        <div ng-show="clientForm.quiz04_6" style="display: inline-flex; width: 100%;">
+            <label class="label-qual" style="width:6%;">
+                Qual?
+            </label>
+            <input class="form-control" type="text" ng-model="clientForm.quiz04_8_1">
+        </div>
+    </div>
+</div>
+
+<div ng-hide="clientTypeSaude || clientTypePeso || clientTypeDesporto">           
+    <div class="col-sm-12" style="display: inline-flex;">
+        <h4 class="newH4">Pratica ou praticou algum regime alimentar?</h4>
+        <div class="checkbox checkbox-title" style="width: 5%; margin-left: 20px;">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz04_6">
+                Sim
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-12 no-pad-left no-pad-right" ng-show="clientForm.quiz04_6">
         <div class="col-sm-4">
             <div class="checkbox">
                 <label>
@@ -91,20 +110,20 @@
                 <input class="form-control" type="text" ng-model="clientForm.quiz04_6_4_1">
             </div>
         </div>
+        <!--<div class="col-sm-12" style="display: inline-flex;">
+            <div class="checkbox" style="width: 30%;">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz04_7">
+                    Já praticou outro regime alimentar?
+                </label>
+            </div>
+            <div ng-show="clientForm.quiz04_7" style="display: inline-flex; width: 100%;">
+                <label class="label-qual" style="width:6%;">Qual?</label>
+                <input class="form-control" type="text" ng-model="clientForm.quiz04_7_1">
+            </div>
+        </div>  --> 
+    </div>    
+    <div class="col-sm-12" style="margin: 15px 0;">
+        <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
     </div>
-   <!-- <div class="col-sm-12" style="display: inline-flex;">
-        <div class="checkbox" style="width: 30%;">
-            <label>
-                <input type="checkbox" ng-model="clientForm.quiz04_7">
-                Já praticou outro regime alimentar?
-            </label>
-        </div>
-        <div ng-show="clientForm.quiz04_7" style="display: inline-flex; width: 100%;">
-            <label class="label-qual" style="width:6%;">Qual?</label>
-            <input class="form-control" type="text" ng-model="clientForm.quiz04_7_1">
-        </div>
-    </div>  --> 
-</div>    
-<div class="col-sm-12" style="margin: 15px 0;">
-    <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
 </div>

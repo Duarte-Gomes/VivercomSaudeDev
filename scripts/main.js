@@ -64,15 +64,16 @@ app.controller('NavLogCtrl', ['$scope', 'Auth',
 
 app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', '$mdSidenav', '$mdDialog', '$firebaseStorage',
     function($scope, Auth, $location, currentAuth, usersList, $mdSidenav, $mdDialog, $firebaseStorage, $timeout) {   
-        
+
         $scope.usersList = {};
         $scope.clientDetail = {"pos":1};
         $scope.clientForm = {"pos":1};
         $scope.clientHist = {"pos":1};
+
+        $scope.clientType = {};
         $scope.saveUserDetails = {};
         $scope.getPostDetails = {};
         /*$scope.userNumber = {};*/
-        $scope.ccggii = false;
 
         $scope.isUser = true;
         $scope.isPassReset = false;
@@ -102,9 +103,12 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
         $scope.yearList = ["2016", "2017"];
 
         $scope.consultLocal = [
-            "100% Natur", "Farmácia Uruguai", "Bakery CrossFit", "Box1RM", "CGI", "CrossFit 351", "Crossfit Almada", "CrossFit Coimbra", "CrossFit Fátima", "Crossfit Leiria", "CrossFit Odivelas", "CrossFit Torres Novas", "Formas Fitness", "Mean Machine", "Nutriscoop", "Oeste Cross Box", "Silver Coast", "Wiva Tomar", "Wiva Torres Novas"
+            "100% Natur", "Farmácia Uruguai", "Bakery CrossFit", "Box1RM", "CGI", "CrossFit 351", "CrossFit Almada", "CrossFit Coimbra", "CrossFit Fátima", "CrossFit Leiria", "CrossFit Odivelas", "CrossFit Torres Vedras", "CrossFit XXI", "Formas Fitness", "Mean Machine", "Nutriscoop", "Oeste Cross Box", "Silver Coast", "Wiva Tomar", "Wiva Torres Novas",
         ];
 
+        $scope.bloodTypeList = [
+            "A", "B", "AB", "O"
+        ]
         $scope.showAlert = function(ev) {
             // Appending dialog to document.body to cover sidenav in docs app
             // Modal dialogs should fully cover application
@@ -126,7 +130,43 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             location.reload();
         }; 
 
+        function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for(var i = 0; i <ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        
+        function checkCookie() {
+            var user = getCookie("program_type");
+            if(user === "ProgramaFit") {
+                $scope.clientDetail.clientType = "ProgramaFit";
+                $scope.firstTimeVisit = true;     
+            }
+            if(user === "ProgramaGestaoDePeso") {
+                $scope.clientDetail.clientType = "ProgramaGestaoDePeso";
+                $scope.firstTimeVisit = true; 
+            }
+            if(user === "ProgramaSaude") {
+                $scope.clientDetail.clientType = "ProgramaSaude";
+                $scope.firstTimeVisit = true;  
+            }
+            if(user === "ConsultaWellness") {
+                $scope.clientDetail.clientType = "ConsultaWellness";
+                $scope.firstTimeVisit = true;  
+            }
+        }
 
+        
         var saveStatus;
         var postKey;
         var postIndex;
@@ -256,9 +296,6 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                     postKey = usersList[i].$id;
                     postIndex = i;
                     $scope.clientDetail.email = $scope.firebaseUser.email;
-                    if ($scope.clientDetail.codBis == "#CGI") {
-                        $scope.ccggii = true;
-                    }
 
                     var ageBirthday = $scope.clientDetail.dayBirth + '/' + $scope.clientDetail.monthBirth + '/' + $scope.clientDetail.yearBirth;
                     var monthBirthTemp;
@@ -304,7 +341,14 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                         if (monthBirthTemp == 12) {  
                             $scope.clientDetail.monthBirth = "Dezembro";
                         }      
-                    }  
+                    } 
+
+                    checkCookie();
+
+                    if ($scope.firstTimeVisit) {
+                        $scope.clientDetail.firstTimeVisit = $scope.firstTimeVisit;
+                        $scope.clientDetail.isQuizFuncBlock = true;
+                    } 
                 }
 
                 if (usersList.length === i + 1) {

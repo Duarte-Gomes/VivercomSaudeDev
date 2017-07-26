@@ -1,5 +1,5 @@
 html {
-  background-color: white;
+  background-color: #f2f2f2;
 }
 body {
   padding: 0;
@@ -7,6 +7,39 @@ body {
 }
 h1 {
   margin-top: 0;
+}
+.newH4 {
+  font-size: 14px;
+  font-weight: bold;
+}
+.no-pad-left {
+  padding-left: 0;
+}
+.no-pad-right {
+  padding-right: 0;
+}
+.more-pad {
+  padding: 0 15px;
+}
+.checkbox-title, .radio-title {
+  margin-top: 7px;
+}
+.panel-title > a > span {
+  font-size: 14px !important;
+  font-weight: bold;
+}
+.panel {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.panel-default > .panel-heading {
+  background-color: transparent;
+}
+.panel-default {
+  border-color: transparent;
+}
+.quiz-box {
+  box-shadow: 0 1px 1px rgba(0,0,0,.2);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.2);
 }
 /* NAVBAR*/
 .navbar {
@@ -59,9 +92,9 @@ h1 {
 .form-frame h4 {
   font-weight: bold;
 }
-.form-control {
+/* .form-control {
   border: none;
-}
+} */
 .table > tbody > tr > td.td-style {
   padding: 6px 3px;
 }
@@ -73,9 +106,7 @@ h1 {
 }
 .label-qual {
   margin-top: 10px;
-  margin-right: 10px;
   width: 30%;
-  margin-left: 10px;
 }
 .label-qual-cigarro {
   margin-top: 10px;
@@ -92,9 +123,28 @@ h1 {
   color: #777;
   border-top: 1px solid #e5e5e5;
 }
+/* --------------------- */
+.buttonMenu {
+  background-color: transparent;
+  color: white;
+  border-right: 1px white solid;
+  border-radius: 0;
+  padding: 0 12px;
+  margin-top: 25px;
+}
+.buttonMenu:hover, .buttonMenu:focus, .buttonMenu:active {
+  color: white;
+  text-decoration: underline;
+}
+.buttonMenuRight {
+  border-right: 0;
+}
 .button-style {
   border: none;
-  border-radius: 0;
+  /* border-radius: 0; */
+  padding: 6px 20px;
+  margin: 0 5px;
+  width: 110px;
 }
 .button-log {
   background-color: #2952a3;
@@ -127,7 +177,7 @@ tr {
 }
 textarea {
   width: 100%;
-  border: 0;
+  /* border: 0; */
   height: 75px;
   box-sizing: border-box;
   resize: vertical;
@@ -151,8 +201,87 @@ textarea {
 .md-padding {
   padding-top: 0;
 }
+.no-pad {
+  padding: 0;
+}
+.dashTitle {
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+.dashValue {
+  font-weight: bold;
+  font-size: 55px;
+  text-align: center;
+}
+.dashValueProx {
+  font-weight: bold;
+  font-size: 55px;
+  text-align: center;
+}
+.dashBox {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 20px;
+}
+.welcome-style {
+  width: 80%; 
+  padding-top: 245px;
+}
+.details-style {
+  margin-top: 125px;
+}
+.welcome-program {
+  margin-top: 250px;
+}
+.enter-sign {
+  font-size: 60px;
+}
+.margin-admin-menu {
+  margin-left: 317px;
+}
+@media screen and (max-width: 1366px) {
+  .welcome-style {
+    width: 80%; 
+    padding-top: 90px;
+  }
+  .details-style {
+    margin-top: 60px;
+  }
+  .margin-admin-menu {
+    margin-left: 228px;
+  }
+  .dashValueProx {
+    font-weight: bold;
+    font-size: 44px;
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 480px) {
-    .footer-style {
-        height: 80px;
-    }
+  .footer-style {
+      height: 80px;
+  }
+  .welcome-style {
+    width: 100%; 
+    padding-top: 90px;
+  }
+  .button-style {
+    border: none;
+    /* border-radius: 0; */
+    padding: 6px 10px;
+    margin: 0 5px;
+  }
+  .navbar-brand {
+    margin-left: 15px;
+  }
+  .navbar-header {
+    min-height: 75px;
+  }
+  .navbar-toggle {
+    margin-top: 20px;
+  }
+  .buttonMenu {
+    border: none;
+  }
 }

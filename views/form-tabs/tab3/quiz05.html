@@ -1,106 +1,104 @@
 <div class="col-sm-12">
-    <h4>Cronologia alimentar</h4>
+    <h4 class="newH4">Cronologia alimentar</h4>
 </div>
 <div class="col-sm-12">
-    <div class="col-sm-12">
-        <h5>Registe um exemplo de dia alimentar frequente, indicando as quantidades através do seu peso ou medidas, por exemplo:</h5>
-        <table class="table">
-            <thead>
-                <tr>
-                    <td style="width: 18%" class="text-center">Refeição</td>
-                    <td style="width: 7%" class="text-center">Hora</td>
-                    <td class="text-center">Descreva a sua refeição</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="td-title">Pequeno Almoço</td>
-                    <td class="td-style">
-                        <input class="form-control text-center" ng-model="clientForm.quiz05_1_1" type=text placeholder="09:10" style="width: 100%">
-                    </td>
-                    <td class="td-style">
-                        <input class="form-control" ng-model="clientForm.quiz05_1_2" type=text placeholder="ex: Pão de sementes com queijo e 1 cafê" style="width: 100%">
-                    </td>
+    <h5>Registe um exemplo de dia alimentar frequente, indicando as quantidades através do seu peso ou medidas, por exemplo:</h5>
+    <table class="table">
+        <thead>
+            <tr>
+                <td style="width: 18%" class="text-center">Refeição</td>
+                <td style="width: 7%" class="text-center">Hora</td>
+                <td class="text-center">Descreva a sua refeição</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="td-title">Pequeno Almoço</td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientForm.quiz05_1_1" type=text placeholder="09:10" style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control" ng-model="clientForm.quiz05_1_2" type=text placeholder="ex: Pão de sementes com queijo e 1 cafê" style="width: 100%">
+                </td>
+            
+            </tr>
+            <tr>
+                <td class="td-title">Merenda Manhã 1</td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientForm.quiz05_2_1" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control" ng-model="clientForm.quiz05_2_2" type=text style="width: 100%">
+                </td>
                 
-                </tr>
-                <tr>
-                    <td class="td-title">Merenda Manhã 1</td>
-                    <td class="td-style">
-                        <input class="form-control text-center" ng-model="clientForm.quiz05_2_1" type=text style="width: 100%">
-                    </td>
-                    <td class="td-style">
-                        <input class="form-control" ng-model="clientForm.quiz05_2_2" type=text style="width: 100%">
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td class="td-title">Merenda Manhã 2</td>
-                    <td class="td-style">
-                        <input class="form-control text-center" ng-model="clientForm.quiz05_3_1" type=text style="width: 100%">
-                    </td>
-                    <td class="td-style">
-                        <input class="form-control" ng-model="clientForm.quiz05_3_2" type=text style="width: 100%">
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td class="td-title">Almoço</td>
-                    <td class="td-style">
-                        <input class="form-control text-center" ng-model="clientForm.quiz05_4_1" type=text style="width: 100%">
-                    </td>
-                    <td class="td-style">
-                        <input class="form-control" ng-model="clientForm.quiz05_4_2" type=text style="width: 100%">
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td class="td-title">Lanche 1</td>
-                    <td class="td-style">
-                        <input class="form-control text-center" ng-model="clientForm.quiz05_5_1" type=text style="width: 100%">
-                    </td>
-                    <td class="td-style">
-                        <input class="form-control" ng-model="clientForm.quiz05_5_2" type=text style="width: 100%">
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td class="td-title">Lanche 2</td>
-                    <td class="td-style">
-                        <input class="form-control text-center" ng-model="clientForm.quiz05_6_1" type=text style="width: 100%">
-                    </td>
-                    <td class="td-style">
-                        <input class="form-control" ng-model="clientForm.quiz05_6_2" type=text style="width: 100%">
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td class="td-title">Jantar</td>
-                    <td class="td-style">
-                        <input class="form-control text-center" ng-model="clientForm.quiz05_7_1" type=text style="width: 100%">
-                    </td>
-                    <td class="td-style">
-                        <input class="form-control" ng-model="clientForm.quiz05_7_2" type=text style="width: 100%">
-                    </td>
-                    
-                </tr>
-                <tr>
-                    <td class="td-title">Ceia</td>
-                    <td class="td-style">
-                        <input class="form-control text-center" ng-model="clientForm.quiz05_8_1" type=text style="width: 100%">
-                    </td>
-                    <td class="td-style">
-                        <input class="form-control" ng-model="clientForm.quiz05_8_2" type=text style="width: 100%">
-                    </td>
-                    
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-sm-12">
-        <h5>Observações <span style="font-size:12px;">(Preencha caso seja necessário adicionar alguma informação):</span></h5>
-        <!--<input type="text" ng-model="clientForm.quiz21" style="width:100%; border:0;"/>-->
-        <textarea ng-model="clientForm.quiz21"></textarea>
-    </div>
+            </tr>
+            <tr>
+                <td class="td-title">Merenda Manhã 2</td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientForm.quiz05_3_1" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control" ng-model="clientForm.quiz05_3_2" type=text style="width: 100%">
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="td-title">Almoço</td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientForm.quiz05_4_1" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control" ng-model="clientForm.quiz05_4_2" type=text style="width: 100%">
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="td-title">Lanche 1</td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientForm.quiz05_5_1" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control" ng-model="clientForm.quiz05_5_2" type=text style="width: 100%">
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="td-title">Lanche 2</td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientForm.quiz05_6_1" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control" ng-model="clientForm.quiz05_6_2" type=text style="width: 100%">
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="td-title">Jantar</td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientForm.quiz05_7_1" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control" ng-model="clientForm.quiz05_7_2" type=text style="width: 100%">
+                </td>
+                
+            </tr>
+            <tr>
+                <td class="td-title">Ceia</td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientForm.quiz05_8_1" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control" ng-model="clientForm.quiz05_8_2" type=text style="width: 100%">
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-sm-12">
+    <h5>Observações <span style="font-size:12px;">(Preencha caso seja necessário adicionar alguma informação):</span></h5>
+    <!--<input type="text" ng-model="clientForm.quiz21" style="width:100%; border:0;"/>-->
+    <textarea ng-model="clientForm.quiz21"></textarea>
 </div>
 <div class="col-sm-12" style="margin: 15px 0;">
     <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>

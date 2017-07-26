@@ -1,50 +1,43 @@
 <div class="col-sm-12">
-    <h4>A minha motivação</h4>
-    <div class="col-sm-12">
-        <p style="display: inline">Qual o meu grau de comprometimento com este processo?</p>
-        <span style="font-size:11px;">(Em que 1 significa nada empenhado e 10 extremamente empenhado.)</span>
-    </div>
+    <h4 class="newH4">A minha motivação</h4>
+    <p style="display: inline">Qual o meu grau de comprometimento com este processo?</p>
+    <span>(Em que 1 significa nada empenhado e 10 extremamente empenhado.)</span>
 </div>
 <div class="col-sm-12" style="margin-top: 10px;">
-    <div class="col-sm-12">
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="1"> 1
-        </label>
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="2"> 2
-        </label>
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="3"> 3
-        </label>
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="4"> 4
-        </label>
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="5"> 5
-        </label>
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="6"> 6
-        </label>
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="7"> 7
-        </label>
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="8"> 8
-        </label>
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="9"> 9
-        </label>
-        <label class="radio-inline">
-            <input type="radio" ng-model="clientForm.quiz03" value="10"> 10
-        </label>
-    </div>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="1"> 1
+    </label>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="2"> 2
+    </label>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="3"> 3
+    </label>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="4"> 4
+    </label>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="5"> 5
+    </label>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="6"> 6
+    </label>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="7"> 7
+    </label>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="8"> 8
+    </label>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="9"> 9
+    </label>
+    <label class="radio-inline">
+        <input type="radio" ng-model="clientForm.quiz03" value="10"> 10
+    </label>
 </div>
-<div class="col-sm-12" style="margin-top: 10px;">
-        <label for="motivation" class="col-sm-3 control-label">O que o/a impede de atingir maior motivação?</label>
-        <div class="col-sm-9">
-            <input type="text" class="form-control" id="motivation" ng-model="clientForm.quiz03_1"  ng-disabled="clientDetail.isQuizFuncBlock">
-        </div>
-    </div>
+<div class="col-sm-12" style="margin-top: 10px;" ng-show="clientForm.quiz03 < 8">
+    <label for="motivation">O que o/a impede de atingir maior motivação?</label>
+    <input type="text" class="form-control" id="motivation" ng-model="clientForm.quiz03_1"  ng-disabled="clientDetail.isQuizFuncBlock">
 </div>
 <div class="col-sm-12" style="margin: 15px 0;">
     <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>

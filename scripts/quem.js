@@ -5,9 +5,9 @@ app.controller('QuemCtrl', ['$scope',
         $scope.groupDesc = {};
         $scope.quemQuiz = {};
         $scope.group = {};
-        $scope.preMassa1 = false;
+        /*$scope.preMassa1 = false;
         $scope.preMassa2 = false;
-        $scope.preMassa3 = false;  
+        $scope.preMassa3 = false;  */
         $scope.callMe = false;    
              
         $scope.setType = function(param) {
@@ -29,6 +29,7 @@ app.controller('QuemCtrl', ['$scope',
             if (param == "desporto") {
                 $scope.massa = false;
                 $scope.desporto = true;
+                $scope.preDesporto1 = true;
                 $scope.saude = false;
                 $scope.profile = false;
                 $scope.groupDiv = false;
@@ -42,14 +43,6 @@ app.controller('QuemCtrl', ['$scope',
                 $scope.groupDiv = false;
             }
         }
-
-        $scope.groupDesportoObjective01 = {
-            objective: "Atleta Recreativo"
-        };
-        $scope.groupDesportoObjective02 = {
-            objective: "Atleta de alta competição" 
-        }
-        
 
         var groupDesc01 = {
             name: "Não podiamos estar mais satisfeitos com o seu empenho!",
@@ -238,13 +231,85 @@ app.controller('QuemCtrl', ['$scope',
                 if(orangeSaude == 2) {
                     $scope.group = groupDesc10;
                 }
-                console.log(greenSaude);
             }
         }
         $scope.callMeSaude = function() {
             $scope.preSaudeResumo = false;
             $scope.callMeDiv = true;
         };
+
+        $scope.preD11 = function() {
+            $scope.preDesporto1 = false;
+            $scope.preDesporto2 = true;
+            $scope.groupDesportoObjective = {
+                objective: "Atleta Recreativo"
+            }
+        };
+        $scope.preD12 = function() {
+            $scope.preDesporto1 = false;
+            $scope.preDesporto2 = true;
+            $scope.groupDesportoObjective = {
+                objective: "Atleta de alta competição" 
+            }
+        };
+        /*$scope.preD13 = function() {
+            $scope.preDesporto1 = false;
+            $scope.preDDesporto2 = true;
+            $scope.groupsDesportoObjective = {
+                objective: "Perder mais de 30kg" 
+            }
+        };*/
+        $scope.preD21 = function() {
+            $scope.preDesporto2 = false;
+            $scope.preDesporto3 = true;
+            greenDesporto++;
+        };
+        $scope.preD22 = function() {
+            $scope.preDesporto2 = false;
+            $scope.preDesporto3 = true;
+            greenDesporto++;
+        };
+        $scope.preD23 = function() {
+            $scope.preDesporto2 = false;
+            $scope.preDesporto3 = true;
+            orangeDesporto++;
+        };
+        $scope.preD31 = function() {
+            $scope.preDesporto3 = false;
+            $scope.preDesportoResumo = true;
+            greenDesporto++;
+            checkGroupDesporto()
+        };
+        $scope.preD32 = function() {
+            $scope.preDesporto3 = false;
+            $scope.preDesportoResumo = true;
+            greenDesporto++;
+            checkGroupDesporto()
+        };
+        $scope.preD33 = function() {
+            $scope.preDesporto3 = false;
+            $scope.preDesportoResumo = true;
+            orangeDesporto++;
+            checkGroupDesporto()
+        };
+        function checkGroupDesporto() {
+            if(greenDesporto == 2) {
+                $scope.group = groupDesc04;
+            }
+            if(greenDesporto == 1 && orangeDesporto == 1) {
+                $scope.group = groupDesc05;
+            }
+            if(orangeDesporto == 2) {
+                $scope.group = groupDesc06;
+            }
+        }
+        $scope.callMeDesporto = function() {
+            $scope.preDesportoResumo = false;
+            $scope.callMeDiv = true;
+        };
+
+
+
         /*$scope.checkTypeResult = function() {
             if ($scope.massa) {
                 
@@ -309,7 +374,7 @@ app.controller('QuemCtrl', ['$scope',
                 }
             }
 
-            if ($scope.saude) {
+            if ($scope.Desporto) {
                 
                 $scope.saude = false;
                 $scope.groupDiv = true;

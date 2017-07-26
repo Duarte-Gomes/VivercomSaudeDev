@@ -1,4 +1,104 @@
-<!--<div style="margin-top: 50px;">-->
+<div style="background-image: url(images/imag_nd.png); background-size: cover; height: 100vh;">
+    <div class="container">
+        <div class="text-center preDesporto1 divDesporto space-top" ng-show="preDesporto1">
+            <p class="souPTitle">QUE TIPO DE ATLETA SE CONSIDERA?</p>
+            <p class="souPDesc">São considerados atletas recreativos quem pratica atividade física leve ou moderada</p>
+            <div class="divButtonOptions">
+                <div class="col-sm-4 col-sm-offset-2">
+                    <button class="souButton" ng-click=preD11()>
+                        Atleta Recreativo
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preD12()>
+                        Atleta de Competição
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="text-center preDesporto2 divDesporto space-top" ng-show="preDesporto2">
+            <p class="souPTitle">TEM POR HÁBITO CONSUMIR ALIMENTOS PROCESSADOS?</p>
+            <p class="souPDesc">Exemplos de alimentos processados: Bolos, doces, batatas fritas, salgados, refrigerantes</p>
+            <div class="divButtonOptions">
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preD21()>
+                        Raramente ou nunca
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preD22()>
+                        Alguns dias por semana
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preD23()>
+                        Todos os dias da semana
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center preDesporto3 divDesporto space-top" ng-show="preDesporto3">
+            <p class="souPTitle">TEM POR HÁBITO PLANEAR REFEIÇÔES?</p>
+            <!--<p class="souPDesc">Diga-nos aproximadamente quantos vezes come legumes por semana</p>-->
+            <div class="divButtonOptions">
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preD31()>
+                        Todas as refeições
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preD32()>
+                        Algumas refeições
+                    </button>
+                </div>
+                <div class="col-sm-4">
+                    <button class="souButton" ng-click=preD33()>
+                        Nenhuma refeição
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="preDesportoGroup divDesporto space-top-2" ng-show="preDesportoResumo">
+            <p class="groupName">{{group.name}}</p>
+            <p class="groupDesc">{{group.desc}}</p>
+            <p class="groupProgramaTitle">Temos para si 2 propostas:</p>
+            <p>Programa Saúde com duração de 3 a 12 meses</p>
+            <p>Consultas de Nutrição Funcional Clínica isoladas</p>
+            <p class="groupProgramaTitle">Este programa inclui:</p>
+            <p>Consultas de Nutrição Funcional; coaching motivacional, massagem localizada anti-celulitica e/ou actividade fisica com os nossos personal trainers; fornecimento de refeições saudáveis BeFuncional, snacks saudáveis e/ou receitas de menus e snacks para realizar ao seu gosto quando quiser, água alcalina e anti-oxidantte AKUAY para mais rápida eliminação de massa gorda e melhor hidratação.</p>
+            <p>Na promeira consulta será realizada uma avaliação detalhada do seu perfil fisiológico, endocrinológico, compormantal, nutricional e estilo de vida. No sentido de identificar os factores que influenciaram o peso e, de que forma, poderão ser controlados. Esta consulta inclui: identificação do seu Biotipo, Morfotipo e Cronotipo. Avaliação dos seus seus parâmetros corporais e plano nutricional Funcional.</p>
+            <p>Será delineado o pragrama adequado às suas necessidades e objetivos pessoais. Saberá qual a duração do programa mais aconselhado ao seu caso, quais as áreas a trabalhar, a frequência das consultas e as estratégias de acompanhamento.</p>
+            <div class="text-center">
+                <p class="buttonTitle">Não perca mais tempo, venha descobrir o plano nutricional da sua vida!</p>
+                <button class="callMeStyle" ng-click="callMeDesporto()">Nós ligamos  <i class="fa fa-comment" aria-hidden="true"></i></button>
+            </div>
+        </div>
+
+        <div class="preQuizContact" ng-show="callMeDiv">
+            <div class="col-sm-6 col-sm-offset-3 subPreQuizContact">
+                <p class="callMeTitle">NÓS LIGAMOS</p>
+                <p>Não perca mais tempo, venha descobrir o plano nutricional da sua vida!</p>
+                <p>A distância não é um obstáculo, fazemos acompanhamento presencial e à distância, Skype, Gmail, Facebook.</p>
+                <p>Deixe-nos os seus dados e nós ligamos.</p>
+                <input type="text" class="callMeInput" placeholder="Nome">
+                <input type="text" class="callMeInput" placeholder="Telefone">
+                <input type="email" class="callMeInput" placeholder="Email">
+                <!--<input type="text" class="callMeInput" placeholder="Mensagem">-->
+                <textarea class="callMeInput callMeTextarea"placeholder="A sua mensagem..."></textarea>
+                <div class="text-center">
+                    <button class="callMeButtom">Enviar  |  <i class="fa fa-envelope-o" aria-hidden="true"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--
+copiar
     <div class="col-sm-6 col-sm-offset-3">
         <h2 class="text-center">Nutrição Desportiva</h2>
         <div style="background-color: white; margin-bottom: 20px;">
@@ -18,8 +118,7 @@
                 </div>
             </div>
         </div>
-    <!--</div>
-    <div class="col-sm-4" style="padding: 0 20px;">-->
+
         <div style="background-color: white; margin-bottom: 20px;">
             <p style="background-color: #ABFFAB; padding: 10px 20px; margin: 0; font-size: 18px; font-weight: bold;">Tem por hábito consumir alimentos processados:</p>
             <div style="padding: 10px 20px;">
@@ -43,8 +142,7 @@
                 </div>
             </div>
         </div>
-    <!--</div>
-    <div class="col-sm-4" style="padding: 0 20px;">-->
+
         <div style="background-color: white; margin-bottom: 20px;">
             <p style="background-color: #ABFFAB; padding: 10px 20px; margin: 0; font-size: 18px; font-weight: bold;">Tem por hábito planear refeições:</p>
             <div style="padding: 10px 20px;">
@@ -76,4 +174,4 @@
     <div class="col-sm-1 text-right">
         <button ng-click="setType('profile')" style="font-size: 20px; border: 0; background-color: transparent;"><i class="fa fa-window-close" aria-hidden="true"></i></button>
     </div>
-<!--</div>-->
+-->

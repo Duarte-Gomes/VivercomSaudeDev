@@ -1,18 +1,30 @@
 md-content {
   background-color: transparent;
+  border-radius: 4px;
 }
 .tabsdemoDynamicHeight md-content {
   background-color: transparent !important; 
 }
 
+.md-padding {
+  background-color: transparent !important; 
+}
+
+md-tabs[md-border-bottom]:not(.md-dynamic-height) md-tabs-content-wrapper {
+  background-color: rgba(255,255,255,0.9) !important; 
+}
 md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(1) {
   background-color: #ffd900 !important;
-  
+  width: 292px;
+  /* margin-right: 43px; */
+  border-radius: 4px 4px 0 0;
 }
 
 md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(2) {
   background-color: #00bd13 !important;
- 
+  width: 293px;
+  /* margin-right: 43px; */
+  border-radius: 4px 4px 0 0;
 }
 /*md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(1).md-active {
   font-weight: bold !important;
@@ -21,7 +33,9 @@ md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item
 
 md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(3) {
   background-color: #0886d4 !important;
-
+  width: 292px;
+  /* margin-right: 44px; */
+  border-radius: 4px 4px 0 0;
 }
 /*md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(2).md-active {
   font-weight: bold !important;
@@ -30,7 +44,8 @@ md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item
 
 md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(4) {
   background-color: #cf0000 !important;
- 
+  width: 293px;
+  border-radius: 4px 4px 0 0;
 }
 /*md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(3).md-active {
   font-weight: bold !important;
@@ -72,7 +87,24 @@ md-tabs md-ink-bar {
     height: 3px !important;
 }
 md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-  min-height: 610px;
+  min-height: 665px;
+}
+md-pagination-wrapper {
+  width: 1170px !important;
+}
+md-tabs[md-border-bottom]:not(.md-dynamic-height) md-tabs-content-wrapper {
+  top: 48px;
+}
+.quiz-func-pad-top {
+  margin-top: 55px;
+}
+@media screen and (max-width: 1366px) {
+    md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+      min-height: 445px;
+    }
+    .quiz-func-pad-top {
+      margin-top: 15px;
+    }
 }
 /*#main-tabs ul li a {
   color: black;

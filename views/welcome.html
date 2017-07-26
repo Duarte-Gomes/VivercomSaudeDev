@@ -1,13 +1,18 @@
-<div class="main-welcome" style="margin-top: 80px; margin-bottom: 80px;">
-        <h1>Bom dia alegria</h1>
-        <div id="esconder">
-            <h1>Bem vindo á Viver com Saúde e desde já obrigado pela preferência.</h1>
-            <h4>Por favor siga o link em baixo para responder ao questionário</h4>
-            <a href="#/form">Questionário</a>
-            <br>
-            <h4>Ainda não submeteu o questionario</h4>
-            <h4>Falta 70% para finalizar o questionário</h4>
-            
-            <h1 id="dash" style="display: none;">Temos de criar um dashboard, com data da proxima consulta, link para download do plano e afins</h1>
+<div class="main-welcome welcome-program">
+    <div class="col-sm-6 col-sm-offset-3 text-center">
+        <h1 class="text-center" style="color: green; font-weight: bold; font-size: 52px;">Bem-vindo à Healthy Habits</h1>
+        <div>
+            <div ng-show="typeTitle">
+                <h2 class="text-center" style="font-weight: bold;">Obrigado pela sua preferência</h2>
+                <h3 class="text-center" style="font-size: 22px;">Por favor siga o link em baixo para se registar e aceder à sua área pessoal</h3>
+                <div class="text-center">
+                    <a href="/"><i class="fa fa-sign-in enter-sign" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <div ng-show="errormessage">
+                <p>existe algum problema com o link enviado por favor entre em contacto connosco</p> 
+            </div>
         </div>
     </div>
+</div>

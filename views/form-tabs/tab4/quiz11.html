@@ -1,53 +1,119 @@
-<div class="col-sm-12">
-    <h4>Algum dos seus familiares directos tem/teve os seguintes problemas de saúde?</h4>
+<div ng-show="clientTypeSaude || clientTypePeso || clientTypeDesporto">
+    <div class="col-sm-12" style="display: inline-flex;">
+        <h4 class="newH4">Algum dos seus familiares directos tem/teve os seguintes problemas de saúde?</h4>
+        <div class="checkbox checkbox-title" style="width: 5%; margin-left: 20px;">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz11">
+                Sim
+            </label>
+        </div>
+    </div>
+
+    <div class="col-sm-12 no-pad-left no-pad-right" ng-show="clientForm.quiz11">
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_1">
+                    Familiares com excesso de peso
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_2">
+                    Familiares com colesterol/triglicéridos elevado
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_3">
+                    Familiares com hipertensão arterial
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_4">
+                    Familiares com diabetes
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_5">
+                    Familiares com problemas hepáticos
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_6">
+                    Familiares com problemas renais
+                </label>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="col-sm-12">
-    <div class="col-sm-4">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" ng-model="clientForm.quiz11_1">
-                Familiares com excesso de peso
-            </label>
-        </div>
+
+<div ng-hide="clientTypeSaude || clientTypePeso || clientTypeDesporto">
+    <div class="col-sm-12">
+        <h4 class="newH4">Algum dos seus familiares directos tem/teve os seguintes problemas de saúde?</h4>
     </div>
-    <div class="col-sm-4">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" ng-model="clientForm.quiz11_2">
-                Familiares com colesterol/triglicéridos elevado
-            </label>
+
+    <div class="col-sm-12 no-pad-left no-pad-right">
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_1">
+                    Familiares com excesso de peso
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" ng-model="clientForm.quiz11_3">
-                Familiares com hipertensão arterial
-            </label>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_2">
+                    Familiares com colesterol/triglicéridos elevado
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" ng-model="clientForm.quiz11_4">
-                Familiares com diabetes
-            </label>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_3">
+                    Familiares com hipertensão arterial
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" ng-model="clientForm.quiz11_5">
-                Familiares com problemas hepáticos
-            </label>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_4">
+                    Familiares com diabetes
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="col-sm-4">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" ng-model="clientForm.quiz11_6">
-                Familiares com problemas renais
-            </label>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_5">
+                    Familiares com problemas hepáticos
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_6">
+                    Familiares com problemas renais
+                </label>
+            </div>
         </div>
     </div>
 </div>

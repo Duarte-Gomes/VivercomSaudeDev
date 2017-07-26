@@ -42,7 +42,9 @@ table#antropo .form-control {
     font-size: 12px;
     padding: 6px;
 }
-
+.dashPlanoNutri {
+    font-size: 87px !important;
+}
 .fa-file-pdf-o {
     font-size: 46px;
     color: red;
@@ -53,4 +55,7 @@ table#antropo .form-control {
 .preQuizContact input {
     display: block;
     width: 100%;
+}
+.no-bold-label {
+    font-weight: normal;
 }

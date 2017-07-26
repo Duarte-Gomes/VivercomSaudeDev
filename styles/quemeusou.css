@@ -44,11 +44,17 @@ button:focus, input:focus, textarea:focus {
     background-color: rgba(255,255,255,0.9);
     padding: 30px;
 }
+.preDesportoGroup {
+    background-color: rgba(255,255,255,0.9);
+    padding: 30px;
+}
 .preQuizContact {
     margin-top: 115px;
 }
 .subPreQuizContact {
-    background-color: rgba(255,255,255,0.9); padding: 25px;
+    background-color: rgba(255,255,255,0.9); 
+    padding: 25px;
+    margin-top: 150px;
 }
 @keyframes myChange {
   from {
@@ -63,8 +69,8 @@ button:focus, input:focus, textarea:focus {
   animation: 2s myChange;
 }*/
 .pre-h2 {
-    margin-bottom: 20px;
     font-weight: bold;
+    margin-bottom: 30px;
 }
 .space-top {
     margin-top: 560px;

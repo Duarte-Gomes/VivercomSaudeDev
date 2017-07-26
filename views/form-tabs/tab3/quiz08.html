@@ -1,7 +1,7 @@
 <div class="col-sm-12">
-    <h4>Outros Hábitos</h4>
+    <h4 class="newH4">Outros Hábitos</h4>
 </div>
-<div class="col-sm-12">
+<div class="col-sm-12 no-pad-left no-pad-right">
     <div class="col-sm-3" style="display: inline-flex;">
         <div class="checkbox">
             <label>
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="col-sm-12" ng-show="clientForm.quiz08_1">
+    <div class="col-sm-12 no-pad-left no-pad-right" ng-show="clientForm.quiz08_1">
         <div class="col-sm-3">
             <div class="radio">
                 <label>
@@ -72,22 +72,22 @@
         </div>
     </div>
 </div>
-<div class="col-sm-12">
-    <div class="col-sm-12" style="display: inline-flex;">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" ng-model="clientForm.quiz08_2">
-                Fuma?
-            </label>
-        </div>
-        <div ng-show="clientForm.quiz08_2" style="display: inline-flex; width: 24%;">
-            <label class="label-qual-cigarro" style="width: 92%;">
-                Quantos cigarros por dia?
-            </label>
-            <input type="number" style="width: 26%" class="form-control" step="1" min="1" placeholder="1" value="1" ng-model="clientForm.quiz08_2_1">
-        </div>   
+
+<div class="col-sm-12" style="display: inline-flex;">
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ng-model="clientForm.quiz08_2">
+            Fuma?
+        </label>
     </div>
+    <div ng-show="clientForm.quiz08_2" style="display: inline-flex; width: 24%;">
+        <label class="label-qual-cigarro no-bold-label" style="width: 92%;">
+            Quantos cigarros por dia?
+        </label>
+        <input type="number" style="width: 26%" class="form-control" step="1" min="1" placeholder="1" value="1" ng-model="clientForm.quiz08_2_1">
+    </div>   
 </div>
+
 <div class="col-sm-12" style="margin: 15px 0;">
     <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
 </div>

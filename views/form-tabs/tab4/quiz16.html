@@ -1,9 +1,17 @@
-<div class="col-sm-12">
-    <h4>Análises Clínicas</h4>
-</div>
-<div class="col-sm-12">
+<div ng-show="clientTypeSaude || clientTypePeso || clientTypeDesporto">
     <div class="col-sm-12">
-        <p>Caso tenha análises com menos de 6 meses preencha este quadro</p>
+        <h4 class="newH4">Análises Clínicas</h4>
+    </div>
+    <div class="col-sm-12" style="display: inline-flex;">
+        <h4 class="newH4">Fez análises no último semestre?</h4>
+        <div class="checkbox checkbox-title" style="margin-left: 20px;">
+            <label>
+                <input type="checkbox" ng-model="clientForm.quiz16">
+                Sim
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-12" ng-show="clientForm.quiz16">
         <table class="table">
             <thead>
                 <tr>
@@ -52,7 +60,7 @@
                         <input class="form-control" type=text ng-model="clientForm.quiz16_1_10" style="width: 100%">
                     </td>
                 </tr>
-                <tr>
+                <!-- <tr>
                     <td>
                         <input class="form-control text-center" ng-model="clientForm.quiz16_2_1" type=text style="width: 100%">
                     </td>
@@ -83,8 +91,8 @@
                     <td>
                         <input class="form-control" type=text ng-model="clientForm.quiz16_2_10" style="width: 100%">
                     </td>
-                </tr>
-                <tr>
+                </tr> -->
+                <!-- <tr>
                     <td>
                         <input class="form-control text-center" ng-model="clientForm.quiz16_3_1" type=text style="width: 100%">
                     </td>
@@ -115,11 +123,137 @@
                     <td>
                         <input class="form-control" type=text ng-model="clientForm.quiz16_3_10" style="width: 100%">
                     </td>
-                </tr>
+                </tr> -->
             </tbody>
         </table>
     </div>
 </div>
+
+<div ng-hide="clientTypeSaude || clientTypePeso || clientTypeDesporto">
+    <div class="col-sm-12">
+        <h4 class="newH4">Análises Clínicas - Fez análises no último semestre?</h4>
+    </div>
+    <!-- <div class="col-sm-12" style="display: inline-flex;">
+        <h4 class="newH4">Fez análises no último semestre?</h4>
+    </div> -->
+    <div class="col-sm-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td class="text-center" style="width: 8%;">Data</td>
+                    <td class="text-center" style="width: 8%;">Colest.T</td>
+                    <td class="text-center" style="width: 8%;">HDL</td>
+                    <td class="text-center" style="width: 8%;">LDL</td>
+                    <td class="text-center" style="width: 8%;">Trigl.</td>
+                    <td class="text-center" style="width: 8%;">Glicose</td>
+                    <td class="text-center" style="width: 8%;">Ureia</td>
+                    <td class="text-center" style="width: 8%;">Ác. Úrico</td>
+                    <td class="text-center" style="width: 8%;">Creat</td>
+                    <td class="text-center">Observações</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_1_1" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_1_2" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_1_3" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_1_4" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_1_5" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_1_6" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_1_7" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_1_8" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_1_9" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control" type=text ng-model="clientForm.quiz16_1_10" style="width: 100%">
+                    </td>
+                </tr>
+                <!-- <tr>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_2_1" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_2_2" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_2_3" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_2_4" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_2_5" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_2_6" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_2_7" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_2_8" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_2_9" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control" type=text ng-model="clientForm.quiz16_2_10" style="width: 100%">
+                    </td>
+                </tr> -->
+                <!-- <tr>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_3_1" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_3_2" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_3_3" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_3_4" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_3_5" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_3_6" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_3_7" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_3_8" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control text-center" ng-model="clientForm.quiz16_3_9" type=text style="width: 100%">
+                    </td>
+                    <td>
+                        <input class="form-control" type=text ng-model="clientForm.quiz16_3_10" style="width: 100%">
+                    </td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
 <div class="col-sm-12" style="margin: 15px 0;">
     <div style="border-bottom: 1px lightgrey solid; width: 70%; margin:auto ;"></div>
 </div>

@@ -1,25 +1,28 @@
-<h4>Dados Antropométricas</h4>
-    <div class="row">
-        <div class="col-sm-3">
-            <label for="bioType">Biotipo</label>
-            <select ng-model="clientHist.biotipo" class="form-control" id="bioType" ng-options="x for x in bioTypes">
-            </select>  
-        </div>
-
-        <div class="col-sm-3">
-            <label for="bioType">Cronotipo</label>
-            <select ng-model="clientHist.cronotipo" class="form-control" id="cronoType" ng-options="x for x in cronoTypes">
-            </select>  
-        </div>
-
+<div class="row" style="padding-top: 15px;">
+    <div class="col-sm-12">
+        <h4>Dados Antropométricas</h4>
     </div>
+    <div class="col-sm-3">
+        <label for="bioType">Biotipo</label>
+        <select ng-model="clientHist.biotipo" class="form-control" id="bioType" ng-options="x for x in bioTypes">
+        </select>  
+    </div>
+
+    <div class="col-sm-3">
+        <label for="bioType">Cronotipo</label>
+        <select ng-model="clientHist.cronotipo" class="form-control" id="cronoType" ng-options="x for x in cronoTypes">
+        </select>  
+    </div>
+
+    <div class="col-sm-12">
     <table class="table" id="antropo" style="margin-top: 20px;">
         <thead>
             <tr>
                 <td style="width: 80px;">Data</td>
                 <td>Altura</td>
                 <td>Peso</td>
-                <td>Massa Gorda</td>
+                <td>Massa Gorda (%)</td>
+                <td>Massa Gorda (kg)</td>
                 <td>Água Corporal</td>
                 <td>Massa Magra</td>
                 <td>Gordura Visceral</td>
@@ -62,6 +65,9 @@
                 </td>
                 <td class="td-style">
                     <input class="form-control text-center" ng-model="clientHist.da_01_04" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_01_23" type=text style="width: 100%">
                 </td>
                 <td class="td-style">
                     <input class="form-control text-center" ng-model="clientHist.da_01_05" type=text style="width: 100%">
@@ -141,6 +147,9 @@
                     <input class="form-control text-center" ng-model="clientHist.da_02_04" type=text style="width: 100%">
                 </td>
                 <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_02_23" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
                     <input class="form-control text-center" ng-model="clientHist.da_02_05" type=text style="width: 100%">
                 </td>
                 <td class="td-style">
@@ -216,6 +225,9 @@
                 </td>
                 <td class="td-style">
                     <input class="form-control text-center" ng-model="clientHist.da_03_04" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_03_23" type=text style="width: 100%">
                 </td>
                 <td class="td-style">
                     <input class="form-control text-center" ng-model="clientHist.da_03_05" type=text style="width: 100%">
@@ -295,6 +307,9 @@
                     <input class="form-control text-center" ng-model="clientHist.da_04_04" type=text style="width: 100%">
                 </td>
                 <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_04_23" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
                     <input class="form-control text-center" ng-model="clientHist.da_04_05" type=text style="width: 100%">
                 </td>
                 <td class="td-style">
@@ -370,6 +385,9 @@
                 </td>
                 <td class="td-style">
                     <input class="form-control text-center" ng-model="clientHist.da_05_04" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_05_23" type=text style="width: 100%">
                 </td>
                 <td class="td-style">
                     <input class="form-control text-center" ng-model="clientHist.da_05_05" type=text style="width: 100%">
@@ -449,6 +467,9 @@
                     <input class="form-control text-center" ng-model="clientHist.da_06_04" type=text style="width: 100%">
                 </td>
                 <td class="td-style">
+                    <input class="form-control text-center" ng-model="clientHist.da_06_23" type=text style="width: 100%">
+                </td>
+                <td class="td-style">
                     <input class="form-control text-center" ng-model="clientHist.da_06_05" type=text style="width: 100%">
                 </td>
                 <td class="td-style">
@@ -505,3 +526,5 @@
             </tr>
         </tbody>
     </table>
+    </div>
+</div>
