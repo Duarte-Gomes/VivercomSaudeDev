@@ -51,6 +51,9 @@ h1 {
   background-color: #424242;
   border: 0;
 }
+ul.navbar-nav {
+  margin-top: 25px;
+}
 .logo-style {
   height: 45px;
   margin-top: 10px;
@@ -60,7 +63,7 @@ h1 {
 }
 #loginWindow{
   background-color: lightgray;
-  padding: 10px 10px;
+  padding: 30px;
 }
 #newUserWindow {
   background-color: lightgray;
@@ -124,15 +127,18 @@ h1 {
   border-top: 1px solid #e5e5e5;
 }
 /* --------------------- */
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  font-size: 16px;
+  padding: 0 10px;
+}
 .buttonMenu {
   background-color: transparent;
-  color: white;
   border-right: 1px white solid;
   border-radius: 0;
   padding: 0 12px;
-  margin-top: 25px;
 }
-.buttonMenu:hover, .buttonMenu:focus, .buttonMenu:active {
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:active {
   color: white;
   text-decoration: underline;
 }
