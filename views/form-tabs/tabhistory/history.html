@@ -1,8 +1,10 @@
 <div class="row" style="padding-top: 15px;">
-
+    <div class="col-sm-1">
+        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#1</p>
+    </div>
     <div class="col-sm-2">
         <label>Data</label>
-        <input type="text" class="form-control" moment-picker="hist.dateString_01" 
+        <input type="text" class="form-control text-center" moment-picker="hist.dateString_01" 
                         locale="pt"
                         format="L"
                         max-view="day"
@@ -12,22 +14,33 @@
                         keyboard="true" ng-model="hist.date_01">
         <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <label>Tipo de Contacto</label>
         <select ng-model="clientHist.quizhis_1_3" class="form-control" id="" ng-options="x for x in contactTypeList">
         </select>
+    </div>
+    <div class="col-sm-2">
+        <button ng-click="showMetas01()" class="buttonMetas">Metas Funcionais</button>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
         <label>Observações</label>
-        <textarea ng-model="clientHist.quizhis_1_2"></textarea>
+        <textarea class="textarea-metas" ng-model="clientHist.quizhis_1_2"></textarea>
     </div>
 </div>
-<div class="row" style="margin-top: 30px;"> 
+
+<div class="row" style="margin: 15px 0;">
+    <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+</div>
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col-sm-1">
+        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#2</p>
+    </div>
     <div class="col-sm-2">
         <label>Data</label>
-        <input type="text" class="form-control" moment-picker="hist.dateString_02" 
+        <input type="text" class="form-control text-center" moment-picker="hist.dateString_02" 
                         locale="pt"
                         format="L"
                         max-view="day"
@@ -37,22 +50,33 @@
                         keyboard="true" ng-model="hist.date_02">
         <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <label>Tipo de Contacto</label>
         <select ng-model="clientHist.quizhis_2_3" class="form-control" id="" ng-options="x for x in contactTypeList">
         </select>
+    </div>
+    <div class="col-sm-2">
+        <button ng-click="showMetas02()" class="buttonMetas">Metas Funcionais</button>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
         <label>Observações</label>
-        <textarea ng-model="clientHist.quizhis_2_2"></textarea>
+        <textarea class="textarea-metas" ng-model="clientHist.quizhis_2_2"></textarea>
     </div>
 </div>
-<div class="row" style="margin-top: 30px;"> 
+
+<div class="row" style="margin: 15px 0;">
+    <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+</div>
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col-sm-1">
+        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#3</p>
+    </div>
     <div class="col-sm-2">
         <label>Data</label>
-        <input type="text" class="form-control" moment-picker="hist.dateString_03" 
+        <input type="text" class="form-control text-center" moment-picker="hist.dateString_03" 
                         locale="pt"
                         format="L"
                         max-view="day"
@@ -62,22 +86,33 @@
                         keyboard="true" ng-model="hist.date_03">
         <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <label>Tipo de Contacto</label>
         <select ng-model="clientHist.quizhis_3_3" class="form-control" id="" ng-options="x for x in contactTypeList">
         </select>
+    </div>
+    <div class="col-sm-2">
+        <button ng-click="showMetas03()" class="buttonMetas">Metas Funcionais</button>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
         <label>Observações</label>
-        <textarea ng-model="clientHist.quizhis_3_2"></textarea>
+        <textarea class="textarea-metas" ng-model="clientHist.quizhis_3_2"></textarea>
     </div>
 </div>
-<div class="row" style="margin-top: 30px;"> 
+
+<div class="row" style="margin: 15px 0;">
+    <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+</div>
+
+<div class="row" style="margin-top: 30px;">
     <div class="col-sm-1">
+        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#4</p>
+    </div>
+    <div class="col-sm-2">
         <label>Data</label>
-        <input type="text" class="form-control" moment-picker="hist.dateString_04" 
+        <input type="text" class="form-control text-center" moment-picker="hist.dateString_04" 
                         locale="pt"
                         format="L"
                         max-view="day"
@@ -87,22 +122,33 @@
                         keyboard="true" ng-model="hist.date_04">
         <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <label>Tipo de Contacto</label>
         <select ng-model="clientHist.quizhis_4_3" class="form-control" id="" ng-options="x for x in contactTypeList">
         </select>
+    </div>
+    <div class="col-sm-2">
+        <button ng-click="showMetas04()" class="buttonMetas">Metas Funcionais</button>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
         <label>Observações</label>
-        <textarea ng-model="clientHist.quizhis_4_2"></textarea>
+        <textarea class="textarea-metas" ng-model="clientHist.quizhis_4_2"></textarea>
     </div>
 </div>
-<div class="row" style="margin-top: 30px;"> 
+
+<div class="row" style="margin: 15px 0;">
+    <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+</div>
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col-sm-1">
+        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#5</p>
+    </div>
     <div class="col-sm-2">
         <label>Data</label>
-        <input type="text" class="form-control" moment-picker="hist.dateString_05" 
+        <input type="text" class="form-control text-center" moment-picker="hist.dateString_05" 
                         locale="pt"
                         format="L"
                         max-view="day"
@@ -112,22 +158,33 @@
                         keyboard="true" ng-model="hist.date_05">
         <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <label>Tipo de Contacto</label>
         <select ng-model="clientHist.quizhis_5_3" class="form-control" id="" ng-options="x for x in contactTypeList">
         </select>
+    </div>
+    <div class="col-sm-2">
+        <button ng-click="showMetas05()" class="buttonMetas">Metas Funcionais</button>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
         <label>Observações</label>
-        <textarea ng-model="clientHist.quizhis_5_2"></textarea>
+        <textarea class="textarea-metas" ng-model="clientHist.quizhis_5_2"></textarea>
     </div>
 </div>
-<div class="row" style="margin-top: 30px;"> 
+
+<div class="row" style="margin: 15px 0;">
+    <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+</div>
+
+<div class="row" style="margin-top: 30px;">
+    <div class="col-sm-1">
+        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#6</p>
+    </div>
     <div class="col-sm-2">
         <label>Data</label>
-        <input type="text" class="form-control" moment-picker="hist.dateString_06" 
+        <input type="text" class="form-control text-center" moment-picker="hist.dateString_06" 
                         locale="pt"
                         format="L"
                         max-view="day"
@@ -137,32 +194,18 @@
                         keyboard="true" ng-model="hist.date_06">
         <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <label>Tipo de Contacto</label>
         <select ng-model="clientHist.quizhis_6_3" class="form-control" id="" ng-options="x for x in contactTypeList">
         </select>
+    </div>
+    <div class="col-sm-2">
+        <button ng-click="showMetas06()" class="buttonMetas">Metas Funcionais</button>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
         <label>Observações</label>
-        <textarea ng-model="clientHist.quizhis_6_2"></textarea>
+        <textarea class="textarea-metas" ng-model="clientHist.quizhis_6_2"></textarea>
     </div>
-    <!--<div class="col-sm-12" style="display: inline-flex; margin-top: 20px;">
-        <label class="label-qual" style="width: 4%;">Data</label>
-        <input class="form-control" type="text" ng-model="clientHist.quizhis_2_1" style="display: inline-flex; width: 30%;">
-    </div>
-    <div class="col-sm-12">
-        <label class="label-qual" style="width: 5%;">Notas</label>
-        <textarea ng-model="clientHist.quizhis_2_2"></textarea>
-    </div>
-
-    <div class="col-sm-12" style="display: inline-flex; margin-top: 20px;">
-        <label class="label-qual" style="width: 4%;">Data</label>
-        <input class="form-control" type="text" ng-model="clientHist.quizhis_3_1" style="display: inline-flex; width: 30%;">
-    </div>
-    <div class="col-sm-12">
-        <label class="label-qual" style="width: 5%;">Notas</label>
-        <textarea ng-model="clientHist.quizhis_3_2"></textarea>
-    </div>-->
 </div>

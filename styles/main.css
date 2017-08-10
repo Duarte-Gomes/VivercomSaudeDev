@@ -212,7 +212,7 @@ textarea {
 }
 .dashTitle {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 24px;
   text-align: center;
 }
 .dashValue {
@@ -231,8 +231,8 @@ textarea {
   padding: 20px;
 }
 .welcome-style {
-  width: 80%; 
-  padding-top: 245px;
+  width: 50%; 
+  padding: 35px 0;
 }
 .details-style {
   margin-top: 125px;
@@ -246,10 +246,33 @@ textarea {
 .margin-admin-menu {
   margin-left: 317px;
 }
+.h2-welcome {
+  margin: 0;
+}
+.areas-welcome {
+  margin-top: 130px;
+}
+.metas-main-class p {
+  margin-top: 10px;
+}
+.buttonMetas {
+  border: 0;
+  padding: 19px;
+  background-color: #ff944d;
+}
+.buttonMetas:hover {
+  background-color: #ffd1b3;
+}
+.textarea-metas {
+  height: 50px;
+}
+.dashPlanoNutri {
+    font-size: 87px !important;
+}
 @media screen and (max-width: 1366px) {
   .welcome-style {
-    width: 80%; 
-    padding-top: 90px;
+    width: 30%; 
+    padding: 35px 0;
   }
   .details-style {
     margin-top: 60px;
@@ -257,10 +280,17 @@ textarea {
   .margin-admin-menu {
     margin-left: 228px;
   }
-  .dashValueProx {
-    font-weight: bold;
+  .dashValue {
     font-size: 44px;
-    text-align: center;
+  }
+  .dashValueProx {
+    font-size: 44px;
+  }
+  .areas-welcome {
+    margin-top: 60px;
+  }
+  .dashPlanoNutri {
+    font-size: 72px !important;
   }
 }
 
@@ -269,8 +299,8 @@ textarea {
       height: 80px;
   }
   .welcome-style {
-    width: 100%; 
-    padding-top: 90px;
+    width: 50%; 
+    padding: 30px 0;
   }
   .button-style {
     border: none;
@@ -289,5 +319,11 @@ textarea {
   }
   .buttonMenu {
     border: none;
+  }
+  .areas-welcome {
+    margin-top: 75px;
+  }
+  .h2-welcome {
+    font-size: 20px;
   }
 }

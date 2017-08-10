@@ -102,7 +102,18 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.showDetails = false;
         $scope.adminDivHome = true;
 
-        
+        $scope.generate = function() {
+            var fs = require('fs');
+            var pdf = require('html-pdf');
+            var html = fs.readFileSync('./views/metas/metas.html', 'utf8');
+            var options = { format: 'A4', orientation: "lanscape" };
+
+            pdf.create(html, options).toFile('./businesscard.pdf', function(err, res) {
+            if (err) return console.log(err);
+            console.log(res); // { filename: '/app/businesscard.pdf' }
+            });
+        };
+
         $scope.blockQuizFunc = function(){
             $scope.clientDetail.isQuizFuncBlock = true;
         };
@@ -115,12 +126,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.adminHome = function() {
             $scope.adminDivHome = true;
             $scope.adminDivClientDetails = false;
-            $scope.adminDivClientMetas01 = false;
-            $scope.adminDivClientMetas02 = false;
-            $scope.adminDivClientMetas03 = false;
-            $scope.adminDivClientMetas04 = false;
-            $scope.adminDivClientMetas05 = false;
-            $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas = false;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = false;            
             $scope.adminDivClientQuizFunc = false;
@@ -128,12 +134,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.adminClientDetails = function() {
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = true;
-            $scope.adminDivClientMetas01 = false;
-            $scope.adminDivClientMetas02 = false;
-            $scope.adminDivClientMetas03 = false;
-            $scope.adminDivClientMetas04 = false;
-            $scope.adminDivClientMetas05 = false;
-            $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas = false;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = false;                        
             $scope.adminDivClientQuizFunc = false;
@@ -141,12 +142,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.adminClientMetas = function() {
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = false;
-            $scope.adminDivClientMetas01 = true;
-            $scope.adminDivClientMetas02 = false;
-            $scope.adminDivClientMetas03 = false;
-            $scope.adminDivClientMetas04 = false;
-            $scope.adminDivClientMetas05 = false;
-            $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas = true;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = false;                        
             $scope.adminDivClientQuizFunc = false;
@@ -154,12 +150,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.adminClientHistory = function() {
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = false;
-            $scope.adminDivClientMetas01 = false;
-            $scope.adminDivClientMetas02 = false;
-            $scope.adminDivClientMetas03 = false;
-            $scope.adminDivClientMetas04 = false;
-            $scope.adminDivClientMetas05 = false;
-            $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas = false;
             $scope.adminDivClientHistory = true;
             $scope.adminDivClientAntropo = false;                        
             $scope.adminDivClientQuizFunc = false;
@@ -167,12 +158,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.adminClientAntropo = function() {
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = false;
-            $scope.adminDivClientMetas01 = false;
-            $scope.adminDivClientMetas02 = false;
-            $scope.adminDivClientMetas03 = false;
-            $scope.adminDivClientMetas04 = false;
-            $scope.adminDivClientMetas05 = false;
-            $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas = false;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = true;
             $scope.adminDivClientQuizFunc = false;
@@ -180,61 +166,11 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.adminClientQuizFunc = function() {
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = false;
-            $scope.adminDivClientMetas01 = false;
-            $scope.adminDivClientMetas02 = false;
-            $scope.adminDivClientMetas03 = false;
-            $scope.adminDivClientMetas04 = false;
-            $scope.adminDivClientMetas05 = false;
-            $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas = false;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = false;                        
             $scope.adminDivClientQuizFunc = true;
         };
-        $scope.showMetas01 = function() {
-            $scope.adminDivClientHistory = false;
-            $scope.adminDivClientMetas01 = true;
-        };
-        $scope.showMetas02 = function() {
-            $scope.adminDivClientHistory = false;
-            $scope.adminDivClientMetas02 = true;
-        };
-        $scope.showMetas03 = function() {
-            $scope.adminDivClientHistory = false;
-            $scope.adminDivClientMetas03 = true;
-        };
-        $scope.showMetas04 = function() {
-            $scope.adminDivClientHistory = false;
-            $scope.adminDivClientMetas04 = true;
-        };
-        $scope.showMetas05 = function() {
-            $scope.adminDivClientHistory = false;
-            $scope.adminDivClientMetas05 = true;
-        };
-        $scope.showMetas06 = function() {
-            $scope.adminDivClientHistory = false;
-            $scope.adminDivClientMetas06 = true;
-        };
-
-       /*  $scope.showLastMeta = function() {
-             if ($scope.clientHist.meta06 == null && $scope.clientHist.meta05 != null) {
-                $scope.showMetas06();
-            }
-            if ($scope.clientHist.meta05 == null && $scope.clientHist.meta04 != null) {
-                $scope.showMetas05();
-            }
-            if ($scope.clientHist.meta04 == null && $scope.clientHist.meta03 != null) {
-                $scope.showMetas04();
-            }
-            if ($scope.clientHist.meta03 == null && $scope.clientHist.meta02 != null) {
-                $scope.showMetas03();
-            }
-            if ($scope.clientHist.meta02 == null && $scope.clientHist.meta01 != null) {
-                $scope.showMetas02();
-            }
-            if ($scope.clientHist.meta01 == null) {
-                $scope.showMetas01();
-             }
-        }; */
 
         $scope.auth = Auth;
         $scope.admin = false;
@@ -472,22 +408,6 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 }
             
             }
-
-            /* if ($scope.clientHist.meta01 != null && $scope.clientHist.meta02 == null) {
-                $scope.clientHist.meta02 = $scope.clientHist.meta01;
-            }
-            if ($scope.clientHist.meta02 != null && $scope.clientHist.meta03 == null) {
-                $scope.clientHist.meta03 = $scope.clientHist.meta02;
-            }
-            if ($scope.clientHist.meta03 != null && $scope.clientHist.meta04 == null) {
-                $scope.clientHist.meta04 = $scope.clientHist.meta03;
-            }
-            if ($scope.clientHist.meta04 != null && $scope.clientHist.meta05 == null) {
-                $scope.clientHist.meta05 = $scope.clientHist.meta04;
-            }
-            if ($scope.clientHist.meta05 != null && $scope.clientHist.meta06 == null) {
-                $scope.clientHist.meta06 = $scope.clientHist.meta05;
-            } */
 
            /*  $scope.hist.dateStringConsult_01 = $scope.clientHist.quizhis_1_1;
             $scope.hist.dateStringConsult_02 = $scope.clientHist.quizhis_2_1;
@@ -770,22 +690,6 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             
             }
 
-            /* if ($scope.clientHist.meta01 != null && $scope.clientHist.meta02 == null) {
-                $scope.clientHist.meta02 = $scope.clientHist.meta01;
-            }
-            if ($scope.clientHist.meta02 != null && $scope.clientHist.meta03 == null) {
-                $scope.clientHist.meta03 = $scope.clientHist.meta02;
-            }
-            if ($scope.clientHist.meta03 != null && $scope.clientHist.meta04 == null) {
-                $scope.clientHist.meta04 = $scope.clientHist.meta03;
-            }
-            if ($scope.clientHist.meta04 != null && $scope.clientHist.meta05 == null) {
-                $scope.clientHist.meta05 = $scope.clientHist.meta04;
-            }
-            if ($scope.clientHist.meta05 != null && $scope.clientHist.meta06 == null) {
-                $scope.clientHist.meta06 = $scope.clientHist.meta05;
-            }
- */
            /*  $scope.hist.dateStringConsult_01 = $scope.clientHist.quizhis_1_1;
             $scope.hist.dateStringConsult_02 = $scope.clientHist.quizhis_2_1;
             $scope.hist.dateStringConsult_03 = $scope.clientHist.quizhis_3_1;

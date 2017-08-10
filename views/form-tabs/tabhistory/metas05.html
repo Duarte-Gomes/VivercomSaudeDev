@@ -1,0 +1,1200 @@
+<div class="row" style="padding-top: 15px;">
+    <div class="col-sm-12">
+        <h2 class="text-center">Metas Medicina Funcional e Saúde</h2>
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col-sm-2">
+        <p>Data Consulta</p>
+    </div>
+    <div class="col-sm-10">
+        <p>Nome</p>
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-sm-3">
+        <div class="form-group">
+            <label for="metaProgram">Programa</label>
+            <select ng-model="clientHist.meta05.metaProgram" class="form-control" id="metaProgram" ng-options="x for x in metaProgram"></select>
+        </div>
+    </div>
+    <div class="col-sm-7">
+        <div class="form-group">
+            <label for="metaObjective">Objetivo</label>
+            <input ng-mode="clientHist.meta05.metaObjective" type="text" class="form-control" id="metaObjetive">
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            <label for="metaData">Data Prox. Consulta</label>
+            <input ng-model="clientDetail.proxConsult" type="text" class="form-control" id="metaData" readonly>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <h2 class="text-center">Etapas</h2>
+    </div>
+    <div class="col-sm-2 col-sm-offset-3">
+        <div class="radio">
+            <label>
+                <input type="radio" ng-model="clientHist.meta05.meta_etapa" value="1">
+                Etapa 1 Adaptação
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="radio">
+            <label>
+                <input type="radio" ng-model="clientHist.meta05.meta_etapa" value="2">
+                Etapa 2 Desenvolvimento
+            </label>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="radio">
+            <label>
+                <input type="radio" ng-model="clientHist.meta05.meta_etapa" value="3">
+                Etapa 3 Consolidação
+            </label>
+        </div>
+    </div>
+</div>
+
+<!-- egjdfilhdfhdjlhfjdhgjehgjkefhgdfhgjsdhjdfhgjjkhdfjkghdfhgjkdfgjkdfhgjkdfjkghdfjhgjdfhgjdfhgjkhdfjkghdf-->
+
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #ffd900; font-weight: bold; font-size: 20px; border-bottom: 15px solid #ffd900;">PSICOLOGIA E LIFE COACHING</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #ffd900; font-weight: bold; font-size: 20px; border-bottom: 15px solid #ffd900;">METAS A ATINGIR</p>
+    </div>
+</div>
+<!-- <div class="row" style="background-color: #ffec80; margin: 0;">
+    <div class="col-sm-3">
+        <p>Realizar atividades preferidas</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_01" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_01" value="2">
+                    10 a 30 minutos
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_01" value="3">
+                    3 ou 4 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_01" value="4">
+                    Todos os dias
+                </label>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="row" style="background-color: #ffec80; margin: 0;">
+    <div class="col-sm-3">
+        <p>1) Tirar tempo para mim</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_01" value="1" checked>
+                    Não aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_01" value="2">
+                    15 a 30 minutosdias
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_01" value="3">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_01" value="4">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 0;">
+    <div class="col-sm-3">
+        <p>2) Gerir tempo</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_02" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_02" value="2">
+                    Pausa do dia
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_02" value="3">
+                    Diariamente
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_02" value="4">
+                    Semanalmente
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #ffec80; margin: 0;">
+    <div class="col-sm-3">
+        <p>3) Passear</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_03" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_03" value="2">
+                    15 a 30 minutos
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_03" value="3">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_03" value="4">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 0;">
+    <div class="col-sm-3">
+        <p>4) Atividade Relaxante</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_04" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_04" value="2">
+                    15 a 30 minutos
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_04" value="3">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_04" value="4">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #ffec80; margin: 0;">
+    <div class="col-sm-3">
+        <p>5) Gerir stress</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_05" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_05" value="2">
+                    15 a 30 minutos
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_05" value="3">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_05" value="4">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #ffd900; font-weight: bold; font-size: 20px; border-bottom: 15px solid #ffd900;">OBSERVAÇÕES</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <textarea ng-model="clientHist.meta05.meta_01_obs"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #ffd900; font-weight: bold; font-size: 20px; border-bottom: 15px solid #ffd900;">POSICIONAMENTO</p>
+    </div>
+    <div class="col-sm-12" style="display: inline-flex;">
+        <div class="col-sm-2 col-sm-offset-1">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_pos" value="1">
+                    0%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_pos" value="2">
+                    25%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_pos" value="3">
+                    50%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_03_pos" value="4">
+                    75%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_pos" value="5">
+                    100%
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- egjdfilhdfhdjlhfjdhgjehgjkefhgdfhgjsdhjdfhgjjkhdfjkghdfhgjkdfgjkdfhgjkdfjkghdfjhgjdfhgjdfhgjkhdfjkghdf-->
+
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #00bd13; font-weight: bold; font-size: 20px; border-bottom: 15px solid #00bd13;">Nutrição Funcional</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #00bd13; font-weight: bold; font-size: 20px; border-bottom: 15px solid #00bd13;">METAS A ATINGIR</p>
+    </div>
+</div>
+<div class="row" style="background-color: #b3ffba; margin: 0;">
+    <div class="col-sm-3">
+        <p>1) Planear refeições da semana</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_01" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_01" value="2">
+                    Ao fim de semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_01" value="3">
+                    De manha/final do dia
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_01" value="4">
+                    Todos os dias
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 0;">
+    <div class="col-sm-3">
+        <p>2) Fazer um diário alimentar</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_02" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_02" value="2">
+                    1 a 3 dias
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_02" value="3">
+                    Semana pré-consulta
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_02" value="4">
+                    1ª semana do plano
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #b3ffba; margin: 0;">
+    <div class="col-sm-3">
+        <p>3) Reduzir refeições fora de casa</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_03" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_03" value="2">
+                    Lanches / Refeições
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_03" value="3">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_03" value="4">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 0;">
+    <div class="col-sm-3">
+        <p>4) Refeições BeFunctional</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_04" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_04" value="2">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_04" value="3">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_04" value="4">
+                    Todos os dias
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #b3ffba; margin: 0;">
+    <div class="col-sm-3">
+        <p>5) Refeições BeFunctional</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_05" value="1" checked>
+                    Menu S
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_05" value="2">
+                    Menu M
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_05" value="3">
+                    Menu L
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_05" value="4">
+                    Menu XL
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #00bd13; font-weight: bold; font-size: 20px; border-bottom: 15px solid #00bd13;">OBSERVAÇÕES</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <textarea ng-model="clientHist.meta05.meta_04_obs"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #00bd13; font-weight: bold; font-size: 20px; border-bottom: 15px solid #00bd13;">POSICIONAMENTO</p>
+    </div>
+    <div class="col-sm-12" style="display: inline-flex;">
+        <div class="col-sm-2 col-sm-offset-1">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_pos" value="1">
+                    0%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_pos" value="2">
+                    25%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_pos" value="3">
+                    50%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_pos" value="4">
+                    75%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_04_pos" value="5">
+                    100%
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- egjdfilhdfhdjlhfjdhgjehgjkefhgdfhgjsdhjdfhgjjkhdfjkghdfhgjkdfgjkdfhgjkdfjkghdfjhgjdfhgjdfhgjkhdfjkghdf-->
+
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #0886d4; font-weight: bold; font-size: 20px; border-bottom: 15px solid #0886d4;">SAÚDE E MEDICINA FUNCIONAL</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #0886d4; font-weight: bold; font-size: 20px; border-bottom: 15px solid #0886d4;">METAS A ATINGIR</p>
+    </div>
+</div>
+<div class="row" style="background-color: #ceebfd; margin: 0;">
+    <div class="col-sm-3">
+        <p>1) Controlo da tensão arterial</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_01" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_01" value="2">
+                    1 vez por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_01" value="3">
+                    1 vez quinzenalmente
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_01" value="4">
+                    1 vez por mês
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 0;">
+    <div class="col-sm-3">
+        <p>2) Consulta médica de rotina</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_02" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_02" value="2">
+                    Dentro de 2 meses
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_02" value="3">
+                    de 6 a 6 meses
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_02" value="4">
+                    1 vez por ano
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #ceebfd; margin: 0;">
+    <div class="col-sm-3">
+        <p>3) Consulta higiene oral</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_03" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_03" value="2">
+                    Dentro de 2 meses
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_03" value="3">
+                    de 6 a 6 meses
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_03" value="4">
+                    1 vez por ano
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 0;">
+    <div class="col-sm-3">
+        <p>4) Análises sanguíneas periódicas</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_04" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_04" value="2">
+                    Dentro de 2 meses
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_04" value="3">
+                    de 6 a 6 meses
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_04" value="4">
+                    1 vez por ano
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #ceebfd; margin: 0;">
+    <div class="col-sm-3">
+        <p>5) Reduzir Hábitos</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_05" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_05" value="2">
+                    Terapia de substituição
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_05" value="3">
+                    Forma Gradual
+                </label>
+            </div>
+        </div>
+        <!-- <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_05" value="4">
+                    ???????
+                </label>
+            </div>
+        </div> -->
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col-sm-3">
+        <p>Reduzir Bebidas Alcoolicas</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta_01" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta_01" value="2">
+                    Forma Gradual
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta_01" value="3">
+                    Terapia de substituição
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta_01" value="4">
+                    ???????
+                </label>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #0886d4; font-weight: bold; font-size: 20px; border-bottom: 15px solid #0886d4;">OBSERVAÇÕES</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <textarea ng-model="clientHist.meta05.meta_01_obs"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #0886d4; font-weight: bold; font-size: 20px; border-bottom: 15px solid #0886d4;">POSICIONAMENTO</p>
+    </div>
+    <div class="col-sm-12" style="display: inline-flex;">
+        <div class="col-sm-2 col-sm-offset-1">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_pos" value="1">
+                    0%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_pos" value="2">
+                    25%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_pos" value="3">
+                    50%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_pos" value="4">
+                    75%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_01_pos" value="5">
+                    100%
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- egjdfilhdfhdjlhfjdhgjehgjkefhgdfhgjsdhjdfhgjjkhdfjkghdfhgjkdfgjkdfhgjkdfjkghdfjhgjdfhgjdfhgjkhdfjkghdf-->
+
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #cf0000; font-weight: bold; font-size: 20px; border-bottom: 15px solid #cf0000;">ATIVIDADE FISICA E DESPORTO</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #cf0000; font-weight: bold; font-size: 20px; border-bottom: 15px solid #cf0000;">METAS A ATINGIR</p>
+    </div>
+</div>
+<div class="row" style="background-color: #ffb3b3; margin: 0;">
+    <div class="col-sm-3">
+        <p>1) Fazer alongamentos</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_01" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_01" value="2">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_01" value="3">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_01" value="4">
+                    + de 5 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 0;">
+    <div class="col-sm-3">
+        <p>2) Subir escadas</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_02" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_02" value="2">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_02" value="3">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_02" value="4">
+                    + de 5 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #ffb3b3; margin: 0;">
+    <div class="col-sm-3">
+        <p>3) Realizar caminhadas</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_03" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_03" value="2">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_03" value="3">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_03" value="4">
+                    + de 5 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="margin: 0;">
+    <div class="col-sm-3">
+        <p>4) Exercícios de força</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_04" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_04" value="2">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_04" value="3">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_04" value="4">
+                    + de 5 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" style="background-color: #ffb3b3; margin: 0;">
+    <div class="col-sm-3">
+        <p>5) Iniciar uma actividade</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_05" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_05" value="2">
+                    1 a 2 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_05" value="3">
+                    3 a 4 vezes por semana
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_05" value="4">
+                    + de 5 vezes por semana
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p style="color: #cf0000; font-weight: bold; font-size: 20px; border-bottom: 15px solid #cf0000;">OBSERVAÇÕES</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <textarea ng-model="clientHist.meta05.meta_02_obs"></textarea>
+    </div>
+</div>
+<div class="row" style="margin-bottom: 20px;">
+    <div class="col-sm-12">
+        <p style="color: #cf0000; font-weight: bold; font-size: 20px; border-bottom: 15px solid #cf0000;">POSICIONAMENTO</p>
+    </div>
+    <div class="col-sm-12" style="display: inline-flex;">
+        <div class="col-sm-2 col-sm-offset-1">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_pos" value="1">
+                    0%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_pos" value="2">
+                    25%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_pos" value="3">
+                    50%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_pos" value="4">
+                    75%
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta05.meta_02_pos" value="5">
+                    100%
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

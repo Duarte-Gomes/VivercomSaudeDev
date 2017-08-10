@@ -51,7 +51,7 @@
                 <thead>
                     <tr>
                         <td>#</td>
-                        <!-- <td>Id</td> -->
+                        <td>Id</td>
                         <!--<td>Activo</td>-->
                         <td>Cód. Empresa</td>
                         <td>Local</td>
@@ -75,7 +75,7 @@
                 <tbody>
                     <tr ng-repeat="user in usersList">
                         <td>{{user.client_number}}</td>
-                        <!-- <td>{{user.$id}}</td> -->
+                        <td>{{user.$id}}</td>
                         <!--<td>
                             <div style="height: 30px; background-color: red; width: 30px;"></div>
                         </td>-->
@@ -128,45 +128,15 @@
                 <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
             </div>
 
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas01">
-                <div ng-include="'views/form-tabs/tabhistory/metas01.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas02">
-                <div ng-include="'views/form-tabs/tabhistory/metas02.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas03">
-                <div ng-include="'views/form-tabs/tabhistory/metas03.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas04">
-                <div ng-include="'views/form-tabs/tabhistory/metas04.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas05">
-                <div ng-include="'views/form-tabs/tabhistory/metas05.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas06">
-                <div ng-include="'views/form-tabs/tabhistory/metas06.html'"></div>
+            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas">
+                <div ng-include="'views/metas/metas.html'"></div>
                 <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
                 <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
                 <!-- <button ng-click="generate()">PDF</button> -->
             </div>
 
             <div class="col-sm-10 margin-admin-menu" ng-show="adminDivClientHistory">
-                <div ng-include="'views/form-tabs/tabhistory/history.html'"></div>
+                <div ng-include="'views/form-tabs/tabhistory/his01.html'"></div>
                 <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
                 <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
             </div>

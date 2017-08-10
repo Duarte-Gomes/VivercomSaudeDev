@@ -262,21 +262,24 @@
 
 <div class="row" style="margin-top: 20px;">
     <div class="col-sm-6">
-        <label>O cliente autoriza ser contactado pelos seguintes meios:</label>
+        <label>O cliente prefere ser contactado pelos seguintes meios:</label>
         <br>
         <!--<div class="checkbox" style="margin-bottom: 20px;">
             <label>
                 <input type="checkbox" ng-model="clientDetail.authorize"> Autoriza o envio de newsletters e artigos seja via email, sms ou outro meio.
             </label>
         </div>-->
-        <label class="checkbox-inline">
-            <input type="checkbox" ng-model="clientDetail.authorize.sms"> SMS
+        <label for="authsms" class="checkbox-inline">
+            <input type="checkbox" id="authsms" ng-model="clientDetail.authorize.sms"> SMS
         </label>
-        <label class="checkbox-inline">
-            <input type="checkbox" ng-model="clientDetail.authorize.email"> Email
+        <label for="authemail" class="checkbox-inline">
+            <input type="checkbox" id="authemail" ng-model="clientDetail.authorize.email"> Email
         </label>
-        <label class="checkbox-inline">
-            <input type="checkbox" ng-model="clientDetail.authorize.newsletter"> Newsletter
+        <label for="authtelefone" class="checkbox-inline">
+            <input type="checkbox" id="authtelefone" ng-model="clientDetail.authorize.telefone"> Telefone
+        </label>
+        <label for="authnewsletter" class="checkbox-inline">
+            <input type="checkbox" id="authnewsletter" ng-model="clientDetail.authorize.newsletter"> Newsletter
         </label>
         <!--<label class="checkbox-inline">
             <input type="checkbox" ng-model="clientDetail.authorize.sms"> App

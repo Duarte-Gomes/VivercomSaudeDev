@@ -1,4 +1,4 @@
-<p ng-show="firstTimeVisit">Obrigado por se inscrever na nossa APP, por favor preencha os dados em baixo</p>
+<!-- <p ng-show="firstTimeVisit">Obrigado por se inscrever na nossa APP, por favor preencha os dados em baixo</p> -->
 
 <div class="col-sm-12" style="margin-top: 20px;">
     <div class="col-sm-7">
@@ -150,7 +150,7 @@
 </div>
 <div class="col-sm-12" style="margin-bottom: 20px;">
     <div class="col-sm-6">
-        <label>Autorizo ser contactado pelos seguintes meios:</label>
+        <label>Prefiro ser contactado pelos seguintes meios:</label>
         <br>
         <!--<div class="checkbox" style="margin-bottom: 20px;">
             <label>
@@ -162,6 +162,9 @@
         </label>
         <label for="authemail" class="checkbox-inline">
             <input type="checkbox" id="authemail" ng-model="clientDetail.authorize.email"> Email
+        </label>
+        <label for="authetelefone" class="checkbox-inline">
+            <input type="checkbox" id="authtelefone" ng-model="clientDetail.authorize.telefone"> Telefone
         </label>
         <label for="authnewsletter" class="checkbox-inline">
             <input type="checkbox" id="authnewsletter" ng-model="clientDetail.authorize.newsletter"> Newsletter
