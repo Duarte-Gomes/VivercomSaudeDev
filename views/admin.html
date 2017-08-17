@@ -51,7 +51,7 @@
                 <thead>
                     <tr>
                         <td>#</td>
-                        <!-- <td>Id</td> -->
+                        <td>Id</td>
                         <!--<td>Activo</td>-->
                         <td>Cód. Empresa</td>
                         <td>Local</td>
@@ -75,7 +75,7 @@
                 <tbody>
                     <tr ng-repeat="user in usersList">
                         <td>{{user.client_number}}</td>
-                        <!-- <td>{{user.$id}}</td> -->
+                        <td>{{user.$id}}</td>
                         <!--<td>
                             <div style="height: 30px; background-color: red; width: 30px;"></div>
                         </td>-->
@@ -111,7 +111,7 @@
                 <button type="button" class="btn btn-default btn-menu" ng-click="atras()">Inicio</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminHome()">Dashboard</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientDetails()">Dados Pessoais</button>
-                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientMetas()">Metas Funcionais</button>
+                <button type="button" class="btn btn-default btn-menu" ng-click="showLastMeta()">Metas Funcionais</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientHistory()">Histórico</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientAntropo()">Dados Antropométricos</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientQuizFunc()">Questionário Funcional</button>

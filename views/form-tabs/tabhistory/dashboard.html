@@ -1,4 +1,4 @@
-<div class="row" style="padding-top: 15px;">
+<!-- <div class="row" style="padding-top: 15px;">
     <div class="col-sm-3">
         <div class="dashBox">
             <p class="dashTitle">Altura(cm)</p>
@@ -23,15 +23,42 @@
             <p class="dashValue">{{front.dashMassaMagra}}</p>
         </div>
     </div>
+</div> -->
+<div class="row">
+    <h3 class="text-center">Obrigado pela sua preferência! Consulte aos seus dados selecionando os símbolos correspondente à area pretendida.</h3>
 </div>
 <div class="row" style="padding-top: 15px;">
     <div class="col-sm-3">
         <div class="dashBox text-center">
-            <p class="dashTitle">Plano Nutricional</p>
+            <p class="dashTitle">Visualize aqui o seu plano nutricional</p>
             <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o dashPlanoNutri" aria-hidden="true"></i></a>
         </div>
     </div>
+    <div class="col-sm-3" ng-show="adminDash">
+        <div class="dashBox text-center">
+            <p class="dashTitle">Dados Antropométricos</p>
+            <button class="button-dash" ng-click="adminClientAntropo()">    
+                <i class="fa fa-tachometer dashPlanoNutri" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-sm-3" ng-hide="adminDash">
+            <div class="dashBox text-center">
+                <p class="dashTitle">Dados Antropométricos</p>
+                <button class="button-dash" ng-click="showMetas()">    
+                    <i class="fa fa-tachometer dashPlanoNutri" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
     <div class="col-sm-3">
+        <div class="dashBox text-center">
+            <p class="dashTitle">Metas Funcionais</p>
+            <button class="button-dash" ng-click="showLastMeta()">
+                <i class="fa fa-flag-checkered dashPlanoNutri" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <!-- <div class="col-sm-3">
         <div class="dashBox">
             <p class="dashTitle">Água Corporal(%)</p>
             <p class="dashValue">{{front.dashAgua}}</p>
@@ -42,7 +69,7 @@
             <p class="dashTitle">Gordura Visceral(%)</p>
             <p class="dashValue">{{front.dashVisceral}}</p>
         </div>
-    </div>
+    </div> -->
     <div class="col-sm-3">
         <div class="dashBox">
             <p class="dashTitle">Próx. Consulta</p>
@@ -68,3 +95,8 @@
 <p>1</p>
 
 {{clientHist.meta06}} -->
+<div class="row">
+    <div class="col-sm-12 chart-dash">  
+        <div google-chart chart="metasFuncionais"></div>
+    </div>
+</div>

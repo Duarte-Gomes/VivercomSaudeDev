@@ -261,7 +261,7 @@
 </div>
 
 <div class="row" style="margin-top: 20px;">
-    <div class="col-sm-6">
+    <div class="col-sm-4">
         <label>O cliente prefere ser contactado pelos seguintes meios:</label>
         <br>
         <!--<div class="checkbox" style="margin-bottom: 20px;">
@@ -298,6 +298,10 @@
         <button ng-click="blockQuizFunc()" class="btn btn-success" style="margin-top: 12px;" ng-hide="clientDetail.isQuizFuncBlock">Bloquear Questionário Funcional</button>
         <button ng-click="unblockQuizFunc()" class="btn btn-danger" style="margin-top: 12px;" ng-show="clientDetail.isQuizFuncBlock">Desbloquear Questionário Funcional</button>
     </div>
+    <div class="col-sm-2">
+        <button ng-click="unblockMetasFunc()" class="btn btn-success" style="margin-top: 12px;" ng-hide="clientDetail.isMetasFuncUnblock">Desbloquear Metas Funcionais</button>
+        <button ng-click="blockMetasFunc()" class="btn btn-danger" style="margin-top: 12px;" ng-show="clientDetail.isMetasFuncUnblock">Bloquear Metas Funcionais</button>
+        </div>
 </div>
 <div class="row" style="margin-top: 20px;">
     <form ng-submit="uploadFile(file)">

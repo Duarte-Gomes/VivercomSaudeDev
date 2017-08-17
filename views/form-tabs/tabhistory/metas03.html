@@ -1,6 +1,6 @@
 <div class="row" style="padding-top: 15px;">
     <div class="col-sm-12">
-        <h2 class="text-center">Metas Medicina Funcional e Saúde</h2>
+        <h2 class="text-center">3 Metas Medicina Funcional e Saúde</h2>
     </div>
 </div>
 <!-- <div class="row">
@@ -12,7 +12,10 @@
     </div>
 </div> -->
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-1">
+        <button ng-click="newReport4()" style="background-color: orange; border: 0; margin-top: 17px;">Copiar para próx. meta</button>
+    </div>
+    <div class="col-sm-2">
         <div class="form-group">
             <label for="metaProgram">Programa</label>
             <select ng-model="clientHist.meta03.metaProgram" class="form-control" id="metaProgram" ng-options="x for x in metaProgram"></select>
@@ -357,7 +360,7 @@
         <div class="col-sm-2">
             <div class="radio">
                 <label>
-                    <input type="radio" ng-model="clientHist.meta03.meta_01_pos" value="5">
+                    <input type="radio" ng-model="clientHist.meta03.meta_03_pos" value="5">
                     100%
                 </label>
             </div>

@@ -65,7 +65,8 @@
                         <div class="collapse navbar-collapse" id="js-navbar-collapse">
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="home()">INÍCIO</a></li>
-                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonQuiz()">QUESTIONÁRIO FUNCIONAL</a></li>
+                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonQuiz()" ng-hide="clientDetail.isQuizFuncBlock">QUESTIONÁRIO FUNCIONAL</a></li>
+                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showMetas()" ng-show="clientDetail.isMetasFuncUnblock">METAS FUNCIONAIS</a></li>
                                 <!-- <li><button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-click="showPersonQuiz()">QUESTIONÁRIO FUNCIONAL</button></li> -->              
                                 <!--<button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-hide="spyderQuizComplete" ng-click="showPersonSpyder()">QUESTIONÁRIO PERFIL</button>-->             
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonDetails()">DADOS PESSOAIS</a></li>
@@ -88,10 +89,17 @@
             </div> -->
 
             <div id="areas" ng-hide="notWelcome" class="row">
-                <div class="col-sm-8 col-sm-offset-2 text-center areas-welcome">
-                    <h2 class="h2-welcome">Estamos aqui para o orientar no alcance dos seus objectivos.</h2>
-                    <img class="welcome-style" src="images/logo_fundo.png" alt="Welcome">
-                    <h2 class="h2-welcome">Ajude-nos a conhecê-lo melhor preenchendo ao máximo o QUESTIONÀRIO FUNCIONAL.</h2>
+                <div ng-show="primeiravez">
+                    <div class="col-sm-8 col-sm-offset-2 text-center areas-welcome">
+                        <h2 class="h2-welcome">Estamos aqui para o orientar no alcance dos seus objectivos.</h2>
+                        <img class="welcome-style" src="images/logo_fundo.png" alt="Welcome">
+                        <h2 class="h2-welcome">Ajude-nos a conhecê-lo melhor preenchendo ao máximo o QUESTIONÀRIO FUNCIONAL.</h2>
+                    </div>
+                </div>
+                <div ng-show="dashUser">
+                    <div class="col-sm-12">
+                            <div ng-include="'views/form-tabs/tabhistory/dashboard.html'"></div>
+                    </div>
                 </div>
             </div>
 
@@ -104,6 +112,10 @@
                     <button class="btn btn-success button-style text-center" ng-click="saveUserDetails()">Gravar</button>
                     <!-- <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonDetails()">Voltar Atrás</button>  -->
                 </div>
+            </div>
+
+            <div id="personMetas" ng-show="isPersonMetas" class="row" ng-show="clientDetail.isMetasFuncUnblock">
+                <div class="details-style" ng-include="'views/form-tabs/tabhistory/metasUser.html'"></div>
             </div>
 
             <div id="personSpyder" ng-show="isPersonSpyder" class="dialogdemoBasicUsage">
@@ -164,79 +176,81 @@
                 
             </div>
 
-            <div id="personQuiz" ng-show="isPersonQuiz" class="row">
-                <!-- <h2 class="text-center">Perfil Pessoal</h2>  --> 
-                <h4 class="text-center quiz-func-pad-top">Navegue pelo questionário utilizando os 4 separadores em baixo</h4>
-                <!--<div ng-repeat="user in usersList">-->
-                    <!--{{user.from}}-->
-                <!--</div>-->
-                <md-content class="quiz-box">
-                    <md-tabs md-selected="selectedTab"  md-border-bottom>
-                        <md-tab label="Objectivos e Motivação">
-                            <md-content class="md-padding">  
-                                <!-- <div class="row" style="background-color: rgba(255,255,255,0.9); padding: 15px 15px 30px 15px; border-radius: 4px;"> -->
-                                <div class="row" style="background-color: transparent; padding: 15px 15px 30px 15px;">
-                                    <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
-                                </div>
-                            </md-content>
-                        </md-tab>
-                        <md-tab label="Nutrição e Suplementação">
-                            <md-content class="md-padding">  
-                                <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
-                                    <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
-                                </div>
-                            </md-content>
-                        </md-tab>
-                        <md-tab label="Saúde e Medicina">
-                            <md-content class="md-padding">  
-                                <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
-                                    <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz23.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz28.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
-                                </div>
-                            </md-content>
-                        </md-tab>
-                        <md-tab label="Actividade Física e Desporto">
-                            <md-content class="md-padding"> 
-                                <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;"> 
-                                    <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
-                                </div>
-                            </md-content>
-                        </md-tab>
-                        <!--<md-tab label="Dados Pessoais">
-                            <md-content class="md-padding">
-                                <div class="row" style="background-color: #ffffff; padding: 15px 0;">
-                                    <div ng-include="'views/form-tabs/tab1/quiz.html'"></div>
-                                </div>
-                            </md-content>
-                        </md-tab>-->
-                    </md-tabs>
-                </md-content>
-                <br>
-                <div class="text-center">
-                    <button class="btn btn-warning button-style" id="anterior" ng-click="prevTab()" ng-hide="selectedTab == 0"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Anterior</button>
-                    <button class="btn btn-success button-style" ng-click="saveUserDetails()">Gravar</button>
-                    <!--<button class="btn btn-warning button-style" id="seguinte" ng-click="saveUserDetailsButton()">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>-->
-                    <button class="btn btn-warning button-style" id="seguinte" ng-click="nextTab()" ng-hide="selectedTab == 3">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
-                    <!-- <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonQuiz()">Voltar Atrás</button> -->
+            <div ng-hide="clientDetail.isQuizFuncBlock">
+                <div id="personQuiz" ng-show="isPersonQuiz" class="row">
+                    <!-- <h2 class="text-center">Perfil Pessoal</h2>  --> 
+                    <h4 class="text-center quiz-func-pad-top">Navegue pelo questionário utilizando os 4 separadores em baixo</h4>
+                    <!--<div ng-repeat="user in usersList">-->
+                        <!--{{user.from}}-->
+                    <!--</div>-->
+                    <md-content class="quiz-box">
+                        <md-tabs md-selected="selectedTab"  md-border-bottom>
+                            <md-tab label="Objectivos e Motivação">
+                                <md-content class="md-padding">  
+                                    <!-- <div class="row" style="background-color: rgba(255,255,255,0.9); padding: 15px 15px 30px 15px; border-radius: 4px;"> -->
+                                    <div class="row" style="background-color: transparent; padding: 15px 15px 30px 15px;">
+                                        <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="Nutrição e Suplementação">
+                                <md-content class="md-padding">  
+                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
+                                        <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="Saúde e Medicina">
+                                <md-content class="md-padding">  
+                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
+                                        <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz23.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz28.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                            <md-tab label="Actividade Física e Desporto">
+                                <md-content class="md-padding"> 
+                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;"> 
+                                        <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
+                                    </div>
+                                </md-content>
+                            </md-tab>
+                            <!--<md-tab label="Dados Pessoais">
+                                <md-content class="md-padding">
+                                    <div class="row" style="background-color: #ffffff; padding: 15px 0;">
+                                        <div ng-include="'views/form-tabs/tab1/quiz.html'"></div>
+                                    </div>
+                                </md-content>
+                            </md-tab>-->
+                        </md-tabs>
+                    </md-content>
+                    <br>
+                    <div class="text-center">
+                        <button class="btn btn-warning button-style" id="anterior" ng-click="prevTab()" ng-hide="selectedTab == 0"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Anterior</button>
+                        <button class="btn btn-success button-style" ng-click="saveUserDetails()">Gravar</button>
+                        <!--<button class="btn btn-warning button-style" id="seguinte" ng-click="saveUserDetailsButton()">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>-->
+                        <button class="btn btn-warning button-style" id="seguinte" ng-click="nextTab()" ng-hide="selectedTab == 3">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+                        <!-- <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonQuiz()">Voltar Atrás</button> -->
+                    </div>
                 </div>
             </div>
         </div>

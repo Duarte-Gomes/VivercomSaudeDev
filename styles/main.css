@@ -214,6 +214,7 @@ textarea {
   font-weight: bold;
   font-size: 24px;
   text-align: center;
+  height: 68px;
 }
 .dashValue {
   font-weight: bold;
@@ -267,7 +268,16 @@ textarea {
   height: 50px;
 }
 .dashPlanoNutri {
-    font-size: 87px !important;
+  font-size: 87px !important;
+}
+.button-dash {
+  background-color: transparent;
+  font-size: 24px;
+  border: 0;
+  font-weight: bold;
+}
+.chart-dash {
+  margin-top: 50px;
 }
 @media screen and (max-width: 1366px) {
   .welcome-style {
