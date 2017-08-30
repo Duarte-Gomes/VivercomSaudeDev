@@ -66,6 +66,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="home()">INÍCIO</a></li>
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonQuiz()" ng-hide="clientDetail.isQuizFuncBlock">QUESTIONÁRIO FUNCIONAL</a></li>
+                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showAntropo()">DADOS ANTROPOMÊTRICOS</a></li>
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showMetas()" ng-show="clientDetail.isMetasFuncUnblock">METAS FUNCIONAIS</a></li>
                                 <!-- <li><button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-click="showPersonQuiz()">QUESTIONÁRIO FUNCIONAL</button></li> -->              
                                 <!--<button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-hide="spyderQuizComplete" ng-click="showPersonSpyder()">QUESTIONÁRIO PERFIL</button>-->             
@@ -114,8 +115,12 @@
                 </div>
             </div>
 
+            <div id="personAntropo" ng-show="isPersonAntropo" class="row">
+                <div class="details-style-2" ng-include="'views/form-tabs/tabhistory/dados_antropometricos.html'"></div>
+            </div>
+
             <div id="personMetas" ng-show="isPersonMetas" class="row" ng-show="clientDetail.isMetasFuncUnblock">
-                <div class="details-style" ng-include="'views/form-tabs/tabhistory/metasUser.html'"></div>
+                <div class="details-style-2" ng-include="'views/form-tabs/tabhistory/metasUser.html'"></div>
             </div>
 
             <div id="personSpyder" ng-show="isPersonSpyder" class="dialogdemoBasicUsage">

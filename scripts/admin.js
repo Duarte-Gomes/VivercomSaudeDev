@@ -43,8 +43,8 @@ function UploadCtrl($firebaseStorage) {
     ctrl.fileToUpload = fileList[0];
   };
 }*/
-app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', '$firebaseStorage',
-    function($scope, Auth, $location, currentAuth, usersList, $firebaseStorage) {
+app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'suplementsList', '$firebaseStorage',
+    function($scope, Auth, $location, currentAuth, usersList, suplementsList, $firebaseStorage) {
 
         /*var storageRef = firebase.storage().ref("planos");
         $scope.storage = $firebaseStorage(storageRef);*/
@@ -463,6 +463,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
             $scope.clientForm = record.client_form;
             $scope.clientHist = record.client_history;
+            
             $scope.hist.dateString_01 = $scope.clientHist.da_01_01;
             $scope.hist.dateString_02 = $scope.clientHist.da_02_01;
             $scope.hist.dateString_03 = $scope.clientHist.da_03_01;

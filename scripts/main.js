@@ -1,24 +1,3 @@
-app.factory("Auth", ["$firebaseAuth",
-    function($firebaseAuth) {
-        return $firebaseAuth();
-    }
-]);
-
-app.factory("usersList", ["$firebaseArray",
-    function($firebaseArray) {
-        // create a reference to the database where we will store our data
-        var ref = firebase.database().ref();
-        return $firebaseArray(ref);
-    }
-]);
-
-app.factory("storageLoc", ["$firebaseStorage",
-    function($firebaseStorage) {
-        var storageRef = firebase.storage().ref();
-        return $firebaseStorage(storageRef);
-    }
-]);
-
 app.directive('showButton', ['webNotification', function (webNotification) {
     return {
         restrict: 'C',
@@ -62,8 +41,8 @@ app.controller('NavLogCtrl', ['$scope', 'Auth',
     }
 ]);
 
-app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', '$mdSidenav', '$mdDialog', '$firebaseStorage',
-    function($scope, Auth, $location, currentAuth, usersList, $mdSidenav, $mdDialog, $firebaseStorage, $timeout) {   
+app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'suplementsList', '$mdSidenav', '$mdDialog', '$firebaseStorage',
+    function($scope, Auth, $location, currentAuth, usersList, suplementsList, $mdSidenav, $mdDialog, $firebaseStorage, $timeout) {   
 
         $scope.usersList = {};
         $scope.clientDetail = {"pos":1};
@@ -1061,69 +1040,81 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
         }
 
         $scope.home = function() {
-            $scope.isPersonDetails = false;
             $scope.isPersonQuiz = false;
+            $scope.isPersonMetas = false;            
+            $scope.isPersonAntropo = false;
             $scope.isPersonSpyder = false;
+            $scope.isPersonDetails = false;
             $scope.notWelcome = false;
         };
 
-        $scope.showPersonDetails = function() {
+        /* $scope.showPersonDetails = function() {
             $scope.isPersonDetails = true;
             $scope.isPersonQuiz = false;
             $scope.isPersonMetas = false;
             $scope.isPersonSpyder = false;            
             $scope.notWelcome = true;
-            /*angular.element('#personQuiz').fadeOut();
-            angular.element('#personDetails').fadeIn();*/
-        };
-        
-        $scope.exitPersonDetails = function() {
-            $scope.isPersonDetails = false;
-            $scope.notWelcome = false;
-            /*angular.element('#personDetails').fadeOut();
-            angular.element('#personQuiz').fadeIn();*/
-        };
+            angular.element('#personQuiz').fadeOut();
+            angular.element('#personDetails').fadeIn(); //a usar
+        }; */
 
-        $scope.showPersonSpyder = function() {
-            $scope.isPersonDetails = false;
+        $scope.showPersonDetails = function() {
             $scope.isPersonQuiz = false;
             $scope.isPersonMetas = false;
+            $scope.isPersonAntropo = false;
+            $scope.isPersonSpyder = false;            
+            $scope.isPersonDetails = true;
+            $scope.notWelcome = true;
+        };
+        
+        /* $scope.exitPersonDetails = function() {
+            $scope.isPersonDetails = false;
+            $scope.notWelcome = false;
+        }; */
+
+        $scope.showPersonSpyder = function() {
+            $scope.isPersonQuiz = false;
+            $scope.isPersonMetas = false;
+            $scope.isPersonAntropo = false;
+            $scope.isPersonDetails = false;
             $scope.isPersonSpyder = true;            
             $scope.notWelcome = true;
         }
 
-        $scope.exitPersonSpyder = function() {
+        /* $scope.exitPersonSpyder = function() {
             $scope.isPersonSpyder = false;
             $scope.notWelcome = false;
-            /*angular.element('#personDetails').fadeOut();
-            angular.element('#personQuiz').fadeIn();*/
-        };
+        }; */
 
-        $scope.showPersonQuiz = function() {
+        /* $scope.showPersonQuiz = function() {
             $scope.isPersonQuiz = true;
             $scope.isPersonMetas = false;
             $scope.isPersonDetails = false;
             $scope.isPersonSpyder = false;            
             $scope.notWelcome = true;
-            /*angular.element('#personQuiz').fadeIn();
-            angular.element('#personDetails').fadeOut();*/
-        };
+        }; */
 
         $scope.showMetas = function() {
             $scope.isPersonQuiz = false;
             $scope.isPersonMetas = true;
+            $scope.isPersonAntropo = false;
             $scope.isPersonDetails = false;
             $scope.isPersonSpyder = false;            
             $scope.notWelcome = true;
-            /*angular.element('#personQuiz').fadeIn();
-            angular.element('#personDetails').fadeOut();*/
+        };
+
+        $scope.showAntropo = function() {
+            $scope.isPersonQuiz = false;
+            $scope.isPersonMetas = false;
+            $scope.isPersonAntropo = true;
+            $scope.isPersonDetails = false;
+            $scope.isPersonSpyder = false;            
+            $scope.notWelcome = true;
         };
 
         $scope.exitPersonQuiz = function() {
             $scope.isPersonQuiz = false;
             $scope.notWelcome = false;
-            /*angular.element('#personQuiz').fadeOut();
-            angular.element('#personDetails').fadeIn();*/
         };
         
         angular.element(window).ready(function() {

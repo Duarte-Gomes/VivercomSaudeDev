@@ -221,10 +221,17 @@ textarea {
   font-size: 55px;
   text-align: center;
 }
+.dashTitleProx {
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+  margin: 0 0 5px;
+}
 .dashValueProx {
   font-weight: bold;
-  font-size: 55px;
+  font-size: 45px;
   text-align: center;
+  margin: 0;
 }
 .dashBox {
   border: 1px solid black;
@@ -237,6 +244,9 @@ textarea {
 }
 .details-style {
   margin-top: 125px;
+}
+.details-style-2 {
+  margin-top: 0;
 }
 .welcome-program {
   margin-top: 250px;

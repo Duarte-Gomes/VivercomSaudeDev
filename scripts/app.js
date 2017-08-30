@@ -86,6 +86,16 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
           }]
         }
     })
+    .when('/dudas', {
+        templateUrl: 'views/dudas.html',
+        controller: 'DudasCtrl',
+        controllerAs: 'dudas',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$waitForSignIn();
+          }]
+        }
+    })
     .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
         controller: 'DashCtrl',

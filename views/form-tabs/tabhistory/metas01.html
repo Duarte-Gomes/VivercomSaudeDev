@@ -1,6 +1,6 @@
 <div class="row" style="padding-top: 15px;">
     <div class="col-sm-12">
-        <h2 class="text-center">1 Metas Medicina Funcional e Saúde</h2>
+        <h2 class="text-center">#1 Metas Medicina Funcional e Saúde</h2>
     </div>
 </div>
 <!-- <div class="row">
@@ -123,48 +123,48 @@
         </div>
     </div>
 </div> -->
-<div class="row" style="margin: 0 0 10px 0;">
-    <div class="col-sm-12" style="background-color: #ffec80; padding: 0;">
+<!-- <div class="row" style="margin: 0 0 10px 0;">
+    <div class="col-sm-12" style="background-color: #ffec80; padding: 0;"> -->
+<div class="row" style="background-color: #ffec80; margin: 0 0 10px 0;">    
+    <div class="col-sm-3">
+        <p>1) Tirar tempo para mim</p>
+    </div>
+    <div class="col-sm-9" style="display: inline-flex;">
         <div class="col-sm-3">
-            <p>1) Tirar tempo para mim</p>
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta01.meta_03_01" value="1" checked>
+                    Não se aplica
+                </label>
+            </div>
         </div>
-        <div class="col-sm-9" style="display: inline-flex;">
-            <div class="col-sm-3">
-                <div class="radio">
-                    <label>
-                        <input type="radio" ng-model="clientHist.meta01.meta_03_01" value="1" checked>
-                        Não se aplica
-                    </label>
-                </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta01.meta_03_01" value="2">
+                    15 a 30 minutosdias
+                </label>
             </div>
-            <div class="col-sm-3">
-                <div class="radio">
-                    <label>
-                        <input type="radio" ng-model="clientHist.meta01.meta_03_01" value="2">
-                        15 a 30 minutosdias
-                    </label>
-                </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta01.meta_03_01" value="3">
+                    1 a 2 vezes por semana
+                </label>
             </div>
-            <div class="col-sm-3">
-                <div class="radio">
-                    <label>
-                        <input type="radio" ng-model="clientHist.meta01.meta_03_01" value="3">
-                        1 a 2 vezes por semana
-                    </label>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="radio">
-                    <label>
-                        <input type="radio" ng-model="clientHist.meta01.meta_03_01" value="4">
-                        3 a 4 vezes por semana
-                    </label>
-                </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="radio">
+                <label>
+                    <input type="radio" ng-model="clientHist.meta01.meta_03_01" value="4">
+                    3 a 4 vezes por semana
+                </label>
             </div>
         </div>
     </div>
     <div class="col-sm-12" style="background-color: #fff7cc;">
-        <p style="margin: 0; padding: 5px 0;">Sugestão de leitura “Otimizar o hora de almoço: <a href="https://healthyhabits.pt/otimize-hora-almoco/" target="_blank">Link</a></p>
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">Sugestão de leitura “Otimizar o hora de almoço: <a href="https://healthyhabits.pt/otimize-hora-almoco/" target="_blank">Link</a></p>
     </div>
 </div>
 <div class="row" style="background-color: #ffec80; margin: 0 0 10px 0;">
@@ -323,7 +323,7 @@
         </div>
     </div>
     <div class="col-sm-12" style="background-color: #fff7cc;">
-        <p style="margin: 0; padding: 5px 0;">Sugestão de leitura “Dicas para uma boa noite de sono: <a href="https://healthyhabits.pt/dicas-simples-boa-noite-sono/" target="_blank">Link</a></p>
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">Sugestão de leitura “Dicas para uma boa noite de sono: <a href="https://healthyhabits.pt/dicas-simples-boa-noite-sono/" target="_blank">Link</a></p>
     </div>
 </div>
 <div class="row" ng-show="adminMetas">
@@ -337,9 +337,42 @@
         <p>2) Listar prioridades/tarefas do dia; Comprar uma agenda; Anotar tarefas agenda gmail;</p>
         <p>3) Praia, campo, parques</p>
         <p>4) Meditação, pilates, yoga, spa 1x/mês</p>
-        <p>5) Adotar um animal; Powernap; bola antisstress; Técnicas de respiração; PARAR e REFLETIR; Massagem de relaxamento; Banho com espuma ao chegar a casa;</p>
+        <p>5) Adotar um animal; Powernap; bola anti-stress; Técnicas de respiração; PARAR e REFLETIR; Massagem de relaxamento; Banho com espuma ao chegar a casa;</p>
     </div>
 </div>
+
+
+<div class="row">
+    <div class="col-sm-12">
+        <div style="border-bottom: 15px solid #ffd900; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #ffd900; font-weight: bold; font-size: 20px; margin: 0;">SUPLEMENTOS</p>
+        </div>
+    </div>
+    
+    <div class="col-sm-6">
+        <div class="checkbox" style="display: inline-flex;">
+            <label>
+                <input type="checkbox" ng-model="clientHist.meta01.suplementHidro.hidro1">
+                Maltodextrina
+                <a href="https://www.prozis.com/pt/pt/prozis-sport/maltodextrina-2000g" target="_blank">Saber mais</a>
+            </label>
+            <p style="margin: 0 15px;">Posologia: Misturar 1 scoop(40g) + 400ml água</p>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="checkbox" style="display: inline-flex;">
+            <label>
+                <input type="checkbox" ng-model="clientHist.meta01.suplementHidro.hidro2">
+                Dextrose
+                <a href="https://www.prozis.com/pt/pt/prozis-sport/dextrose-2000-g" target="_blank">Saber mais</a>
+            </label>
+        </div>
+    </div>
+
+   
+</div>
+
+
 <div class="row">
     <div class="col-sm-12">
         <div style="border-bottom: 15px solid #ffd900; padding: 5px 15px; margin: 15px 0 10px 0;">
@@ -349,21 +382,21 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <textarea ng-model="clientHist.meta01.meta_01_obs"></textarea>
+        <textarea ng-model="clientHist.meta01.meta_03_obs"></textarea>
     </div>
 </div>
 <div class="row">
-        <div class="col-sm-12">
-            <div style="border-bottom: 15px solid #ffd900; padding: 5px 15px; margin: 15px 0 10px 0;">
-                <p style="color: #ffd900; font-weight: bold; font-size: 20px; margin: 0;">CONTEÚDOS DE APOIO</p>
-            </div>
+    <div class="col-sm-12">
+        <div style="border-bottom: 15px solid #ffd900; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #ffd900; font-weight: bold; font-size: 20px; margin: 0;">CONTEÚDOS DE APOIO</p>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <textarea ng-model="clientHist.meta01.meta_01_contApoio"></textarea>
-        </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <textarea ng-model="clientHist.meta01.meta_03_contApoio"></textarea>
     </div>
+</div>
 <div class="row">
     <div class="col-sm-12">
         <div style="border-bottom: 15px solid #ffd900; padding: 5px 15px; margin: 15px 0 0 0;">
@@ -421,15 +454,22 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #00bd13; font-weight: bold; font-size: 20px; border-bottom: 15px solid #00bd13;">Nutrição Funcional</p>
+        <div style="border-bottom: 15px solid #00bd13; padding: 5px 15px;">
+            <p style="color: #00bd13; font-weight: bold; font-size: 20px; margin: 0;">NUTRIÇÂO FUNCIONAL</p>
+        </div>
+        <div style="border-bottom: 1px solid black; padding: 10px 15px;">
+            <p style="margin: 0;">É a área da Nutrição que investiga os fatores alimentares e ambientais relacionados com uma grande variedade de distúrbios no organismo do indivíduo. Trata-os de forma personalizada, com base na individualidade bioquímica e nos hábitos do dia-a-dia. Atua no tratamento e acima de tudo na prevenção. Nivela o sistema imunitário. Equilibra o “eixo hormonal”. Adequa os macro e micronutrientes individualmente.</p>
+        </div>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #00bd13; font-weight: bold; font-size: 20px; border-bottom: 15px solid #00bd13;">METAS A ATINGIR</p>
+        <div style="border-bottom: 15px solid #00bd13; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #00bd13; font-weight: bold; font-size: 20px; margin: 0;">METAS A ATINGIR</p>
+        </div>
     </div>
 </div>
-<div class="row" style="background-color: #b3ffba; margin: 0;">
+<div class="row" style="background-color: #b3ffba; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>1) Planear refeições da semana</p>
     </div>
@@ -467,8 +507,14 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-12" style="background-color: #e6ffe8;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Sugestão de leitura "Dicas para planear refeições"
+            <a href="https://healthyhabits.pt/dicas-para-planear-as-suas-refeicoes-da-semana/" target="_blank">Link</a>
+        </p>
+    </div>
 </div>
-<div class="row" style="margin: 0;">
+<div class="row" style="background-color: #b3ffba; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>2) Fazer um diário alimentar</p>
     </div>
@@ -506,8 +552,13 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-12" style="background-color: #e6ffe8;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Enviar por email: hora da refeição, tipo de refeição (pequeno-almoço, merenda 1,….jantar, ceia), tipo de alimento e quantidade
+        </p>
+    </div>
 </div>
-<div class="row" style="background-color: #b3ffba; margin: 0;">
+<div class="row" style="background-color: #b3ffba; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>3) Reduzir refeições fora de casa</p>
     </div>
@@ -546,7 +597,7 @@
         </div>
     </div>
 </div>
-<div class="row" style="margin: 0;">
+<div class="row" style="background-color: #b3ffba; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>4) Refeições BeFunctional</p>
     </div>
@@ -583,6 +634,12 @@
                 </label>
             </div>
         </div>
+    </div>
+    <div class="col-sm-12" style="background-color: #e6ffe8;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Visitar o site Be Functional 
+            <a href="https://www.befunctional.net/" target="_blank">Link</a>
+        </p>
     </div>
 </div>
 <div class="row" style="background-color: #b3ffba; margin: 0;">
@@ -623,10 +680,32 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-12" style="background-color: #e6ffe8;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Visitar o site Be Functional 
+            <a href="https://www.befunctional.net/" target="_blank">Link</a>
+        </p>
+    </div>
+</div>
+<div class="row" ng-show="adminMetas">
+    <div class="col-sm-12">
+        <div style="border-bottom: 15px solid #00bd13; padding: 5px 15px; margin: 15px 0 0 0;">
+            <p style="color: #00bd13; font-weight: bold; font-size: 20px; margin: 0;">Material de apoio: (disponível só na administração)</p>
+        </div>
+    </div>
+    <div class="col-sm-12" style="margin-left: 15px;">   
+        <p>1) </p>
+        <p>2) </p>
+        <p>3) </p>
+        <p>4) </p>
+        <p>5) </p>
+    </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #00bd13; font-weight: bold; font-size: 20px; border-bottom: 15px solid #00bd13;">OBSERVAÇÕES</p>
+        <div style="border-bottom: 15px solid #00bd13; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #00bd13; font-weight: bold; font-size: 20px; margin: 0;">OBSERVAÇÕES</p>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -636,7 +715,24 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #00bd13; font-weight: bold; font-size: 20px; border-bottom: 15px solid #00bd13;">POSICIONAMENTO</p>
+        <div style="border-bottom: 15px solid #00bd13; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #00bd13; font-weight: bold; font-size: 20px; margin: 0;">CONTEÚDOS DE APOIO</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <textarea ng-model="clientHist.meta01.meta_04_contApoio"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div style="border-bottom: 15px solid #00bd13; padding: 5px 15px; margin: 15px 0 0 0;">
+            <p style="color: #00bd13; font-weight: bold; font-size: 20px; margin: 0;">POSICIONAMENTO</p>
+        </div>
+        <div style="background-color: #b3ffba; padding: 5px 15px;">
+            <p style="margin: 0;">Posicionamento atual do cliente face ao objetivo final a alcançar na área da Nutrição Funcional</p>
+        </div>
     </div>
     <div class="col-sm-12" style="display: inline-flex;">
         <div class="col-sm-2 col-sm-offset-1">
@@ -686,15 +782,22 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #0886d4; font-weight: bold; font-size: 20px; border-bottom: 15px solid #0886d4;">SAÚDE E MEDICINA FUNCIONAL</p>
+        <div style="border-bottom: 15px solid #0886d4; padding: 5px 15px;">
+            <p style="color: #0886d4; font-weight: bold; font-size: 20px; margin: 0;">SAÚDE E MEDICINA FUNCIONAL</p>
+        </div>
+        <div style="border-bottom: 1px solid black; padding: 10px 15px;">
+            <p style="margin: 0;">Nesta área de trabalho pretendemos desenvolver a parte da medicina que assenta na prevenção,  utilizando técnicas da medicina funcional. Através deste método, procuramos conhecer e eliminar as causas da doença e não só os seus sintomas.</p>
+        </div>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #0886d4; font-weight: bold; font-size: 20px; border-bottom: 15px solid #0886d4;">METAS A ATINGIR</p>
+        <div style="border-bottom: 15px solid #0886d4; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #0886d4; font-weight: bold; font-size: 20px; margin: 0;">METAS A ATINGIR</p>
+        </div>
     </div>
 </div>
-<div class="row" style="background-color: #ceebfd; margin: 0;">
+<div class="row" style="background-color: #ceebfd; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>1) Controlo da tensão arterial</p>
     </div>
@@ -733,7 +836,7 @@
         </div>
     </div>
 </div>
-<div class="row" style="margin: 0;">
+<div class="row" style="background-color: #ceebfd; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>2) Consulta médica de rotina</p>
     </div>
@@ -772,7 +875,7 @@
         </div>
     </div>
 </div>
-<div class="row" style="background-color: #ceebfd; margin: 0;">
+<div class="row" style="background-color: #ceebfd; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>3) Consulta higiene oral</p>
     </div>
@@ -811,7 +914,7 @@
         </div>
     </div>
 </div>
-<div class="row" style="margin: 0;">
+<div class="row" style="background-color: #ceebfd; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>4) Análises sanguíneas periódicas</p>
     </div>
@@ -849,8 +952,13 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-12" style="background-color: #e6f5fe;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Envie para nutricao@vivercomsaude.pt
+        </p>
+    </div>
 </div>
-<div class="row" style="background-color: #ceebfd; margin: 0;">
+<div class="row" style="background-color: #ceebfd; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>5) Reduzir Hábitos</p>
     </div>
@@ -887,6 +995,11 @@
                 </label>
             </div>
         </div> -->
+    </div>
+    <div class="col-sm-12" style="background-color: #e6f5fe;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Exemplo: acupuntura, medicina chinesa
+        </p>
     </div>
 </div>
 <!-- <div class="row">
@@ -928,9 +1041,25 @@
         </div>
     </div>
 </div> -->
+<div class="row" ng-show="adminMetas">
+    <div class="col-sm-12">
+        <div style="border-bottom: 15px solid #0886d4; padding: 5px 15px; margin: 15px 0 0 0;">
+            <p style="color: #0886d4; font-weight: bold; font-size: 20px; margin: 0;">Material de apoio: (disponível só na administração)</p>
+        </div>
+    </div>
+    <div class="col-sm-12" style="margin-left: 15px;">   
+        <p>1) </p>
+        <p>2) </p>
+        <p>3) </p>
+        <p>4) </p>
+        <p>5) Tabagismo, alcoolismo, pessimismo (depressão), sedentarismo, polimedicação</p>
+    </div>
+</div>
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #0886d4; font-weight: bold; font-size: 20px; border-bottom: 15px solid #0886d4;">OBSERVAÇÕES</p>
+        <div style="border-bottom: 15px solid #0886d4; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #0886d4; font-weight: bold; font-size: 20px; margin: 0;">OBSERVAÇÕES</p>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -940,7 +1069,24 @@
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #0886d4; font-weight: bold; font-size: 20px; border-bottom: 15px solid #0886d4;">POSICIONAMENTO</p>
+        <div style="border-bottom: 15px solid #0886d4; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #0886d4; font-weight: bold; font-size: 20px; margin: 0;">CONTEÚDOS DE APOIO</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <textarea ng-model="clientHist.meta01.meta_01_contApoio"></textarea>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <div style="border-bottom: 15px solid #0886d4; padding: 5px 15px; margin: 15px 0 0 0;">
+            <p style="color: #0886d4; font-weight: bold; font-size: 20px; margin: 0;">POSICIONAMENTO</p>
+        </div>
+        <div style="background-color: #ceebfd; padding: 5px 15px;">
+            <p style="margin: 0;">Posicionamento atual do cliente face ao objetivo final a alcançar na área da Medicina Funcional e Saúde</p>
+        </div>
     </div>
     <div class="col-sm-12" style="display: inline-flex;">
         <div class="col-sm-2 col-sm-offset-1">
@@ -990,15 +1136,22 @@
 
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #cf0000; font-weight: bold; font-size: 20px; border-bottom: 15px solid #cf0000;">ATIVIDADE FISICA E DESPORTO</p>
+        <div style="border-bottom: 15px solid #cf0000; padding: 5px 15px;">
+            <p style="color: #cf0000; font-weight: bold; font-size: 20px; margin: 0;">ATIVIDADE FÍSICA E DESPORTO</p>
+        </div>
+        <div style="border-bottom: 1px solid black; padding: 10px 15px;">
+            <p style="margin: 0;">Esta área pretende contribuir para a criação de hábitos de pratica de atividade física regular. Está provado científicamente que indivíduos que promovam rotinas de atividade física regular melhoram os seus índices de saúde. Vamos adaptar a atividade física à sua situação e necessidades específicas.</p>
+        </div>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #cf0000; font-weight: bold; font-size: 20px; border-bottom: 15px solid #cf0000;">METAS A ATINGIR</p>
+        <div style="border-bottom: 15px solid #cf0000; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #cf0000; font-weight: bold; font-size: 20px; margin: 0;">METAS A ATINGIR</p>
+        </div>
     </div>
 </div>
-<div class="row" style="background-color: #ffb3b3; margin: 0;">
+<div class="row" style="background-color: #ffb3b3; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>1) Fazer alongamentos</p>
     </div>
@@ -1036,8 +1189,14 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-12" style="background-color: #ffe6e6;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Consultar aplicação android “Down Dog”; Sugestão de vídeo: 
+            <a href="https://www.youtube.com/watch?v=KwcZhciUpK0" target="_blank">Link</a>
+        </p>
+    </div>
 </div>
-<div class="row" style="margin: 0;">
+<div class="row" style="background-color: #ffb3b3; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>2) Subir escadas</p>
     </div>
@@ -1076,7 +1235,7 @@
         </div>
     </div>
 </div>
-<div class="row" style="background-color: #ffb3b3; margin: 0;">
+<div class="row" style="background-color: #ffb3b3; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>3) Realizar caminhadas</p>
     </div>
@@ -1114,8 +1273,13 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-12" style="background-color: #ffe6e6;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Consultar aplicação "Strava", "RunKeper" 
+        </p>
+    </div>
 </div>
-<div class="row" style="margin: 0;">
+<div class="row" style="background-color: #ffb3b3; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>4) Exercícios de força</p>
     </div>
@@ -1153,8 +1317,13 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-12" style="background-color: #ffe6e6;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Sugestão: Consultar aplicação "Seven"
+        </p>
+    </div>
 </div>
-<div class="row" style="background-color: #ffb3b3; margin: 0;">
+<div class="row" style="background-color: #ffb3b3; margin: 0 0 10px 0;">
     <div class="col-sm-3">
         <p>5) Iniciar uma actividade</p>
     </div>
@@ -1192,10 +1361,31 @@
             </div>
         </div>
     </div>
+    <div class="col-sm-12" style="background-color: #ffe6e6;">
+        <p style="margin: 0; padding: 0 0 5px 0; font-size: 12px;">
+            Consultar um PT
+        </p>
+    </div>
+</div>
+<div class="row" ng-show="adminMetas">
+    <div class="col-sm-12">
+        <div style="border-bottom: 15px solid #cf0000; padding: 5px 15px; margin: 15px 0 0 0;">
+            <p style="color: #cf0000; font-weight: bold; font-size: 20px; margin: 0;">Material de apoio: (disponível só na administração)</p>
+        </div>
+    </div>
+    <div class="col-sm-12" style="margin-left: 15px;">   
+        <p>1) Alongar ao acordar, na hora de almoço e jantar</p>
+        <p>2) Por exemplo, se vive no 8º andar, sair a meio e subir.</p>
+        <p>3) Sair 1-2 estações antes e caminhar para o trabalho; adquirir um podómetro e definir mínimo de 5km e aumentar 1km de cada vez.</p>
+        <p>4) </p>
+        <p>5) Planear na agenda gmail ou ao domingo timings para treinar e cumprir!</p>
+    </div>
 </div>
 <div class="row">
     <div class="col-sm-12">
-        <p style="color: #cf0000; font-weight: bold; font-size: 20px; border-bottom: 15px solid #cf0000;">OBSERVAÇÕES</p>
+        <div style="border-bottom: 15px solid #cf0000; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #cf0000; font-weight: bold; font-size: 20px; margin: 0;">OBSERVAÇÕES</p>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -1203,9 +1393,26 @@
         <textarea ng-model="clientHist.meta01.meta_02_obs"></textarea>
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-12">
+        <div style="border-bottom: 15px solid #cf0000; padding: 5px 15px; margin: 15px 0 10px 0;">
+            <p style="color: #cf0000; font-weight: bold; font-size: 20px; margin: 0;">CONTEÚDOS DE APOIO</p>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <textarea ng-model="clientHist.meta01.meta_02_contApoio"></textarea>
+    </div>
+</div>
 <div class="row" style="margin-bottom: 20px;">
     <div class="col-sm-12">
-        <p style="color: #cf0000; font-weight: bold; font-size: 20px; border-bottom: 15px solid #cf0000;">POSICIONAMENTO</p>
+        <div style="border-bottom: 15px solid #cf0000; padding: 5px 15px; margin: 15px 0 0 0;">
+            <p style="color: #cf0000; font-weight: bold; font-size: 20px; margin: 0;">POSICIONAMENTO</p>
+        </div>
+        <div style="background-color: #ffb3b3; padding: 5px 15px;">
+            <p style="margin: 0;"> Posicionamento atual do cliente face ao objetivo final a alcançar na área da Atividade Fisica e Desporto</p>
+        </div>
     </div>
     <div class="col-sm-12" style="display: inline-flex;">
         <div class="col-sm-2 col-sm-offset-1">
