@@ -32,6 +32,13 @@ app.factory("suplementsCategories", ["$firebaseArray",
     }
 ]);
 
+app.factory("clientsAppointmentsHistorical", ["$firebaseArray", "Auth",
+    function($firebaseArray, Auth) {
+        var ref = firebase.database().ref("clientsAppointmentsHistorical").child(Auth.$getAuth().uid);
+        return $firebaseArray(ref);
+    }
+]);
+
 app.factory("storageLoc", ["$firebaseStorage",
     function($firebaseStorage) {
         var storageRef = firebase.storage().ref();

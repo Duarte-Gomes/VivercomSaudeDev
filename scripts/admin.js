@@ -43,8 +43,8 @@ function UploadCtrl($firebaseStorage) {
     ctrl.fileToUpload = fileList[0];
   };
 }*/
-app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'suplementsList', '$firebaseStorage',
-    function($scope, Auth, $location, currentAuth, usersList, suplementsList, $firebaseStorage) {
+app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'suplementsList', 'clientsAppointmentsHistorical', '$firebaseStorage',
+    function($scope, Auth, $location, currentAuth, usersList, suplementsList, clientsAppointmentsHistorical, $firebaseStorage) {
 
         /*var storageRef = firebase.storage().ref("planos");
         $scope.storage = $firebaseStorage(storageRef);*/
@@ -401,9 +401,24 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         ]
 
         /* if ($scope.firebaseUser.uid == "3LAlHoqUTsV73YM4THWnBH33Aix2" || $scope.firebaseUser.uid == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || $scope.firebaseUser.uid == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") { */
-            usersList.$loaded().then(function() {
-                $scope.usersList = usersList;
+        usersList.$loaded().then(function() {
+            $scope.usersList = usersList;
+        });
+
+        clientsAppointmentsHistorical.$loaded().then(function() {
+            $scope.clientsAppointmentsHistorical = clientsAppointmentsHistorical;
+        });
+
+
+        $scope.gravarhist = function() {
+            $scope.clientsAppointmentsHistorical.$add({
+                clientAppointment: "gravou2" 
+            }).then(function() {
+                alert("Registo criado!");
             });
+        }
+
+
         /* } */
         /*var birthdate = $scope.clientDetail.birthday;
         var birthdateLastFour = birthdate.substr(birthdate.length - 4);
