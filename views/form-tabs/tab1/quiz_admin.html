@@ -187,7 +187,11 @@
         </label>
     </div>
     <div class="col-sm-2">
-        <p style="background-color: red; height: 30px;">{{clientDetail.clientType}}</p>
+        <div class="form-group">
+            <label for="InputTypeClient">Tipo de Programa</label>
+            <select ng-model="clientDetail.clientType" class="form-control" id="InputTypeClient" ng-options="x for x in clientTypeList">
+            </select>
+        </div>
     </div>
     <div class="col-sm-1">
         <label>Activo
@@ -291,18 +295,24 @@
             <input type="checkbox" ng-model="clientDetail.authorize.sms"> Notificações Desktop
         </label>-->
     </div>
+</div>
+<div class="row" style="margin-top: 20px;">
+    <div class="col-sm-2">
+        <p>Criar email <a href="mailto:{{clientDetail.email}}?Subject=Hello%20again" target="_top">ABRIR</a></p>
+    </div>
     <div class="col-sm-3">
         <button class="btn btn-primary" style="margin-top: 12px;">Enviar boas vindas(não esta a funcionar)</button>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <button ng-click="blockQuizFunc()" class="btn btn-success" style="margin-top: 12px;" ng-hide="clientDetail.isQuizFuncBlock">Bloquear Questionário Funcional</button>
         <button ng-click="unblockQuizFunc()" class="btn btn-danger" style="margin-top: 12px;" ng-show="clientDetail.isQuizFuncBlock">Desbloquear Questionário Funcional</button>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
         <button ng-click="unblockMetasFunc()" class="btn btn-success" style="margin-top: 12px;" ng-hide="clientDetail.isMetasFuncUnblock">Desbloquear Metas Funcionais</button>
         <button ng-click="blockMetasFunc()" class="btn btn-danger" style="margin-top: 12px;" ng-show="clientDetail.isMetasFuncUnblock">Bloquear Metas Funcionais</button>
         </div>
 </div>
+
 <div class="row" style="margin-top: 20px;">
     <form ng-submit="uploadFile(file)">
         <div class="col-sm-10">

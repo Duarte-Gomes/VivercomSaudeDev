@@ -102,6 +102,11 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.showDetails = false;
         $scope.adminDivClientHistory = true;
 
+        $scope.clientTypeList = [
+            "ProgramaFit", 
+            "ProgramaGestaoDePeso", 
+            "ProgramaSaude"
+        ]
         
         $scope.blockQuizFunc = function(){
             $scope.clientDetail.isQuizFuncBlock = true;
@@ -373,7 +378,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             "Ecto-Mesomorfo",
             "Mesomorfo",
             "MesoEndo-Morfo",
-            "Endomordo"
+            "Endomorfo"
         ];
 
         $scope.cronoTypes = [
@@ -467,6 +472,28 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.auth.$onAuthStateChanged(function(firebaseUser) {
             $scope.firebaseUser = firebaseUser;
         });
+
+
+
+
+
+
+
+        //get details 
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////// 
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
         $scope.getDetails = function(logr) {
 
@@ -1100,6 +1127,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 if ($scope.clientHist.da_06_06 != null)  {
                     $scope.front.dashVisceral = $scope.clientHist.da_06_06;
                 }
+                if (!$scope.clientHist.quizhis_6_3 ||! $scope.clientHist.quizhis_6_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
             } 
             if ($scope.hist.dateString_06 == null && $scope.hist.dateString_05 != null) {
                 if ($scope.clientHist.da_05_03 != null)  {
@@ -1116,6 +1146,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 }
                 if ($scope.clientHist.da_05_06 != null)  {    
                     $scope.front.dashVisceral = $scope.clientHist.da_05_06;
+                }
+                if (!$scope.clientHist.quizhis_5_3 || !$scope.clientHist.quizhis_5_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
                 }
             } 
             if ($scope.hist.dateString_05 == null && $scope.hist.dateString_04 != null) {
@@ -1134,6 +1167,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 if ($scope.clientHist.da_04_06 != null)  { 
                     $scope.front.dashVisceral = $scope.clientHist.da_04_06;
                 }
+                if (!$scope.clientHist.quizhis_4_3 || !$scope.clientHist.quizhis_4_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
             }
             if ($scope.hist.dateString_04 == null && $scope.hist.dateString_03 != null) {
                 if ($scope.clientHist.da_03_03 != null)  {
@@ -1150,6 +1186,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 }
                 if ($scope.clientHist.da_03_06 != null)  { 
                     $scope.front.dashVisceral = $scope.clientHist.da_03_06;
+                }
+                if (!$scope.clientHist.quizhis_3_3 || !$scope.clientHist.quizhis_3_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
                 }
             }
             if ($scope.hist.dateString_03 == null && $scope.hist.dateString_02 != null) {
@@ -1168,6 +1207,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 if ($scope.clientHist.da_02_06 != null)  { 
                     $scope.front.dashVisceral = $scope.clientHist.da_02_06;
                 }
+                if (!$scope.clientHist.quizhis_2_3 || !$scope.clientHist.quizhis_2_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
             }
             if ($scope.hist.dateString_02 == null && $scope.hist.dateString_01 != null) {
                 if ($scope.clientHist.da_01_03 != null)  {
@@ -1185,7 +1227,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 if ($scope.clientHist.da_01_06 != null)  { 
                     $scope.front.dashVisceral = $scope.clientHist.da_01_06;
                 }
-            
+                if (!$scope.clientHist.quizhis_1_3 || !$scope.clientHist.quizhis_1_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
             }
 
             /* if ($scope.clientHist.meta05 != null && $scope.clientHist.meta06 == null) {
@@ -1297,21 +1341,17 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             if (ageBirthday != null) {
                 //calculo da idade
                 //ano e mes da data de nascimento
-                /*var birthDate = $scope.aniversario.texto;*/
                 var birthYear = $scope.clientDetail.yearBirth;
                 var birthMonth = monthBirthTemp;
+                var birthDay = $scope.clientDetail.dayBirth;
 
-                /*console.log(birthDate);
-                console.log(birthYear);
-                console.log(birthMonth);*/
-                
                 //ano e mes da data actual
                 var todayDate = new Date();
-                /*var preLastFourY = todayDate.substr(todayDate.length - 45);
-                var todayYear = preLastFourY.substr(0, 5);*/
+                
                 var todayYear = todayDate.getFullYear();
                 var todayMonth = todayDate.getMonth() + 1;
-                
+                var todayDay = todayDate.getDate();
+
                 var age;
 
                 if (todayMonth < birthMonth) {
@@ -1320,10 +1360,13 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                     age = todayYear - birthYear;
                 }
 
-                $scope.inputAge.val = age;
-            
+                if (todayDay < birthDay) {
+                    $scope.inputAge.val = age - 1;
+                } else {
+                    $scope.inputAge.val = age;
+                }
             }
-          
+            
             if (!$scope.clientDetail.locConsulta && !$scope.clientDetail.proxConsult && !$scope.clientDetail.codBis && !$scope.clientDetail.online) {
                 alert('Atenção, Local Consulta ou Código Empresarial e Data Prox. Consulta não estão preenchidos!!!')
             }
@@ -1340,11 +1383,30 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
             setTimeout(
                 $scope.saveUserDetailsTimeout, 120000
-            );
-
-            
-            
+            ); 
         };
+
+
+
+
+
+
+
+        //get details timeout
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////// 
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
         $scope.getDetailsTimeout = function(logr) {
 

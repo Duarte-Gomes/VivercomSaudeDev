@@ -21,7 +21,7 @@ md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item
 }
 
 md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(2) {
-  background-color: #00bd13 !important;
+  background-color: #0886d4 !important;
   width: 293px;
   /* margin-right: 43px; */
   border-radius: 4px 4px 0 0;
@@ -32,7 +32,7 @@ md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item
 }*/
 
 md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(3) {
-  background-color: #0886d4 !important;
+  background-color: #cf0000 !important;
   width: 292px;
   /* margin-right: 44px; */
   border-radius: 4px 4px 0 0;
@@ -43,7 +43,7 @@ md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item
 }*/
 
 md-tabs > md-tabs-wrapper > md-tabs-canvas > md-pagination-wrapper > md-tab-item:nth-child(4) {
-  background-color: #cf0000 !important;
+  background-color: #00bd13 !important;
   width: 293px;
   border-radius: 4px 4px 0 0;
 }

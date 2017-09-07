@@ -1,9 +1,10 @@
-<div ng-hide="clientTypePeso">
+<div ng-hide="clientDetail.clientType == 'ProgramaGestaoDePeso'">
     <div class="col-sm-12">
         <h4 class="newH4">Os meus principais objectivos</h4>
     </div>
+
     <div class="col-sm-12 no-pad-left no-pad-right">
-        <div class="col-sm-4" ng-hide="clientTypeSaude || clientTypeDesporto">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaSaude' || clientDetail.clientType == 'ProgramaFit'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_1">
@@ -11,7 +12,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeSaude">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaSaude'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_2">
@@ -19,7 +20,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeDesporto">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaFit'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_3">
@@ -27,7 +28,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeSaude || clientTypeDesporto">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaSaude' || clientDetail.clientType == 'ProgramaFit'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_4">
@@ -35,7 +36,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeSaude || clientTypeDesporto">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaSaude' || clientDetail.clientType == 'ProgramaFit'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_5">
@@ -43,7 +44,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeSaude">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaSaude'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_6">
@@ -51,7 +52,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeDesporto">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaFit'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_8">
@@ -59,7 +60,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeDesporto">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaFit'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_9">
@@ -67,7 +68,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeDesporto">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaFit'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_10">
@@ -75,7 +76,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeDesporto">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaFit'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_11">
@@ -83,7 +84,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeSaude">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaSaude'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_12">
@@ -91,7 +92,7 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-4" ng-hide="clientTypeSaude">
+        <div class="col-sm-4" ng-hide="clientDetail.clientType == 'ProgramaSaude'">
             <div class="checkbox">
                 <label>
                     <input type="checkbox" ng-model="clientForm.quiz02_13">
@@ -101,7 +102,7 @@
         </div>
     </div>
 
-    <div class="col-sm-12" style="display: inline-flex;" ng-hide="clientTypeSaude">
+    <div class="col-sm-12" style="display: inline-flex;" ng-hide="clientDetail.clientType == 'ProgramaSaude'">
         <div class="checkbox" style="width: 8%;">
             <label>
                 <input type="checkbox" ng-model="clientForm.quiz02_7">

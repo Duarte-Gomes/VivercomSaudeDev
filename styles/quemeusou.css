@@ -135,7 +135,16 @@ button:focus, input:focus, textarea:focus {
     font-size: 18px; 
     font-weight: bold
 }
-
+.quemSouMainButtonNG {
+    opacity: 0.5;
+}
+.line-spin-fade-loader {
+    left: 540px;
+    top: 300px;
+}
+.line-spin-fade-loader > div {
+    background-color: orange;
+}
 
 
 @media screen and (max-width: 1366px) {

@@ -12,7 +12,7 @@
     </div>
     <div class="container">
 
-        <div id="loading"></div>
+        <!-- <div id="loading"></div> -->
     
         <div class="main-login col-sm-6 col-sm-offset-3" style="margin-top: 130px;" ng-hide="firebaseUser">
             <div id="loginWindow" ng-show="isUser">
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="main-welcome" style="margin-top: 75px;" ng-show="firebaseUser">
+        <div class="main-welcome ng-cloak" style="margin-top: 75px;" ng-show="firebaseUser">
             <div class="header">
                 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
                     <div class="container">
@@ -62,8 +62,8 @@
                             <a class="navbar-brand"><img class="logo-style" src="images/vcs-hh-logo.png" alt="Viver com Saude"></a>
                         </div>
 
-                        <div class="collapse navbar-collapse" id="js-navbar-collapse">
-                            <ul class="nav navbar-nav navbar-right">
+                        <div class="collapse navbar-collapse ng-cloak" id="js-navbar-collapse">
+                            <ul class="nav navbar-nav navbar-right" ng-hide="firstVisit.firstVisit">
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="home()">INÍCIO</a></li>
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonQuiz()" ng-hide="clientDetail.isQuizFuncBlock">QUESTIONÁRIO FUNCIONAL</a></li>
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showAntropo()">DADOS ANTROPOMÊTRICOS</a></li>
@@ -73,6 +73,12 @@
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonDetails()">DADOS PESSOAIS</a></li>
                                 <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="auth.$signOut()" id="logout">SAIR</a></li>
                             </ul>
+
+                            <ul class="nav navbar-nav navbar-right" ng-show="firstVisit.firstVisit">
+                                    <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="home()">INÍCIO</a></li>
+                                    <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonDetails()">DADOS PESSOAIS</a></li>
+                                    <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="auth.$signOut()" id="logout">SAIR</a></li>
+                                </ul>
                         </div>
                     </div>
                 </nav>
@@ -88,18 +94,32 @@
                     <button type="button" class="btn btn-info button-log button-style" ng-click="auth.$signOut()" style="margin-top: 10px; margin-left: 15px;" id="logout">Sair</button>                  
                 </div>
             </div> -->
-
+            <div loader-css="line-spin-fade-loader" ng-show="loading"></div>
+            <div ng-hide="loading">
             <div id="areas" ng-hide="notWelcome" class="row">
-                <div ng-show="primeiravez">
-                    <div class="col-sm-8 col-sm-offset-2 text-center areas-welcome">
-                        <h2 class="h2-welcome">Estamos aqui para o orientar no alcance dos seus objectivos.</h2>
-                        <img class="welcome-style" src="images/logo_fundo.png" alt="Welcome">
-                        <h2 class="h2-welcome">Ajude-nos a conhecê-lo melhor preenchendo ao máximo o QUESTIONÀRIO FUNCIONAL.</h2>
+                <div ng-show="firstVisit.firstVisit">
+                    <div ng-include="'views/firstTimeVisit.html'"></div>
+                    <br>
+                    <div class="text-center">   
+                        <button class="btn btn-success button-style text-center" ng-click="saveUserDetailsFirstTime()">Gravar</button>
+                        <!-- <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonDetails()">Voltar Atrás</button>  -->
                     </div>
                 </div>
-                <div ng-show="dashUser">
-                    <div class="col-sm-12">
+                <div ng-hide="firstVisit.firstVisit">
+                    <div ng-show="noData">
+                        <div class="col-sm-8 col-sm-offset-2 text-center areas-welcome">
+                            <h2 class="h2-welcome">Estamos aqui para o orientar no alcance dos seus objectivos.</h2>
+                            <img class="welcome-style" src="images/logo_fundo.png" alt="Welcome">
+                            <h2 class="h2-welcome">Ajude-nos a conhecê-lo melhor preenchendo ao máximo o QUESTIONÀRIO FUNCIONAL.</h2>
+                        </div>
+                    </div>
+                    <div ng-show="dashUser">
+                        <div class="col-sm-12">
                             <div ng-include="'views/form-tabs/tabhistory/dashboard.html'"></div>
+                        </div>
+                        <!-- <div class="col-sm-12">
+                            <div class="text-center" loader-css="line-spin-fade-loader"></div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -119,7 +139,7 @@
                 <div class="details-style-2" ng-include="'views/form-tabs/tabhistory/dados_antropometricos.html'"></div>
             </div>
 
-            <div id="personMetas" ng-show="isPersonMetas" class="row" ng-show="clientDetail.isMetasFuncUnblock">
+            <div id="personMetas" ng-show="isPersonMetas" ng-show="clientDetail.isMetasFuncUnblock" class="row">
                 <div class="details-style-2" ng-include="'views/form-tabs/tabhistory/metasUser.html'"></div>
             </div>
 
@@ -201,20 +221,6 @@
                                     </div>
                                 </md-content>
                             </md-tab>
-                            <md-tab label="Nutrição e Suplementação">
-                                <md-content class="md-padding">  
-                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
-                                        <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
-                                    </div>
-                                </md-content>
-                            </md-tab>
                             <md-tab label="Saúde e Medicina">
                                 <md-content class="md-padding">  
                                     <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
@@ -239,6 +245,20 @@
                                     </div>
                                 </md-content>
                             </md-tab>
+                            <md-tab label="Nutrição e Suplementação">
+                                <md-content class="md-padding">  
+                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
+                                        <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
+                                    </div>
+                                </md-content>
+                            </md-tab>
                             <!--<md-tab label="Dados Pessoais">
                                 <md-content class="md-padding">
                                     <div class="row" style="background-color: #ffffff; padding: 15px 0;">
@@ -258,6 +278,7 @@
                     </div>
                 </div>
             </div>
+            </div><!--loading-->
         </div>
     </div>
     </div>

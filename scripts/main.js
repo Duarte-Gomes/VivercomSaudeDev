@@ -45,9 +45,12 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
     function($scope, Auth, $location, currentAuth, usersList, suplementsList, $mdSidenav, $mdDialog, $firebaseStorage, $timeout) {   
 
         $scope.usersList = {};
-        $scope.clientDetail = {"pos":1};
-        $scope.clientForm = {"pos":1};
-        $scope.clientHist = {"pos":1};
+        $scope.clientDetail = {"pos": 1};
+        $scope.clientForm = {"pos": 1};
+        $scope.clientHist = {"pos": 1};
+        $scope.firstVisit = {"firstVisit": true}
+
+        $scope.loading = true;
 
         $scope.clientType = {};
         $scope.saveUserDetails = {};
@@ -87,7 +90,14 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
 
         $scope.bloodTypeList = [
             "A", "B", "AB", "O"
-        ]
+        ];
+
+        $scope.metaProgram = [
+            "Gestão Peso",
+            "Saúde e Bem Estar",
+            "Desporto"
+        ];
+
         $scope.showAlert = function(ev) {
             // Appending dialog to document.body to cover sidenav in docs app
             // Modal dialogs should fully cover application
@@ -129,22 +139,17 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             var user = getCookie("program_type");
             if(user === "ProgramaFit") {
                 $scope.clientDetail.clientType = "ProgramaFit";
-                $scope.firstTimeVisit = true;     
             }
             if(user === "ProgramaGestaoDePeso") {
                 $scope.clientDetail.clientType = "ProgramaGestaoDePeso";
-                $scope.firstTimeVisit = true; 
             }
             if(user === "ProgramaSaude") {
                 $scope.clientDetail.clientType = "ProgramaSaude";
-                $scope.firstTimeVisit = true;  
             }
             if(user === "ConsultaWellness") {
                 $scope.clientDetail.clientType = "ConsultaWellness";
-                $scope.firstTimeVisit = true;  
             }
         }
-
         
         var saveStatus;
         var postKey;
@@ -264,6 +269,7 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
         usersList.$loaded().then(function() {
             $scope.usersList = usersList;
             $scope.clientDetail.email = $scope.firebaseUser.email;
+            
 
             var i;
             /*console.log($scope.usersList);*/
@@ -272,6 +278,7 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                     $scope.clientDetail = usersList[i].client_detail;
                     $scope.clientForm = usersList[i].client_form;
                     $scope.clientHist = usersList[i].client_history;
+                    $scope.firstVisit = usersList[i].first_visit;
                     saveStatus = usersList[i].save_status;
                     postKey = usersList[i].$id;
                     postIndex = i;
@@ -325,10 +332,10 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
 
                     checkCookie();
 
-                    if ($scope.firstTimeVisit) {
+                    /* if ($scope.firstTimeVisit) {
                         $scope.clientDetail.firstTimeVisit = $scope.firstTimeVisit;
                         $scope.clientDetail.isQuizFuncBlock = true;
-                    } 
+                    }  */
 
                     if ($scope.clientHist.meta06 != null) {
                         $scope.metasUser = $scope.clientHist.meta06;
@@ -352,7 +359,7 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                     if ($scope.clientHist.da_01_01 != null) {
                         $scope.dashUser = true;
                     } else {
-                        $scope.primeiravez = true;
+                        $scope.noData = true;
                     }
 
                     var pos01, pos02, pos03, pos04;
@@ -949,9 +956,11 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                     }
                     
                     if (exists === false) {
+                        
                         saveStatus = 1;		                  
                         $scope.usersList.$add({
                             from: $scope.firebaseUser.uid,
+                            first_visit: $scope.firstVisit,
                             client_detail: $scope.clientDetail,
                             client_form: $scope.clientForm,
                             client_history: $scope.clientHist,
@@ -965,8 +974,8 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                 }
             }
                   
-
-           /* var storageRef = firebase.storage().ref();
+            
+            /* var storageRef = firebase.storage().ref();
             var filesRef = storageRef.child('Planos/' + $scope.firebaseUser.uid + '/plano.pdf');
 
             filesRef.getDownloadURL().then(function(url) {
@@ -975,9 +984,10 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                 console.log(error);
             });   */
 
+        }).then(function() {
+            $scope.loading = false;
         });
-
-        
+    
         $scope.getPostDetails = function(param) {
             var record = $scope.usersList.$getRecord(param);
             postIndex = $scope.usersList.$indexFor(param);
@@ -1027,6 +1037,28 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             }
         };
 
+        $scope.saveUserDetailsFirstTime = function() {
+            $scope.firstVisit.firstVisit = false;
+            if (saveStatus !== 1) {
+                saveStatus = 1;		                  
+                $scope.usersList.$add({
+                    from: $scope.firebaseUser.uid,
+                    client_detail: $scope.clientDetail,
+                    client_form: $scope.clientForm,
+                    client_number: usersList.length + 1,
+                    timestamp: firebase.database.ServerValue.TIMESTAMP,
+                    save_status: saveStatus,
+                    first_Visit: $scope.firstVisit.firstVisit
+                }).then(function() {
+                    location.reload();
+                });
+            } else {
+                $scope.usersList.$save(postIndex).then(function() {
+                    $scope.getPostDetails(postKey);     
+                });
+            }
+        };
+
         $scope.checkLoginWindowType = function() {
             $scope.isUser = false;
             $scope.isNewUser = true;
@@ -1062,8 +1094,8 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             $scope.isPersonQuiz = false;
             $scope.isPersonMetas = false;
             $scope.isPersonAntropo = false;
-            $scope.isPersonSpyder = false;            
             $scope.isPersonDetails = true;
+            $scope.isPersonSpyder = false;            
             $scope.notWelcome = true;
         };
         
@@ -1086,13 +1118,14 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             $scope.notWelcome = false;
         }; */
 
-        /* $scope.showPersonQuiz = function() {
+        $scope.showPersonQuiz = function() {
             $scope.isPersonQuiz = true;
             $scope.isPersonMetas = false;
+            $scope.isPersonAntropo = false;
             $scope.isPersonDetails = false;
             $scope.isPersonSpyder = false;            
             $scope.notWelcome = true;
-        }; */
+        };
 
         $scope.showMetas = function() {
             $scope.isPersonQuiz = false;
@@ -1116,10 +1149,25 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             $scope.isPersonQuiz = false;
             $scope.notWelcome = false;
         };
-        
+
+        $scope.setType = function(param) {
+            if (param == "massa") {
+                $scope.clientDetail.clientType = "ProgramaGestaoDePeso";
+            }
+            if (param == "desporto") {
+                $scope.clientDetail.clientType = "ProgramaFit";
+            }
+            if (param == "saude") {
+                $scope.clientDetail.clientType = "ProgramaSaude";
+            }
+        }
+   
         angular.element(window).ready(function() {
-            angular.element('#loading').addClass('hide');
-        });
+            /* angular.element('#loading').addClass('hide'); */
+            angular.element('md-tab-item').click(function() {
+                $scope.saveUserDetailsButton();
+            });
+        });  
 
         $scope.resetPass = function() {
             $scope.isPassReset = true;

@@ -45,7 +45,8 @@ var app = angular
         'material.svgAssetsCache',
         'ui.bootstrap',
         'moment-picker',
-        'ksSwiper'
+        'ksSwiper',
+        'alexjoffroy.angular-loaders'
 ]);
 //'ngTouch',  
 

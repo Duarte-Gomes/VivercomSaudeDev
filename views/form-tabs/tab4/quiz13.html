@@ -1,4 +1,4 @@
-<div ng-show="clientTypeSaude || clientTypePeso || clientTypeDesporto">
+<div ng-show="clientDetail.clientType == 'ProgramaGestaoDePeso' || clientDetail.clientType == 'ProgramaSaude' || clientDetail.clientType == 'ProgramaFit'">
     <div class="col-sm-12" style="display: inline-flex;">
         <h4 class="newH4">Apresenta algum dos seguintes sintomas gastrointestinais?</h4>
         <div class="checkbox checkbox-title" style="width: 5%; margin-left: 20px;">
@@ -104,7 +104,7 @@
     </div>
 </div>
 
-<div ng-hide="clientTypeSaude || clientTypePeso || clientTypeDesporto">
+<div ng-hide="clientDetail.clientType == 'ProgramaGestaoDePeso' || clientDetail.clientType == 'ProgramaSaude' || clientDetail.clientType == 'ProgramaFit'">
     <div class="col-sm-12">
         <h4 class="newH4">Apresenta algum dos seguintes sintomas gastrointestinais?</h4>
     </div>

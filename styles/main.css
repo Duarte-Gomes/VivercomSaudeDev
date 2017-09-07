@@ -183,8 +183,7 @@ tr {
 }
 textarea {
   width: 100%;
-  /* border: 0; */
-  height: 75px;
+  height: 60px;
   box-sizing: border-box;
   resize: vertical;
 }
