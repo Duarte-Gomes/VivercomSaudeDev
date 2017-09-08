@@ -100,7 +100,7 @@ md-tabs[md-border-bottom]:not(.md-dynamic-height) md-tabs-content-wrapper {
 }
 @media screen and (max-width: 1366px) {
     md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
-      min-height: 445px;
+      min-height: 560px;
     }
     .quiz-func-pad-top {
       margin-top: 15px;

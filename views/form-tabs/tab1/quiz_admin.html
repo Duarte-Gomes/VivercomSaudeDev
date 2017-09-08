@@ -93,7 +93,7 @@
 <!--{{aniversario}}-->
 
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="form-group">
             <label for="CodEmpresarial">Código Empresarial</label>
             <input type="text" class="form-control" id="CodEmpresarial" placeholder="Se atribuido um código, preencha aqui" ng-model="clientDetail.codBis">
@@ -119,7 +119,12 @@
             <input type="text" class="form-control" id="InputEmail" ng-model="clientDetail.email">
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
+        <div style="margin-top: 32px; height: 25px;">
+            <a style="background-color: #337ab7; color: white; padding: 6px 12px; border-radius: 4px; border: 1px solid #2e6da4;" href="mailto:{{clientDetail.email}}?Subject=Hello%20again" target="_top">CRIAR EMAIL</a>
+        </div>
+    </div>
+    <div class="col-sm-2">
         <!--<md-input-container class="md-block">
             <label>Profissão</label>
             <input ng-model="clientDetail.profession">
@@ -132,7 +137,7 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-2">
         <div class="form-group">
             <label for="InputLConsulta">Local Consulta</label>
             <select ng-model="clientDetail.locConsulta" class="form-control" id="InputLConsulta" ng-options="x for x in consultLocal">
@@ -297,17 +302,15 @@
     </div>
 </div>
 <div class="row" style="margin-top: 20px;">
-    <div class="col-sm-2">
-        <p>Criar email <a href="mailto:{{clientDetail.email}}?Subject=Hello%20again" target="_top">ABRIR</a></p>
-    </div>
-    <div class="col-sm-3">
+    
+    <div class="col-sm-4">
         <button class="btn btn-primary" style="margin-top: 12px;">Enviar boas vindas(não esta a funcionar)</button>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <button ng-click="blockQuizFunc()" class="btn btn-success" style="margin-top: 12px;" ng-hide="clientDetail.isQuizFuncBlock">Bloquear Questionário Funcional</button>
         <button ng-click="unblockQuizFunc()" class="btn btn-danger" style="margin-top: 12px;" ng-show="clientDetail.isQuizFuncBlock">Desbloquear Questionário Funcional</button>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4">
         <button ng-click="unblockMetasFunc()" class="btn btn-success" style="margin-top: 12px;" ng-hide="clientDetail.isMetasFuncUnblock">Desbloquear Metas Funcionais</button>
         <button ng-click="blockMetasFunc()" class="btn btn-danger" style="margin-top: 12px;" ng-show="clientDetail.isMetasFuncUnblock">Bloquear Metas Funcionais</button>
         </div>
