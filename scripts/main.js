@@ -65,6 +65,9 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
         $scope.isPersonDetails = false;
         $scope.isPersonQuiz = false;
 
+        $scope.firstVisitPart1 = true;
+        $scope.firstVisitPart2 = false;
+
         $scope.auth = Auth;
         $scope.admin = true; //isto esta a ser usado????
 
@@ -264,13 +267,10 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             $scope.saveUserDetails();
         };
 
-
-
         usersList.$loaded().then(function() {
             $scope.usersList = usersList;
             $scope.clientDetail.email = $scope.firebaseUser.email;
             
-
             var i;
             /*console.log($scope.usersList);*/
             for (i = 0; i < usersList.length; i++) {
@@ -331,11 +331,6 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                     } 
 
                     checkCookie();
-
-                    /* if ($scope.firstTimeVisit) {
-                        $scope.clientDetail.firstTimeVisit = $scope.firstTimeVisit;
-                        $scope.clientDetail.isQuizFuncBlock = true;
-                    }  */
 
                     if ($scope.clientHist.meta06 != null) {
                         $scope.metasUser = $scope.clientHist.meta06;
@@ -1054,7 +1049,10 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                 });
             } else {
                 $scope.usersList.$save(postIndex).then(function() {
-                    $scope.getPostDetails(postKey);     
+                    $scope.getPostDetails(postKey);  
+                    $scope.isPersonQuiz = true;
+                    $scope.dashUser = false;
+                    console.log($scope.isPersonQuiz)
                 });
             }
         };
@@ -1145,20 +1143,26 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             $scope.notWelcome = true;
         };
 
-        $scope.exitPersonQuiz = function() {
+        /* $scope.exitPersonQuiz = function() {
             $scope.isPersonQuiz = false;
             $scope.notWelcome = false;
-        };
+        }; */
 
         $scope.setType = function(param) {
             if (param == "massa") {
                 $scope.clientDetail.clientType = "ProgramaGestaoDePeso";
+                $scope.firstVisitPart1 = false;
+                $scope.firstVisitPart2 = true;
             }
             if (param == "desporto") {
                 $scope.clientDetail.clientType = "ProgramaFit";
+                $scope.firstVisitPart1 = false;
+                $scope.firstVisitPart2 = true;
             }
             if (param == "saude") {
                 $scope.clientDetail.clientType = "ProgramaSaude";
+                $scope.firstVisitPart1 = false;
+                $scope.firstVisitPart2 = true;
             }
         }
    
@@ -1214,7 +1218,6 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             // Create a new user
             Auth.$createUserWithEmailAndPassword($scope.email, $scope.password)
             .then(function(firebaseUser) {
-                
                 /*firebaseUser.sendEmailVerification();*/
                 location.reload();
             }).catch(function(error) {

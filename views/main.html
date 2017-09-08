@@ -75,8 +75,6 @@
                             </ul>
 
                             <ul class="nav navbar-nav navbar-right" ng-show="firstVisit.firstVisit">
-                                    <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="home()">INÍCIO</a></li>
-                                    <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonDetails()">DADOS PESSOAIS</a></li>
                                     <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="auth.$signOut()" id="logout">SAIR</a></li>
                                 </ul>
                         </div>
@@ -100,7 +98,7 @@
                 <div ng-show="firstVisit.firstVisit">
                     <div ng-include="'views/firstTimeVisit.html'"></div>
                     <br>
-                    <div class="text-center">   
+                    <div class="text-center" ng-hide="firstVisitPart1" ng-show="firstVisitPart2">   
                         <button class="btn btn-success button-style text-center" ng-click="saveUserDetailsFirstTime()">Gravar</button>
                         <!-- <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonDetails()">Voltar Atrás</button>  -->
                     </div>
