@@ -1,0 +1,57 @@
+<div style="padding: 0 15px;">
+    <h1 class="text-center">Lista de utilizadores</h1> 
+    <table datatable="ng" class="row-border hover">
+        <thead>
+            <tr>
+                <td>Nome</td>
+                <td>Peso #1</td>
+                <td>Peso #2</td>
+                <td>Peso #3</td>
+                <td>Massa Gorda #1</td>
+                <td>Massa Gorda #2</td>
+                <td>Massa Gorda #3</td>
+                <td>Água Corporal #1</td>
+                <td>Água Corporal #2</td>
+                <td>Água Corporal #3</td>
+                <td>Massa Magra #1</td>
+                <td>Massa Magra #2</td>
+                <td>Massa Magra #3</td>
+                <td>Gordura Visceral #1</td>
+                <td>Gordura Visceral #2</td>
+                <td>Gordura Visceral #3</td>
+                <td>Perímetro Cintura #1</td>
+                <td>Perímetro Cintura #2</td>
+                <td>Perímetro Cintura #3</td>
+                <td>Perímetro Abdominal #1</td>
+                <td>Perímetro Abdominal #2</td>
+                <td>Perímetro Abdominal #3</td>    
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid black" ng-repeat="user in newUsersList">
+                <td>{{user.client_detail.name}}</td>
+                <td>{{user.client_history.da_01_03}}</td>
+                <td>{{user.client_history.da_02_03}}</td>
+                <td>{{user.client_history.da_03_03}}</td>
+                <td>{{user.client_history.da_01_04}}</td>
+                <td>{{user.client_history.da_02_04}}</td>
+                <td>{{user.client_history.da_03_04}}</td>
+                <td>{{user.client_history.da_01_05}}</td>
+                <td>{{user.client_history.da_02_05}}</td>
+                <td>{{user.client_history.da_03_05}}</td>
+                <td>{{user.client_history.da_01_06}}</td>
+                <td>{{user.client_history.da_02_06}}</td>
+                <td>{{user.client_history.da_03_06}}</td>
+                <td>{{user.client_history.da_01_07}}</td>
+                <td>{{user.client_history.da_02_07}}</td>
+                <td>{{user.client_history.da_03_07}}</td>
+                <td>{{user.client_history.da_01_08}}</td>
+                <td>{{user.client_history.da_02_08}}</td>
+                <td>{{user.client_history.da_03_08}}</td>
+                <td>{{user.client_history.da_01_09}}</td>
+                <td>{{user.client_history.da_02_09}}</td>
+                <td>{{user.client_history.da_03_09}}</td>              
+            </tr>
+        </tbody>
+    </table>
+</div>

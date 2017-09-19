@@ -105,8 +105,10 @@ app.controller('DashCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
         var sportsFreq03 = 0;
 
         var spyderCont = 0, contPE = 0, contPM = 0, contEE = 0, contEM = 0;
-        
+        var cont = 0;
 
+        $scope.newUsersList = {};
+        
         usersList.$loaded().then(function() {
             $scope.usersList = usersList;
 
@@ -115,6 +117,9 @@ app.controller('DashCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                     if ($scope.usersList[i].client_detail.codBis === "#CGI") {
                         contCGI++;
                         $scope.contCGI = contCGI;
+                        
+                        $scope.newUsersList[cont] = $scope.usersList[i];
+                        cont++;
                     }
 
                     if ($scope.usersList[i].client_detail.codBis === "#CGI") {

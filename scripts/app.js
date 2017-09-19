@@ -87,6 +87,16 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
           }]
         }
     })
+    .when('/tabelacgi', {
+        templateUrl: 'views/tabelacgi.html',
+        controller: 'DashCtrl',
+        controllerAs: 'dashboard',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$waitForSignIn();
+          }]
+        }
+    })
     .when('/dudas', {
         templateUrl: 'views/dudas.html',
         controller: 'DudasCtrl',

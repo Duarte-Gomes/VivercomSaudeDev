@@ -1441,5 +1441,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.getDetails(usersList[postIndex].$id);
             });
         };
+
+
+        //$scope.testedeenvioL
+        //$scope.testedeenvioL
     }
 ]);
