@@ -18,7 +18,13 @@
     messagingSenderId: "1022101485660"
 };*/
 //chave producao
-
+var config = {
+    apiKey: "AIzaSyDUe-bfOdjHuaXwq4-mrqyGrPODr3XE0Vo",
+    authDomain: "app-healty-habits.firebaseapp.com",
+    databaseURL: "https://app-healty-habits.firebaseio.com",
+    storageBucket: "app-healty-habits.appspot.com",
+    messagingSenderId: "633041698720"
+};
 firebase.initializeApp(config);
 
 var app = angular
@@ -85,6 +91,16 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         templateUrl: 'views/tabelacgi.html',
         controller: 'DashCtrl',
         controllerAs: 'dashboard',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$waitForSignIn();
+          }]
+        }
+    })
+    .when('/newsletter', {
+        templateUrl: 'views/newsletter.html',
+        controller: 'AdminCtrl',
+        controllerAs: 'admin',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
             return Auth.$waitForSignIn();
