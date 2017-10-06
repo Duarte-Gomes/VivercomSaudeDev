@@ -17,33 +17,6 @@ function($scope, Auth, $location, currentAuth, usersList, $mdSidenav, $timeout) 
         }
     });
 
-    $scope.loginUser = function() {
-
-        Auth.$signInWithEmailAndPassword($scope.email, $scope.password)
-        .then(function(firebaseUser) {
-            $scope.firebaseUser = firebaseUser;    
-        })
-        .catch(function(error) {
-            var errorCode = error.code;
-            var errorMessage = error.message;
-        }); 
-    };
-
-    $scope.createUser = function() {
-        $scope.message = null;
-        $scope.error = null;
-       
-        // Create a new user
-        Auth.$createUserWithEmailAndPassword($scope.email, $scope.password)
-        .then(function(firebaseUser) {
-            $scope.message = "User created with uid: " + firebaseUser.uid;
-            $scope.user = firebaseUser.uid;
-            //$location.path('/newUser');    
-        }).catch(function(error) {
-            $scope.error = error;
-        }); 
-    };
-
     $scope.auth.$onAuthStateChanged(function(firebaseUser) {
         $scope.firebaseUser = firebaseUser;
     });

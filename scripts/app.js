@@ -107,6 +107,16 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
           }]
         }
     })
+    .when('/historicocgi', {
+        templateUrl: 'views/historicocgi.html',
+        controller: 'HistoricoCgiCtrl',
+        controllerAs: 'historicocgi',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$waitForSignIn();
+          }]
+        }
+    })
     .when('/consultasmanuel', {
         templateUrl: 'views/tabelamanuel.html',
         controller: 'CuponManuelCtrl',
