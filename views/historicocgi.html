@@ -5,10 +5,10 @@
             <table datatable="ng" class="row-border hover">
                 <thead>
                     <tr>
+                        <td>Data Registo</td>
                         <td>Nome</td>
                         <td>Email</td>
                         <td>Local Consulta</td>
-                        <td>Codigo Empresarial</td>
                         <td>Data 1ª Consulta</td>
                         <td>Data 2ª Consulta</td>
                         <td>Data 3ª Consulta</td>
@@ -21,10 +21,10 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="user in cgiList">
+                        <td>{{user.dateRegister}}</td> 
                         <td>{{user.client_detail.name}}</td>
                         <td>{{user.client_detail.email}}</td>
                         <td>{{user.client_detail.locConsulta}}</td>
-                        <td>{{user.client_detail.codBis}}</td>
                         <td>{{user.client_history.da_01_01}}</td>
                         <td>{{user.client_history.da_02_01}}</td>
                         <td>{{user.client_history.da_03_01}}</td>
