@@ -107,6 +107,16 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
           }]
         }
     })
+    .when('/consultasmanuel', {
+        templateUrl: 'views/tabelamanuel.html',
+        controller: 'CuponManuelCtrl',
+        controllerAs: 'cuponmanuel',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$waitForSignIn();
+          }]
+        }
+    })
     .when('/dudas', {
         templateUrl: 'views/dudas.html',
         controller: 'DudasCtrl',

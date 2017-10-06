@@ -405,10 +405,11 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             "A", "B", "AB", "O"
         ]
 
-        /* if ($scope.firebaseUser.uid == "3LAlHoqUTsV73YM4THWnBH33Aix2" || $scope.firebaseUser.uid == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || $scope.firebaseUser.uid == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") { */
-        usersList.$loaded().then(function() {
-            $scope.usersList = usersList;
-        });
+        if ($scope.firebaseUser.uid == "3LAlHoqUTsV73YM4THWnBH33Aix2" || $scope.firebaseUser.uid == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || $scope.firebaseUser.uid == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
+            usersList.$loaded().then(function() {
+                $scope.usersList = usersList;
+            });
+        }
 
         clientsAppointmentsHistorical.$loaded().then(function() {
             $scope.clientsAppointmentsHistorical = clientsAppointmentsHistorical;
