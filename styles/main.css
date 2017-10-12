@@ -228,7 +228,7 @@ textarea {
 }
 .dashValueProx {
   font-weight: bold;
-  font-size: 45px;
+  font-size: 40px;
   text-align: center;
   margin: 0;
 }
@@ -267,8 +267,9 @@ textarea {
 }
 .buttonMetas {
   border: 0;
-  padding: 19px;
+  padding: 6px 19px;
   background-color: #ff944d;
+  bottom: 0;
 }
 .buttonMetas:hover {
   background-color: #ffd1b3;
@@ -285,8 +286,10 @@ textarea {
   border: 0;
   font-weight: bold;
 }
-.chart-dash {
-  margin-top: 50px;
+.addHistoricButton {
+  background-color: transparent;
+  border: none;
+  font-size: 40px;
 }
 @media screen and (max-width: 1366px) {
   .welcome-style {
@@ -297,12 +300,9 @@ textarea {
     margin-top: 60px;
   }
   .margin-admin-menu {
-    margin-left: 228px;
+    margin-left: 225px;
   }
   .dashValue {
-    font-size: 44px;
-  }
-  .dashValueProx {
     font-size: 44px;
   }
   .areas-welcome {

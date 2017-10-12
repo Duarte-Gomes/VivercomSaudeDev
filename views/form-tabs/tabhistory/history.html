@@ -1,4 +1,461 @@
-<div class="row" style="padding-top: 15px;">
+<div class="row">
+    <div class="col-sm-12 text-center">
+        <button class="addHistoricButton" ng-click="showNewLineAntro()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+    </div>
+</div>
+<!-- ## 10 ## -->
+<div ng-show="consult.c10 || clientHist.da_10_01">
+    <div class="row">
+        <div class="col-sm-1">
+            <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#6</p>
+        </div>
+        <div class="col-sm-2">
+            <label>Data</label>
+            <input type="text" class="form-control text-center" moment-picker="hist.dateString_10" 
+                            locale="pt"
+                            format="L"
+                            max-view="day"
+                            start-view="month"
+                            autoclose="true"
+                            today="true"
+                            keyboard="true" ng-model="hist.date_10">
+        </div>
+        <div class="col-sm-3">
+            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_10_4" value="1"> 1
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_10_4" value="2"> 2
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_10_4" value="3"> 3
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <label>Tipo de Contacto</label>
+            <select ng-model="clientHist.quizhis_10_3" class="form-control" id="" ng-options="x for x in contactTypeList">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Observações</label>
+            <textarea class="textarea-metas" ng-model="clientHist.quizhis_10_2"></textarea>
+        </div>
+    </div>
+    <div class="row" style="margin: 15px 0;">
+        <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+    </div>
+</div>
+    
+<!-- ## 9 ## -->
+
+<div ng-show="consult.c09 || clientHist.da_09_01">
+    <div class="row">
+        <div class="col-sm-1">
+            <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#6</p>
+        </div>
+        <div class="col-sm-2">
+            <label>Data</label>
+            <input type="text" class="form-control text-center" moment-picker="hist.dateString_09" 
+                            locale="pt"
+                            format="L"
+                            max-view="day"
+                            start-view="month"
+                            autoclose="true"
+                            today="true"
+                            keyboard="true" ng-model="hist.date_09">
+        </div>
+        <div class="col-sm-3">
+            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_9_4" value="1"> 1
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_9_4" value="2"> 2
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_9_4" value="3"> 3
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <label>Tipo de Contacto</label>
+            <select ng-model="clientHist.quizhis_9_3" class="form-control" id="" ng-options="x for x in contactTypeList">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Observações</label>
+            <textarea class="textarea-metas" ng-model="clientHist.quizhis_9_2"></textarea>
+        </div>
+    </div>
+    <div class="row" style="margin: 15px 0;">
+        <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+    </div>
+</div>
+    
+<!-- ## 8 ## -->
+
+<div ng-show="consult.c08 || clientHist.da_08_01">
+        <div class="row">
+            <div class="col-sm-1">
+                <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#6</p>
+            </div>
+            <div class="col-sm-2">
+                <label>Data</label>
+                <input type="text" class="form-control text-center" moment-picker="hist.dateString_08" 
+                                locale="pt"
+                                format="L"
+                                max-view="day"
+                                start-view="month"
+                                autoclose="true"
+                                today="true"
+                                keyboard="true" ng-model="hist.date_08">
+            </div>
+            <div class="col-sm-3">
+                <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+                <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+                <div>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="clientHist.quizhis_8_4" value="1"> 1
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="clientHist.quizhis_8_4" value="2"> 2
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="clientHist.quizhis_8_4" value="3"> 3
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <label>Tipo de Contacto</label>
+                <select ng-model="clientHist.quizhis_8_3" class="form-control" id="" ng-options="x for x in contactTypeList">
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label>Observações</label>
+                <textarea class="textarea-metas" ng-model="clientHist.quizhis_8_2"></textarea>
+            </div>
+        </div>
+        <div class="row" style="margin: 15px 0;">
+            <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+        </div>
+    </div>
+
+<!-- ## 7 ## -->
+
+<div ng-show="consult.c07 || clientHist.da_07_01">
+        <div class="row">
+            <div class="col-sm-1">
+                <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#7</p>
+            </div>
+            <div class="col-sm-2">
+                <label>Data</label>
+                <input type="text" class="form-control text-center" moment-picker="hist.dateString_07" 
+                                locale="pt"
+                                format="L"
+                                max-view="day"
+                                start-view="month"
+                                autoclose="true"
+                                today="true"
+                                keyboard="true" ng-model="hist.date_07">
+            </div>
+            <div class="col-sm-3">
+                <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+                <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+                <div>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="clientHist.quizhis_7_4" value="1"> 1
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="clientHist.quizhis_7_4" value="2"> 2
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" ng-model="clientHist.quizhis_7_4" value="3"> 3
+                    </label>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <label>Tipo de Contacto</label>
+                <select ng-model="clientHist.quizhis_7_3" class="form-control" id="" ng-options="x for x in contactTypeList">
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <label>Observações</label>
+                <textarea class="textarea-metas" ng-model="clientHist.quizhis_7_2"></textarea>
+            </div>
+        </div>
+        <div class="row" style="margin: 15px 0;">
+            <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+        </div>
+    </div>
+
+<!-- ## 6 ## -->
+
+<div ng-show="consult.c06 || clientHist.da_06_01">
+    <div class="row">
+        <div class="col-sm-1">
+            <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#6</p>
+        </div>
+        <div class="col-sm-2">
+            <label>Data</label>
+            <input type="text" class="form-control text-center" moment-picker="hist.dateString_06" 
+                            locale="pt"
+                            format="L"
+                            max-view="day"
+                            start-view="month"
+                            autoclose="true"
+                            today="true"
+                            keyboard="true" ng-model="hist.date_06">
+        </div>
+        <div class="col-sm-3">
+            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_6_4" value="1"> 1
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_6_4" value="2"> 2
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_6_4" value="3"> 3
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <label>Tipo de Contacto</label>
+            <select ng-model="clientHist.quizhis_6_3" class="form-control" id="" ng-options="x for x in contactTypeList">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Observações</label>
+            <textarea class="textarea-metas" ng-model="clientHist.quizhis_6_2"></textarea>
+        </div>
+    </div>
+    <div class="row" style="margin: 15px 0;">
+        <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+    </div>
+</div>
+
+<!-- ## 5 ## -->
+
+<div ng-show="consult.c05 || clientHist.da_05_01">
+    <div class="row">
+        <div class="col-sm-1">
+            <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#5</p>
+        </div>
+        <div class="col-sm-2">
+            <label>Data</label>
+            <input type="text" class="form-control text-center" moment-picker="hist.dateString_05" 
+                            locale="pt"
+                            format="L"
+                            max-view="day"
+                            start-view="month"
+                            autoclose="true"
+                            today="true"
+                            keyboard="true" ng-model="hist.date_05">
+        </div>
+        <div class="col-sm-3">
+            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_5_4" value="1"> 1
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_5_4" value="2"> 2
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_5_4" value="3"> 3
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <label>Tipo de Contacto</label>
+            <select ng-model="clientHist.quizhis_5_3" class="form-control" id="" ng-options="x for x in contactTypeList">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Observações</label>
+            <textarea class="textarea-metas" ng-model="clientHist.quizhis_5_2"></textarea>
+        </div>
+    </div>
+    <div class="row" style="margin: 15px 0;">
+        <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+    </div>
+</div>
+
+<!-- ## 4 ## -->
+
+<div ng-show="consult.c04 || clientHist.da_04_01">
+    <div class="row">
+        <div class="col-sm-1">
+            <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#4</p>
+        </div>
+        <div class="col-sm-2">
+            <label>Data</label>
+            <input type="text" class="form-control text-center" moment-picker="hist.dateString_04" 
+                            locale="pt"
+                            format="L"
+                            max-view="day"
+                            start-view="month"
+                            autoclose="true"
+                            today="true"
+                            keyboard="true" ng-model="hist.date_04">
+        </div>
+        <div class="col-sm-3">
+            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_4_4" value="1"> 1
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_4_4" value="2"> 2
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_4_4" value="3"> 3
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <label>Tipo de Contacto</label>
+            <select ng-model="clientHist.quizhis_4_3" class="form-control" id="" ng-options="x for x in contactTypeList">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Observações</label>
+            <textarea class="textarea-metas" ng-model="clientHist.quizhis_4_2"></textarea>
+        </div>
+    </div>
+    <div class="row" style="margin: 15px 0;">
+        <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+    </div>
+</div>
+
+<!-- ## 3 ## -->
+
+<div ng-show="consult.c03 || clientHist.da_03_01">
+    <div class="row">
+        <div class="col-sm-1">
+            <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#3</p>
+        </div>
+        <div class="col-sm-2">
+            <label>Data</label>
+            <input type="text" class="form-control text-center" moment-picker="hist.dateString_03" 
+                            locale="pt"
+                            format="L"
+                            max-view="day"
+                            start-view="month"
+                            autoclose="true"
+                            today="true"
+                            keyboard="true" ng-model="hist.date_03">
+        </div>
+        <div class="col-sm-3">
+            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_3_4" value="1"> 1
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_3_4" value="2"> 2
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_3_4" value="3"> 3
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <label>Tipo de Contacto</label>
+            <select ng-model="clientHist.quizhis_3_3" class="form-control" id="" ng-options="x for x in contactTypeList">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Observações</label>
+            <textarea class="textarea-metas" ng-model="clientHist.quizhis_3_2"></textarea>
+        </div>
+    </div>
+
+    <div class="row" style="margin: 15px 0;">
+        <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+    </div>
+</div>
+
+<!-- ## 2 "" -->
+
+<div ng-show="consult.c02 || clientHist.da_02_01">        
+    <div class="row">
+        <div class="col-sm-1">
+            <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#2</p>
+        </div>
+        <div class="col-sm-2">
+            <label>Data</label>
+            <input type="text" class="form-control text-center" moment-picker="hist.dateString_02" 
+                            locale="pt"
+                            format="L"
+                            max-view="day"
+                            start-view="month"
+                            autoclose="true"
+                            today="true"
+                            keyboard="true" ng-model="hist.date_02">
+        </div>
+        <div class="col-sm-3">
+            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+            <div>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_2_4" value="1"> 1
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_2_4" value="2"> 2
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientHist.quizhis_2_4" value="3"> 3
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <label>Tipo de Contacto</label>
+            <select ng-model="clientHist.quizhis_2_3" class="form-control" id="" ng-options="x for x in contactTypeList">
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Observações</label>
+            <textarea class="textarea-metas" ng-model="clientHist.quizhis_2_2"></textarea>
+        </div>
+    </div>
+    <div class="row" style="margin: 15px 0;">
+        <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
+    </div>
+</div>
+
+<!-- ## 1 ## -->
+
+<div class="row">
     <!-- <button ng-click="gravarhist()">nova consulta</button> botao de teste -->
     <div class="col-sm-1">
         <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#1</p>
@@ -15,13 +472,25 @@
                         keyboard="true" ng-model="hist.date_01">
         <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
     </div>
+    <div class="col-sm-3">
+        <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
+        <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
+        <div>
+            <label class="radio-inline">
+                <input type="radio" ng-model="clientHist.quizhis_1_4" value="1"> 1
+            </label>
+            <label class="radio-inline">
+                <input type="radio" ng-model="clientHist.quizhis_1_4" value="2"> 2
+            </label>
+            <label class="radio-inline">
+                <input type="radio" ng-model="clientHist.quizhis_1_4" value="3"> 3
+            </label>
+        </div>
+    </div>
     <div class="col-sm-2">
         <label>Tipo de Contacto</label>
         <select ng-model="clientHist.quizhis_1_3" class="form-control" id="" ng-options="x for x in contactTypeList">
         </select>
-    </div>
-    <div class="col-sm-2">
-        <button ng-click="showMetas01()" class="buttonMetas">Metas Funcionais</button>
     </div>
 </div>
 <div class="row">
@@ -30,183 +499,6 @@
         <textarea class="textarea-metas" ng-model="clientHist.quizhis_1_2"></textarea>
     </div>
 </div>
-
 <div class="row" style="margin: 15px 0;">
     <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
-</div>
-
-<div class="row" style="margin-top: 30px;">
-    <div class="col-sm-1">
-        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#2</p>
-    </div>
-    <div class="col-sm-2">
-        <label>Data</label>
-        <input type="text" class="form-control text-center" moment-picker="hist.dateString_02" 
-                        locale="pt"
-                        format="L"
-                        max-view="day"
-                        start-view="month"
-                        autoclose="true"
-                        today="true"
-                        keyboard="true" ng-model="hist.date_02">
-        <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
-    </div>
-    <div class="col-sm-2">
-        <label>Tipo de Contacto</label>
-        <select ng-model="clientHist.quizhis_2_3" class="form-control" id="" ng-options="x for x in contactTypeList">
-        </select>
-    </div>
-    <div class="col-sm-2">
-        <button ng-click="showMetas02()" class="buttonMetas">Metas Funcionais</button>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <label>Observações</label>
-        <textarea class="textarea-metas" ng-model="clientHist.quizhis_2_2"></textarea>
-    </div>
-</div>
-
-<div class="row" style="margin: 15px 0;">
-    <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
-</div>
-
-<div class="row" style="margin-top: 30px;">
-    <div class="col-sm-1">
-        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#3</p>
-    </div>
-    <div class="col-sm-2">
-        <label>Data</label>
-        <input type="text" class="form-control text-center" moment-picker="hist.dateString_03" 
-                        locale="pt"
-                        format="L"
-                        max-view="day"
-                        start-view="month"
-                        autoclose="true"
-                        today="true"
-                        keyboard="true" ng-model="hist.date_03">
-        <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
-    </div>
-    <div class="col-sm-2">
-        <label>Tipo de Contacto</label>
-        <select ng-model="clientHist.quizhis_3_3" class="form-control" id="" ng-options="x for x in contactTypeList">
-        </select>
-    </div>
-    <div class="col-sm-2">
-        <button ng-click="showMetas03()" class="buttonMetas">Metas Funcionais</button>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <label>Observações</label>
-        <textarea class="textarea-metas" ng-model="clientHist.quizhis_3_2"></textarea>
-    </div>
-</div>
-
-<div class="row" style="margin: 15px 0;">
-    <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
-</div>
-
-<div class="row" style="margin-top: 30px;">
-    <div class="col-sm-1">
-        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#4</p>
-    </div>
-    <div class="col-sm-2">
-        <label>Data</label>
-        <input type="text" class="form-control text-center" moment-picker="hist.dateString_04" 
-                        locale="pt"
-                        format="L"
-                        max-view="day"
-                        start-view="month"
-                        autoclose="true"
-                        today="true"
-                        keyboard="true" ng-model="hist.date_04">
-        <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
-    </div>
-    <div class="col-sm-2">
-        <label>Tipo de Contacto</label>
-        <select ng-model="clientHist.quizhis_4_3" class="form-control" id="" ng-options="x for x in contactTypeList">
-        </select>
-    </div>
-    <div class="col-sm-2">
-        <button ng-click="showMetas04()" class="buttonMetas">Metas Funcionais</button>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <label>Observações</label>
-        <textarea class="textarea-metas" ng-model="clientHist.quizhis_4_2"></textarea>
-    </div>
-</div>
-
-<div class="row" style="margin: 15px 0;">
-    <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
-</div>
-
-<div class="row" style="margin-top: 30px;">
-    <div class="col-sm-1">
-        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#5</p>
-    </div>
-    <div class="col-sm-2">
-        <label>Data</label>
-        <input type="text" class="form-control text-center" moment-picker="hist.dateString_05" 
-                        locale="pt"
-                        format="L"
-                        max-view="day"
-                        start-view="month"
-                        autoclose="true"
-                        today="true"
-                        keyboard="true" ng-model="hist.date_05">
-        <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
-    </div>
-    <div class="col-sm-2">
-        <label>Tipo de Contacto</label>
-        <select ng-model="clientHist.quizhis_5_3" class="form-control" id="" ng-options="x for x in contactTypeList">
-        </select>
-    </div>
-    <div class="col-sm-2">
-        <button ng-click="showMetas05()" class="buttonMetas">Metas Funcionais</button>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <label>Observações</label>
-        <textarea class="textarea-metas" ng-model="clientHist.quizhis_5_2"></textarea>
-    </div>
-</div>
-
-<div class="row" style="margin: 15px 0;">
-    <div style="border-bottom: 3px grey solid; width: 100%; margin:auto;"></div>
-</div>
-
-<div class="row" style="margin-top: 30px;">
-    <div class="col-sm-1">
-        <p style="font-weight: bold; font-size: 35px; top: 8px; left: 53px; position: absolute;">#6</p>
-    </div>
-    <div class="col-sm-2">
-        <label>Data</label>
-        <input type="text" class="form-control text-center" moment-picker="hist.dateString_06" 
-                        locale="pt"
-                        format="L"
-                        max-view="day"
-                        start-view="month"
-                        autoclose="true"
-                        today="true"
-                        keyboard="true" ng-model="hist.date_06">
-        <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
-    </div>
-    <div class="col-sm-2">
-        <label>Tipo de Contacto</label>
-        <select ng-model="clientHist.quizhis_6_3" class="form-control" id="" ng-options="x for x in contactTypeList">
-        </select>
-    </div>
-    <div class="col-sm-2">
-        <button ng-click="showMetas06()" class="buttonMetas">Metas Funcionais</button>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-12">
-        <label>Observações</label>
-        <textarea class="textarea-metas" ng-model="clientHist.quizhis_6_2"></textarea>
-    </div>
 </div>

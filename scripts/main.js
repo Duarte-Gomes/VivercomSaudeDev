@@ -925,8 +925,8 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                     $scope.metasFuncionais.options = {
                         'title': 'Metas Funcionais',
                         'legend': 'none',
-                        'width': '1140',
-                        'height': '400'
+                        'width': '1109',
+                        'height': '330'
                        /*  ,
                         'colors': [
                             '#ffd900', 
