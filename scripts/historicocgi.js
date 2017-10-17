@@ -375,7 +375,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             
             for (var i = 0; i < usersList.length; i++) {
                 if (typeof $scope.usersList[i].client_detail !== 'undefined') {
-                    if ($scope.usersList[i].client_detail.codBis === "#CGI") {
+                    if ($scope.usersList[i].client_detail.locConsulta === "CGI" || $scope.usersList[i].client_detail.codBis === "CGI") {
                         $scope.cgiList[cont] = $scope.usersList[i];
                         
                         var d = new Date($scope.usersList[i].timestamp);

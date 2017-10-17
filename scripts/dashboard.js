@@ -106,23 +106,44 @@ app.controller('DashCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
 
         var spyderCont = 0, contPE = 0, contPM = 0, contEE = 0, contEM = 0;
         var cont = 0;
+        var cont01 = 0;
+        var cont02 = 0;
+        var cont03 = 0;
 
         $scope.newUsersList = {};
+        $scope.newUsersListMot01 = {};
+        $scope.newUsersListMot02 = {};
+        $scope.newUsersListMot03 = {};
         
         usersList.$loaded().then(function() {
             $scope.usersList = usersList;
 
             for (var i = 0; i < usersList.length; i++) {
                 if (typeof $scope.usersList[i].client_detail !== 'undefined') {
-                    if ($scope.usersList[i].client_detail.codBis === "#CGI") {
+                    if ($scope.usersList[i].client_detail.locConsulta === "CGI" || $scope.usersList[i].client_detail.codBis === "#CGI") {
                         contCGI++;
                         $scope.contCGI = contCGI;
                         
                         $scope.newUsersList[cont] = $scope.usersList[i];
                         cont++;
-                    }
 
-                    if ($scope.usersList[i].client_detail.codBis === "#CGI") {
+                        if ($scope.usersList[i].client_form.quiz03_2 == 1) {
+                            $scope.newUsersListMot01[cont01] = $scope.usersList[i];
+                            cont01++;
+                        }
+                        if ($scope.usersList[i].client_form.quiz03_2 == 2) {
+                            $scope.newUsersListMot02[cont02] = $scope.usersList[i];
+                            cont02++;
+                        }
+                        if ($scope.usersList[i].client_form.quiz03_2 == 3) {
+                            $scope.newUsersListMot03[cont03] = $scope.usersList[i];
+                            cont03++;
+                        }
+                        $scope.length01 = cont01; 
+                    }
+                    
+
+                    if ($scope.usersList[i].client_detail.locConsulta === "CGI" || $scope.usersList[i].client_detail.codBis === "#CGI") {
 
                         if ($scope.usersList[i].client_detail.quizSpyder) {
                             spyderCont++;
@@ -677,13 +698,29 @@ app.controller('DashCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                                 {v: noSports},
                             ]
                         }
-
-
-
-
                     }
-                }
+                }  
             }
+
+            var contRegMotiv01 = 0;
+            var total01 = 0;
+            var mediaRegMotiv01 = 0;
+            for (var ii = 0; ii < $scope.length01; ii++) {
+                if (!$scope.newUsersListMot01[ii].client_detail.active) {
+                    var res;
+                    if ($scope.newUsersListMot01[ii].client_history.da_01_03 != null) {
+                        var str = $scope.newUsersListMot01[ii].client_history.da_01_03;
+                        res = Number(str.replace(",", "."));
+                        contRegMotiv01++
+                        total01 = total01 + res;
+                    }
+
+                    
+                }
+            };
+
+            mediaRegMotiv01 = total01 / contRegMotiv01;
+            console.log(mediaRegMotiv01);
 
             $scope.tipoSexo = {};
     

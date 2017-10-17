@@ -157,6 +157,16 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
           }]
         }
     })
+    .when('/indice', {
+        templateUrl: 'views/indice.html',
+        controller: 'MainCtrl',
+        controllerAs: 'main',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
     .when('/quemsoueu', {
         templateUrl: 'views/quemsoueu.html',
         controller: 'QuemCtrl'
