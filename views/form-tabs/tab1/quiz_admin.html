@@ -173,24 +173,7 @@
         </div>
     </div>-->
 
-    <div class="col-sm-1">
-        <label>Cliente Externo   
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" ng-model="clientDetail.external"> Cliente Externo
-                </label>
-            </div>
-        </label>
-    </div>
-    <div class="col-sm-1">
-        <label>Cliente Online   
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" ng-model="clientDetail.online"> Cliente Online
-                </label>
-            </div>
-        </label>
-    </div>
+    
     <div class="col-sm-2">
         <div class="form-group">
             <label for="InputTypeClient">Tipo de Programa</label>
@@ -198,22 +181,9 @@
             </select>
         </div>
     </div>
-    <div class="col-sm-1">
-        <label>Activo
-            <div class="radio" style="margin-top: 0;">
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientDetail.active" value="true">
-                    Sim
-                </label>
-                <label class="radio-inline" style="margin-left: 0;">
-                    <input type="radio" ng-model="clientDetail.active" value="false">
-                    Não
-                </label>
-            </div>
-        </label>
-    </div>
+    
 
-    <div class="col-sm-1">   
+    <!-- <div class="col-sm-1">   
         <div class="form-group">
             <label for="ProxConsulta">Próx. Consulta</label>
             <input type="text" class="form-control" moment-picker="prox.proxConsult" 
@@ -224,8 +194,6 @@
                 autoclose="true"
                 today="true"
                 keyboard="true" id="ProxConsulta" ng-model="prox.proxConsulta">
-                <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
-            <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
         </div> 
     </div>
 
@@ -241,9 +209,16 @@
                 <input type="number" class="form-control" style="width: 58px" min="0" max="59" step=5 ng-model="clientDetail.proxConsultMinutes">
             </div>
         </div>
-    </div>
+    </div> -->
     
-    <div class="col-sm-1">
+    <div class="col-sm-3">
+        <div class="form-group">
+            <label for="InputCupon">Cupão</label>
+            <input type="text" class="form-control" id="InputCupon" ng-model="clientDetail.cuponPt">
+        </div>
+    </div>
+
+    <div class="col-sm-2">
         <div class="form-group">
             <label for="InputFirstConsult">1ª Consulta</label>
             <input type="text" class="form-control" id="InputFirstConsult" ng-model="clientHist.quizhis_1_1" readonly>
@@ -270,6 +245,38 @@
 </div>
 
 <div class="row" style="margin-top: 20px;">
+    <div class="col-sm-2">
+        <label>Activo
+            <div class="radio" style="margin-top: 0;">
+                <label class="radio-inline">
+                    <input type="radio" ng-model="clientDetail.active" value="true">
+                    Sim
+                </label>
+                <label class="radio-inline" style="margin-left: 0;">
+                    <input type="radio" ng-model="clientDetail.active" value="false">
+                    Não
+                </label>
+            </div>
+        </label>
+    </div>
+    <div class="col-sm-2">
+        <label>Cliente Externo   
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientDetail.external"> Cliente Externo
+                </label>
+            </div>
+        </label>
+    </div>
+    <div class="col-sm-2">
+        <label>Cliente Online   
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="clientDetail.online"> Cliente Online
+                </label>
+            </div>
+        </label>
+    </div>
     <div class="col-sm-4">
         <label>O cliente prefere ser contactado pelos seguintes meios:</label>
         <br>

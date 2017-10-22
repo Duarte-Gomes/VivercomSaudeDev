@@ -40,6 +40,30 @@
             <select ng-model="clientHist.quizhis_10_3" class="form-control" id="" ng-options="x for x in contactTypeList">
             </select>
         </div>
+        <div class="col-sm-2">   
+                <div class="form-group">
+                    <label for="ProxConsulta10">Próx. Consulta</label>
+                    <input type="text" class="form-control" moment-picker="prox.proxConsult10" 
+                        locale="pt"
+                        format="L"
+                        max-view="day"
+                        start-view="month"
+                        autoclose="true"
+                        today="true"
+                        keyboard="true" id="ProxConsulta10" ng-model="prox.proxConsulta_10">
+                        <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                    <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+                </div> 
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="InputFirstConsultTime10">Hora Consulta</label>
+                    <div>
+                        <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 id="InputFirstConsultTime10" ng-model="clientHist.proxConsult_10_Hour">
+                        <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_10_Minute">
+                    </div>
+                </div>
+            </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
@@ -89,6 +113,30 @@
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_9_3" class="form-control" id="" ng-options="x for x in contactTypeList">
             </select>
+        </div>
+        <div class="col-sm-2">   
+            <div class="form-group">
+                <label for="ProxConsulta9">Próx. Consulta</label>
+                <input type="text" class="form-control" moment-picker="prox.proxConsult9" 
+                    locale="pt"
+                    format="L"
+                    max-view="day"
+                    start-view="month"
+                    autoclose="true"
+                    today="true"
+                    keyboard="true" id="ProxConsulta9" ng-model="prox.proxConsulta_9">
+                    <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+            </div> 
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                    <label>Hora Consulta</label>
+                <div>
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_09_Hour">
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_09_Minute">quizhis_1_Minute">
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -140,6 +188,30 @@
                 <select ng-model="clientHist.quizhis_8_3" class="form-control" id="" ng-options="x for x in contactTypeList">
                 </select>
             </div>
+            <div class="col-sm-2">   
+                    <div class="form-group">
+                        <label for="ProxConsulta8">Próx. Consulta</label>
+                        <input type="text" class="form-control" moment-picker="prox.proxConsult8" 
+                            locale="pt"
+                            format="L"
+                            max-view="day"
+                            start-view="month"
+                            autoclose="true"
+                            today="true"
+                            keyboard="true" id="ProxConsulta8" ng-model="prox.proxConsulta_8">
+                            <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                        <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+                    </div> 
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">   
+                        <label>Hora Consulta</label>
+                        <div>
+                            <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_08_Hour">
+                            <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_08_Minute">
+                        </div>
+                    </div>
+                </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
@@ -189,6 +261,30 @@
                 <label>Tipo de Contacto</label>
                 <select ng-model="clientHist.quizhis_7_3" class="form-control" id="" ng-options="x for x in contactTypeList">
                 </select>
+            </div>
+            <div class="col-sm-2">   
+                <div class="form-group">
+                    <label for="ProxConsulta7">Próx. Consulta</label>
+                    <input type="text" class="form-control" moment-picker="prox.proxConsult7" 
+                        locale="pt"
+                        format="L"
+                        max-view="day"
+                        start-view="month"
+                        autoclose="true"
+                        today="true"
+                        keyboard="true" id="ProxConsulta7" ng-model="prox.proxConsulta_7">
+                        <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                    <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+                </div> 
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>Hora Consulta</label>
+                    <div>
+                        <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_07_Hour">
+                        <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_07_Minute">
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -240,6 +336,30 @@
             <select ng-model="clientHist.quizhis_6_3" class="form-control" id="" ng-options="x for x in contactTypeList">
             </select>
         </div>
+        <div class="col-sm-2">   
+            <div class="form-group">
+                <label for="ProxConsulta6">Próx. Consulta</label>
+                <input type="text" class="form-control" moment-picker="prox.proxConsult6" 
+                    locale="pt"
+                    format="L"
+                    max-view="day"
+                    start-view="month"
+                    autoclose="true"
+                    today="true"
+                    keyboard="true" id="ProxConsulta6" ng-model="prox.proxConsulta_6">
+                    <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+            </div> 
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Hora Consulta</label>
+                <div>
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_06_Hour">
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_06_Minute">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
@@ -289,6 +409,30 @@
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_5_3" class="form-control" id="" ng-options="x for x in contactTypeList">
             </select>
+        </div>
+        <div class="col-sm-2">   
+            <div class="form-group">
+                <label for="ProxConsulta5">Próx. Consulta</label>
+                <input type="text" class="form-control" moment-picker="prox.proxConsult5" 
+                    locale="pt"
+                    format="L"
+                    max-view="day"
+                    start-view="month"
+                    autoclose="true"
+                    today="true"
+                    keyboard="true" id="ProxConsulta5" ng-model="prox.proxConsulta_5">
+                    <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+            </div> 
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">   
+                <label>Hora Consulta</label>
+                <div >
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_05_Hour">             
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_05_Minute">
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -340,6 +484,30 @@
             <select ng-model="clientHist.quizhis_4_3" class="form-control" id="" ng-options="x for x in contactTypeList">
             </select>
         </div>
+        <div class="col-sm-2">   
+            <div class="form-group">
+                <label for="ProxConsulta4">Próx. Consulta</label>
+                <input type="text" class="form-control" moment-picker="prox.proxConsult4" 
+                    locale="pt"
+                    format="L"
+                    max-view="day"
+                    start-view="month"
+                    autoclose="true"
+                    today="true"
+                    keyboard="true" id="ProxConsulta4" ng-model="prox.proxConsulta_4">
+                    <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+            </div> 
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Hora Consulta</label>                
+                <div>
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_04_Hour">
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_04_Minute">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
@@ -389,6 +557,30 @@
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_3_3" class="form-control" id="" ng-options="x for x in contactTypeList">
             </select>
+        </div>
+        <div class="col-sm-2">   
+            <div class="form-group">
+                <label for="ProxConsulta3">Próx. Consulta</label>
+                <input type="text" class="form-control" moment-picker="prox.proxConsult3" 
+                    locale="pt"
+                    format="L"
+                    max-view="day"
+                    start-view="month"
+                    autoclose="true"
+                    today="true"
+                    keyboard="true" id="ProxConsulta3" ng-model="prox.proxConsulta_3">
+                    <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+            </div> 
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Hora Consulta</label>
+                <div >
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_03_Hour">
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_03_Minute">
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -441,6 +633,30 @@
             <select ng-model="clientHist.quizhis_2_3" class="form-control" id="" ng-options="x for x in contactTypeList">
             </select>
         </div>
+        <div class="col-sm-2">   
+            <div class="form-group">
+                <label for="ProxConsulta2">Próx. Consulta</label>
+                <input type="text" class="form-control" moment-picker="prox.proxConsult2" 
+                    locale="pt"
+                    format="L"
+                    max-view="day"
+                    start-view="month"
+                    autoclose="true"
+                    today="true"
+                    keyboard="true" id="ProxConsulta2" ng-model="prox.proxConsulta_2">
+                    <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+            </div> 
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Hora Consulta</label>
+                <div>
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_02_Hour">
+                    <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_02_Minute">
+                </div>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
@@ -491,6 +707,30 @@
         <label>Tipo de Contacto</label>
         <select ng-model="clientHist.quizhis_1_3" class="form-control" id="" ng-options="x for x in contactTypeList">
         </select>
+    </div>
+    <div class="col-sm-2">   
+        <div class="form-group">
+            <label for="ProxConsulta1">Próx. Consulta</label>
+            <input type="text" class="form-control" moment-picker="prox.proxConsult1" 
+                locale="pt"
+                format="L"
+                max-view="day"
+                start-view="month"
+                autoclose="true"
+                today="true"
+                keyboard="true" id="ProxConsulta1" ng-model="prox.proxConsulta_1">
+                <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+            <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+        </div> 
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            <label>Hora Consulta</label>
+            <div>
+                <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_01_Hour">
+                <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_01_Minute">
+            </div>
+        </div>
     </div>
 </div>
 <div class="row">

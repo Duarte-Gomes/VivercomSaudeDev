@@ -442,6 +442,35 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
             usersList.$loaded().then(function() {
                 $scope.usersList = usersList;
+                for(var iii = 0; iii < usersList.lenght; iii++) {
+                    if (usersList[iii].client_history.da_10_01 == null && usersList[iii].client_history.da_09_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_09_01;
+                    }
+                    if (usersList[iii].client_history.da_09_01 == null && usersList[iii].client_history.da_08_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_08_01;
+                    }
+                    if (usersList[iii].client_history.da_08_01 == null && usersList[iii].client_history.da_07_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_07_01;
+                    }
+                    if (usersList[iii].client_history.da_07_01 == null && usersList[iii].client_history.da_06_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_06_01;
+                    }
+                    if (usersList[iii].client_history.da_06_01 == null && usersList[iii].client_history.da_05_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_05_01;
+                    }
+                    if (usersList[iii].client_history.da_05_01 == null && usersList[iii].client_history.da_04_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_04_01;
+                    }
+                    if (usersList[iii].client_history.da_04_01 == null && usersList[iii].client_history.da_03_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_03_01;
+                    }
+                    if (usersList[iii].client_history.da_03_01 == null && usersList[iii].client_history.da_02_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_02_01;
+                    }
+                    if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_01_01;
+                    }
+                }
             });
         } else {
             $location.path('/');
