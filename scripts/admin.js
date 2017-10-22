@@ -444,7 +444,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.usersList = usersList;
                 for(var iii = 0; iii < usersList.lenght; iii++) {
                     if (usersList[iii].client_history.da_10_01 == null && usersList[iii].client_history.da_09_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_09_01;
+                        $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_09_01;
                     }
                     if (usersList[iii].client_history.da_09_01 == null && usersList[iii].client_history.da_08_01 != null) {
                         $scope.lastConsult = usersList[iii].client_history.da_08_01;
@@ -470,6 +470,11 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                     if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
                         $scope.lastConsult = usersList[iii].client_history.da_01_01;
                     }
+                    if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
+                        $scope.lastConsult = usersList[iii].client_history.da_01_01;
+                    }
+
+                    prox.proxConsult1
                 }
             });
         } else {
@@ -2049,7 +2054,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         };
 
         $scope.convertObjectDate = function() {
-            if ($scope.prox.proxConsult) {
+            if ($scope.prox. onsult) {
                 $scope.clientDetail.proxConsult = $scope.prox.proxConsult;
             }
             if ($scope.hist.dateString_01) {
