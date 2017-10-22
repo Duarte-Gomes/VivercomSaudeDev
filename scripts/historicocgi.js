@@ -375,16 +375,36 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             
             for (var i = 0; i < usersList.length; i++) {
                 if (typeof $scope.usersList[i].client_detail !== 'undefined') {
-                    if ($scope.usersList[i].client_detail.locConsulta === "CGI" || $scope.usersList[i].client_detail.codBis === "CGI") {
+                    if ($scope.usersList[i].client_detail.locConsulta === "CGI" || $scope.usersList[i].client_detail.codBis === "#CGI") {
                         $scope.cgiList[cont] = $scope.usersList[i];
-                        
+                        console.log(typeof($scope.cgiList[cont].client_detail.active));
                         var d = new Date($scope.usersList[i].timestamp);
                         $scope.cgiList[cont].dateRegister = (d.getMonth()+1) + '/' + d.getDate()+ '/' + d.getFullYear();
                         cont++;
                     }
                 }
             }
+        /* }).then(function() {
+            for (var ii = 0; ii < cont; ii++) {
+                if ($scope.cgiList[ii].client_detail.active !== "false") {
+                    console.log($scope.cgiList[ii].client_detail.active);
+                    var cgiPostKey = $scope.cgiList[ii].$id;
+                    var cgiPostIndex = $scope.usersList.$indexFor(cgiPostKey);
+                    $scope.cgiList[ii].client_detail.active = "true";
+
+                    console.log($scope.cgiList[ii].client_detail.active);                    
+                    console.log(cgiPostKey);
+                    console.log(cgiPostIndex);
+
+                    $scope.usersList.$save(cgiPostIndex).then(function() {
+                        console.log("gravado admin");
+                        $scope.getDetailsTimeout(usersList[cgiPostIndex].$id);
+                    });
+                }
+            } */
         });
+
+        
 
         $scope.gravarhist = function() {
             $scope.clientsAppointmentsHistorical.$add({

@@ -291,6 +291,9 @@ textarea {
   border: none;
   font-size: 40px;
 }
+input[type="radio"][readonly] {
+  pointer-events: none;
+}
 @media screen and (max-width: 1366px) {
   .welcome-style {
     width: 30%; 

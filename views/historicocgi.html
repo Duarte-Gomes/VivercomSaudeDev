@@ -1,14 +1,15 @@
 <div class="container-fluid no-pad" ng-cloak="">
     <div class="main-welcome">
         <div ng-hide="showDetails" style="padding: 0 15px;">
-            <h1 class="text-center">Lista de utilizadores</h1> 
+            <h1 class="text-center">Lista de utilizadores CGI</h1> 
             <table datatable="ng" class="row-border hover">
                 <thead>
                     <tr>
+                        <td>#</td>
                         <td>Data Registo</td>
                         <td>Nome</td>
                         <td>Email</td>
-                        <td>Local Consulta</td>
+                        <td>Activo</td>
                         <td>Data 1ª Consulta</td>
                         <td>Data 2ª Consulta</td>
                         <td>Data 3ª Consulta</td>
@@ -21,10 +22,11 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="user in cgiList">
+                        <td>{{user.client_number}}</td>
                         <td>{{user.dateRegister}}</td> 
                         <td>{{user.client_detail.name}}</td>
                         <td>{{user.client_detail.email}}</td>
-                        <td>{{user.client_detail.locConsulta}}</td>
+                        <td>{{user.client_detail.active}}</td>
                         <td>{{user.client_history.da_01_01}}</td>
                         <td>{{user.client_history.da_02_01}}</td>
                         <td>{{user.client_history.da_03_01}}</td>

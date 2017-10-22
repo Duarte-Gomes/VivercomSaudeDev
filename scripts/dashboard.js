@@ -106,14 +106,15 @@ app.controller('DashCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
 
         var spyderCont = 0, contPE = 0, contPM = 0, contEE = 0, contEM = 0;
         var cont = 0;
-        var cont01 = 0;
-        var cont02 = 0;
-        var cont03 = 0;
+        var contGrupo1 = 0;
+        var contGrupo2 = 0;
+        var contGrupo3 = 0;
 
         $scope.newUsersList = {};
-        $scope.newUsersListMot01 = {};
-        $scope.newUsersListMot02 = {};
-        $scope.newUsersListMot03 = {};
+        $scope.newUsersListGrupo01 = {};
+        $scope.newUsersListGrupo02 = {};
+        $scope.newUsersListGrupo03 = {};
+        $scope.mediaGrupo01 = {};
         
         usersList.$loaded().then(function() {
             $scope.usersList = usersList;
@@ -128,18 +129,17 @@ app.controller('DashCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                         cont++;
 
                         if ($scope.usersList[i].client_form.quiz03_2 == 1) {
-                            $scope.newUsersListMot01[cont01] = $scope.usersList[i];
-                            cont01++;
+                            $scope.newUsersListGrupo01[contGrupo1] = $scope.usersList[i];
+                            contGrupo1++;
                         }
                         if ($scope.usersList[i].client_form.quiz03_2 == 2) {
-                            $scope.newUsersListMot02[cont02] = $scope.usersList[i];
-                            cont02++;
+                            $scope.newUsersListGrupo02[contGrupo2] = $scope.usersList[i];
+                            contGrupo2++;
                         }
                         if ($scope.usersList[i].client_form.quiz03_2 == 3) {
-                            $scope.newUsersListMot03[cont03] = $scope.usersList[i];
-                            cont03++;
-                        }
-                        $scope.length01 = cont01; 
+                            $scope.newUsersListGrupo03[contGrupo3] = $scope.usersList[i];
+                            contGrupo3++;
+                        } 
                     }
                     
 
@@ -702,26 +702,55 @@ app.controller('DashCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                 }  
             }
 
-            var contRegMotiv01 = 0;
-            var total01 = 0;
-            var mediaRegMotiv01 = 0;
-            for (var ii = 0; ii < $scope.length01; ii++) {
-                if (!$scope.newUsersListMot01[ii].client_detail.active) {
-                    var res;
-                    if ($scope.newUsersListMot01[ii].client_history.da_01_03 != null) {
-                        var str = $scope.newUsersListMot01[ii].client_history.da_01_03;
-                        res = Number(str.replace(",", "."));
-                        contRegMotiv01++
-                        total01 = total01 + res;
-                    }
+            //calculo da media grupo 1 peso 1
+            
+            var contGrupo1Peso1 = 0;
+            var contGrupo1Peso2 = 0;
+            var contGrupo1Peso3 = 0;
+            var sumGrupo1Peso1 = 0;
+            var sumGrupo1Peso2 = 0;
+            var sumGrupo1Peso3 = 0;
+            var totalGrupo1Peso1 = 0;
+            var totalGrupo1Peso2 = 0;
+            var totalGrupo1Peso3 = 0;
+            //
+            for (var ii = 0; ii < contGrupo1; ii++) {
+                if ($scope.newUsersListGrupo01[ii].client_detail.active == "true") {
 
-                    
+                    if ($scope.newUsersListGrupo01[ii].client_history.da_01_03 != null) {
+                        var str = $scope.newUsersListGrupo01[ii].client_history.da_01_03;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo1Peso1++
+                        sumGrupo1Peso1 = sumGrupo1Peso1 + res;
+                    }
+                    if ($scope.newUsersListGrupo01[ii].client_history.da_02_03 != null) {
+                        var str = $scope.newUsersListGrupo01[ii].client_history.da_02_03;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo1Peso2++
+                        sumGrupo1Peso2 = sumGrupo1Peso2 + res;
+                    }
+                    if ($scope.newUsersListGrupo01[ii].client_history.da_03_03 != null) {
+                        var str = $scope.newUsersListGrupo01[ii].client_history.da_03_03;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo1Peso3++
+                        sumGrupo1Peso3 = sumGrupo1Peso3 + res;
+                    }
                 }
             };
 
-            mediaRegMotiv01 = total01 / contRegMotiv01;
-            console.log(mediaRegMotiv01);
+            totalGrupo1Peso1 = Math.round(sumGrupo1Peso1 / (contGrupo1Peso1 - 1)* 100) / 100;
+            totalGrupo1Peso2 = Math.round(sumGrupo1Peso2 / (contGrupo1Peso2 - 1)* 100) / 100;
+            totalGrupo1Peso3 = Math.round(sumGrupo1Peso3 / (contGrupo1Peso3 - 1)* 100) / 100;
 
+            for (var t = 0; t < 1; t++) {
+                $scope.mediaGrupo01[t] = {
+                    Grupo1Peso1: totalGrupo1Peso1,
+                    Grupo1Peso2: totalGrupo1Peso2,
+                    Grupo1Peso3: totalGrupo1Peso3
+                };
+            }
+
+            //grafico 
             $scope.tipoSexo = {};
     
             $scope.tipoSexo.type = "PieChart";
