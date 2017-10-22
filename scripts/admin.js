@@ -2015,6 +2015,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
         $scope.atras = function() {
             angular.element("html, body").animate({ scrollTop: 0 }, "slow")
+            location.reload();
             $scope.showDetails = false;
         };
 
