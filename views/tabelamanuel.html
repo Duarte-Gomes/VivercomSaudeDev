@@ -9,12 +9,12 @@
                         <td>Email</td>
                         <td>Local Consulta</td>
                         <td>Codigo Empresarial</td>
-                        <td>Data 1ª Consulta</td>
-                        <td>Data 2ª Consulta</td>
-                        <td>Data 3ª Consulta</td>
-                        <td>Data 4ª Consulta</td>
-                        <td>Data 5ª Consulta</td>
-                        <td>Data 6ª Consulta</td>
+                        <td>Data Consulta</td>
+                        <td>Data Consulta</td>
+                        <td>Data Consulta</td>
+                        <td>Data Consulta</td>
+                        <td>Data Consulta</td>
+                        <td>Data Consulta</td>
                         
                     </tr>
                 </thead>
@@ -24,12 +24,12 @@
                         <td>{{user.client_detail.email}}</td>
                         <td>{{user.client_detail.locConsulta}}</td>
                         <td>{{user.client_detail.codBis}}</td>
-                        <td>{{user.client_history.da_01_01}}</td>
-                        <td>{{user.client_history.da_02_01}}</td>
-                        <td>{{user.client_history.da_03_01}}</td>
-                        <td>{{user.client_history.da_04_01}}</td>
-                        <td>{{user.client_history.da_05_01}}</td>
-                        <td>{{user.client_history.da_06_01}}</td>       
+                        <td ng-show="user.consultDateWithCupon_01">{{user.consultDateWithCupon_01}}</td>
+                        <td ng-show="user.consultDateWithCupon_02">{{user.consultDateWithCupon_02}}</td>
+                        <td ng-show="user.consultDateWithCupon_03">{{user.consultDateWithCupon_03}}</td>
+                        <td ng-show="user.consultDateWithCupon_04">{{user.consultDateWithCupon_04}}</td>
+                        <td ng-show="user.consultDateWithCupon_05">{{user.consultDateWithCupon_05}}</td>
+                        <td ng-show="user.consultDateWithCupon_06">{{user.consultDateWithCupon_06}}</td>       
                     </tr>
                 </tbody>
             </table>

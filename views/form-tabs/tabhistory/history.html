@@ -20,21 +20,6 @@
                             today="true"
                             keyboard="true" ng-model="hist.date_10">
         </div>
-        <div class="col-sm-3">
-            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-            <div>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_10_4" value="1"> 1
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_10_4" value="2"> 2
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_10_4" value="3"> 3
-                </label>
-            </div>
-        </div>
         <div class="col-sm-2">
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_10_3" class="form-control" id="" ng-options="x for x in contactTypeList">
@@ -62,6 +47,12 @@
                         <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 id="InputFirstConsultTime10" ng-model="clientHist.proxConsult_10_Hour">
                         <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_10_Minute">
                     </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>Código Promocional</label>
+                    <input type="text" class="form-control" ng-model="clientHist.codPromo_10">
                 </div>
             </div>
     </div>
@@ -94,21 +85,6 @@
                             today="true"
                             keyboard="true" ng-model="hist.date_09">
         </div>
-        <div class="col-sm-3">
-            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-            <div>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_9_4" value="1"> 1
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_9_4" value="2"> 2
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_9_4" value="3"> 3
-                </label>
-            </div>
-        </div>
         <div class="col-sm-2">
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_9_3" class="form-control" id="" ng-options="x for x in contactTypeList">
@@ -136,6 +112,12 @@
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_09_Hour">
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_09_Minute">quizhis_1_Minute">
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Código Promocional</label>
+                <input type="text" class="form-control" ng-model="clientHist.codPromo_09">
             </div>
         </div>
     </div>
@@ -168,50 +150,41 @@
                                 today="true"
                                 keyboard="true" ng-model="hist.date_08">
             </div>
-            <div class="col-sm-3">
-                <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-                <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-                <div>
-                    <label class="radio-inline">
-                        <input type="radio" ng-model="clientHist.quizhis_8_4" value="1"> 1
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" ng-model="clientHist.quizhis_8_4" value="2"> 2
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" ng-model="clientHist.quizhis_8_4" value="3"> 3
-                    </label>
-                </div>
-            </div>
             <div class="col-sm-2">
                 <label>Tipo de Contacto</label>
                 <select ng-model="clientHist.quizhis_8_3" class="form-control" id="" ng-options="x for x in contactTypeList">
                 </select>
             </div>
             <div class="col-sm-2">   
-                    <div class="form-group">
-                        <label for="ProxConsulta8">Próx. Consulta</label>
-                        <input type="text" class="form-control" moment-picker="prox.proxConsult8" 
-                            locale="pt"
-                            format="L"
-                            max-view="day"
-                            start-view="month"
-                            autoclose="true"
-                            today="true"
-                            keyboard="true" id="ProxConsulta8" ng-model="prox.proxConsulta_8">
-                            <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
-                        <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
-                    </div> 
-                </div>
-                <div class="col-sm-2">
-                    <div class="form-group">   
-                        <label>Hora Consulta</label>
-                        <div>
-                            <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_08_Hour">
-                            <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_08_Minute">
-                        </div>
+                <div class="form-group">
+                    <label for="ProxConsulta8">Próx. Consulta</label>
+                    <input type="text" class="form-control" moment-picker="prox.proxConsult8" 
+                        locale="pt"
+                        format="L"
+                        max-view="day"
+                        start-view="month"
+                        autoclose="true"
+                        today="true"
+                        keyboard="true" id="ProxConsulta8" ng-model="prox.proxConsulta_8">
+                        <!--keyboard="true" id="ProxConsulta" ng-model="clientDetail.proxConsulta">-->
+                    <!--<input type="text" class="form-control" id="ProxConsulta" ng-model="clientDetail.proxConsult">-->
+                </div> 
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">   
+                    <label>Hora Consulta</label>
+                    <div>
+                        <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_08_Hour">
+                        <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_08_Minute">
                     </div>
                 </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>Código Promocional</label>
+                    <input type="text" class="form-control" ng-model="clientHist.codPromo_08">
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-12">
@@ -242,21 +215,6 @@
                                 today="true"
                                 keyboard="true" ng-model="hist.date_07">
             </div>
-            <div class="col-sm-3">
-                <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-                <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-                <div>
-                    <label class="radio-inline">
-                        <input type="radio" ng-model="clientHist.quizhis_7_4" value="1"> 1
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" ng-model="clientHist.quizhis_7_4" value="2"> 2
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" ng-model="clientHist.quizhis_7_4" value="3"> 3
-                    </label>
-                </div>
-            </div>
             <div class="col-sm-2">
                 <label>Tipo de Contacto</label>
                 <select ng-model="clientHist.quizhis_7_3" class="form-control" id="" ng-options="x for x in contactTypeList">
@@ -284,6 +242,12 @@
                         <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_07_Hour">
                         <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_07_Minute">
                     </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label>Código Promocional</label>
+                    <input type="text" class="form-control" ng-model="clientHist.codPromo_07">
                 </div>
             </div>
         </div>
@@ -316,21 +280,6 @@
                             today="true"
                             keyboard="true" ng-model="hist.date_06">
         </div>
-        <div class="col-sm-3">
-            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-            <div>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_6_4" value="1"> 1
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_6_4" value="2"> 2
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_6_4" value="3"> 3
-                </label>
-            </div>
-        </div>
         <div class="col-sm-2">
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_6_3" class="form-control" id="" ng-options="x for x in contactTypeList">
@@ -358,6 +307,12 @@
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_06_Hour">
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_06_Minute">
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Código Promocional</label>
+                <input type="text" class="form-control" ng-model="clientHist.codPromo_06">
             </div>
         </div>
     </div>
@@ -390,21 +345,6 @@
                             today="true"
                             keyboard="true" ng-model="hist.date_05">
         </div>
-        <div class="col-sm-3">
-            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-            <div>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_5_4" value="1"> 1
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_5_4" value="2"> 2
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_5_4" value="3"> 3
-                </label>
-            </div>
-        </div>
         <div class="col-sm-2">
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_5_3" class="form-control" id="" ng-options="x for x in contactTypeList">
@@ -432,6 +372,12 @@
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_05_Hour">             
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_05_Minute">
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Código Promocional</label>
+                <input type="text" class="form-control" ng-model="clientHist.codPromo_05">
             </div>
         </div>
     </div>
@@ -464,21 +410,6 @@
                             today="true"
                             keyboard="true" ng-model="hist.date_04">
         </div>
-        <div class="col-sm-3">
-            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-            <div>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_4_4" value="1"> 1
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_4_4" value="2"> 2
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_4_4" value="3"> 3
-                </label>
-            </div>
-        </div>
         <div class="col-sm-2">
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_4_3" class="form-control" id="" ng-options="x for x in contactTypeList">
@@ -506,6 +437,12 @@
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_04_Hour">
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_04_Minute">
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Código Promocional</label>
+                <input type="text" class="form-control" ng-model="clientHist.codPromo_04">
             </div>
         </div>
     </div>
@@ -538,21 +475,6 @@
                             today="true"
                             keyboard="true" ng-model="hist.date_03">
         </div>
-        <div class="col-sm-3">
-            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-            <div>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_3_4" value="1"> 1
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_3_4" value="2"> 2
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_3_4" value="3"> 3
-                </label>
-            </div>
-        </div>
         <div class="col-sm-2">
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_3_3" class="form-control" id="" ng-options="x for x in contactTypeList">
@@ -580,6 +502,12 @@
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_03_Hour">
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_03_Minute">
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Código Promocional</label>
+                <input type="text" class="form-control" ng-model="clientHist.codPromo_03">
             </div>
         </div>
     </div>
@@ -613,21 +541,6 @@
                             today="true"
                             keyboard="true" ng-model="hist.date_02">
         </div>
-        <div class="col-sm-3">
-            <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-            <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-            <div>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_2_4" value="1"> 1
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_2_4" value="2"> 2
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientHist.quizhis_2_4" value="3"> 3
-                </label>
-            </div>
-        </div>
         <div class="col-sm-2">
             <label>Tipo de Contacto</label>
             <select ng-model="clientHist.quizhis_2_3" class="form-control" id="" ng-options="x for x in contactTypeList">
@@ -655,6 +568,12 @@
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_02_Hour">
                     <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_02_Minute">
                 </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label>Código Promocional</label>
+                <input type="text" class="form-control" ng-model="clientHist.codPromo_02">
             </div>
         </div>
     </div>
@@ -688,21 +607,6 @@
                         keyboard="true" ng-model="hist.date_01">
         <!--<input class="form-control" type="text" ng-model="clientHist.quizhis_1_1" style="display: inline-flex; width: 30%;">-->
     </div>
-    <div class="col-sm-3">
-        <p style="margin-bottom: 0;">Grau de comprometimento do paciente</p>
-        <span style="font-size:11px;">(1 extremamente empenhado e 3 nada empenhado)</span>
-        <div>
-            <label class="radio-inline">
-                <input type="radio" ng-model="clientHist.quizhis_1_4" value="1"> 1
-            </label>
-            <label class="radio-inline">
-                <input type="radio" ng-model="clientHist.quizhis_1_4" value="2"> 2
-            </label>
-            <label class="radio-inline">
-                <input type="radio" ng-model="clientHist.quizhis_1_4" value="3"> 3
-            </label>
-        </div>
-    </div>
     <div class="col-sm-2">
         <label>Tipo de Contacto</label>
         <select ng-model="clientHist.quizhis_1_3" class="form-control" id="" ng-options="x for x in contactTypeList">
@@ -730,6 +634,12 @@
                 <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="24" step=1 ng-model="clientHist.proxConsult_01_Hour">
                 <input type="number" class="form-control" style="width: 60px; display: inline;" min="0" max="59" step=5 ng-model="clientHist.proxConsult_01_Minute">
             </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            <label>Código Promocional</label>
+            <input type="text" class="form-control" ng-model="clientHist.codPromo_01">
         </div>
     </div>
 </div>

@@ -442,39 +442,43 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
             usersList.$loaded().then(function() {
                 $scope.usersList = usersList;
-                for(var iii = 0; iii < usersList.lenght; iii++) {
-                    if (usersList[iii].client_history.da_10_01 == null && usersList[iii].client_history.da_09_01 != null) {
-                        $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_09_01;
-                    }
-                    if (usersList[iii].client_history.da_09_01 == null && usersList[iii].client_history.da_08_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_08_01;
-                    }
-                    if (usersList[iii].client_history.da_08_01 == null && usersList[iii].client_history.da_07_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_07_01;
-                    }
-                    if (usersList[iii].client_history.da_07_01 == null && usersList[iii].client_history.da_06_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_06_01;
-                    }
-                    if (usersList[iii].client_history.da_06_01 == null && usersList[iii].client_history.da_05_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_05_01;
-                    }
-                    if (usersList[iii].client_history.da_05_01 == null && usersList[iii].client_history.da_04_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_04_01;
-                    }
-                    if (usersList[iii].client_history.da_04_01 == null && usersList[iii].client_history.da_03_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_03_01;
-                    }
-                    if (usersList[iii].client_history.da_03_01 == null && usersList[iii].client_history.da_02_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_02_01;
-                    }
-                    if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_01_01;
-                    }
-                    if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
-                        $scope.lastConsult = usersList[iii].client_history.da_01_01;
-                    }
+                for(var iii = 0; iii < usersList.length; iii++) {
+                    if (typeof usersList[iii].client_history !== 'undefined') {
+                        if (usersList[iii].client_history.da_10_01 == null && usersList[iii].client_history.da_09_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_09_01;
+                        }
+                        if (usersList[iii].client_history.da_09_01 == null && usersList[iii].client_history.da_08_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_08_01;
+                        }
+                        if (usersList[iii].client_history.da_08_01 == null && usersList[iii].client_history.da_07_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_07_01;
+                        }
+                        if (usersList[iii].client_history.da_07_01 == null && usersList[iii].client_history.da_06_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_06_01;
+                        }
+                        if (usersList[iii].client_history.da_06_01 == null && usersList[iii].client_history.da_05_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_05_01;
+                        }
+                        if (usersList[iii].client_history.da_05_01 == null && usersList[iii].client_history.da_04_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_04_01;
+                        }
+                        if (usersList[iii].client_history.da_04_01 == null && usersList[iii].client_history.da_03_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_03_01;
+                        }
+                        if (usersList[iii].client_history.da_03_01 == null && usersList[iii].client_history.da_02_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_02_01;
+                        }
+                        if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_01_01;
+                        }
+                        if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_01_01;
+                        }
 
-                    prox.proxConsult1
+                        if (usersList[iii].client_history.proxConsult_02 == null && usersList[iii].client_history.proxConsult_01 != null) {
+                            $scope.usersList[iii].client_history.proxConsult = usersList[iii].client_history.proxConsult_01;
+                        }
+                    } 
                 }
             });
         } else {
@@ -555,7 +559,18 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.hist.dateString_08 = $scope.clientHist.da_08_01; 
             $scope.hist.dateString_09 = $scope.clientHist.da_09_01; 
             $scope.hist.dateString_10 = $scope.clientHist.da_10_01; 
-            
+
+            $scope.prox.proxConsult10 = $scope.clientHist.proxConsult_10;
+            $scope.prox.proxConsult9 = $scope.clientHist.proxConsult_09;
+            $scope.prox.proxConsult8 = $scope.clientHist.proxConsult_08;
+            $scope.prox.proxConsult7 = $scope.clientHist.proxConsult_07;
+            $scope.prox.proxConsult6 = $scope.clientHist.proxConsult_06;
+            $scope.prox.proxConsult5 = $scope.clientHist.proxConsult_05;
+            $scope.prox.proxConsult4 = $scope.clientHist.proxConsult_04;
+            $scope.prox.proxConsult3 = $scope.clientHist.proxConsult_03;
+            $scope.prox.proxConsult2 = $scope.clientHist.proxConsult_02;
+            $scope.prox.proxConsult1 = $scope.clientHist.proxConsult_01;
+
             var pos01, pos02, pos03, pos04;
             //6
             if ($scope.clientHist.meta06 != null) {
@@ -1350,6 +1365,17 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.hist.dateString_09 = $scope.clientHist.da_09_01; 
             $scope.hist.dateString_10 = $scope.clientHist.da_10_01; 
 
+            $scope.prox.proxConsult10 = $scope.clientHist.proxConsult_10;
+            $scope.prox.proxConsult9 = $scope.clientHist.proxConsult_09;
+            $scope.prox.proxConsult8 = $scope.clientHist.proxConsult_08;
+            $scope.prox.proxConsult7 = $scope.clientHist.proxConsult_07;
+            $scope.prox.proxConsult6 = $scope.clientHist.proxConsult_06;
+            $scope.prox.proxConsult5 = $scope.clientHist.proxConsult_05;
+            $scope.prox.proxConsult4 = $scope.clientHist.proxConsult_04;
+            $scope.prox.proxConsult3 = $scope.clientHist.proxConsult_03;
+            $scope.prox.proxConsult2 = $scope.clientHist.proxConsult_02;
+            $scope.prox.proxConsult1 = $scope.clientHist.proxConsult_01;
+
             var pos01, pos02, pos03, pos04;
             //6
             if ($scope.clientHist.meta06 != null) {
@@ -2054,9 +2080,37 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         };
 
         $scope.convertObjectDate = function() {
-            if ($scope.prox. onsult) {
-                $scope.clientDetail.proxConsult = $scope.prox.proxConsult;
+            if ($scope.prox.proxConsult1) {
+                $scope.clientHist.proxConsult_01 = $scope.prox.proxConsult1;
             }
+            if ($scope.prox.proxConsult2) {
+                $scope.clientHist.proxConsult_02 = $scope.prox.proxConsult2;
+            }
+            if ($scope.prox.proxConsult3) {
+                $scope.clientHist.proxConsult_03 = $scope.prox.proxConsult3;
+            }
+            if ($scope.prox.proxConsult4) {
+                $scope.clientHist.proxConsult_04 = $scope.prox.proxConsult4;
+            }
+            if ($scope.prox.proxConsult5) {
+                $scope.clientHist.proxConsult_05 = $scope.prox.proxConsult5;
+            }
+            if ($scope.prox.proxConsult6) {
+                $scope.clientHist.proxConsult_06 = $scope.prox.proxConsult6;
+            }
+            if ($scope.prox.proxConsult7) {
+                $scope.clientHist.proxConsult_07 = $scope.prox.proxConsult7;
+            }
+            if ($scope.prox.proxConsult8) {
+                $scope.clientHist.proxConsult_08 = $scope.prox.proxConsult8;
+            }
+            if ($scope.prox.proxConsult9) {
+                $scope.clientHist.proxConsult_09 = $scope.prox.proxConsult9;
+            }
+            if ($scope.prox.proxConsult10) {
+                $scope.clientHist.proxConsult_10 = $scope.prox.proxConsult10;
+            }
+
             if ($scope.hist.dateString_01) {
                 $scope.clientHist.da_01_01 = $scope.hist.dateString_01;
             }
