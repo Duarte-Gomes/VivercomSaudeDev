@@ -12,7 +12,7 @@
 }]); */
 
 app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'suplementsList', 'clientsAppointmentsHistorical', '$firebaseStorage',
-    function($scope, Auth, $location, currentAuth, usersList, suplementsList, clientsAppointmentsHistorical, $firebaseStorage) {
+    function($scope, Auth, $location, currentAuth, usersList, suplementsList, clientsAppointmentsHistorical, $firebaseStorag) {
 
         $scope.uploadFile = function(file) {
 
@@ -1141,13 +1141,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 'legend': 'none',
                 'width': '1109',
                 'height': '330'
-               /*  ,
-                'colors': [
-                    '#ffd900', 
-                    '#00bd13', 
-                    '#0886d4', 
-                    '#cf0000'       
-                ] */
+               
             };
 
             if ($scope.hist.dateString_010 != null) {
@@ -1283,7 +1277,6 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 }      
             }
 
-            /*if ($scope.aniversario.texto != null) {*/
             if (ageBirthday != null) {
                 //calculo da idade
                 //ano e mes da data de nascimento
