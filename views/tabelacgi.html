@@ -3,33 +3,35 @@
     <table datatable="ng" class="row-border hover">
         <thead>
             <tr>
-                <td>Nome</td>
-                <td>Peso #1</td>
-                <td>Peso #2</td>
-                <td>Peso #3</td>
-                <td>Massa Gorda #1</td>
-                <td>Massa Gorda #2</td>
-                <td>Massa Gorda #3</td>
-                <td>Água Corporal #1</td>
-                <td>Água Corporal #2</td>
-                <td>Água Corporal #3</td>
-                <td>Massa Magra #1</td>
-                <td>Massa Magra #2</td>
-                <td>Massa Magra #3</td>
-                <td>Gordura Visceral #1</td>
-                <td>Gordura Visceral #2</td>
-                <td>Gordura Visceral #3</td>
-                <td>Perímetro Cintura #1</td>
-                <td>Perímetro Cintura #2</td>
-                <td>Perímetro Cintura #3</td>
-                <td>Perímetro Abdominal #1</td>
-                <td>Perímetro Abdominal #2</td>
-                <td>Perímetro Abdominal #3</td>    
+                <th>Nome</th>
+                <th>Nome</th>
+                <th>Peso #1</th>
+                <th>Peso #2</th>
+                <th>Peso #3</th>
+                <th>Massa Gorda #1</th>
+                <th>Massa Gorda #2</th>
+                <th>Massa Gorda #3</th>
+                <th>Água Corporal #1</th>
+                <th>Água Corporal #2</th>
+                <th>Água Corporal #3</th>
+                <th>Massa Magra #1</th>
+                <th>Massa Magra #2</th>
+                <th>Massa Magra #3</th>
+                <th>Gordura Visceral #1</th>
+                <th>Gordura Visceral #2</th>
+                <th>Gordura Visceral #3</th>
+                <th>Perímetro Cintura #1</th>
+                <th>Perímetro Cintura #2</th>
+                <th>Perímetro Cintura #3</th>
+                <th>Perímetro Abdominal #1</th>
+                <th>Perímetro Abdominal #2</th>
+                <th>Perímetro Abdominal #3</th>
             </tr>
         </thead>
-        <tbody>
-            <tr style="border-bottom: 1px solid black" ng-repeat="user in newUsersList">
+        <tbody>   
+            <tr ng-repeat="user in newUsersList">
                 <td>{{user.client_detail.name}}</td>
+                <td>{{user.client_detail.email}}</td>
                 <td>{{user.client_history.da_01_03}}</td>
                 <td>{{user.client_history.da_02_03}}</td>
                 <td>{{user.client_history.da_03_03}}</td>
@@ -50,7 +52,7 @@
                 <td>{{user.client_history.da_03_08}}</td>
                 <td>{{user.client_history.da_01_09}}</td>
                 <td>{{user.client_history.da_02_09}}</td>
-                <td>{{user.client_history.da_03_09}}</td>              
+                <td>{{user.client_history.da_03_09}}</td>            
             </tr>
         </tbody>
     </table>
@@ -75,9 +77,7 @@
                 <td>Gordura Visceral #1</td>
                 <td>Gordura Visceral #2</td>
                 <td>Gordura Visceral #3</td>
-                <td>Perímetro Cintura #1</td>
-                <td>Perímetro Cintura #2</td>
-                <td>Perímetro Cintura #3</td>
+
                 <td>Perímetro Abdominal #1</td>
                 <td>Perímetro Abdominal #2</td>
                 <td>Perímetro Abdominal #3</td>    
@@ -101,15 +101,15 @@
                 <td>{{user.client_history.da_01_07}}</td>
                 <td>{{user.client_history.da_02_07}}</td>
                 <td>{{user.client_history.da_03_07}}</td>
-                <td>{{user.client_history.da_01_08}}</td>
-                <td>{{user.client_history.da_02_08}}</td>
-                <td>{{user.client_history.da_03_08}}</td>
+                
                 <td>{{user.client_history.da_01_09}}</td>
                 <td>{{user.client_history.da_02_09}}</td>
                 <td>{{user.client_history.da_03_09}}</td>              
             </tr>
         </tbody>
     </table>
+
+    <div google-chart chart="GrupoMotiva01" style="height:600px; width:100%; margin-top: 25px;"></div>
 
     <h1 class="text-center">Lista Medias Grupo Motivacional 1</h1> 
     <table datatable="ng" class="row-border hover">
@@ -131,9 +131,7 @@
                 <td>Gordura Visceral #1</td>
                 <td>Gordura Visceral #2</td>
                 <td>Gordura Visceral #3</td>
-                <td>Perímetro Cintura #1</td>
-                <td>Perímetro Cintura #2</td>
-                <td>Perímetro Cintura #3</td>
+                
                 <td>Perímetro Abdominal #1</td>
                 <td>Perímetro Abdominal #2</td>
                 <td>Perímetro Abdominal #3</td>    
@@ -142,27 +140,25 @@
         <tbody>
             <tr style="border-bottom: 1px solid black" ng-repeat="user in mediaGrupo01">
                 <td></td>
-                <td>{{user.Grupo1Peso1}}</td>
-                <td>{{user.Grupo1Peso2}}</td>
-                <td>{{user.Grupo1Peso3}}</td>
-                <td>{{user.client_history.da_01_04}}</td>
-                <td>{{user.client_history.da_02_04}}</td>
-                <td>{{user.client_history.da_03_04}}</td>
-                <td>{{user.client_history.da_01_05}}</td>
-                <td>{{user.client_history.da_02_05}}</td>
-                <td>{{user.client_history.da_03_05}}</td>
-                <td>{{user.client_history.da_01_06}}</td>
-                <td>{{user.client_history.da_02_06}}</td>
-                <td>{{user.client_history.da_03_06}}</td>
-                <td>{{user.client_history.da_01_07}}</td>
-                <td>{{user.client_history.da_02_07}}</td>
-                <td>{{user.client_history.da_03_07}}</td>
-                <td>{{user.client_history.da_01_08}}</td>
-                <td>{{user.client_history.da_02_08}}</td>
-                <td>{{user.client_history.da_03_08}}</td>
-                <td>{{user.client_history.da_01_09}}</td>
-                <td>{{user.client_history.da_02_09}}</td>
-                <td>{{user.client_history.da_03_09}}</td>              
+                <td>{{user.Grupo1Peso1Total}}</td>
+                <td>{{user.Grupo1Peso2Total}}</td>
+                <td>{{user.Grupo1Peso3Total}}</td>
+                <td>{{user.Grupo1MassaG1Total}}</td>
+                <td>{{user.Grupo1MassaG2Total}}</td>
+                <td>{{user.Grupo1MassaG3Total}}</td>
+                <td>{{user.Grupo1AguaC1Total}}</td>
+                <td>{{user.Grupo1AguaC2Total}}</td>
+                <td>{{user.Grupo1AguaC3Total}}</td>
+                <td>{{user.Grupo1MassaM1Total}}</td>
+                <td>{{user.Grupo1MassaM2Total}}</td>
+                <td>{{user.Grupo1MassaM3Total}}</td>
+                <td>{{user.Grupo1GorduraV1Total}}</td>
+                <td>{{user.Grupo1GorduraV2Total}}</td>
+                <td>{{user.Grupo1GorduraV3Total}}</td>
+
+                <td>{{user.Grupo1PerimAbdom1Total}}</td>
+                <td>{{user.Grupo1PerimAbdom2Total}}</td>
+                <td>{{user.Grupo1PerimAbdom3Total}}</td>            
             </tr>
         </tbody>
     </table>
@@ -187,9 +183,7 @@
                 <td>Gordura Visceral #1</td>
                 <td>Gordura Visceral #2</td>
                 <td>Gordura Visceral #3</td>
-                <td>Perímetro Cintura #1</td>
-                <td>Perímetro Cintura #2</td>
-                <td>Perímetro Cintura #3</td>
+                
                 <td>Perímetro Abdominal #1</td>
                 <td>Perímetro Abdominal #2</td>
                 <td>Perímetro Abdominal #3</td>    
@@ -213,9 +207,7 @@
                 <td>{{user.client_history.da_01_07}}</td>
                 <td>{{user.client_history.da_02_07}}</td>
                 <td>{{user.client_history.da_03_07}}</td>
-                <td>{{user.client_history.da_01_08}}</td>
-                <td>{{user.client_history.da_02_08}}</td>
-                <td>{{user.client_history.da_03_08}}</td>
+                
                 <td>{{user.client_history.da_01_09}}</td>
                 <td>{{user.client_history.da_02_09}}</td>
                 <td>{{user.client_history.da_03_09}}</td>              
@@ -242,9 +234,7 @@
                 <td>Gordura Visceral #1</td>
                 <td>Gordura Visceral #2</td>
                 <td>Gordura Visceral #3</td>
-                <td>Perímetro Cintura #1</td>
-                <td>Perímetro Cintura #2</td>
-                <td>Perímetro Cintura #3</td>
+                
                 <td>Perímetro Abdominal #1</td>
                 <td>Perímetro Abdominal #2</td>
                 <td>Perímetro Abdominal #3</td>    
@@ -268,9 +258,7 @@
                 <td>{{user.client_history.da_01_07}}</td>
                 <td>{{user.client_history.da_02_07}}</td>
                 <td>{{user.client_history.da_03_07}}</td>
-                <td>{{user.client_history.da_01_08}}</td>
-                <td>{{user.client_history.da_02_08}}</td>
-                <td>{{user.client_history.da_03_08}}</td>
+                
                 <td>{{user.client_history.da_01_09}}</td>
                 <td>{{user.client_history.da_02_09}}</td>
                 <td>{{user.client_history.da_03_09}}</td>              

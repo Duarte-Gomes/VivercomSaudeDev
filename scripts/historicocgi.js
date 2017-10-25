@@ -1,41 +1,15 @@
-
-app.directive('fileModel',['$parse', function ($parse){
-    return {
-      restrict: 'A',
-      link: function (scope, element, attrs) {
-        element.bind('change', function () {
-          $parse(attrs.fileModel)
-          .assign(scope, element[0].files[0])
-          scope.$apply();
-        })
-      }
-    }
-  }]);
-  
 app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', '$mdSidenav',
     function($scope, Auth, $location, currentAuth, usersList, $mdSidenav, $timeout) {
 
         $scope.uploadFile = function(file) {
-            console.log("Let's upload a file!");
-            console.log(file);
-            /*var storageRef = firebase.storage().ref();*/
-            /*var filesRef = storageRef.child('Planos/' + $scope.firebaseUser.uid + '/' + file.name);*/
-            /*var filesRef = storageRef.child('Planos/' + $scope.firebaseUser.uid + '/plano.pdf');*/
-            /*var uploadTask = $firebaseStorage(filesRef).$put(file);*/
 
             var storageRef = firebase.storage().ref('Planos/' + $scope.firebaseUser.uid + '/' + file.name);
             
             var storage = $firebaseStorage(storageRef);
             var uploadTask = storage.$put(file);
 
-            /*uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, null, null, function() {
-                var downloadURL = uploadTask.snapshot.downloadURL;
-                console.log(downloadURL);
-            });*/
-
             uploadTask.$complete(function(snapshot) {
                 $scope.clientDetail.downloadURL = snapshot.downloadURL;
-                console.log(snapshot.downloadURL);
 
                 $scope.usersList.$save(postIndex).then(function() {
                     $scope.getDetails(usersList[postIndex].$id);
@@ -54,6 +28,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
         $scope.clientDetail = {};
         $scope.clientForm = {};
         $scope.clientHist = {};
+        $scope.consult = {};
         $scope.cgiList = {};
         /*$scope.usersList = {};*/
         var saveStatus;
@@ -87,8 +62,10 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
         };
 
         $scope.adminHome = function() {
+            angular.element("html, body").animate({ scrollTop: 0 }, "fast")
             $scope.adminDivHome = true;
             $scope.adminDivClientDetails = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas01 = false;
             $scope.adminDivClientMetas02 = false;
             $scope.adminDivClientMetas03 = false;
@@ -100,8 +77,10 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.adminDivClientQuizFunc = false;
         };
         $scope.adminClientDetails = function() {
+            angular.element("html, body").animate({ scrollTop: 0 }, "fast")
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = true;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas01 = false;
             $scope.adminDivClientMetas02 = false;
             $scope.adminDivClientMetas03 = false;
@@ -113,9 +92,11 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.adminDivClientQuizFunc = false;
         };
         $scope.adminClientMetas = function() {
+            angular.element("html, body").animate({ scrollTop: 0 }, "fast")
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = false;
-            $scope.adminDivClientMetas01 = true;
+            $scope.adminDivClientMetasList = true;
+            $scope.adminDivClientMetas01 = false;
             $scope.adminDivClientMetas02 = false;
             $scope.adminDivClientMetas03 = false;
             $scope.adminDivClientMetas04 = false;
@@ -126,8 +107,10 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.adminDivClientQuizFunc = false;
         }; 
         $scope.adminClientHistory = function() {
+            angular.element("html, body").animate({ scrollTop: 0 }, "fast")
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas01 = false;
             $scope.adminDivClientMetas02 = false;
             $scope.adminDivClientMetas03 = false;
@@ -139,8 +122,10 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.adminDivClientQuizFunc = false;
         };
         $scope.adminClientAntropo = function() {
+            angular.element("html, body").animate({ scrollTop: 0 }, "fast")
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas01 = false;
             $scope.adminDivClientMetas02 = false;
             $scope.adminDivClientMetas03 = false;
@@ -152,8 +137,10 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.adminDivClientQuizFunc = false;
         };
         $scope.adminClientQuizFunc = function() {
+            angular.element("html, body").animate({ scrollTop: 0 }, "fast")
             $scope.adminDivHome = false;
             $scope.adminDivClientDetails = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas01 = false;
             $scope.adminDivClientMetas02 = false;
             $scope.adminDivClientMetas03 = false;
@@ -165,27 +152,27 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.adminDivClientQuizFunc = true;
         };
         $scope.showMetas01 = function() {
-            $scope.adminDivClientHistory = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas01 = true;
         };
         $scope.showMetas02 = function() {
-            $scope.adminDivClientHistory = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas02 = true;
         };
         $scope.showMetas03 = function() {
-            $scope.adminDivClientHistory = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas03 = true;
         };
         $scope.showMetas04 = function() {
-            $scope.adminDivClientHistory = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas04 = true;
         };
         $scope.showMetas05 = function() {
-            $scope.adminDivClientHistory = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas05 = true;
         };
         $scope.showMetas06 = function() {
-            $scope.adminDivClientHistory = false;
+            $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas06 = true;
         };
 
@@ -193,6 +180,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             if ($scope.clientHist.meta01 != null || $scope.clientHist.meta01 == null) {
                 $scope.adminDivHome = false;
                 $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
                 $scope.adminDivClientMetas01 = true;
                 $scope.adminDivClientMetas02 = false;
                 $scope.adminDivClientMetas03 = false;
@@ -206,6 +194,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             if ($scope.clientHist.meta02 != null) {
                 $scope.adminDivHome = false;
                 $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
                 $scope.adminDivClientMetas01 = false;
                 $scope.adminDivClientMetas02 = true;
                 $scope.adminDivClientMetas03 = false;
@@ -219,6 +208,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             if ($scope.clientHist.meta03 != null) {
                 $scope.adminDivHome = false;
                 $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
                 $scope.adminDivClientMetas01 = false;
                 $scope.adminDivClientMetas02 = false;
                 $scope.adminDivClientMetas03 = true;
@@ -232,6 +222,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             if ($scope.clientHist.meta04 != null) {
                 $scope.adminDivHome = false;
                 $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
                 $scope.adminDivClientMetas01 = false;
                 $scope.adminDivClientMetas02 = false;
                 $scope.adminDivClientMetas03 = false;
@@ -245,6 +236,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             if ($scope.clientHist.meta05 != null) {
                 $scope.adminDivHome = false;
                 $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
                 $scope.adminDivClientMetas01 = false;
                 $scope.adminDivClientMetas02 = false;
                 $scope.adminDivClientMetas03 = false;
@@ -258,6 +250,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             if ($scope.clientHist.meta06 != null) {
                 $scope.adminDivHome = false;
                 $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
                 $scope.adminDivClientMetas01 = false;
                 $scope.adminDivClientMetas02 = false;
                 $scope.adminDivClientMetas03 = false;
@@ -270,9 +263,47 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             }
         };
 
+        $scope.showNewLineAntro = function() {
+            if ($scope.hist.dateString_10 == null && $scope.hist.dateString_09 != null) {
+                $scope.consult.c10 = true;
+            } 
+            if ($scope.hist.dateString_09 == null && $scope.hist.dateString_08 != null) {
+                $scope.consult.c09 = true;
+            }
+            if ($scope.hist.dateString_08 == null && $scope.hist.dateString_07 != null) {
+                $scope.consult.c08 = true;
+            }
+            if ($scope.hist.dateString_07 == null && $scope.hist.dateString_06 != null) {
+                $scope.consult.c07 = true;
+            }
+            if ($scope.hist.dateString_06 == null && $scope.hist.dateString_05 != null) {
+                $scope.consult.c06 = true;
+            } 
+            if ($scope.hist.dateString_05 == null && $scope.hist.dateString_04 != null) {
+                $scope.consult.c05 = true;
+            }
+            if ($scope.hist.dateString_04 == null && $scope.hist.dateString_03 != null) {
+                $scope.consult.c04 = true;
+            }
+            if ($scope.hist.dateString_03 == null && $scope.hist.dateString_02 != null) {
+                $scope.consult.c03 = true;
+            }
+            if ($scope.hist.dateString_02 == null && $scope.hist.dateString_01 != null) {
+                $scope.consult.c02 = true;
+            }
+        };
+
         $scope.newReport2 = function() {
+            var d = new Date();
+            var day = d.getDate();
+            var month = d.getMonth() + 1;
+            var year = d.getFullYear();
+            var date02 = day + '/' + month + '/' + year;
+
             if ($scope.clientHist.meta02 == null) {
-                $scope.clientHist.meta02 = $scope.clientHist.meta01;
+                $scope.clientHist.meta02 = {};
+                angular.copy($scope.clientHist.meta01,$scope.clientHist.meta02)
+                $scope.clientHist.meta02.metaDate = date02;
                 $scope.adminDivClientMetas01 = false;
                 $scope.adminDivClientMetas02 = true;
             } else {
@@ -281,8 +312,16 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             }
         };
         $scope.newReport3 = function() {
+            var d = new Date();
+            var day = d.getDate();
+            var month = d.getMonth() + 1;
+            var year = d.getFullYear();
+            var date03 = day + '/' + month + '/' + year;
+
             if ($scope.clientHist.meta03 == null) {
-                $scope.clientHist.meta03 = $scope.clientHist.meta02;
+                $scope.clientHist.meta03 = {};
+                angular.copy($scope.clientHist.meta02,$scope.clientHist.meta03)
+                $scope.clientHist.meta03.metaDate = date03;
                 $scope.adminDivClientMetas02 = false;
                 $scope.adminDivClientMetas03 = true;
             } else {
@@ -291,8 +330,16 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             }
         };
         $scope.newReport4 = function() {
+            var d = new Date();
+            var day = d.getDate();
+            var month = d.getMonth() + 1;
+            var year = d.getFullYear();
+            var date04 = day + '/' + month + '/' + year;
+
             if ($scope.clientHist.meta04 == null) {
-                $scope.clientHist.meta04 = $scope.clientHist.meta03;
+                $scope.clientHist.meta04 = {};
+                angular.copy($scope.clientHist.meta03,$scope.clientHist.meta04)
+                $scope.clientHist.meta04.metaDate = date04;
                 $scope.adminDivClientMetas03 = false;
                 $scope.adminDivClientMetas04 = true;
             } else {
@@ -301,8 +348,16 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             }
         };
         $scope.newReport5 = function() {
+            var d = new Date();
+            var day = d.getDate();
+            var month = d.getMonth() + 1;
+            var year = d.getFullYear();
+            var date05 = day + '/' + month + '/' + year;
+
             if ($scope.clientHist.meta05 == null) {
-                $scope.clientHist.meta05 = $scope.clientHist.meta04;
+                $scope.clientHist.meta05 = {};
+                angular.copy($scope.clientHist.meta04,$scope.clientHist.meta05)
+                $scope.clientHist.meta05.metaDate = date05;
                 $scope.adminDivClientMetas04 = false;
                 $scope.adminDivClientMetas05 = true;
             } else {
@@ -311,8 +366,16 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             }
         };
         $scope.newReport6 = function() {
+            var d = new Date();
+            var day = d.getDate();
+            var month = d.getMonth() + 1;
+            var year = d.getFullYear();
+            var date06 = day + '/' + month + '/' + year;
+
             if ($scope.clientHist.meta06 == null) {
-                $scope.clientHist.meta06 = $scope.clientHist.meta05;
+                $scope.clientHist.meta06 = {};
+                angular.copy($scope.clientHist.meta05,$scope.clientHist.meta06)
+                $scope.clientHist.meta06.metaDate = date06;
                 $scope.adminDivClientMetas05 = false;
                 $scope.adminDivClientMetas06 = true;
             } else {
@@ -369,22 +432,62 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
 /////////////////////////////////////////////////////
 ////////////////////////////////////////////////////
         var cont = 0;
+        var logggooogggg = $scope.auth.$getAuth().uid;
         
-        usersList.$loaded().then(function() {
-            $scope.usersList = usersList;
-            
-            for (var i = 0; i < usersList.length; i++) {
-                if (typeof $scope.usersList[i].client_detail !== 'undefined') {
-                    if ($scope.usersList[i].client_detail.locConsulta === "CGI" || $scope.usersList[i].client_detail.codBis === "#CGI") {
-                        $scope.cgiList[cont] = $scope.usersList[i];
-                        console.log(typeof($scope.cgiList[cont].client_detail.active));
-                        var d = new Date($scope.usersList[i].timestamp);
-                        $scope.cgiList[cont].dateRegister = (d.getMonth()+1) + '/' + d.getDate()+ '/' + d.getFullYear();
-                        cont++;
+        if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
+            usersList.$loaded().then(function() {
+                $scope.usersList = usersList;
+                for(var iii = 0; iii < usersList.length; iii++) {
+                    if (typeof usersList[iii].client_history !== 'undefined') {
+                        if (usersList[iii].client_history.da_10_01 == null && usersList[iii].client_history.da_09_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_09_01;
+                        }
+                        if (usersList[iii].client_history.da_09_01 == null && usersList[iii].client_history.da_08_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_08_01;
+                        }
+                        if (usersList[iii].client_history.da_08_01 == null && usersList[iii].client_history.da_07_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_07_01;
+                        }
+                        if (usersList[iii].client_history.da_07_01 == null && usersList[iii].client_history.da_06_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_06_01;
+                        }
+                        if (usersList[iii].client_history.da_06_01 == null && usersList[iii].client_history.da_05_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_05_01;
+                        }
+                        if (usersList[iii].client_history.da_05_01 == null && usersList[iii].client_history.da_04_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_04_01;
+                        }
+                        if (usersList[iii].client_history.da_04_01 == null && usersList[iii].client_history.da_03_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_03_01;
+                        }
+                        if (usersList[iii].client_history.da_03_01 == null && usersList[iii].client_history.da_02_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_02_01;
+                        }
+                        if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_01_01;
+                        }
+                        if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_01_01;
+                        }
+                        if (usersList[iii].client_history.proxConsult_02 == null && usersList[iii].client_history.proxConsult_01 != null) {
+                            $scope.usersList[iii].client_history.proxConsult = usersList[iii].client_history.proxConsult_01;
+                        }
+                    } 
+                }
+                for (var i = 0; i < usersList.length; i++) {
+                    if (typeof $scope.usersList[i].client_detail !== 'undefined') {
+                        if ($scope.usersList[i].client_detail.locConsulta === "CGI" || $scope.usersList[i].client_detail.codBis === "#CGI") {
+                            $scope.cgiList[cont] = $scope.usersList[i];
+                            console.log(typeof($scope.cgiList[cont].client_detail.active));
+                            var d = new Date($scope.usersList[i].timestamp);
+                            $scope.cgiList[cont].dateRegister = (d.getMonth()+1) + '/' + d.getDate()+ '/' + d.getFullYear();
+                            cont++;
+                        }
                     }
                 }
-            }
-        /* }).then(function() {
+
+                /* este codigo foi usado para por os utilizadores cgi activos
+            }).then(function() {
             for (var ii = 0; ii < cont; ii++) {
                 if ($scope.cgiList[ii].client_detail.active !== "false") {
                     console.log($scope.cgiList[ii].client_detail.active);
@@ -402,9 +505,11 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
                     });
                 }
             } */
-        });
 
-        
+            });
+        } else {
+            $location.path('/');
+        };
 
         $scope.gravarhist = function() {
             $scope.clientsAppointmentsHistorical.$add({
@@ -413,25 +518,6 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
                 alert("Registo criado!");
             });
         }
-
-
-        /* } */
-        /*var birthdate = $scope.clientDetail.birthday;
-        var birthdateLastFour = birthdate.substr(birthdate.length - 4);
-
-        var today = new Date().toString();
-        var preLastFour = today.substr(today.length - 43);
-        var todayLastFour = preLastFour.substr(0, 4);
-
-        $('#InputAge').val(todayLastFour - birthdateLastFour);
-
-        $("#InputBirthday").on('change', function(){
-            $('#InputAge').val(todayLastFour - birthdateLastFour);
-        });
-
-        console.log(birthdateLastFour);
-        
-        console.log(todayLastFour);*/
 
         $scope.loginUser = function() {
 
@@ -490,25 +576,22 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.hist.dateString_04 = $scope.clientHist.da_04_01;
             $scope.hist.dateString_05 = $scope.clientHist.da_05_01;
             $scope.hist.dateString_06 = $scope.clientHist.da_06_01;
+            $scope.hist.dateString_07 = $scope.clientHist.da_07_01; 
+            $scope.hist.dateString_08 = $scope.clientHist.da_08_01; 
+            $scope.hist.dateString_09 = $scope.clientHist.da_09_01; 
+            $scope.hist.dateString_10 = $scope.clientHist.da_10_01; 
+
+            $scope.prox.proxConsult10 = $scope.clientHist.proxConsult_10;
+            $scope.prox.proxConsult9 = $scope.clientHist.proxConsult_09;
+            $scope.prox.proxConsult8 = $scope.clientHist.proxConsult_08;
+            $scope.prox.proxConsult7 = $scope.clientHist.proxConsult_07;
+            $scope.prox.proxConsult6 = $scope.clientHist.proxConsult_06;
+            $scope.prox.proxConsult5 = $scope.clientHist.proxConsult_05;
+            $scope.prox.proxConsult4 = $scope.clientHist.proxConsult_04;
+            $scope.prox.proxConsult3 = $scope.clientHist.proxConsult_03;
+            $scope.prox.proxConsult2 = $scope.clientHist.proxConsult_02;
+            $scope.prox.proxConsult1 = $scope.clientHist.proxConsult_01;
             
-            /* if ($scope.clientHist.da_01_03 != null && $scope.clientHist.da_01_04 != null) {
-                $scope.clientHist.da_01_23 = (Number($scope.clientHist.da_01_03) * Number($scope.clientHist.da_01_04)) / 100;
-            }
-            if ($scope.clientHist.da_02_03 != null && $scope.clientHist.da_02_04 != null) {
-                $scope.clientHist.da_02_23 = ($scope.clientHist.da_02_03 * $scope.clientHist.da_02_04) / 100;
-            }
-            if ($scope.clientHist.da_03_03 != null && $scope.clientHist.da_03_04 != null) {
-                $scope.clientHist.da_03_23 = ($scope.clientHist.da_03_03 * $scope.clientHist.da_03_04) / 100;
-            }
-            if ($scope.clientHist.da_04_03 != null && $scope.clientHist.da_04_04 != null) {
-                $scope.clientHist.da_04_23 = ($scope.clientHist.da_04_03 * $scope.clientHist.da_04_04) / 100;
-            }
-            if ($scope.clientHist.da_05_03 != null && $scope.clientHist.da_05_04 != null) {
-                $scope.clientHist.da_05_23 = ($scope.clientHist.da_05_03 * $scope.clientHist.da_05_04) / 100;
-            }
-            if ($scope.clientHist.da_06_03 != null && $scope.clientHist.da_06_04 != null) {
-                $scope.clientHist.da_06_23 = ($scope.clientHist.da_06_03 * $scope.clientHist.da_06_04) / 100;
-            } */
             var pos01, pos02, pos03, pos04;
             //6
             if ($scope.clientHist.meta06 != null) {
@@ -1077,161 +1160,60 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.metasFuncionais.options = {
                 'title': 'Metas Funcionais',
                 'legend': 'none',
-                'width': '1570',
-                'height': '400'
-                /*  ,
-                'colors': [
-                    '#ffd900', 
-                    '#00bd13', 
-                    '#0886d4', 
-                    '#cf0000'       
-                ] */
+                'width': '1109',
+                'height': '330'
             };
 
-
-            if ($scope.hist.dateString_06 != null) {
-                if ($scope.clientHist.da_06_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_06_03;
+            if ($scope.hist.dateString_010 != null) {
+                if (!$scope.clientHist.quizhis_10_3 || !$scope.clientHist.quizhis_10_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
                 }
-                if ($scope.clientHist.da_06_04 != null)  {
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_06_04;
+            } 
+            if ($scope.hist.dateString_10 == null && $scope.hist.dateString_09 != null) {
+                if (!$scope.clientHist.quizhis_9_3 || !$scope.clientHist.quizhis_9_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
                 }
-                if ($scope.clientHist.da_06_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_06_07;
+            } 
+            if ($scope.hist.dateString_09 == null && $scope.hist.dateString_08 != null) {
+                if (!$scope.clientHist.quizhis_8_3 || !$scope.clientHist.quizhis_8_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
                 }
-                if ($scope.clientHist.da_06_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_06_05;
+            }
+            if ($scope.hist.dateString_08 == null && $scope.hist.dateString_07 != null) {
+                if (!$scope.clientHist.quizhis_7_3 || !$scope.clientHist.quizhis_7_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
                 }
-                if ($scope.clientHist.da_06_06 != null)  {
-                    $scope.front.dashVisceral = $scope.clientHist.da_06_06;
-                }
-                if (!$scope.clientHist.quizhis_6_3 ||! $scope.clientHist.quizhis_6_2) {
+            }
+            if ($scope.hist.dateString_07 == null && $scope.hist.dateString_06 != null) {
+                if (!$scope.clientHist.quizhis_6_3 || !$scope.clientHist.quizhis_6_2) {
                     alert('Atenção, campos vazios no histórico!!!')
                 }
             } 
             if ($scope.hist.dateString_06 == null && $scope.hist.dateString_05 != null) {
-                if ($scope.clientHist.da_05_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_05_03;
-                }
-                if ($scope.clientHist.da_05_04 != null)  {    
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_05_04;
-                }
-                if ($scope.clientHist.da_05_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_05_07;
-                }
-                if ($scope.clientHist.da_05_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_05_05;
-                }
-                if ($scope.clientHist.da_05_06 != null)  {    
-                    $scope.front.dashVisceral = $scope.clientHist.da_05_06;
-                }
                 if (!$scope.clientHist.quizhis_5_3 || !$scope.clientHist.quizhis_5_2) {
                     alert('Atenção, campos vazios no histórico!!!')
                 }
             } 
             if ($scope.hist.dateString_05 == null && $scope.hist.dateString_04 != null) {
-                if ($scope.clientHist.da_04_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_04_03;
-                }
-                if ($scope.clientHist.da_04_04 != null)  {  
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_04_04;
-                }
-                if ($scope.clientHist.da_04_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_04_07;
-                }
-                if ($scope.clientHist.da_04_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_04_05;
-                }
-                if ($scope.clientHist.da_04_06 != null)  { 
-                    $scope.front.dashVisceral = $scope.clientHist.da_04_06;
-                }
                 if (!$scope.clientHist.quizhis_4_3 || !$scope.clientHist.quizhis_4_2) {
                     alert('Atenção, campos vazios no histórico!!!')
                 }
             }
             if ($scope.hist.dateString_04 == null && $scope.hist.dateString_03 != null) {
-                if ($scope.clientHist.da_03_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_03_03;
-                }
-                if ($scope.clientHist.da_03_04 != null)  {  
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_03_04;
-                }
-                if ($scope.clientHist.da_03_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_03_07;
-                }
-                if ($scope.clientHist.da_03_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_03_05;
-                }
-                if ($scope.clientHist.da_03_06 != null)  { 
-                    $scope.front.dashVisceral = $scope.clientHist.da_03_06;
-                }
                 if (!$scope.clientHist.quizhis_3_3 || !$scope.clientHist.quizhis_3_2) {
                     alert('Atenção, campos vazios no histórico!!!')
                 }
             }
             if ($scope.hist.dateString_03 == null && $scope.hist.dateString_02 != null) {
-                if ($scope.clientHist.da_02_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_02_03;
-                }
-                if ($scope.clientHist.da_02_04 != null)  {  
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_02_04;
-                }
-                if ($scope.clientHist.da_02_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_02_07;
-                }
-                if ($scope.clientHist.da_02_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_02_05;
-                }
-                if ($scope.clientHist.da_02_06 != null)  { 
-                    $scope.front.dashVisceral = $scope.clientHist.da_02_06;
-                }
                 if (!$scope.clientHist.quizhis_2_3 || !$scope.clientHist.quizhis_2_2) {
                     alert('Atenção, campos vazios no histórico!!!')
                 }
             }
             if ($scope.hist.dateString_02 == null && $scope.hist.dateString_01 != null) {
-                if ($scope.clientHist.da_01_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_01_03;
-                }
-                if ($scope.clientHist.da_01_04 != null)  {  
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_01_04;
-                }
-                if ($scope.clientHist.da_01_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_01_07;
-                }
-                if ($scope.clientHist.da_01_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_01_05;
-                }
-                if ($scope.clientHist.da_01_06 != null)  { 
-                    $scope.front.dashVisceral = $scope.clientHist.da_01_06;
-                }
                 if (!$scope.clientHist.quizhis_1_3 || !$scope.clientHist.quizhis_1_2) {
                     alert('Atenção, campos vazios no histórico!!!')
                 }
             }
-
-            /* if ($scope.clientHist.meta05 != null && $scope.clientHist.meta06 == null) {
-                $scope.clientHist.meta06 = $scope.clientHist.meta05;
-            } 
-            if ($scope.clientHist.meta04 != null && $scope.clientHist.meta05 == null) {
-                $scope.clientHist.meta05 = $scope.clientHist.meta04;
-            }
-            if ($scope.clientHist.meta03 != null && $scope.clientHist.meta04 == null) {
-                $scope.clientHist.meta04 = $scope.clientHist.meta03;
-            }
-            if ($scope.clientHist.meta02 != null && $scope.clientHist.meta03 == null) {
-                $scope.clientHist.meta03 = $scope.clientHist.meta02;
-            }
-            if ($scope.clientHist.meta01 != null && $scope.clientHist.meta02 == null) {
-                $scope.clientHist.meta02 = $scope.clientHist.meta01;
-            } */
-
-            /*  $scope.hist.dateStringConsult_01 = $scope.clientHist.quizhis_1_1;
-            $scope.hist.dateStringConsult_02 = $scope.clientHist.quizhis_2_1;
-            $scope.hist.dateStringConsult_03 = $scope.clientHist.quizhis_3_1;
-            $scope.hist.dateStringConsult_04 = $scope.clientHist.quizhis_4_1;
-            $scope.hist.dateStringConsult_05 = $scope.clientHist.quizhis_5_1;
-            $scope.hist.dateStringConsult_06 = $scope.clientHist.quizhis_6_1; */
             
             var ageBirthday = $scope.clientDetail.dayBirth + '/' + $scope.clientDetail.monthBirth + '/' + $scope.clientDetail.yearBirth;
             var monthBirthTemp;
@@ -1315,7 +1297,6 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
                 }      
             }
 
-            /*if ($scope.aniversario.texto != null) {*/
             if (ageBirthday != null) {
                 //calculo da idade
                 //ano e mes da data de nascimento
@@ -1392,25 +1373,22 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.hist.dateString_04 = $scope.clientHist.da_04_01;
             $scope.hist.dateString_05 = $scope.clientHist.da_05_01;
             $scope.hist.dateString_06 = $scope.clientHist.da_06_01;
+            $scope.hist.dateString_07 = $scope.clientHist.da_07_01; 
+            $scope.hist.dateString_08 = $scope.clientHist.da_08_01; 
+            $scope.hist.dateString_09 = $scope.clientHist.da_09_01; 
+            $scope.hist.dateString_10 = $scope.clientHist.da_10_01; 
+
+            $scope.prox.proxConsult10 = $scope.clientHist.proxConsult_10;
+            $scope.prox.proxConsult9 = $scope.clientHist.proxConsult_09;
+            $scope.prox.proxConsult8 = $scope.clientHist.proxConsult_08;
+            $scope.prox.proxConsult7 = $scope.clientHist.proxConsult_07;
+            $scope.prox.proxConsult6 = $scope.clientHist.proxConsult_06;
+            $scope.prox.proxConsult5 = $scope.clientHist.proxConsult_05;
+            $scope.prox.proxConsult4 = $scope.clientHist.proxConsult_04;
+            $scope.prox.proxConsult3 = $scope.clientHist.proxConsult_03;
+            $scope.prox.proxConsult2 = $scope.clientHist.proxConsult_02;
+            $scope.prox.proxConsult1 = $scope.clientHist.proxConsult_01;
             
-            /* if ($scope.clientHist.da_01_03 != null && $scope.clientHist.da_01_04 != null) {
-                $scope.clientHist.da_01_23 = (Number($scope.clientHist.da_01_03) * Number($scope.clientHist.da_01_04)) / 100;
-            }
-            if ($scope.clientHist.da_02_03 != null && $scope.clientHist.da_02_04 != null) {
-                $scope.clientHist.da_02_23 = ($scope.clientHist.da_02_03 * $scope.clientHist.da_02_04) / 100;
-            }
-            if ($scope.clientHist.da_03_03 != null && $scope.clientHist.da_03_04 != null) {
-                $scope.clientHist.da_03_23 = ($scope.clientHist.da_03_03 * $scope.clientHist.da_03_04) / 100;
-            }
-            if ($scope.clientHist.da_04_03 != null && $scope.clientHist.da_04_04 != null) {
-                $scope.clientHist.da_04_23 = ($scope.clientHist.da_04_03 * $scope.clientHist.da_04_04) / 100;
-            }
-            if ($scope.clientHist.da_05_03 != null && $scope.clientHist.da_05_04 != null) {
-                $scope.clientHist.da_05_23 = ($scope.clientHist.da_05_03 * $scope.clientHist.da_05_04) / 100;
-            }
-            if ($scope.clientHist.da_06_03 != null && $scope.clientHist.da_06_04 != null) {
-                $scope.clientHist.da_06_23 = ($scope.clientHist.da_06_03 * $scope.clientHist.da_06_04) / 100;
-            } */
             var pos01, pos02, pos03, pos04;
             //6
             if ($scope.clientHist.meta06 != null) {
@@ -1979,8 +1957,8 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             $scope.metasFuncionais.options = {
                 'title': 'Metas Funcionais',
                 'legend': 'none',
-                'width': '1570',
-                'height': '400'
+                'width': '1109',
+                'height': '330'
                 /*  ,
                 'colors': [
                     '#ffd900', 
@@ -1989,151 +1967,6 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
                     '#cf0000'       
                 ] */
             };
-
-
-            if ($scope.hist.dateString_06 != null) {
-                if ($scope.clientHist.da_06_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_06_03;
-                }
-                if ($scope.clientHist.da_06_04 != null)  {
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_06_04;
-                }
-                if ($scope.clientHist.da_06_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_06_07;
-                }
-                if ($scope.clientHist.da_06_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_06_05;
-                }
-                if ($scope.clientHist.da_06_06 != null)  {
-                    $scope.front.dashVisceral = $scope.clientHist.da_06_06;
-                }
-                if (!$scope.clientHist.quizhis_6_3 ||! $scope.clientHist.quizhis_6_2) {
-                    
-                }
-            } 
-            if ($scope.hist.dateString_06 == null && $scope.hist.dateString_05 != null) {
-                if ($scope.clientHist.da_05_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_05_03;
-                }
-                if ($scope.clientHist.da_05_04 != null)  {    
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_05_04;
-                }
-                if ($scope.clientHist.da_05_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_05_07;
-                }
-                if ($scope.clientHist.da_05_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_05_05;
-                }
-                if ($scope.clientHist.da_05_06 != null)  {    
-                    $scope.front.dashVisceral = $scope.clientHist.da_05_06;
-                }
-                if (!$scope.clientHist.quizhis_5_3 || !$scope.clientHist.quizhis_5_2) {
-                    
-                }
-            } 
-            if ($scope.hist.dateString_05 == null && $scope.hist.dateString_04 != null) {
-                if ($scope.clientHist.da_04_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_04_03;
-                }
-                if ($scope.clientHist.da_04_04 != null)  {  
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_04_04;
-                }
-                if ($scope.clientHist.da_04_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_04_07;
-                }
-                if ($scope.clientHist.da_04_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_04_05;
-                }
-                if ($scope.clientHist.da_04_06 != null)  { 
-                    $scope.front.dashVisceral = $scope.clientHist.da_04_06;
-                }
-                if (!$scope.clientHist.quizhis_4_3 || !$scope.clientHist.quizhis_4_2) {
-                    
-                }
-            }
-            if ($scope.hist.dateString_04 == null && $scope.hist.dateString_03 != null) {
-                if ($scope.clientHist.da_03_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_03_03;
-                }
-                if ($scope.clientHist.da_03_04 != null)  {  
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_03_04;
-                }
-                if ($scope.clientHist.da_03_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_03_07;
-                }
-                if ($scope.clientHist.da_03_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_03_05;
-                }
-                if ($scope.clientHist.da_03_06 != null)  { 
-                    $scope.front.dashVisceral = $scope.clientHist.da_03_06;
-                }
-                if (!$scope.clientHist.quizhis_3_3 || !$scope.clientHist.quizhis_3_2) {
-                    
-                }
-            }
-            if ($scope.hist.dateString_03 == null && $scope.hist.dateString_02 != null) {
-                if ($scope.clientHist.da_02_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_02_03;
-                }
-                if ($scope.clientHist.da_02_04 != null)  {  
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_02_04;
-                }
-                if ($scope.clientHist.da_02_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_02_07;
-                }
-                if ($scope.clientHist.da_02_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_02_05;
-                }
-                if ($scope.clientHist.da_02_06 != null)  { 
-                    $scope.front.dashVisceral = $scope.clientHist.da_02_06;
-                }
-                if (!$scope.clientHist.quizhis_2_3 || !$scope.clientHist.quizhis_2_2) {
-                    
-                }
-            }
-            if ($scope.hist.dateString_02 == null && $scope.hist.dateString_01 != null) {
-                if ($scope.clientHist.da_01_03 != null)  {
-                    $scope.front.dashPeso = $scope.clientHist.da_01_03;
-                }
-                if ($scope.clientHist.da_01_04 != null)  {  
-                    $scope.front.dashMassaGorda = $scope.clientHist.da_01_04;
-                }
-                if ($scope.clientHist.da_01_07 != null)  {
-                    $scope.front.dashMassaMagra = $scope.clientHist.da_01_07;
-                }
-                if ($scope.clientHist.da_01_05 != null)  {
-                    $scope.front.dashAgua = $scope.clientHist.da_01_05;
-                }
-                if ($scope.clientHist.da_01_06 != null)  { 
-                    $scope.front.dashVisceral = $scope.clientHist.da_01_06;
-                }
-                if (!$scope.clientHist.quizhis_1_3 || !$scope.clientHist.quizhis_1_2) {
-                    
-                }
-            }
-
-            /* if ($scope.clientHist.meta05 != null && $scope.clientHist.meta06 == null) {
-                $scope.clientHist.meta06 = $scope.clientHist.meta05;
-            } 
-            if ($scope.clientHist.meta04 != null && $scope.clientHist.meta05 == null) {
-                $scope.clientHist.meta05 = $scope.clientHist.meta04;
-            }
-            if ($scope.clientHist.meta03 != null && $scope.clientHist.meta04 == null) {
-                $scope.clientHist.meta04 = $scope.clientHist.meta03;
-            }
-            if ($scope.clientHist.meta02 != null && $scope.clientHist.meta03 == null) {
-                $scope.clientHist.meta03 = $scope.clientHist.meta02;
-            }
-            if ($scope.clientHist.meta01 != null && $scope.clientHist.meta02 == null) {
-                $scope.clientHist.meta02 = $scope.clientHist.meta01;
-            } */
-
-            /*  $scope.hist.dateStringConsult_01 = $scope.clientHist.quizhis_1_1;
-            $scope.hist.dateStringConsult_02 = $scope.clientHist.quizhis_2_1;
-            $scope.hist.dateStringConsult_03 = $scope.clientHist.quizhis_3_1;
-            $scope.hist.dateStringConsult_04 = $scope.clientHist.quizhis_4_1;
-            $scope.hist.dateStringConsult_05 = $scope.clientHist.quizhis_5_1;
-            $scope.hist.dateStringConsult_06 = $scope.clientHist.quizhis_6_1; */
             
             var ageBirthday = $scope.clientDetail.dayBirth + '/' + $scope.clientDetail.monthBirth + '/' + $scope.clientDetail.yearBirth;
             var monthBirthTemp;
@@ -2217,7 +2050,6 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
                 }      
             }
 
-            /*if ($scope.aniversario.texto != null) {*/
             if (ageBirthday != null) {
                 //calculo da idade
                 //ano e mes da data de nascimento
@@ -2255,14 +2087,43 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
         };
 
         $scope.atras = function() {
+            angular.element("html, body").animate({ scrollTop: 0 }, "slow")
             location.reload();
             $scope.showDetails = false;
         };
 
         $scope.convertObjectDate = function() {
-            if ($scope.prox.proxConsult) {
-                $scope.clientDetail.proxConsult = $scope.prox.proxConsult;
+            if ($scope.prox.proxConsult1) {
+                $scope.clientHist.proxConsult_01 = $scope.prox.proxConsult1;
             }
+            if ($scope.prox.proxConsult2) {
+                $scope.clientHist.proxConsult_02 = $scope.prox.proxConsult2;
+            }
+            if ($scope.prox.proxConsult3) {
+                $scope.clientHist.proxConsult_03 = $scope.prox.proxConsult3;
+            }
+            if ($scope.prox.proxConsult4) {
+                $scope.clientHist.proxConsult_04 = $scope.prox.proxConsult4;
+            }
+            if ($scope.prox.proxConsult5) {
+                $scope.clientHist.proxConsult_05 = $scope.prox.proxConsult5;
+            }
+            if ($scope.prox.proxConsult6) {
+                $scope.clientHist.proxConsult_06 = $scope.prox.proxConsult6;
+            }
+            if ($scope.prox.proxConsult7) {
+                $scope.clientHist.proxConsult_07 = $scope.prox.proxConsult7;
+            }
+            if ($scope.prox.proxConsult8) {
+                $scope.clientHist.proxConsult_08 = $scope.prox.proxConsult8;
+            }
+            if ($scope.prox.proxConsult9) {
+                $scope.clientHist.proxConsult_09 = $scope.prox.proxConsult9;
+            }
+            if ($scope.prox.proxConsult10) {
+                $scope.clientHist.proxConsult_10 = $scope.prox.proxConsult10;
+            }
+
             if ($scope.hist.dateString_01) {
                 $scope.clientHist.da_01_01 = $scope.hist.dateString_01;
             }
@@ -2281,7 +2142,20 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             if ($scope.hist.dateString_06) {
                 $scope.clientHist.da_06_01 = $scope.hist.dateString_06;
             }
-            if ($scope.hist.dateStringConsult_01) {
+            if ($scope.hist.dateString_07) {
+                $scope.clientHist.da_07_01 = $scope.hist.dateString_07;
+            }
+            if ($scope.hist.dateString_08) {
+                $scope.clientHist.da_08_01 = $scope.hist.dateString_08;
+            }
+            if ($scope.hist.dateString_09) {
+                $scope.clientHist.da_09_01 = $scope.hist.dateString_09;
+            }
+            if ($scope.hist.dateString_10) {
+                $scope.clientHist.da_10_01 = $scope.hist.dateString_10;
+            }
+
+            /* if ($scope.hist.dateStringConsult_01) {
                 $scope.clientHist.quizhis_1_1 = $scope.hist.dateStringConsult_01;
             }
             if ($scope.hist.dateStringConsult_02) {
@@ -2298,7 +2172,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
             }
             if ($scope.hist.dateStringConsult_06) {
                 $scope.clientHist.quizhis_6_1 = $scope.hist.dateStringConsult_06;
-            }
+            } */
         }
 
         $scope.saveUserDetailsAdmin = function() {

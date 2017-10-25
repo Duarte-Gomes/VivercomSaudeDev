@@ -1,16 +1,3 @@
-/* app.directive('fileModel',['$parse', function ($parse){
-  return {
-    restrict: 'A',
-    link: function (scope, element, attrs) {
-      element.bind('change', function () {
-        $parse(attrs.fileModel)
-        .assign(scope, element[0].files[0])
-        scope.$apply();
-      })
-    }
-  }
-}]); */
-
 app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'suplementsList', 'clientsAppointmentsHistorical', '$firebaseStorage',
     function($scope, Auth, $location, currentAuth, usersList, suplementsList, clientsAppointmentsHistorical, $firebaseStorag) {
 
@@ -329,6 +316,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             var month = d.getMonth() + 1;
             var year = d.getFullYear();
             var date03 = day + '/' + month + '/' + year;
+
             if ($scope.clientHist.meta03 == null) {
                 $scope.clientHist.meta03 = {};
                 angular.copy($scope.clientHist.meta02,$scope.clientHist.meta03)
@@ -346,6 +334,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             var month = d.getMonth() + 1;
             var year = d.getFullYear();
             var date04 = day + '/' + month + '/' + year;
+
             if ($scope.clientHist.meta04 == null) {
                 $scope.clientHist.meta04 = {};
                 angular.copy($scope.clientHist.meta03,$scope.clientHist.meta04)
@@ -363,6 +352,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             var month = d.getMonth() + 1;
             var year = d.getFullYear();
             var date05 = day + '/' + month + '/' + year;
+
             if ($scope.clientHist.meta05 == null) {
                 $scope.clientHist.meta05 = {};
                 angular.copy($scope.clientHist.meta04,$scope.clientHist.meta05)
@@ -380,6 +370,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             var month = d.getMonth() + 1;
             var year = d.getFullYear();
             var date06 = day + '/' + month + '/' + year;
+            
             if ($scope.clientHist.meta06 == null) {
                 $scope.clientHist.meta06 = {};
                 angular.copy($scope.clientHist.meta05,$scope.clientHist.meta06)
@@ -437,6 +428,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             "A", "B", "AB", "O"
         ]
 
+/////////////////////////////////////////////////////
+////////////////////////////////////////////////////
+        /* var cont = 0; */
         var logggooogggg = $scope.auth.$getAuth().uid;
 
         if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
@@ -474,7 +468,6 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                         if (usersList[iii].client_history.da_02_01 == null && usersList[iii].client_history.da_01_01 != null) {
                             $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_01_01;
                         }
-
                         if (usersList[iii].client_history.proxConsult_02 == null && usersList[iii].client_history.proxConsult_01 != null) {
                             $scope.usersList[iii].client_history.proxConsult = usersList[iii].client_history.proxConsult_01;
                         }

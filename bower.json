@@ -1,0 +1,20 @@
+{
+  "name": "VivercomSaudeDev",
+  "homepage": "https://github.com/Duarte-Gomes/VivercomSaudeDev",
+  "authors": [
+    "Duarte <animal.dg@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "si-table": "^0.2.3"
+  }
+}

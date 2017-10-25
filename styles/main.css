@@ -294,6 +294,13 @@ textarea {
 input[type="radio"][readonly] {
   pointer-events: none;
 }
+/* .st-sort-ascent:before {
+  content: '\25B2';
+}
+
+.st-sort-descent:before {
+  content: '\25BC';
+} */
 @media screen and (max-width: 1366px) {
   .welcome-style {
     width: 30%; 
