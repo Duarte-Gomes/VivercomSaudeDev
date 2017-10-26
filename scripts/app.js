@@ -57,7 +57,7 @@ app.run(["$rootScope", "$location", function($rootScope, $location) {
         // We can catch the error thrown when the $requireSignIn promise is rejected
         // and redirect the user back to the home page
         if (error === "AUTH_REQUIRED") {
-            $location.path("/");
+            $location.path("/login");
         }
     });
 }]);
@@ -69,11 +69,8 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         controller: 'MainCtrl',
         controllerAs: 'main',
         resolve: {
-          // controller will not be loaded until $waitForSignIn resolves
-          // Auth refers to our $firebaseAuth wrapper in the factory below
           "currentAuth": ["Auth", function(Auth) {
-            // $waitForSignIn returns a promise so the resolve waits for it to complete
-            return Auth.$waitForSignIn();
+            return Auth.$requireSignIn();
           }]
         }
     })
@@ -171,10 +168,7 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         templateUrl: 'views/quemsoueu.html',
         controller: 'QuemCtrl'
     })
-    .when('/:id', {
-        templateUrl: 'views/welcome.html',
-        controller: 'WelcomeCtrl'
-    })
+    
     .when('/workshop', {
         templateUrl: 'views/resultados.html',
         controller: 'DashCtrl',
@@ -184,6 +178,20 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
             return Auth.$waitForSignIn();
           }]
         }
+    })
+    .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login',
+        resolve: {
+            "currentAuth": ["Auth", function(Auth) {
+                return Auth.$waitForSignIn();
+            }]
+        }
+    })
+    .when('/:id', {
+        templateUrl: 'views/welcome.html',
+        controller: 'WelcomeCtrl'
     })
     /*.when('/emailNotValidated', {
         templateUrl: 'views/emailNotValidated.html',
@@ -199,13 +207,4 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
     $locationProvider.html5Mode(true);
 
     $compileProvider.preAssignBindingsEnabled(true);
-
-    /*$mdDateLocaleProvider.parseDate = function(dateString) {
-        var m = moment(dateString, 'DD/MM/YYYY', true);
-        return m.isValid() ? m.toDate() : new Date(NaN);
-    };*/
-    
-    /*$mdDateLocaleProvider.formatDate = function(date) {
-        return moment(date).format('DD/MM/YYYY');
-    };*/
 });

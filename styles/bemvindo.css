@@ -1,0 +1,11 @@
+.quemSouMainButtonNG {
+    opacity: 0.5;
+}
+  
+@media screen and (max-width: 480px) {
+    .button-style {
+        border: none;
+        padding: 6px 10px;
+        margin: 0 5px;
+    }
+}

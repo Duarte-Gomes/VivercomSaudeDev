@@ -1,0 +1,20 @@
+#loginWindow {
+    background-color: lightgray;
+    padding: 30px;
+}
+#newUserWindow {
+    background-color: lightgray;
+    padding: 30px;
+}
+#passwordResetWindow {
+    background-color: lightgray;
+    padding: 30px;
+}
+.main-login input {
+    margin-bottom: 30px;
+    border-radius: 0;
+}
+.main-login button {
+    width: 100%;
+    border-radius: 0;
+}

@@ -1,128 +1,31 @@
-<div class="col-sm-12 text-center" style="margin: 20px 0;" ng-show="firstVisitPart1" ng-hide="firstVisitPart2">
-    <h3>Escolha o objectivo pertendido</h3>
-    <div class="col-sm-4 text-center">   
-        <div style="background-color: white; box-shadow: 0 0 5px #888888; margin: 0 60px 0 0;" ng-class="{quemSouMainButtonNG: clientDetail.clientType == 'ProgramaFit' || clientDetail.clientType == 'ProgramaSaude'}">
-            <img src="/images/grupo_praia.png" class="img-responsive" alt="">
-            <div style="height: 155px;">
-                <p style="font-weight: bold; font-size: 18px; padding: 15px 30px; margin: 0;">Para quem tem como principal objectivo perder volume corporal e massa gorda</p>
-            </div>
-            <button ng-click="setType('massa')" class="quemSouMainButton">Perder Peso</button>
-        </div>
-    </div>
+<div class="div-height-inner">
+    <h2 class="text-center pre-h2">Bem-vindo à Healthy Habits</h2>
+    <h2 class="text-center pre-h2-2">Diga-nos o que procura?</h2>
     <div class="col-sm-4 text-center">  
-        <div style="background-color: white; box-shadow: 0 0 5px #888888; margin: 0 30px;" ng-class="{quemSouMainButtonNG: clientDetail.clientType == 'ProgramaGestaoDePeso' || clientDetail.clientType == 'ProgramaSaude'}">  
+        <div class="mainOptions" ng-class="{quemSouMainButtonNG: clientDetail.clientType == 'ProgramaGestaoDePeso' || clientDetail.clientType == 'ProgramaSaude'}">  
             <img src="/images/nutricao_desportiva.png" class="img-responsive" alt="">
-            <div style="height: 155px;">
-                <p style="font-weight: bold; font-size: 18px; padding: 15px 30px; margin: 0;">Para quem tem como principal objectivo bater recordes pessoas e melhorar performance desportiva</p>            
+            <div class="text-box-main">
+                <p class="mainTextBox">Para quem tem como principal objetivo bater recordes pessoais e melhorar <i>performance</i> desportiva</p>            
+                <button ng-click="setType('desporto')"  class="quemSouMainButton">Nutrição Desportiva</button>        
             </div>
-            <button ng-click="setType('desporto')" class="quemSouMainButton">Nutrição Desportiva</button>        
         </div>
     </div>
     <div class="col-sm-4 text-center">   
-        <div style="background-color: white; box-shadow: 0 0 5px #888888; margin: 0 0 0 60px;" ng-class="{quemSouMainButtonNG: clientDetail.clientType == 'ProgramaGestaoDePeso' || clientDetail.clientType == 'ProgramaFit'}">  
+        <div class="mainOptions" ng-class="{quemSouMainButtonNG: clientDetail.clientType == 'ProgramaFit' || clientDetail.clientType == 'ProgramaSaude'}">
+            <img src="/images/grupo_praia.png" class="img-responsive" alt="">
+            <div class="text-box-main">
+                <p class="mainTextBox">Para quem tem como principal objetivo controlar a perda ou ganho de volume corporal e gerir o peso</p>
+                <button ng-click="setType('massa')" class="quemSouMainButton">Perder / Ganhar Peso</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 text-center">   
+        <div class="mainOptions" ng-class="{quemSouMainButtonNG: clientDetail.clientType == 'ProgramaGestaoDePeso' || clientDetail.clientType == 'ProgramaFit'}">  
             <img src="/images/saude_bem_estar.png" class="img-responsive" alt="">
-            <div style="height: 155px;">
-                <p style="font-weight: bold; font-size: 18px; padding: 15px 30px; margin: 0;">Para quem tem como principal objectivo reduzir sintomas de doenças crónicas ou mesmo prevenir doenças</p>            
+            <div class="text-box-main">
+                <p class="mainTextBox">Para quem tem como principal objetivo controlar sintomas de doenças crónicas ou prevenir doenças</p>            
+                <button ng-click="setType('saude')"  class="quemSouMainButton">Bem-estar e Saúde</button>        
             </div>
-            <button ng-click="setType('saude')" class="quemSouMainButton">Bem Estar e Saúde</button>        
-        </div>
-    </div>
-</div>
-   
-
-
-
-
-<div class="col-sm-12" style="margin-top: 20px;" ng-hide="firstVisitPart1" ng-show="firstVisitPart2">
-    <div class="col-sm-7">
-        <div class="form-group">
-            <label for="InputName">Nome Completo</label>
-            <input type="text" class="form-control" id="InputName" ng-model="clientDetail.name">
-        </div>
-    </div>
-
-    <div class="col-sm-1">
-        <label> Sexo
-            <div class="radio" style="margin-top: 0;">
-                <label class="radio-inline">
-                    <input type="radio" ng-model="clientDetail.sex" value="masculino">
-                    Masculino
-                </label>
-                <label class="radio-inline" style="margin-left: 0;">
-                    <input type="radio" ng-model="clientDetail.sex" value="feminino">
-                    Feminino
-                </label>
-            </div>
-        </label>
-    </div>
-
-    <div class="col-sm-1">
-        <div class="form-group">
-            <label for="dayBirth">Dia</label>
-            <select ng-model="clientDetail.dayBirth" class="form-control" id="dayBirth" ng-options="x for x in dayList"></select>
-        </div>
-    </div>
-
-    <div class="col-sm-2">
-        <div class="form-group">
-            <label for="monthBirth">Mês</label>
-            <select ng-model="clientDetail.monthBirth" class="form-control" id="monthBirth" ng-options="x for x in monthList">
-            </select>
-        </div>
-    </div>
-
-    <div class="col-sm-1">
-        <div class="form-group">
-            <label for="yearBirth">Ano</label>
-            <input type="text" class="form-control" id="yearBirth" ng-model="clientDetail.yearBirth" maxlength="4">
-        </div>
-    </div>
-</div>
-    
-<div class="col-sm-12" ng-hide="firstVisitPart1" ng-show="firstVisitPart2">
-
-    <div class="col-sm-4" ng-hide="clientDetail.codBis">
-        <div class="form-group">
-            <label for="InputLConsulta">Local / Ginásio / Box</label>
-            <select ng-model="clientDetail.locConsulta" class="form-control" id="InputLConsulta" ng-options="x for x in consultLocal">
-            </select>
-        </div>
-    </div>
-
-    <div class="col-sm-4" ng-show="clientDetail.codBis">
-        <div class="form-group">
-            <label for="CodEmpresarial">Código Empresarial</label>
-            <input type="text" class="form-control" id="CodEmpresarial" placeholder="Se atribuido um código, preencha aqui" ng-model="clientDetail.codBis">
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <!--<md-input-container class="md-block">
-            <label>Telefone</label>
-            <input ng-model="clientDetail.phone">
-        </md-input-container>-->
-        <div class="form-group">
-            <label for="InputPhone">Telefone</label>
-            <input type="text" class="form-control" id="InputPhone" ng-model="clientDetail.phone">
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <!--<md-input-container class="md-block">
-            <label>Email</label>
-            <input ng-model="clientDetail.email">
-        </md-input-container>-->
-        <div class="form-group">
-            <label for="InputEmail">Email</label>
-            <input type="text" class="form-control" id="InputEmail" ng-model="clientDetail.email">
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <!--<md-input-container class="md-block">
-            <label>Profissão</label>
-            <input ng-model="clientDetail.profession">
-        </md-input-container>-->
-        <div class="form-group">
-            <label for="InputProfession">Profissão</label>
-            <input type="text" class="form-control" id="InputProfession" ng-model="clientDetail.profession">
         </div>
     </div>
 </div>

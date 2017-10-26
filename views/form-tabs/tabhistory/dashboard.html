@@ -1,104 +1,61 @@
-<!-- <div class="row" style="padding-top: 15px;">
-    <div class="col-sm-3">
-        <div class="dashBox">
-            <p class="dashTitle">Altura(cm)</p>
-            <p class="dashValue">{{clientHist.da_01_02}}</p>
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="dashBox">
-            <p class="dashTitle">Peso(kg)</p>
-            <p class="dashValue">{{front.dashPeso}}</p>
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="dashBox">
-            <p class="dashTitle">Massa Gorda(%)</p>
-            <p class="dashValue">{{front.dashMassaGorda}}</p>
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="dashBox">
-            <p class="dashTitle">Massa Magra(%)</p>
-            <p class="dashValue">{{front.dashMassaMagra}}</p>
-        </div>
-    </div>
-</div> -->
-<!-- <div class="row" ng-hide="adminMetas">
-    <h3 class="text-center">Olá {{clientDetail.name}} !</h3>
-    <h4 class="text-center">Consulte aos seus dados selecionando o símbolo correspondente à área pretendida.</h4>
-</div> -->
-<div class="row" style="padding-top: 15px; margin-bottom: 15px;">
-    <div class="col-sm-3">
-        <div class="dashBox text-center">
-            <p class="dashTitle">Visualize aqui o seu plano nutricional</p>
-            <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o dashPlanoNutri" aria-hidden="true"></i></a>
-        </div>
-    </div>
-    <div class="col-sm-3" >
-        <div class="dashBox text-center">
-            <p class="dashTitle">Dados Antropométricos</p>
-            <button class="button-dash" ng-click="showAntropo()">    
-                <i class="fa fa-tachometer dashPlanoNutri" aria-hidden="true"></i>
-            </button>
-        </div>
-    </div>
-    <div class="col-sm-3" ng-hide="adminDash">
-            <div class="dashBox text-center">
-                <p class="dashTitle">Metas Funcionais</p>
-                <button class="button-dash" ng-click="showMetas()">    
-                    <i class="fa fa-flag-checkered dashPlanoNutri" aria-hidden="true"></i>
-                </button>
+<div class="div-height-inner">
+    <div class="div-shadow-style-pad15" style="padding-bottom: 0;">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="dashBox text-center">
+                    <p class="dashTitle">Visualize aqui o seu plano nutricional</p>
+                    <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o dashPlanoNutri" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-sm-3" >
+                <div class="dashBox text-center">
+                    <p class="dashTitle">Dados Antropométricos</p>
+                    <button class="button-dash" ng-click="showAntropo()">    
+                        <i class="fa fa-tachometer dashPlanoNutri" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-3" ng-hide="adminDash">
+                    <div class="dashBox text-center">
+                        <p class="dashTitle">Metas Funcionais</p>
+                        <button class="button-dash" ng-click="showMetas()">    
+                            <i class="fa fa-flag-checkered dashPlanoNutri" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            <div class="col-sm-3" ng-show="adminDash">
+                <div class="dashBox text-center">
+                    <p class="dashTitle">Metas Funcionais</p>
+                    <button class="button-dash" ng-click="showLastMeta()">
+                        <i class="fa fa-flag-checkered dashPlanoNutri" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- <div class="col-sm-3">
+                <div class="dashBox">
+                    <p class="dashTitle">Água Corporal(%)</p>
+                    <p class="dashValue">{{front.dashAgua}}</p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="dashBox">
+                    <p class="dashTitle">Gordura Visceral(%)</p>
+                    <p class="dashValue">{{front.dashVisceral}}</p>
+                </div>
+            </div> -->
+            <div class="col-sm-3">
+                <div class="dashBox">
+                    <p class="dashTitleProx">Próx. Consulta</p>
+                    <p class="dashValueProx">{{clientDetail.proxConsult}}</p>
+                    <p class="dashValueProx">{{clientDetail.proxConsultHour}}h{{clientDetail.proxConsultMinutes}}</p>
+                </div>
             </div>
         </div>
-    <div class="col-sm-3" ng-show="adminDash">
-        <div class="dashBox text-center">
-            <p class="dashTitle">Metas Funcionais</p>
-            <button class="button-dash" ng-click="showLastMeta()">
-                <i class="fa fa-flag-checkered dashPlanoNutri" aria-hidden="true"></i>
-            </button>
+
+        <div class="row">
+            <div class="col-sm-12 chart-dash">  
+                <div google-chart chart="metasFuncionais"></div>
+            </div>
         </div>
-    </div>
-    <!-- <div class="col-sm-3">
-        <div class="dashBox">
-            <p class="dashTitle">Água Corporal(%)</p>
-            <p class="dashValue">{{front.dashAgua}}</p>
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="dashBox">
-            <p class="dashTitle">Gordura Visceral(%)</p>
-            <p class="dashValue">{{front.dashVisceral}}</p>
-        </div>
-    </div> -->
-    <div class="col-sm-3">
-        <div class="dashBox">
-            <p class="dashTitleProx">Próx. Consulta</p>
-            <p class="dashValueProx">{{clientDetail.proxConsult}}</p>
-            <p class="dashValueProx">{{clientDetail.proxConsultHour}}h{{clientDetail.proxConsultMinutes}}</p>
-        </div>
-    </div>
-</div>
-<!-- 
-<p>1</p>
-{{clientHist.meta01}}
-<p>1</p>
-
-{{clientHist.meta02}}
-<p>1</p>
-
-{{clientHist.meta03}}
-<p>1</p>
-
-{{clientHist.meta04}}
-<p>1</p>
-
-{{clientHist.meta05}}
-<p>1</p>
-
-{{clientHist.meta06}} -->
-<div class="row">
-    <div class="col-sm-12 chart-dash">  
-        <div google-chart chart="metasFuncionais"></div>
     </div>
 </div>

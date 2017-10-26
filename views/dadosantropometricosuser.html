@@ -1,0 +1,944 @@
+<div class="div-height-inner">
+    <div class="div-shadow-style-pad15">
+        <h3 class="text-center" style="margin-top: 0;">DADOS ANTROPOMÊTRICOS</h3>
+        <div class="row">
+            <div class="col-sm-3">
+                <label for="bioType">Biotipo</label>
+                <input type=text ng-model="clientHist.biotipo" class="form-control" id="bioType" readonly>
+            </div>
+        
+            <div class="col-sm-3">
+                <label for="bioType">Cronotipo</label>
+                <input type=text ng-model="clientHist.cronotipo" class="form-control" id="cronoType" readonly>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table" id="antropo" style="margin-top: 20px;">
+                    <thead>
+                        <tr>
+                            <td>#</td>
+                            <td style="width: 80px;">Data</td>
+                            <td>Altura</td>
+                            <td>Peso</td>
+                            <td>Massa Gorda (%)</td>
+                            <!-- <td>Massa Gorda (kg)</td> -->
+                            <td>Água Corporal</td>
+                            <td>Massa Magra</td>
+                            <td>Gordura Visceral</td>
+                            <td>Perímetro Cintura</td>
+                            <td>Perímetro Abdominal</td>
+                            <td>Anca</td>
+                            <td>Pescoço</td>
+                            <td>Ombros</td>
+                            <td>Peito</td>
+                            <td>Braço Esq</td>
+                            <td>Braço Drt</td>
+                            <td>Coxa Esq</td>
+                            <td>Coxa Drt</td>
+                            <td>Perna Esq</td>
+                            <td>Perna Drt</td>
+                            <td>Gemêo Esq</td>
+                            <td>Gemêo Drt</td>
+                            <td>Peso Ideal</td>
+                        </tr>
+                    </thead>
+                <!-- {{hist}}-->
+                    <tbody>
+                        <!-- 10 -->
+                        <tr ng-show="consult.c10 || clientHist.da_10_01">
+                            <td style="font-size: 13px; font-weight: bold;">#10</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_10" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_10"
+                                    ng-disabled="isUser">
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                                <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_10_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr ng-show="consult.c10 || clientHist.da_10_01">
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_10_obs"></textarea>
+                            </td>
+                        </tr>
+                        <!-- 9 -->
+                        <tr ng-show="consult.c09 || clientHist.da_09_01">
+                            <td style="font-size: 13px; font-weight: bold;">#9</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_09" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_09"
+                                    ng-disabled="isUser">
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                                <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_09_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr ng-show="consult.c09 || clientHist.da_09_01">
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_09_obs"></textarea>
+                            </td>
+                        </tr>
+                        <!-- 8 -->
+                        <tr ng-show="consult.c08 || clientHist.da_08_01">
+                            <td style="font-size: 13px; font-weight: bold;">#8</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_08" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_08"
+                                    ng-disabled="isUser">
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                                <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_08_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr ng-show="consult.c08 || clientHist.da_08_01">
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_08_obs"></textarea>
+                            </td>
+                        </tr>
+                        <!-- 7 -->
+                        <tr ng-show="consult.c07 || clientHist.da_07_01">
+                            <td style="font-size: 13px; font-weight: bold;">#7</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_07" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_07"
+                                    ng-disabled="isUser">
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                                <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_07_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr ng-show="consult.c07 || clientHist.da_07_01">
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_07_obs"></textarea>
+                            </td>
+                        </tr>
+                        <!-- 6 -->
+                        <tr ng-show="consult.c06 || clientHist.da_06_01">
+                            <td style="font-size: 13px; font-weight: bold;">#6</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_06" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_06"
+                                    ng-disabled="isUser">
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                                <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_06_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr ng-show="consult.c06 || clientHist.da_06_01">
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_06_obs"></textarea>
+                            </td>
+                        </tr>  
+                        <!-- 5 -->
+                        <tr ng-show="consult.c05 || clientHist.da_05_01">
+                            <td style="font-size: 13px; font-weight: bold;">#5</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_05" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_05"
+                                    ng-disabled="isUser">
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_13" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                                <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_05_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr ng-show="consult.c05 || clientHist.da_05_01">
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_05_obs"></textarea>
+                            </td>
+                        </tr>  
+                        <!-- 4 -->
+                        <tr ng-show="consult.c04 || clientHist.da_04_01">
+                            <td style="font-size: 13px; font-weight: bold;">#4</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_04" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_04"
+                                    ng-disabled="isUser">
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_13" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                                <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_04_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr ng-show="consult.c04 || clientHist.da_04_01">
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_04_obs"></textarea>
+                            </td>
+                        </tr> 
+                        <!-- 3 -->
+                        <tr ng-show="consult.c03 || clientHist.da_03_01">
+                            <td style="font-size: 13px; font-weight: bold;">#3</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_03" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_03"
+                                    ng-disabled="isUser">
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_13" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_03_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr ng-show="consult.c03 || clientHist.da_03_01">
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_03_obs"></textarea>
+                            </td>
+                        </tr>
+                        <!-- 2 -->
+                        <tr ng-show="consult.c02 || clientHist.da_02_01">
+                            <td style="font-size: 13px; font-weight: bold;">#2</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_02" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_02"
+                                    ng-disabled="isUser">
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_13" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                                <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_02_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr ng-show="consult.c02 || clientHist.da_02_01">
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_02_obs"></textarea>
+                            </td>
+                        </tr>  
+                        <!-- 1 -->
+                        <tr>
+                            <td style="font-size: 13px; font-weight: bold;">#1</td>
+                            <td class="td-style" ng-hide="isUser">
+                                <input type="text" class="form-control" moment-picker="hist.dateString_01" 
+                                    locale="pt"
+                                    format="L"
+                                    max-view="day"
+                                    start-view="month"
+                                    autoclose="true"
+                                    today="true"
+                                    keyboard="true" ng-model="hist.date_01"
+                                >
+                            </td>
+                            <td class="td-style" ng-show="isUser">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_01" type="text" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_02" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_03" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_04" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <!-- <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_23" type=text style="width: 100%" ng-disabled="isUser">
+                            </td> -->
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_05" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_07" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_06" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_08" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_09" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_10" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_11" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_12" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_13" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_15" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_16" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_17" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_18" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_19" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_20" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_21" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_22" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                            <td class="td-style">
+                                <input class="form-control text-center" ng-model="clientHist.da_01_14" type=text style="width: 100%" ng-disabled="isUser">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="td-style" colspan="23" ng-hide="isUser">
+                                <textarea ng-model="clientHist.da_01_obs"></textarea>
+                            </td>
+                        </tr>     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

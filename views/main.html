@@ -1,299 +1,372 @@
-<div class="container-fluid" style="padding: 0;">
-    <!-- <div style="background-image: url(images/imagem-fundo.png); background-size: cover; height: 100vh; background-attachment: fixed;" > -->
-    <div>
-    <div class="header">
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand"><img class="logo-style" src="images/vcs-hh-logo.png" alt="Viver com Saude"></a>
-                </div>
+<div class="container">
+    <div class="row div-height-fix-full" ng-show="loading">
+        <div class="div-height-inner">
+            <div class="col-sm-1 col-sm-offset-6">
+                <div loader-css="line-spin-fade-loader"></div>
             </div>
         </div>
     </div>
-    <div class="container">
 
-        <!-- <div id="loading"></div> -->
-    
-        <div class="main-login col-sm-6 col-sm-offset-3" style="margin-top: 130px;" ng-hide="firebaseUser">
-            <div id="loginWindow" ng-show="isUser">
-                <input type="text" class="form-control" ng-model="email" placeholder="Email">
-                <input id="userPass" type="password" class="form-control" ng-model="password" placeholder="Password" ng-keyup="$event.keyCode == 13 && loginUser()">
-                <button type="button" class="btn btn-info" ng-click="loginUser()">Iniciar Sessão</button>
-                <button type="button" class="btn btn-info text-center" style="margin: 30px auto auto 0" ng-click="checkResetPass()">Reset Password</button>
-                <p ng-if="message" style="font-size: 12px; margin-top: 10px;">{{ message }}</p>
-            </div>
-            <!--<div style="background-color: orangered; margin-top: 30px;">
-                <p ng-if="message">Message: <strong>{{ message }}</strong></p>
-                <p ng-if="error">Error: <strong>{{ error }}</strong></p>-->
-                <!--<button ng-click="deleteUser()">Delete User</button>-->
-            <!--</div>-->
-            <div style="background-color: white; padding: 30px" ng-show="isUser">
-                <button type="button" class="btn btn-info" ng-click="checkLoginWindowType()">Selecione aqui para criar novo Utilizador</button>
-            </div>
-
-            <div id="newUserWindow" ng-show="isNewUser">
-                <input type="text" class="form-control" ng-model="email" placeholder="Email">
-                <input type="password" class="form-control" ng-model="password" placeholder="Password" ng-keyup="$event.keyCode == 13 && loginUser()">
-                <!--Email: <input type="text" ng-model="email">
-                Password: <input type="text" ng-model="password">-->
-                <button type="button" class="btn btn-info" ng-click="createUser()">Criar Utilizador</button>
-                <p ng-if="message" style="font-size: 12px; margin-top: 10px;">{{ message }}</p>
-            </div>
-
-            <div id="passwordResetWindow" ng-show="isPassReset">
-                <input type="text" class="form-control" ng-model="email" placeholder="Email">
-                <button type="button" class="btn btn-info" ng-click="resetUserPass(email)">Reset Password</button>
-            </div>
+    <!-- <div class="main-login col-sm-6 col-sm-offset-3" style="margin-top: 130px;" ng-hide="firebaseUser">
+        <div id="loginWindow" ng-show="isUser">
+            <input type="text" class="form-control" ng-model="email" placeholder="Email">
+            <input id="userPass" type="password" class="form-control" ng-model="password" placeholder="Password" ng-keyup="$event.keyCode == 13 && loginUser()">
+            <button type="button" class="btn btn-info" ng-click="loginUser()">Iniciar Sessão</button>
+            <button type="button" class="btn btn-info text-center" style="margin: 30px auto auto 0" ng-click="checkResetPass()">Reset Password</button>
+            <p ng-if="message" style="font-size: 12px; margin-top: 10px;">{{ message }}</p>
+        </div> -->
+        <!--<div style="background-color: orangered; margin-top: 30px;">
+            <p ng-if="message">Message: <strong>{{ message }}</strong></p>
+            <p ng-if="error">Error: <strong>{{ error }}</strong></p>-->
+            <!--<button ng-click="deleteUser()">Delete User</button>-->
+        <!--</div>-->
+        <!-- <div style="background-color: white; padding: 30px" ng-show="isUser">
+            <button type="button" class="btn btn-info" ng-click="checkLoginWindowType()">Selecione aqui para criar novo Utilizador</button>
         </div>
 
-        <div class="main-welcome ng-cloak" style="margin-top: 75px;" ng-show="firebaseUser">
-            <div class="header">
-                <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-                    <div class="container">
-                        <div class="navbar-header">
+        <div id="newUserWindow" ng-show="isNewUser">
+            <input type="text" class="form-control" ng-model="email" placeholder="Email">
+            <input type="password" class="form-control" ng-model="password" placeholder="Password" ng-keyup="$event.keyCode == 13 && loginUser()"> -->
+            <!--Email: <input type="text" ng-model="email">
+            Password: <input type="text" ng-model="password">-->
+            <!-- <button type="button" class="btn btn-info" ng-click="createUser()">Criar Utilizador</button>
+            <p ng-if="message" style="font-size: 12px; margin-top: 10px;">{{ message }}</p>
+        </div>
 
-                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
+        <div id="passwordResetWindow" ng-show="isPassReset">
+            <input type="text" class="form-control" ng-model="email" placeholder="Email">
+            <button type="button" class="btn btn-info" ng-click="resetUserPass(email)">Reset Password</button>
+        </div>
+    </div> -->
 
-                            <a class="navbar-brand"><img class="logo-style" src="images/vcs-hh-logo.png" alt="Viver com Saude"></a>
+    <div class="main-welcome ng-cloak" style="margin-top: 75px;" ng-hide="loading">
+        <div class="header">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        <a class="navbar-brand"><img class="logo-style" src="images/vcs-hh-logo.png" alt="Viver com Saude"></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse ng-cloak" id="js-navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right" ng-hide="firstVisit.firstVisit">
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="home()">INÍCIO</a></li>
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonQuiz()" ng-hide="clientDetail.isQuizFuncBlock">QUESTIONÁRIO FUNCIONAL</a></li>
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showAntropo()">DADOS ANTROPOMÊTRICOS</a></li>
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showMetas()" ng-show="clientDetail.isMetasFuncUnblock">METAS FUNCIONAIS</a></li>
+                            <!-- <li><button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-click="showPersonQuiz()">QUESTIONÁRIO FUNCIONAL</button></li> -->              
+                            <!--<button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-hide="spyderQuizComplete" ng-click="showPersonSpyder()">QUESTIONÁRIO PERFIL</button>-->             
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonDetails()">DADOS PESSOAIS</a></li>
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="auth.$signOut()" id="logout">SAIR</a></li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right" ng-show="firstVisit.firstVisit">
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="auth.$signOut()" id="logout">SAIR</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div id="firstVisit" ng-show="firstVisit.firstVisit" class="row div-height-fix">
+            <div ng-include="'views/firstTimeVisit.html'"></div>
+        </div>
+
+        <div id="yourWelcome" ng-show="yourWelcome" class="row div-height-fix">
+            <div ng-include="'views/yourWelcome.html'"></div>
+
+        </div>
+
+        <div id="isDashboard" ng-show="isDashboard" class="row div-height-fix"><!--ng-show="dashUser"-->
+            <div ng-include="'views/form-tabs/tabhistory/dashboard.html'"></div>
+        </div>
+     
+        <div id="personDetails" ng-show="isPersonDetails" class="row div-height-fix">
+            <div class="details-style" ng-include="'views/form-tabs/tab1/quiz.html'"></div>
+        </div>
+
+        <div id="personAntropo" ng-show="isPersonAntropo" class="row div-height-fix">
+            <div ng-include="'views/dadosantropometricosuser.html'"></div>
+        </div>
+
+        <div id="personMetas" ng-show="isPersonMetas" ng-show="clientDetail.isMetasFuncUnblock" class="row">
+            <div class="details-style-2" ng-include="'views/metas/metasUser.html'"></div>
+        </div>
+
+        <div ng-hide="clientDetail.isQuizFuncBlock">
+            <div id="personQuiz" ng-show="isPersonQuiz" class="row">
+                <div id="teste" class="div-shadow-style-pad15" style="margin: 15px 0; height: calc(100vh - 165px); overflow: scroll;  overflow-x: hidden;">
+
+                        <h4 class="text-center quiz-func-pad-top-first">Navegue pelo questionário utilizando os 4 separadores em baixo</h4>
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title text-center panel-title-a">
+                                        <a role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Objectivos e Motivação
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <div class="row" style="background-color: transparent; padding: 15px 15px 30px 15px;">
+                                            <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseFour">
+                                                Fechar Separador
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title text-center panel-title-a">
+                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            Medicina Funcional
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
+                                            <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab4/quiz23.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab4/quiz28.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseFour">
+                                                Fechar Separador
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                    <h4 class="panel-title text-center panel-title-a">
+                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            Actividade Física e Desporto
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">
+                                        <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;"> 
+                                            <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseFour">
+                                                Fechar Separador
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingFour">
+                                    <h4 class="panel-title text-center panel-title-a">
+                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            Nutrição Funcional
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="panel-body">
+                                        <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
+                                            <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
+                                            <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                                Fechar Separador
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="collapse navbar-collapse ng-cloak" id="js-navbar-collapse">
-                            <ul class="nav navbar-nav navbar-right" ng-hide="firstVisit.firstVisit">
-                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="home()">INÍCIO</a></li>
-                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonQuiz()" ng-hide="clientDetail.isQuizFuncBlock">QUESTIONÁRIO FUNCIONAL</a></li>
-                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showAntropo()">DADOS ANTROPOMÊTRICOS</a></li>
-                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showMetas()" ng-show="clientDetail.isMetasFuncUnblock">METAS FUNCIONAIS</a></li>
-                                <!-- <li><button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-click="showPersonQuiz()">QUESTIONÁRIO FUNCIONAL</button></li> -->              
-                                <!--<button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-hide="spyderQuizComplete" ng-click="showPersonSpyder()">QUESTIONÁRIO PERFIL</button>-->             
-                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonDetails()">DADOS PESSOAIS</a></li>
-                                <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="auth.$signOut()" id="logout">SAIR</a></li>
-                            </ul>
-
-                            <ul class="nav navbar-nav navbar-right" ng-show="firstVisit.firstVisit">
-                                    <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="auth.$signOut()" id="logout">SAIR</a></li>
-                                </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <!--<p>Form result: {{client_form}}</p>-->
-            <!--<p class="main-log-user">Olá, <a ng-href="#/user">{{ firebaseUser.displayName }}</a></p>-->
-            <!-- <div id="buttons" class="row">
-                <div style="float: right;">
-                    <button type="button" class="btn btn-info button-log button-style" ng-click="home()" style="margin-top: 10px; margin-left: 15px;">Início</button>                  
-                    <button type="button" class="btn btn-info button-log button-style" ng-click="showPersonQuiz()" style="margin-top: 10px; margin-left: 15px;">Questionário Funcional</button> -->
-                    <!--<button type="button" class="btn btn-info button-log button-style" ng-hide="spyderQuizComplete" ng-click="showPersonSpyder()" style="margin-top: 10px; margin-left: 15px;">Questionário Perfil</button>-->             
-                    <!-- <button type="button" class="btn btn-info button-log button-style" ng-click="showPersonDetails()" style="margin-top: 10px; margin-left: 15px;">Dados Pessoais</button>
-                    <button type="button" class="btn btn-info button-log button-style" ng-click="auth.$signOut()" style="margin-top: 10px; margin-left: 15px;" id="logout">Sair</button>                  
-                </div>
-            </div> -->
-            <div loader-css="line-spin-fade-loader" ng-show="loading"></div>
-            <div ng-hide="loading">
-            <!-- <div id="areas" ng-hide="notWelcome" class="row">
-                <div ng-show="firstVisit.firstVisit">
-                    <div ng-include="'views/firstTimeVisit.html'"></div>
-                    <br>
-                    <div class="text-center" ng-hide="firstVisitPart1" ng-show="firstVisitPart2">   
-                        <button class="btn btn-success button-style text-center" ng-click="saveUserDetailsFirstTime()">Gravar</button>
-                    </div>
-                </div>
-                <div ng-hide="firstVisit.firstVisit"> -->
-                <div id="areas" ng-hide="notWelcome" class="row">
-                    <div ng-show="noData">
-                        <div class="col-sm-8 col-sm-offset-2 text-center areas-welcome">
-                            <h2 class="h2-welcome">Estamos aqui para o orientar no alcance dos seus objectivos.</h2>
-                            <img class="welcome-style" src="images/logo_fundo.png" alt="Welcome">
-                            <h2 class="h2-welcome">Ajude-nos a conhecê-lo melhor preenchendo ao máximo o QUESTIONÁRIO FUNCIONAL.</h2>
-                        </div>
-                    </div>
-                    <div ng-show="dashUser">
-                        <div class="col-sm-12">
-                            <div ng-include="'views/form-tabs/tabhistory/dashboard.html'"></div>
-                        </div>
-                        <!-- <div class="col-sm-12">
-                            <div class="text-center" loader-css="line-spin-fade-loader"></div>
-                        </div> -->
-                    </div>
-                </div>
-            </div>
-
-            <div id="personDetails" ng-show="isPersonDetails" class="row">
-                <!-- <h2 class="text-center">Dados Pessoais</h2> -->
-                <div class="details-style" ng-include="'views/form-tabs/tab1/quiz.html'"></div>
-                <!-- <div ng-include="'views/form-tabs/tab1/quiz_authorize.html'"></div> -->
-                <br>
-                <div class="text-center">   
-                    <button class="btn btn-success button-style text-center" ng-click="saveUserDetails()">Gravar</button>
-                    <!-- <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonDetails()">Voltar Atrás</button>  -->
-                </div>
-            </div>
-
-            <div id="personAntropo" ng-show="isPersonAntropo" class="row">
-                <div class="details-style-2" ng-include="'views/form-tabs/tabhistory/dados_antropometricos.html'"></div>
-            </div>
-
-            <div id="personMetas" ng-show="isPersonMetas" ng-show="clientDetail.isMetasFuncUnblock" class="row">
-                <div class="details-style-2" ng-include="'views/metas/metasUser.html'"></div>
-            </div>
-
-            <div id="personSpyder" ng-show="isPersonSpyder" class="dialogdemoBasicUsage">
-                <h2 class="text-center">Questionário Perfil</h2>
-                <div class="col-sm-12" style="margin-top: 30px;">
-                    <div ng-hide="isSpyder">
-                        <p><b style="font-size: 18px;">Verdadeiro - </b>Sou algumas/muitas vezes assim. <span style="font-size: 12px;">(Assinale a caixa com visto caso seja verdadeiro)</span></p>
-                        <p><b style="font-size: 18px;">Falso - </b>Não sou quase nunca/nunca assim. <span style="font-size: 12px;">(Deixe em branco caso seja falso)</span></p>
-                    </div>
-                    <div ng-show="isSpyder">
-                        <h2></h2>
-                    </div>
-                </div>
-                <div class="col-sm-12" style="margin-top: 30px;">
-                    <div layout-wrap="" layout-gt-sm="row">
-                        <md-checkbox ng-model="quizSpyder.pe01" aria-label="Checkbox 1">
-                            No meu dia a dia costumo agir por impulso em diferentes contextos. Se me apetecer ligar a alguém ligo, se tiver algo a dizer a alguém não hesito.
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.pe02" aria-label="Checkbox 2">
-                            Gosto de experimentar novas coisas no meu dia-a-dia. Seja uma comida nova ou ir a um sitio diferente. 
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.pe03" aria-label="Checkbox 3">
-                            Quando surge um obstáculo opto por recorrer à estratégia que já conheço para o enfrentar e superar.
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.pm04" aria-label="Checkbox 4">
-                            Antes de tomar uma decisão gosto de analisar e ponderar os prós e contras para então avançar.
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.pm05" aria-label="Checkbox 5">
-                            Costumo reparar em pormenores e detalhes do que me rodeia. Observo muito, mesmo as pessoas e os seus comportamentos.
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.pm06" aria-label="Checkbox 6">
-                            Quando sou confrontado com uma dificuldade, gosto de pensar em várias estratégias e depois escolho a que julgo ser a mais adequada mesmo que isso implique experimentar algo diferente.
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.ee07" aria-label="Checkbox 7">
-                            Valorizo muito uma visão global das situações e dos objectivos, por isso envolvo-me nas questões de uma forma profunda e dou muito de mim.
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.ee08" aria-label="Checkbox 8">
-                            Para mim é importante fazer parte de um grupo de ajuda humanitária, ou envolver-me num projecto de intervenção. 
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.ee09" aria-label="Checkbox 9">
-                            O contacto com os outros é algo imprescindível para mim. Preciso de me sentir conectado para estar bem.
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.em10" aria-label="Checkbox 10">
-                            Preciso de sentir segurança e certeza para avançar para uma nova situação. 
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.em11" aria-label="Checkbox 11">
-                            O conforto e a segurança são tão importantes para mim que tenho alguma dificuldade em olhar os obstáculos como oportunidades. 
-                        </md-checkbox>
-                        <md-checkbox ng-model="quizSpyder.em12" aria-label="Checkbox 12">
-                            A maioria das vezes prefiro locais calmos e silenciosos para estar com amigos ou até comigo mesmo.
-                        </md-checkbox>
-                    </div>
-                </div>
-                <button class="btn btn-success button-style" ng-click="whatsSpyder()">Gravar</button>
-                <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonSpyder()">Voltar Atrás</button> 
-                <!--<button class="btn btn-default" ng-click="whatsSpyder()">Submit</button>
-                <button class="btn btn-default" ng-click="refresca()">Começar de novo</button>-->
                 
-            </div>
-
-            <div ng-hide="clientDetail.isQuizFuncBlock">
-                <div id="personQuiz" ng-show="isPersonQuiz" class="row">
-                    <!-- <h2 class="text-center">Perfil Pessoal</h2>  --> 
-                    <h4 class="text-center quiz-func-pad-top">Navegue pelo questionário utilizando os 4 separadores em baixo</h4>
-                    <!--<div ng-repeat="user in usersList">-->
-                        <!--{{user.from}}-->
-                    <!--</div>-->
-                    <md-content class="quiz-box">
-                        <md-tabs md-selected="selectedTab"  md-border-bottom>
-                            <md-tab label="Objectivos e Motivação">
-                                <md-content class="md-padding">  
-                                    <!-- <div class="row" style="background-color: rgba(255,255,255,0.9); padding: 15px 15px 30px 15px; border-radius: 4px;"> -->
-                                    <div class="row" style="background-color: transparent; padding: 15px 15px 30px 15px;">
-                                        <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
-                                    </div>
-                                </md-content>
-                            </md-tab>
-                            <md-tab label="Medicina Funcional">
-                                <md-content class="md-padding">  
-                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
-                                        <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab4/quiz23.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab4/quiz28.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
-                                    </div>
-                                </md-content>
-                            </md-tab>
-                            <md-tab label="Actividade Física e Desporto">
-                                <md-content class="md-padding"> 
-                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;"> 
-                                        <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
-                                    </div>
-                                </md-content>
-                            </md-tab>
-                            <md-tab label="Nutrição Funcional">
-                                <md-content class="md-padding">  
-                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
-                                        <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
-                                        <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
-                                    </div>
-                                </md-content>
-                            </md-tab>
-                            <!--<md-tab label="Dados Pessoais">
-                                <md-content class="md-padding">
-                                    <div class="row" style="background-color: #ffffff; padding: 15px 0;">
-                                        <div ng-include="'views/form-tabs/tab1/quiz.html'"></div>
-                                    </div>
-                                </md-content>
-                            </md-tab>-->
-                        </md-tabs>
-                    </md-content>
-                    <br>
-                    <div class="text-center">
-                        <button class="btn btn-warning button-style" id="anterior" ng-click="prevTab()" ng-hide="selectedTab == 0"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Anterior</button>
-                        <button class="btn btn-success button-style" ng-click="saveUserDetails()">Gravar</button>
-                        <!--<button class="btn btn-warning button-style" id="seguinte" ng-click="saveUserDetailsButton()">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>-->
-                        <button class="btn btn-warning button-style" id="seguinte" ng-click="nextTab()" ng-hide="selectedTab == 3">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
-                        <!-- <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonQuiz()">Voltar Atrás</button> -->
-                    </div>
                 </div>
             </div>
-            </div><!--loading-->
+        </div>
+        <div id="personSpyder" ng-show="isPersonSpyder" class="dialogdemoBasicUsage">
+            <h2 class="text-center">Questionário Perfil</h2>
+            <div class="col-sm-12" style="margin-top: 30px;">
+                <div ng-hide="isSpyder">
+                    <p><b style="font-size: 18px;">Verdadeiro - </b>Sou algumas/muitas vezes assim. <span style="font-size: 12px;">(Assinale a caixa com visto caso seja verdadeiro)</span></p>
+                    <p><b style="font-size: 18px;">Falso - </b>Não sou quase nunca/nunca assim. <span style="font-size: 12px;">(Deixe em branco caso seja falso)</span></p>
+                </div>
+                <div ng-show="isSpyder">
+                    <h2></h2>
+                </div>
+            </div>
+            <div class="col-sm-12" style="margin-top: 30px;">
+                <div layout-wrap="" layout-gt-sm="row">
+                    <md-checkbox ng-model="quizSpyder.pe01" aria-label="Checkbox 1">
+                        No meu dia a dia costumo agir por impulso em diferentes contextos. Se me apetecer ligar a alguém ligo, se tiver algo a dizer a alguém não hesito.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pe02" aria-label="Checkbox 2">
+                        Gosto de experimentar novas coisas no meu dia-a-dia. Seja uma comida nova ou ir a um sitio diferente. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pe03" aria-label="Checkbox 3">
+                        Quando surge um obstáculo opto por recorrer à estratégia que já conheço para o enfrentar e superar.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pm04" aria-label="Checkbox 4">
+                        Antes de tomar uma decisão gosto de analisar e ponderar os prós e contras para então avançar.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pm05" aria-label="Checkbox 5">
+                        Costumo reparar em pormenores e detalhes do que me rodeia. Observo muito, mesmo as pessoas e os seus comportamentos.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.pm06" aria-label="Checkbox 6">
+                        Quando sou confrontado com uma dificuldade, gosto de pensar em várias estratégias e depois escolho a que julgo ser a mais adequada mesmo que isso implique experimentar algo diferente.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.ee07" aria-label="Checkbox 7">
+                        Valorizo muito uma visão global das situações e dos objectivos, por isso envolvo-me nas questões de uma forma profunda e dou muito de mim.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.ee08" aria-label="Checkbox 8">
+                        Para mim é importante fazer parte de um grupo de ajuda humanitária, ou envolver-me num projecto de intervenção. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.ee09" aria-label="Checkbox 9">
+                        O contacto com os outros é algo imprescindível para mim. Preciso de me sentir conectado para estar bem.
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.em10" aria-label="Checkbox 10">
+                        Preciso de sentir segurança e certeza para avançar para uma nova situação. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.em11" aria-label="Checkbox 11">
+                        O conforto e a segurança são tão importantes para mim que tenho alguma dificuldade em olhar os obstáculos como oportunidades. 
+                    </md-checkbox>
+                    <md-checkbox ng-model="quizSpyder.em12" aria-label="Checkbox 12">
+                        A maioria das vezes prefiro locais calmos e silenciosos para estar com amigos ou até comigo mesmo.
+                    </md-checkbox>
+                </div>
+            </div>
+            <button class="btn btn-success button-style" ng-click="whatsSpyder()">Gravar</button>
+            <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonSpyder()">Voltar Atrás</button> 
+            <!--<button class="btn btn-default" ng-click="whatsSpyder()">Submit</button>
+            <button class="btn btn-default" ng-click="refresca()">Começar de novo</button>-->
+            
         </div>
     </div>
+</div>
+<div class="container-fluid" style="padding: 0;">
+    <div ng-show="isPersonQuiz" style="position:fixed; width: 100%; height: 60px; bottom: 0; background-color: white; border-top: 1px solid lightgrey;">
+        <div class="text-center" style="padding-top: 15px;"> 
+            <button class="btn btn-success button-style" ng-click="saveQuizDetail()">Gravar</button>
+        </div>
     </div>
 </div>
 
-<!-- <div class="footer navbar-fixed-bottom footer-style">
-    <div class="container-fluid">
-        <div class="container">
-            <p class="text-center" ng-hide="ccggii">&#169; 2017 Healthy Habits - 
-                <span>Contactos: <i class="fa fa-envelope-square" aria-hidden="true"></i> geral<i class="fa fa-at" aria-hidden="true"></i>vivercomsaude.pt / </span>
-                <span>apoiotecnico<i class="fa fa-at" aria-hidden="true"></i>vivercomsaude.pt </span>
-                <span><i class="fa fa-phone-square" aria-hidden="true"></i> 218 048 199</span>
-            </p>
-            <p class="text-center" ng-show="ccggii">&#169; 2017 Healthy Habits - 
-                <span>Contactos: <i class="fa fa-envelope-square" aria-hidden="true"></i> cgi<i class="fa fa-at" aria-hidden="true"></i>healthyhabits.pt / </span>
-                <span><i class="fa fa-phone-square" aria-hidden="true"></i> 218 048 199</span>
-            </p>
-        </div>
-    </div>
-</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- <h4 class="text-center quiz-func-pad-top">Navegue pelo questionário utilizando os 4 separadores em baixo</h4>
+                <md-content class="quiz-box">
+                    <md-tabs md-selected="selectedTab"  md-border-bottom>
+                        <md-tab label="Objectivos e Motivação">
+                            <md-content class="md-padding">  
+                                <div class="row" style="background-color: transparent; padding: 15px 15px 30px 15px;">
+                                    <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
+                                </div>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Medicina Funcional">
+                            <md-content class="md-padding">  
+                                <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
+                                    <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz23.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz28.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
+                                </div>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Actividade Física e Desporto">
+                            <md-content class="md-padding"> 
+                                <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;"> 
+                                    <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
+                                </div>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Nutrição Funcional">
+                            <md-content class="md-padding">  
+                                <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
+                                    <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
+                                    <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
+                                </div>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
+                </md-content>
+                <br>
+                <div class="text-center">
+                    <button class="btn btn-warning button-style" id="anterior" ng-click="prevTab()" ng-hide="selectedTab == 0"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Anterior</button>
+                    <button class="btn btn-success button-style" ng-click="saveUserDetails()">Gravar</button> -->
+                    <!--<button class="btn btn-warning button-style" id="seguinte" ng-click="saveUserDetailsButton()">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>-->
+<!--                     <button class="btn btn-warning button-style" id="seguinte" ng-click="nextTab()" ng-hide="selectedTab == 3">Seguinte<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+ -->                    <!-- <button class="btn btn-danger button-style" style="float:right;" ng-click="exitPersonQuiz()">Voltar Atrás</button> -->
+                <!-- </div> -->
+      
+  

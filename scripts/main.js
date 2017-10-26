@@ -48,7 +48,7 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
         $scope.clientDetail = {"pos": 1};
         $scope.clientForm = {"pos": 1};
         $scope.clientHist = {"pos": 1};
-        $scope.firstVisit = {"firstVisit": true}
+        $scope.firstVisit = {"pos": 1}
 
         $scope.loading = true;
 
@@ -64,9 +64,7 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
         $scope.showHideActividade = false;
         $scope.isPersonDetails = false;
         $scope.isPersonQuiz = false;
-
-        $scope.firstVisitPart1 = true;
-        $scope.firstVisitPart2 = false;
+        $scope.yourWelcome = false;
 
         $scope.auth = Auth;
         $scope.admin = true; //isto esta a ser usado????
@@ -351,10 +349,12 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                         $scope.metasUser = $scope.clientHist.meta01;
                     }
 
-                    if ($scope.clientHist.da_01_01 != null) {
-                        $scope.dashUser = true;
-                    } else {
-                        $scope.noData = true;
+                    if ($scope.firstVisit.firstVisit == false) {
+                        if ($scope.clientHist.da_01_01 == null) {
+                            $scope.yourWelcome = true;
+                        } else {
+                            $scope.isDashboard = true;
+                        }
                     }
 
                     var pos01, pos02, pos03, pos04;
@@ -925,8 +925,11 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                     $scope.metasFuncionais.options = {
                         'title': 'Metas Funcionais',
                         'legend': 'none',
-                        'width': '1109',
-                        'height': '330'
+                        'width': '100%',
+                        'height': '330',
+                        'scales': {
+                            yAxes: [{id: 'y-axis-1', type: 'linear', position: 'left', ticks: {min: 0, max:100}}]
+                        }
                        /*  ,
                         'colors': [
                             '#ffd900', 
@@ -955,7 +958,7 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                         saveStatus = 1;		                  
                         $scope.usersList.$add({
                             from: $scope.firebaseUser.uid,
-                            first_visit: $scope.firstVisit,
+                            first_visit: true,
                             client_detail: $scope.clientDetail,
                             client_form: $scope.clientForm,
                             client_history: $scope.clientHist,
@@ -1050,34 +1053,85 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             } else {
                 $scope.usersList.$save(postIndex).then(function() {
                     $scope.getPostDetails(postKey);  
-                    $scope.isPersonQuiz = true;
-                    $scope.dashUser = false;
-                    console.log($scope.isPersonQuiz)
                 });
             }
         };
 
-        $scope.checkLoginWindowType = function() {
+        /* $scope.checkLoginWindowType = function() {
             $scope.isUser = false;
             $scope.isNewUser = true;
             $scope.isPassReset = false;
-        };
+        }; */
 
-        $scope.checkResetPass = function() {
+        /* $scope.checkResetPass = function() {
             $scope.isUser = false;
             $scope.isNewUser = false;
             $scope.isPassReset = true;
-        }
+        } */
 
         $scope.home = function() {
+            if ($scope.clientHist.da_01_01 == null) {
+                $scope.yourWelcome = true;
+            } else {
+                $scope.isDashboard = true;
+            }
             $scope.isPersonQuiz = false;
-            $scope.isPersonMetas = false;            
             $scope.isPersonAntropo = false;
+            $scope.isPersonMetas = false;            
             $scope.isPersonSpyder = false;
             $scope.isPersonDetails = false;
-            $scope.notWelcome = false;
         };
 
+        $scope.showPersonQuiz = function() {
+            $scope.yourWelcome = false;
+            $scope.isDashboard = false;
+            $scope.isPersonQuiz = true;
+            $scope.isPersonAntropo = false;
+            $scope.isPersonMetas = false;
+            $scope.isPersonSpyder = false;            
+            $scope.isPersonDetails = false;
+        };
+
+        $scope.showAntropo = function() {
+            $scope.yourWelcome = false;
+            $scope.isDashboard = false;
+            $scope.isPersonQuiz = false;
+            $scope.isPersonAntropo = true;
+            $scope.isPersonMetas = false;
+            $scope.isPersonSpyder = false;            
+            $scope.isPersonDetails = false;
+        };
+
+        $scope.showMetas = function() {
+            $scope.yourWelcome = false;
+            $scope.isDashboard = false;
+            $scope.isPersonQuiz = false;
+            $scope.isPersonAntropo = false;
+            $scope.isPersonMetas = true;
+            $scope.isPersonSpyder = false;            
+            $scope.isPersonDetails = false;
+        };
+
+        $scope.showPersonSpyder = function() {
+            $scope.yourWelcome = false;
+            $scope.isDashboard = false;
+            $scope.isPersonQuiz = false;
+            $scope.isPersonAntropo = false;
+            $scope.isPersonMetas = false;
+            $scope.isPersonSpyder = true;            
+            $scope.isPersonDetails = false;
+        }
+
+        $scope.showPersonDetails = function() {
+            $scope.yourWelcome = false;
+            $scope.isDashboard = false;
+            $scope.isPersonQuiz = false;
+            $scope.isPersonAntropo = false;
+            $scope.isPersonMetas = false;
+            $scope.isPersonSpyder = false;            
+            $scope.isPersonDetails = true;
+        };
+        
         /* $scope.showPersonDetails = function() {
             $scope.isPersonDetails = true;
             $scope.isPersonQuiz = false;
@@ -1088,60 +1142,10 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             angular.element('#personDetails').fadeIn(); //a usar
         }; */
 
-        $scope.showPersonDetails = function() {
-            $scope.isPersonQuiz = false;
-            $scope.isPersonMetas = false;
-            $scope.isPersonAntropo = false;
-            $scope.isPersonDetails = true;
-            $scope.isPersonSpyder = false;            
-            $scope.notWelcome = true;
-        };
-        
-        /* $scope.exitPersonDetails = function() {
-            $scope.isPersonDetails = false;
-            $scope.notWelcome = false;
-        }; */
-
-        $scope.showPersonSpyder = function() {
-            $scope.isPersonQuiz = false;
-            $scope.isPersonMetas = false;
-            $scope.isPersonAntropo = false;
-            $scope.isPersonDetails = false;
-            $scope.isPersonSpyder = true;            
-            $scope.notWelcome = true;
-        }
-
         /* $scope.exitPersonSpyder = function() {
             $scope.isPersonSpyder = false;
             $scope.notWelcome = false;
         }; */
-
-        $scope.showPersonQuiz = function() {
-            $scope.isPersonQuiz = true;
-            $scope.isPersonMetas = false;
-            $scope.isPersonAntropo = false;
-            $scope.isPersonDetails = false;
-            $scope.isPersonSpyder = false;            
-            $scope.notWelcome = true;
-        };
-
-        $scope.showMetas = function() {
-            $scope.isPersonQuiz = false;
-            $scope.isPersonMetas = true;
-            $scope.isPersonAntropo = false;
-            $scope.isPersonDetails = false;
-            $scope.isPersonSpyder = false;            
-            $scope.notWelcome = true;
-        };
-
-        $scope.showAntropo = function() {
-            $scope.isPersonQuiz = false;
-            $scope.isPersonMetas = false;
-            $scope.isPersonAntropo = true;
-            $scope.isPersonDetails = false;
-            $scope.isPersonSpyder = false;            
-            $scope.notWelcome = true;
-        };
 
         /* $scope.exitPersonQuiz = function() {
             $scope.isPersonQuiz = false;
@@ -1151,23 +1155,24 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
         $scope.setType = function(param) {
             if (param == "massa") {
                 $scope.clientDetail.clientType = "ProgramaGestaoDePeso";
-                $scope.firstVisitPart1 = false;
-                $scope.firstVisitPart2 = true;
+                $scope.firstVisit.firstVisit = false;
+                
+                $scope.yourWelcome = true;
             }
             if (param == "desporto") {
                 $scope.clientDetail.clientType = "ProgramaFit";
-                $scope.firstVisitPart1 = false;
-                $scope.firstVisitPart2 = true;
+                $scope.firstVisit.firstVisit = false;
+                $scope.yourWelcome = true;
             }
             if (param == "saude") {
                 $scope.clientDetail.clientType = "ProgramaSaude";
-                $scope.firstVisitPart1 = false;
-                $scope.firstVisitPart2 = true;
+                $scope.firstVisit.firstVisit = false;
+                $scope.yourWelcome = true;
             }
+            $scope.saveUserDetailsFirstTime();
         }
    
         angular.element(window).ready(function() {
-            /* angular.element('#loading').addClass('hide'); */
             angular.element('md-tab-item').click(function() {
                 $scope.saveUserDetailsButton();
             });
@@ -1248,6 +1253,23 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                 $scope.error = error;
             });
         };*/
+        
+        angular.element('#headingOne').children().children().click(function() {
+            var top4 = $("#personQuiz").offset().top - 25;
+            angular.element("#teste").animate({ scrollTop: top4 }, "fast");
+        });
+        angular.element('#headingTwo').children().children().click(function() {
+            var top4 = $("#personQuiz").offset().top - 25;
+            angular.element("#teste").animate({ scrollTop: top4 }, "fast");
+        });
+        angular.element('#headingThree').children().children().click(function() {
+            var top4 = $("#personQuiz").offset().top - 25;
+            angular.element("#teste").animate({ scrollTop: top4 }, "fast");
+        });
+        angular.element('#headingFour').children().children().click(function() {
+            var top4 = $("#personQuiz").offset().top - 25;
+            angular.element("#teste").animate({ scrollTop: top4 }, "fast");
+        }); 
 
     }
 

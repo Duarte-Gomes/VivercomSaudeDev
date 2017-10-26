@@ -1,6 +1,9 @@
 html {
   background-color: #f2f2f2;
+
+ 
 }
+
 body {
   padding: 0;
   background-color: transparent !important;
@@ -211,9 +214,9 @@ textarea {
 }
 .dashTitle {
   font-weight: bold;
-  font-size: 24px;
+  font-size: 23px;
   text-align: center;
-  height: 68px;
+  height: 62px;
 }
 .dashValue {
   font-weight: bold;
@@ -228,7 +231,7 @@ textarea {
 }
 .dashValueProx {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 35px;
   text-align: center;
   margin: 0;
 }
@@ -240,9 +243,6 @@ textarea {
 .welcome-style {
   width: 50%; 
   padding: 35px 0;
-}
-.details-style {
-  margin-top: 125px;
 }
 .details-style-2 {
   margin-top: 0;
@@ -294,20 +294,69 @@ textarea {
 input[type="radio"][readonly] {
   pointer-events: none;
 }
-/* .st-sort-ascent:before {
-  content: '\25B2';
+.div-height-fix {
+  height: calc(100vh - 75px);
+  position: relative;
+}
+.div-height-fix-full {
+  height: 100vh;
+  position: relative;
+}
+.div-height-inner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+}
+.div-shadow-style {
+  background-color: white; 
+  border-radius: 4px; 
+  box-shadow: 0 1px 1px rgba(0,0,0,.2); 
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+  padding: 50px;
+}
+.div-shadow-style-pad15 {
+  background-color: white; 
+  border-radius: 4px; 
+  box-shadow: 0 1px 1px rgba(0,0,0,.2); 
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.2);
+  padding: 15px;
+}
+.data-button-grey {
+  padding: 10px 50px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #ebecec;
+  font-weight: bold;
+  color: #727271;
+  font-size: 18px;
+  box-shadow: 0 0 5px rgba(0,0,0,.3); 
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,.3);
+  margin-bottom: 60px;
+  width: 100%;
+}
+.data-button-blue {
+  padding: 10px 50px;
+  border: 0;
+  border-radius: 4px;
+  background-color: #4f71f7;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+  box-shadow: 0 0 5px rgba(0,0,0,.5); 
+  -webkit-box-shadow: 0 0 5px rgba(0,0,0,.5);
+  width: 100%;
+}
+.h3-welcome {
+  margin: 0 0 20px 0;
+  font-size: 20px;
 }
 
-.st-sort-descent:before {
-  content: '\25BC';
-} */
 @media screen and (max-width: 1366px) {
   .welcome-style {
     width: 30%; 
     padding: 35px 0;
-  }
-  .details-style {
-    margin-top: 60px;
   }
   .margin-admin-menu {
     margin-left: 225px;
@@ -319,7 +368,7 @@ input[type="radio"][readonly] {
     margin-top: 60px;
   }
   .dashPlanoNutri {
-    font-size: 72px !important;
+    font-size: 65px !important;
   }
 }
 

@@ -70,7 +70,10 @@ button:focus, input:focus, textarea:focus {
 }*/
 .pre-h2 {
     font-weight: bold;
-    margin-bottom: 30px;
+    margin: 0 0 10px 0;
+}
+.pre-h2-2 {
+    margin: 0 0 15px 0;
 }
 .space-top {
     margin-top: 560px;
@@ -131,21 +134,33 @@ button:focus, input:focus, textarea:focus {
     border: 0; 
     background-color: green; 
     color: white; 
-    padding: 8px 20px; 
-    font-size: 18px; 
+    width: 100%;
+    padding: 15px 0; 
+    font-size: 20px; 
     font-weight: bold
-}
-.quemSouMainButtonNG {
-    opacity: 0.5;
-}
-.line-spin-fade-loader {
-    left: 540px;
-    top: 300px;
 }
 .line-spin-fade-loader > div {
     background-color: orange;
 }
-
+.mainOptions {
+    background-color: white; 
+    box-shadow: 0 0 5px #888888; 
+    margin: 0 37px;
+}
+.mainTextBox {
+    font-weight: bold; 
+    font-size: 19px; 
+    margin: 0;
+    padding-bottom: 22px;
+    color: #8c8c8c;
+    min-height: 115px;
+}
+.divHeight {
+    height: 155px;
+}
+.text-box-main {
+    padding: 20px;
+}
 
 @media screen and (max-width: 1366px) {
     .space-top {

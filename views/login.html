@@ -1,0 +1,29 @@
+<div class="container ng-cloak"> 
+    <div class="main-login col-sm-6 col-sm-offset-3 div-height-fix-full">
+        <div class="div-height-inner">
+            <div id="loginWindow" ng-show="isUser">
+                <input type="text" class="form-control" ng-model="email" placeholder="Email">
+                <input id="userPass" type="password" class="form-control" ng-model="password" placeholder="Password" ng-keyup="$event.keyCode == 13 && loginUser()">
+                <button type="button" class="btn btn-info" ng-click="loginUser()">Iniciar Sessão</button>
+                <button type="button" class="btn btn-info text-center" style="margin: 30px auto auto 0" ng-click="checkResetPass()">Reset Password</button>
+                <p ng-if="message" style="font-size: 12px; color: red; margin-top: 10px;">{{ message }}</p>
+            </div>
+            
+            <div style="background-color: white; padding: 30px" ng-show="isUser">
+                <button type="button" class="btn btn-info" ng-click="checkLoginWindowType()">Selecione aqui para criar novo Utilizador</button>
+            </div>
+
+            <div id="newUserWindow" ng-show="isNewUser">
+                <input type="text" class="form-control" ng-model="email" placeholder="Email">
+                <input type="password" class="form-control" ng-model="password" placeholder="Password" ng-keyup="$event.keyCode == 13 && loginUser()">
+                <button type="button" class="btn btn-info" ng-click="createUser()">Criar Utilizador</button>
+                <p ng-if="message" style="font-size: 12px; margin-top: 10px;">{{ message }}</p>
+            </div>
+
+            <div id="passwordResetWindow" ng-show="isPassReset">
+                <input type="text" class="form-control" ng-model="email" placeholder="Email">
+                <button type="button" class="btn btn-info" ng-click="resetUserPass(email)">Reset Password</button>
+            </div>
+        </div>
+    </div>
+</div>
