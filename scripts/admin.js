@@ -417,7 +417,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         ];
 
         $scope.consultLocal = [
-            "100% Natur", "Farmácia Uruguai", "Prime Body", "Bakery CrossFit", "Box1RM", "CGI", "ImpactGym Moura", "CrossFit 351", "CrossFit Almada", "CrossFit Coimbra", "CrossFit Fátima", "CrossFit Leiria", "CrossFit Odivelas", "CrossFit Torres Vedras", "CrossFit XXI", "Formas Fitness", "Mean Machine", "Nutriscoop", "Oeste Cross Box", "Silver Coast", "Wiva Tomar", "Wiva Torres Novas",
+            "100% Natur", "Externos", "Online", "Bakery CrossFit", "Box1RM", "CGI", 
+            "CrossFit 351", "CrossFit Almada", "CrossFit Coimbra", "CrossFit Fátima", 
+            "CrossFit Leiria", "CrossFit Odivelas", "CrossFit Torres Vedras", "CrossFit XXI", 
+            "Farmácia Uruguai", "Formas Fitness", "Gabinete de Fisioterapia no Desporto", 
+            "ImpactGym Moura", "Mean Machine", "Nutriscoop", "Oeste Cross Box", "Prime Body", 
+            "Silver Coast", "Wiva Tomar", "Wiva Torres Novas"
         ];
 
         $scope.contactTypeList = [
@@ -433,7 +438,8 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         /* var cont = 0; */
         var logggooogggg = $scope.auth.$getAuth().uid;
 
-        if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
+        /* if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") { */
+        if (logggooogggg == "G0YOVeohv3XGsCdyTJixcNF9D6E2" || logggooogggg == "MpHfoH6MVfNS4UaUChcr6czxs222") {
             usersList.$loaded().then(function() {
                 $scope.usersList = usersList;
                 for(var iii = 0; iii < usersList.length; iii++) {

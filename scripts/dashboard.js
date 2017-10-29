@@ -1069,99 +1069,228 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
             }
 
 
-            //grafico grupomotiva01
-            $scope.GrupoMotiva01 = {};
+            //grafico grupomotiva01 peso
+            $scope.GrupoMotiva01Peso = {};
 
-            $scope.GrupoMotiva01.type = "ColumnChart";
+            $scope.GrupoMotiva01Peso.type = "ColumnChart";
             
-            $scope.GrupoMotiva01.data = {"cols": [
+            $scope.GrupoMotiva01Peso.data = {"cols": [
                 //nao esquecer disto
-                {id: "t", label: "Média", type: "string"},
-                {id: "s", label: "Utilizadores", type: "number"}
+                {id: "s", label: "Utilizadores", type: "string"},
+                {id: "t", label: "Média", type: "number"}
                 //nao esquecer disto
             ], "rows": [
                 {c: [ 
-                    {v: 'Peso Média 1ª Consulta ' + $scope.mediaGrupo01[0].Grupo1Peso1Total + ' Kg'},
-                    {v: $scope.mediaGrupo01[0].Grupo1Peso1Cont}
+                    {v: 'Média: ' + $scope.mediaGrupo01[0].Grupo1Peso1Total + ' Kg / ' + $scope.mediaGrupo01[0].Grupo1Peso1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1Peso1Total,
+                        f: $scope.mediaGrupo01[0].Grupo1Peso1Total + ' Kg'
+                    }
                 ]}, //titulo e quantidade
                 {c: [ 
-                    {v: 'Peso Média 2ª Consulta ' + $scope.mediaGrupo01[0].Grupo1Peso2Total + ' Kg'},
-                    {v: $scope.mediaGrupo01[0].Grupo1Peso2Cont}
+                    {v: 'Média: ' + $scope.mediaGrupo01[0].Grupo1Peso2Total + ' Kg / ' + $scope.mediaGrupo01[0].Grupo1Peso2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1Peso2Total,
+                        f: $scope.mediaGrupo01[0].Grupo1Peso2Total + ' Kg'
+                    }
                 ]}, //titulo e quantidade
                 {c: [ 
-                    {v: 'Peso Média 3ª Consulta ' + $scope.mediaGrupo01[0].Grupo1Peso3Total + ' Kg'},
-                    {v: $scope.mediaGrupo01[0].Grupo1Peso3Cont}
-                ]},
-                {c: [ 
-                    {v: 'Massa Gorda Média 1ª Consulta ' + $scope.mediaGrupo01[0].Grupo1MassaG1Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1MassaM1Cont}
-                ]},
-                {c: [ 
-                    {v: 'Massa Gorda Média 2ª Consulta ' + $scope.mediaGrupo01[0].Grupo1MassaG2Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1MassaG2Cont}
-                ]},
-                {c: [ 
-                    {v: 'Massa Gorda Média 3ª Consulta ' + $scope.mediaGrupo01[0].Grupo1MassaG3Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1MassaG3Cont}
-                ]},
-                {c: [ 
-                    {v: 'Água Corporal Média 1ª Consulta ' + $scope.mediaGrupo01[0].Grupo1AguaC1Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1AguaC1Cont}
-                ]},
-                {c: [ 
-                    {v: 'Água Corporal Média 2ª Consulta ' + $scope.mediaGrupo01[0].Grupo1AguaC2Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1AguaC2Cont}
-                ]},
-                {c: [ 
-                    {v: 'Água Corporal Média 3ª Consulta ' + $scope.mediaGrupo01[0].Grupo1AguaC3Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1AguaC3Cont}
-                ]},
-                {c: [ 
-                    {v: 'Massa Magra Média 1ª Consulta ' + $scope.mediaGrupo01[0].Grupo1MassaM1Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1MassaM1Cont}
-                ]},
-                {c: [ 
-                    {v: 'Massa Magra Média 2ª Consulta ' + $scope.mediaGrupo01[0].Grupo1MassaM2Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1MassaM2Cont}
-                ]},
-                {c: [ 
-                    {v: 'Massa Magra Média 3ª Consulta ' + $scope.mediaGrupo01[0].Grupo1MassaM3Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1MassaM3Cont}
-                ]},
-                {c: [ 
-                    {v: 'Gordura Visceral Média 1ª Consulta ' + $scope.mediaGrupo01[0].Grupo1GorduraV1Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV1Cont}
-                ]},
-                {c: [ 
-                    {v: 'Gordura Visceral Média 2ª Consulta ' + $scope.mediaGrupo01[0].Grupo1GorduraV2Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV2Cont}
-                ]},
-                {c: [ 
-                    {v: 'Gordura Visceral Média 3ª Consulta ' + $scope.mediaGrupo01[0].Grupo1GorduraV3Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV3Cont}
-                ]},
-                {c: [ 
-                    {v: 'Perimetro Abdominal Média 1ª Consulta ' + $scope.mediaGrupo01[0].Grupo1PerimAbdom1Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1PerimAbdom1Cont}
-                ]},
-                {c: [ 
-                    {v: 'Perimetro Abdominal Média 2ª Consulta ' + $scope.mediaGrupo01[0].Grupo1PerimAbdom2Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1PerimAbdom2Cont}
-                ]},
-                {c: [ 
-                    {v: 'Perimetro Abdominal Média 3ª Consulta ' + $scope.mediaGrupo01[0].Grupo1PerimAbdom3Total + ' %'},
-                    {v: $scope.mediaGrupo01[0].Grupo1PerimAbdom3Cont}
+                    {v: 'Média: ' + $scope.mediaGrupo01[0].Grupo1Peso3Total + ' Kg / ' + $scope.mediaGrupo01[0].Grupo1Peso3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1Peso3Total,
+                        f: $scope.mediaGrupo01[0].Grupo1Peso3Total + ' Kg'
+                    }
                 ]}
             ]};  
 
-            $scope.GrupoMotiva01.options = {
-                'title': 'Grupo Motivação 1',
-                'legend': 'none'
+            $scope.GrupoMotiva01Peso.options = {
+                'title': 'Grupo Motivação 1 Média - Peso',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Média por consulta'
+                }
             };
             
+            //grafico grupomotiva01 massa gorda
+            $scope.GrupoMotiva01MassaGorda = {};
             
+            $scope.GrupoMotiva01MassaGorda.type = "ColumnChart";
+            
+            $scope.GrupoMotiva01MassaGorda.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaG1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1MassaG1Total,
+                        f: $scope.mediaGrupo01[0].Grupo1MassaG1Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaG2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1MassaG2Total,
+                        f: $scope.mediaGrupo01[0].Grupo1MassaG2Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaG3Cont+ ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1MassaG3Total,
+                        f: $scope.mediaGrupo01[0].Grupo1MassaG3Total + ' %'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva01MassaGorda.options = {
+                'title': 'Grupo Motivação 1 Média - Massa Gorda',
+                'legend': 'none'
+            };
+
+            //grafico grupomotiva01 agua corporal
+            $scope.GrupoMotiva01AguaCorporal = {};
+            
+            $scope.GrupoMotiva01AguaCorporal.type = "ColumnChart";
+            
+            $scope.GrupoMotiva01AguaCorporal.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1AguaC1Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1AguaC1Total}
+                ]},
+                {c: [ 
+                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1AguaC2Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1AguaC2Total}
+                ]},
+                {c: [ 
+                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1AguaC3Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1AguaC3Total}
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva01AguaCorporal.options = {
+                'title': 'Grupo Motivação 1 Média - Agua Corporal',
+                'legend': 'none'
+            };
+
+            //grafico grupomotiva01 massa magra
+            $scope.GrupoMotiva01MassaMagra = {};
+            
+            $scope.GrupoMotiva01MassaMagra.type = "ColumnChart";
+            
+            $scope.GrupoMotiva01MassaMagra.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaM1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1MassaM1Total,
+                        f: $scope.mediaGrupo01[0].Grupo1MassaM1Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaM2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1MassaM2Total,
+                        f: $scope.mediaGrupo01[0].Grupo1MassaM2Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaM3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1MassaM3Total,
+                        f: $scope.mediaGrupo01[0].Grupo1MassaM3Total + ' %'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva01MassaMagra.options = {
+                'title': 'Grupo Motivação 1 Média - Massa Magra',
+                'legend': 'none'
+            };
+
+            //grafico grupomotiva01 gordura visceral
+            $scope.GrupoMotiva01GorduraVisceral = {};
+            
+            $scope.GrupoMotiva01GorduraVisceral.type = "ColumnChart";
+            
+            $scope.GrupoMotiva01GorduraVisceral.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1GorduraV1Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV1Total}
+                ]},
+                {c: [ 
+                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1GorduraV2Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV2Total}
+                ]},
+                {c: [ 
+                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1GorduraV3Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV3Total}
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva01GorduraVisceral.options = {
+                'title': 'Grupo Motivação 1 Média - Gordura Visceral',
+                'legend': 'none'
+            };
+
+            //grafico grupomotiva01 perimetro abdominal
+            $scope.GrupoMotiva01PerimetroAbdominal = {};
+            
+            $scope.GrupoMotiva01PerimetroAbdominal.type = "ColumnChart";
+            
+            $scope.GrupoMotiva01PerimetroAbdominal.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1PerimAbdom1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1PerimAbdom1Total,
+                        f: $scope.mediaGrupo01[0].Grupo1PerimAbdom1Total + 'cm'
+                    }
+                ]},
+                {c: [ 
+                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1PerimAbdom2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1PerimAbdom2Total,
+                        f: $scope.mediaGrupo01[0].Grupo1PerimAbdom2Total + 'cm'
+                    }
+                ]},
+                {c: [ 
+                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1PerimAbdom3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1PerimAbdom3Total,
+                        f: $scope.mediaGrupo01[0].Grupo1PerimAbdom3Total + 'cm'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva01PerimetroAbdominal.options = {
+                'title': 'Grupo Motivação 1 Média - Perimetro Abdominal',
+                'legend': 'none'
+            };
 
 
+
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////
             //grafico 
             $scope.tipoSexo = {};
     

@@ -59,16 +59,16 @@
                         <ul class="nav navbar-nav navbar-right" ng-hide="firstVisit.firstVisit">
                             <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="home()">INÍCIO</a></li>
                             <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonQuiz()" ng-hide="clientDetail.isQuizFuncBlock">QUESTIONÁRIO FUNCIONAL</a></li>
-                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showAntropo()">DADOS ANTROPOMÊTRICOS</a></li>
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showAntropo()" ng-show="clientHist.clientHist.da_01_01">DADOS ANTROPOMÊTRICOS</a></li>
                             <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showMetas()" ng-show="clientDetail.isMetasFuncUnblock">METAS FUNCIONAIS</a></li>
                             <!-- <li><button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-click="showPersonQuiz()">QUESTIONÁRIO FUNCIONAL</button></li> -->              
                             <!--<button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-hide="spyderQuizComplete" ng-click="showPersonSpyder()">QUESTIONÁRIO PERFIL</button>-->             
                             <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonDetails()">DADOS PESSOAIS</a></li>
-                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="auth.$signOut()" id="logout">SAIR</a></li>
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="getOut()" id="logout">SAIR</a></li>
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right" ng-show="firstVisit.firstVisit">
-                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="auth.$signOut()" id="logout">SAIR</a></li>
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu buttonMenuRight" ng-click="getOut()" id="logout">SAIR</a></li>
                         </ul>
                     </div>
                 </div>
@@ -103,115 +103,113 @@
         <div ng-hide="clientDetail.isQuizFuncBlock">
             <div id="personQuiz" ng-show="isPersonQuiz" class="row">
                 <div id="teste" class="div-shadow-style-pad15" style="margin: 15px 0; height: calc(100vh - 165px); overflow: scroll;  overflow-x: hidden;">
-
-                        <h4 class="text-center quiz-func-pad-top-first">Navegue pelo questionário utilizando os 4 separadores em baixo</h4>
-                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingOne">
-                                    <h4 class="panel-title text-center panel-title-a">
-                                        <a role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Objectivos e Motivação
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                                    <div class="panel-body">
-                                        <div class="row" style="background-color: transparent; padding: 15px 15px 30px 15px;">
-                                            <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseFour">
-                                                Fechar Separador
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
+                    <h4 class="text-center quiz-func-pad-top-first">Navegue pelo questionário utilizando os 4 separadores em baixo</h4>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title text-center panel-title-a">
+                                    <a role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Objectivos e Motivação
+                                    </a>
+                                </h4>
                             </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingTwo">
-                                    <h4 class="panel-title text-center panel-title-a">
-                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Medicina Funcional
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                    <div class="panel-body">
-                                        <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
-                                            <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab4/quiz23.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab4/quiz28.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseFour">
-                                                Fechar Separador
-                                            </a>
-                                        </div>
+                            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="panel-body">
+                                    <div class="row" style="background-color: transparent; padding: 15px 15px 30px 15px;">
+                                        <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingThree">
-                                    <h4 class="panel-title text-center panel-title-a">
-                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Actividade Física e Desporto
+                                    <div class="text-center">
+                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseFour">
+                                            Fechar Separador
                                         </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-                                    <div class="panel-body">
-                                        <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;"> 
-                                            <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseFour">
-                                                Fechar Separador
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="headingFour">
-                                    <h4 class="panel-title text-center panel-title-a">
-                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                            Nutrição Funcional
-                                        </a>
-                                    </h4>
-                                </div>
-                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-                                    <div class="panel-body">
-                                        <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
-                                            <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
-                                            <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
-                                        </div>
-                                        <div class="text-center">
-                                            <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                Fechar Separador
-                                            </a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title text-center panel-title-a">
+                                    <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Medicina Funcional
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
+                                        <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz23.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz28.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseFour">
+                                            Fechar Separador
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree">
+                                <h4 class="panel-title text-center panel-title-a">
+                                    <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Actividade Física e Desporto
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="panel-body">
+                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;"> 
+                                        <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseFour">
+                                            Fechar Separador
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFour">
+                                <h4 class="panel-title text-center panel-title-a">
+                                    <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Nutrição Funcional
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                <div class="panel-body">
+                                    <div class="row" style="background-color: rgba(255,255,255,0); padding: 15px 15px 30px 15px;">
+                                        <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
+                                        <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="collapsed" role="button" onclick="return false;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            Fechar Separador
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -277,7 +275,7 @@
 <div class="container-fluid" style="padding: 0;">
     <div ng-show="isPersonQuiz" style="position:fixed; width: 100%; height: 60px; bottom: 0; background-color: white; border-top: 1px solid lightgrey;">
         <div class="text-center" style="padding-top: 15px;"> 
-            <button class="btn btn-success button-style" ng-click="saveQuizDetail()">Gravar</button>
+            <button class="btn btn-success button-style" ng-click="saveUserDetails()">Gravar</button>
         </div>
     </div>
 </div>

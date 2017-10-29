@@ -10,15 +10,15 @@
             </div>
             
             <div style="background-color: white; padding: 30px" ng-show="isUser">
-                <button type="button" class="btn btn-info" ng-click="checkLoginWindowType()">Selecione aqui para criar novo Utilizador</button>
+                <button type="button" class="btn btn-info" ng-click="createUser()">Selecione aqui para criar novo Utilizador</button>
             </div>
 
-            <div id="newUserWindow" ng-show="isNewUser">
+            <!-- <div id="newUserWindow" ng-show="isNewUser">
                 <input type="text" class="form-control" ng-model="email" placeholder="Email">
                 <input type="password" class="form-control" ng-model="password" placeholder="Password" ng-keyup="$event.keyCode == 13 && loginUser()">
                 <button type="button" class="btn btn-info" ng-click="createUser()">Criar Utilizador</button>
                 <p ng-if="message" style="font-size: 12px; margin-top: 10px;">{{ message }}</p>
-            </div>
+            </div> -->
 
             <div id="passwordResetWindow" ng-show="isPassReset">
                 <input type="text" class="form-control" ng-model="email" placeholder="Email">

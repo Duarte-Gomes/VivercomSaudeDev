@@ -1,8 +1,8 @@
 <div class="container-fluid no-pad" ng-cloak="">
     <div class="main-welcome">
         <div ng-hide="showDetails" style="padding: 0 15px;">
-            <h1 class="text-center">Lista de utilizadores</h1> 
-            <!-- <table datatable="ng" class="row-border hover">
+            <h1 class="text-center">Lista de consultas Manuel Teixiera</h1> 
+            <table datatable="ng" class="row-border hover">
                 <thead>
                     <tr>
                         <td>Nome</td>
@@ -30,66 +30,6 @@
                         <td ng-show="user.consultDateWithCupon_04">{{user.consultDateWithCupon_04}}</td>
                         <td ng-show="user.consultDateWithCupon_05">{{user.consultDateWithCupon_05}}</td>
                         <td ng-show="user.consultDateWithCupon_06">{{user.consultDateWithCupon_06}}</td>       
-                    </tr>
-                </tbody>
-            </table> -->
-            <table st-table="manuelList" class="table table-striped">
-                <thead>
-                    <tr>
-                        <td st-sort="client_detail.name">Nome</td>
-                        <td st-sort="client_detail.email">Email</td>
-                        <td st-sort="client_detail.locConsulta">Local Consulta</td>
-                        <td st-sort="client_detail.codBis">Codigo Empresarial</td>
-                        <td st-sort="consultDateWithCupon_01">Data Consulta</td>
-                        <td st-sort="consultDateWithCupon_02">Data Consulta</td>
-                        <td st-sort="consultDateWithCupon_03">Data Consulta</td>
-                        <td st-sort="consultDateWithCupon_04">Data Consulta</td>
-                        <td st-sort="consultDateWithCupon_05">Data Consulta</td>
-                        <td st-sort="consultDateWithCupon_06">Data Consulta</td>
-                        
-                    </tr>
-                    <tr>
-                        <th>
-                            <input st-search="client_detail.name" placeholder="procura por nome" class="input-sm form-control" type="search"/>
-                        </th>
-                        <th>
-                            <input st-search="client_detail.email" placeholder="procura por nome" class="input-sm form-control" type="search"/>
-                        </th>
-                        <th>
-                            <input st-search="client_detail.locConsulta" placeholder="procura por nome" class="input-sm form-control" type="search"/>
-                        </th>
-                        <th>
-                            <input st-search="consultDateWithCupon_01" placeholder="procura por nome" class="input-sm form-control" type="search"/>
-                        </th>
-                        <th>
-                            <input st-search="consultDateWithCupon_02" placeholder="procura por nome" class="input-sm form-control" type="search"/>
-                        </th>
-                        <th>
-                            <input st-search="consultDateWithCupon_03" placeholder="procura por nome" class="input-sm form-control" type="search"/>
-                        </th>
-                        <th>
-                            <input st-search="consultDateWithCupon_04" placeholder="procura por nome" class="input-sm form-control" type="search"/>
-                        </th>
-                        <th>
-                            <input st-search="consultDateWithCupon_05" placeholder="procura por nome" class="input-sm form-control" type="search"/>
-                        </th>
-                        <th>
-                            <input st-search="consultDateWithCupon_06" placeholder="procura por nome" class="input-sm form-control" type="search"/>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr st-select-row="row" st-select-mode="multiple" ng-repeat="user in manuelList">
-                        <td>{{user.client_detail.name}}</td>
-                        <td>{{user.client_detail.email}}</td>
-                        <td>{{user.client_detail.locConsulta}}</td>
-                        <td>{{user.client_detail.codBis}}</td>
-                        <td >{{user.consultDateWithCupon_01}}</td>
-                        <td >{{user.consultDateWithCupon_02}}</td>
-                        <td >{{user.consultDateWithCupon_03}}</td>
-                        <td >{{user.consultDateWithCupon_04}}</td>
-                        <td >{{user.consultDateWithCupon_05}}</td>
-                        <td >{{user.consultDateWithCupon_06}}</td>       
                     </tr>
                 </tbody>
             </table>

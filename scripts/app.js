@@ -10,21 +10,21 @@
  * Main module of the application.
  */
 //chave dev
-/*var config = {
+var config = {
     apiKey: "AIzaSyA7oEm_LayEi18khCi7lu7QaA4OvIXHVhA",
     authDomain: "authdemo-b5a5f.firebaseapp.com",
     databaseURL: "https://authdemo-b5a5f.firebaseio.com",
     storageBucket: "authdemo-b5a5f.appspot.com",
     messagingSenderId: "1022101485660"
-};*/
+};
 //chave producao
-var config = {
+/* var config = {
     apiKey: "AIzaSyDUe-bfOdjHuaXwq4-mrqyGrPODr3XE0Vo",
     authDomain: "app-healty-habits.firebaseapp.com",
     databaseURL: "https://app-healty-habits.firebaseio.com",
     storageBucket: "app-healty-habits.appspot.com",
     messagingSenderId: "633041698720"
-};
+}; */
 firebase.initializeApp(config);
 
 var app = angular
@@ -80,7 +80,7 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         controllerAs: 'admin',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
-            return Auth.$waitForSignIn();
+            return Auth.$requireSignIn();
           }]
         }
     })
@@ -90,7 +90,7 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         controllerAs: 'dashboard',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
-            return Auth.$waitForSignIn();
+            return Auth.$requireSignIn();
           }]
         }
     })
@@ -100,7 +100,7 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         controllerAs: 'admin',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
-            return Auth.$waitForSignIn();
+            return Auth.$requireSignIn();
           }]
         }
     })
@@ -110,7 +110,7 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         controllerAs: 'historicocgi',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
-            return Auth.$waitForSignIn();
+            return Auth.$requireSignIn();
           }]
         }
     })
@@ -120,7 +120,7 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         controllerAs: 'cuponmanuel',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
-            return Auth.$waitForSignIn();
+            return Auth.$requireSignIn();
           }]
         }
     })
@@ -130,7 +130,7 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         controllerAs: 'dudas',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
-            return Auth.$waitForSignIn();
+            return Auth.$requireSignIn();
           }]
         }
     })
@@ -140,7 +140,7 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         controllerAs: 'dashboard',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
-            return Auth.$waitForSignIn();
+            return Auth.$requireSignIn();
           }]
         }
     })
@@ -175,7 +175,7 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         controllerAs: 'dashboard',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
-            return Auth.$waitForSignIn();
+            return Auth.$requireSignIn();
           }]
         }
     })
