@@ -1238,7 +1238,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 monthBirthTemp = $scope.clientDetail.birthday.substr(3,2);
                 $scope.clientDetail.dayBirth = $scope.clientDetail.birthday.substr(0,2);
                 
-                if (monthBirthTemp == 01) {
+                /* if (monthBirthTemp == 01) {
                     $scope.clientDetail.monthBirth = "Janeiro";
                 } 
                 if (monthBirthTemp == 02) {    
@@ -1273,15 +1273,15 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 } 
                 if (monthBirthTemp == 12) {  
                     $scope.clientDetail.monthBirth = "Dezembro";
-                }      
+                }    */   
             }
 
             if (ageBirthday != null) {
                 //calculo da idade
                 //ano e mes da data de nascimento
-                var birthYear = $scope.clientDetail.yearBirth;
-                var birthMonth = monthBirthTemp;
-                var birthDay = $scope.clientDetail.dayBirth;
+                var birthYear = Number($scope.clientDetail.yearBirth);
+                var birthMonth = Number(monthBirthTemp);
+                var birthDay = Number($scope.clientDetail.dayBirth);
 
                 //ano e mes da data actual
                 var todayDate = new Date();
@@ -1290,18 +1290,16 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 var todayMonth = todayDate.getMonth() + 1;
                 var todayDay = todayDate.getDate();
 
-                var age;
-
                 if (todayMonth < birthMonth) {
-                    age = (todayYear - birthYear) - 1;
+                    $scope.inputAge.val = (todayYear - birthYear) - 1;
                 } else {
-                    age = todayYear - birthYear;
+                    $scope.inputAge.val = todayYear - birthYear;
                 }
 
-                if (todayDay < birthDay) {
-                    $scope.inputAge.val = age - 1;
-                } else {
-                    $scope.inputAge.val = age;
+                if (todayMonth == birthMonth) {
+                    if (todayDay < birthDay) {
+                        $scope.inputAge.val = $scope.inputAge.val - 1;
+                    }
                 }
             }
 
@@ -1991,7 +1989,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 monthBirthTemp = $scope.clientDetail.birthday.substr(3,2);
                 $scope.clientDetail.dayBirth = $scope.clientDetail.birthday.substr(0,2);
                 
-                if (monthBirthTemp == 01) {
+                /* if (monthBirthTemp == 01) {
                     $scope.clientDetail.monthBirth = "Janeiro";
                 } 
                 if (monthBirthTemp == 02) {    
@@ -2026,15 +2024,15 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 } 
                 if (monthBirthTemp == 12) {  
                     $scope.clientDetail.monthBirth = "Dezembro";
-                }      
+                }    */   
             }
 
             if (ageBirthday != null) {
                 //calculo da idade
                 //ano e mes da data de nascimento
-                var birthYear = $scope.clientDetail.yearBirth;
-                var birthMonth = monthBirthTemp;
-                var birthDay = $scope.clientDetail.dayBirth;
+                var birthYear = Number($scope.clientDetail.yearBirth);
+                var birthMonth = Number(monthBirthTemp);
+                var birthDay = Number($scope.clientDetail.dayBirth);
 
                 //ano e mes da data actual
                 var todayDate = new Date();
@@ -2043,18 +2041,16 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 var todayMonth = todayDate.getMonth() + 1;
                 var todayDay = todayDate.getDate();
 
-                var age;
-
                 if (todayMonth < birthMonth) {
-                    age = (todayYear - birthYear) - 1;
+                    $scope.inputAge.val = (todayYear - birthYear) - 1;
                 } else {
-                    age = todayYear - birthYear;
+                    $scope.inputAge.val = todayYear - birthYear;
                 }
 
-                if (todayDay < birthDay) {
-                    $scope.inputAge.val = age - 1;
-                } else {
-                    $scope.inputAge.val = age;
+                if (todayMonth == birthMonth) {
+                    if (todayDay < birthDay) {
+                        $scope.inputAge.val = $scope.inputAge.val - 1;
+                    }
                 }
             }
 
