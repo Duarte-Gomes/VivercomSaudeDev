@@ -1,5 +1,18 @@
+app.directive('fileModel',['$parse', function ($parse){
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.bind('change', function () {
+                $parse(attrs.fileModel)
+                .assign(scope, element[0].files[0])
+                scope.$apply();
+            })
+        }
+    }
+}]);
+  
 app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'suplementsList', 'clientsAppointmentsHistorical', '$firebaseStorage',
-    function($scope, Auth, $location, currentAuth, usersList, suplementsList, clientsAppointmentsHistorical, $firebaseStorag) {
+    function($scope, Auth, $location, currentAuth, usersList, suplementsList, clientsAppointmentsHistorical, $firebaseStorage) {
 
         $scope.uploadFile = function(file) {
 
@@ -49,15 +62,14 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
         $scope.unblockQuizFunc = function(){
             $scope.clientDetail.isQuizFuncBlock = false;
-            /* $scope.firstTime = false; */
         };
 
         $scope.blockMetasFunc = function(){
-            $scope.clientDetail.isMetasFuncUnblock = false;
+            $scope.clientDetail.blockMetasFunc = false;
         };
 
         $scope.unblockMetasFunc = function(){
-            $scope.clientDetail.isMetasFuncUnblock = true;
+            $scope.clientDetail.blockMetasFunc = true;
         };
 
         $scope.adminHome = function() {
@@ -71,6 +83,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.adminDivClientMetas04 = false;
             $scope.adminDivClientMetas05 = false;
             $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas07 = false;
+            $scope.adminDivClientMetas08 = false;
+            $scope.adminDivClientMetas09 = false;
+            $scope.adminDivClientMetas10 = false;
+            $scope.adminDivClientMetas11 = false;
+            $scope.adminDivClientMetas12 = false;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = false;            
             $scope.adminDivClientQuizFunc = false;
@@ -86,6 +104,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.adminDivClientMetas04 = false;
             $scope.adminDivClientMetas05 = false;
             $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas07 = false;
+            $scope.adminDivClientMetas08 = false;
+            $scope.adminDivClientMetas09 = false;
+            $scope.adminDivClientMetas10 = false;
+            $scope.adminDivClientMetas11 = false;
+            $scope.adminDivClientMetas12 = false;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = false;                        
             $scope.adminDivClientQuizFunc = false;
@@ -101,6 +125,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.adminDivClientMetas04 = false;
             $scope.adminDivClientMetas05 = false;
             $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas07 = false;
+            $scope.adminDivClientMetas08 = false;
+            $scope.adminDivClientMetas09 = false;
+            $scope.adminDivClientMetas10 = false;
+            $scope.adminDivClientMetas11 = false;
+            $scope.adminDivClientMetas12 = false;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = false;                        
             $scope.adminDivClientQuizFunc = false;
@@ -116,6 +146,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.adminDivClientMetas04 = false;
             $scope.adminDivClientMetas05 = false;
             $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas07 = false;
+            $scope.adminDivClientMetas08 = false;
+            $scope.adminDivClientMetas09 = false;
+            $scope.adminDivClientMetas10 = false;
+            $scope.adminDivClientMetas11 = false;
+            $scope.adminDivClientMetas12 = false;
             $scope.adminDivClientHistory = true;
             $scope.adminDivClientAntropo = false;                        
             $scope.adminDivClientQuizFunc = false;
@@ -131,6 +167,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.adminDivClientMetas04 = false;
             $scope.adminDivClientMetas05 = false;
             $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas07 = false;
+            $scope.adminDivClientMetas08 = false;
+            $scope.adminDivClientMetas09 = false;
+            $scope.adminDivClientMetas10 = false;
+            $scope.adminDivClientMetas11 = false;
+            $scope.adminDivClientMetas12 = false;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = true;
             $scope.adminDivClientQuizFunc = false;
@@ -146,6 +188,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.adminDivClientMetas04 = false;
             $scope.adminDivClientMetas05 = false;
             $scope.adminDivClientMetas06 = false;
+            $scope.adminDivClientMetas07 = false;
+            $scope.adminDivClientMetas08 = false;
+            $scope.adminDivClientMetas09 = false;
+            $scope.adminDivClientMetas10 = false;
+            $scope.adminDivClientMetas11 = false;
+            $scope.adminDivClientMetas12 = false;
             $scope.adminDivClientHistory = false;
             $scope.adminDivClientAntropo = false;                        
             $scope.adminDivClientQuizFunc = true;
@@ -174,6 +222,30 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.adminDivClientMetasList = false;
             $scope.adminDivClientMetas06 = true;
         };
+        $scope.showMetas07 = function() {
+            $scope.adminDivClientMetasList = false;
+            $scope.adminDivClientMetas07 = true;
+        };
+        $scope.showMetas08 = function() {
+            $scope.adminDivClientMetasList = false;
+            $scope.adminDivClientMetas08 = true;
+        };
+        $scope.showMetas09 = function() {
+            $scope.adminDivClientMetasList = false;
+            $scope.adminDivClientMetas09 = true;
+        };
+        $scope.showMetas10 = function() {
+            $scope.adminDivClientMetasList = false;
+            $scope.adminDivClientMetas10 = true;
+        };
+        $scope.showMetas11 = function() {
+            $scope.adminDivClientMetasList = false;
+            $scope.adminDivClientMetas11 = true;
+        };
+        $scope.showMetas12 = function() {
+            $scope.adminDivClientMetasList = false;
+            $scope.adminDivClientMetas12 = true;
+        };
 
         $scope.showLastMeta = function() {
             if ($scope.clientHist.meta01 != null || $scope.clientHist.meta01 == null) {
@@ -186,6 +258,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.adminDivClientMetas04 = false;
                 $scope.adminDivClientMetas05 = false;
                 $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
                 $scope.adminDivClientHistory = false;
                 $scope.adminDivClientAntropo = false;                        
                 $scope.adminDivClientQuizFunc = false;
@@ -200,6 +278,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.adminDivClientMetas04 = false;
                 $scope.adminDivClientMetas05 = false;
                 $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
                 $scope.adminDivClientHistory = false;
                 $scope.adminDivClientAntropo = false;                        
                 $scope.adminDivClientQuizFunc = false;
@@ -214,6 +298,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.adminDivClientMetas04 = false;
                 $scope.adminDivClientMetas05 = false;
                 $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
                 $scope.adminDivClientHistory = false;
                 $scope.adminDivClientAntropo = false;                        
                 $scope.adminDivClientQuizFunc = false;
@@ -228,6 +318,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.adminDivClientMetas04 = true;
                 $scope.adminDivClientMetas05 = false;
                 $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
                 $scope.adminDivClientHistory = false;
                 $scope.adminDivClientAntropo = false;                        
                 $scope.adminDivClientQuizFunc = false;
@@ -242,6 +338,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.adminDivClientMetas04 = false;
                 $scope.adminDivClientMetas05 = true;
                 $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
                 $scope.adminDivClientHistory = false;
                 $scope.adminDivClientAntropo = false;                        
                 $scope.adminDivClientQuizFunc = false;
@@ -256,6 +358,132 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.adminDivClientMetas04 = false;
                 $scope.adminDivClientMetas05 = false;
                 $scope.adminDivClientMetas06 = true;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
+                $scope.adminDivClientHistory = false;
+                $scope.adminDivClientAntropo = false;                        
+                $scope.adminDivClientQuizFunc = false;
+            }
+            if ($scope.clientHist.meta07 != null) {
+                $scope.adminDivHome = false;
+                $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
+                $scope.adminDivClientMetas01 = false;
+                $scope.adminDivClientMetas02 = false;
+                $scope.adminDivClientMetas03 = false;
+                $scope.adminDivClientMetas04 = false;
+                $scope.adminDivClientMetas05 = false;
+                $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = true;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
+                $scope.adminDivClientHistory = false;
+                $scope.adminDivClientAntropo = false;                        
+                $scope.adminDivClientQuizFunc = false;
+            }
+            if ($scope.clientHist.meta08 != null) {
+                $scope.adminDivHome = false;
+                $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
+                $scope.adminDivClientMetas01 = false;
+                $scope.adminDivClientMetas02 = false;
+                $scope.adminDivClientMetas03 = false;
+                $scope.adminDivClientMetas04 = false;
+                $scope.adminDivClientMetas05 = false;
+                $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = true;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
+                $scope.adminDivClientHistory = false;
+                $scope.adminDivClientAntropo = false;                        
+                $scope.adminDivClientQuizFunc = false;
+            }
+            if ($scope.clientHist.meta09 != null) {
+                $scope.adminDivHome = false;
+                $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
+                $scope.adminDivClientMetas01 = false;
+                $scope.adminDivClientMetas02 = false;
+                $scope.adminDivClientMetas03 = false;
+                $scope.adminDivClientMetas04 = false;
+                $scope.adminDivClientMetas05 = false;
+                $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = true;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
+                $scope.adminDivClientHistory = false;
+                $scope.adminDivClientAntropo = false;                        
+                $scope.adminDivClientQuizFunc = false;
+            }
+            if ($scope.clientHist.meta10 != null) {
+                $scope.adminDivHome = false;
+                $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
+                $scope.adminDivClientMetas01 = false;
+                $scope.adminDivClientMetas02 = false;
+                $scope.adminDivClientMetas03 = false;
+                $scope.adminDivClientMetas04 = false;
+                $scope.adminDivClientMetas05 = false;
+                $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = true;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = false;
+                $scope.adminDivClientHistory = false;
+                $scope.adminDivClientAntropo = false;                        
+                $scope.adminDivClientQuizFunc = false;
+            }
+            if ($scope.clientHist.meta11 != null) {
+                $scope.adminDivHome = false;
+                $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
+                $scope.adminDivClientMetas01 = false;
+                $scope.adminDivClientMetas02 = false;
+                $scope.adminDivClientMetas03 = false;
+                $scope.adminDivClientMetas04 = false;
+                $scope.adminDivClientMetas05 = false;
+                $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = true;
+                $scope.adminDivClientMetas12 = false;
+                $scope.adminDivClientHistory = false;
+                $scope.adminDivClientAntropo = false;                        
+                $scope.adminDivClientQuizFunc = false;
+            }
+            if ($scope.clientHist.meta12 != null) {
+                $scope.adminDivHome = false;
+                $scope.adminDivClientDetails = false;
+                $scope.adminDivClientMetasList = false;
+                $scope.adminDivClientMetas01 = false;
+                $scope.adminDivClientMetas02 = false;
+                $scope.adminDivClientMetas03 = false;
+                $scope.adminDivClientMetas04 = false;
+                $scope.adminDivClientMetas05 = false;
+                $scope.adminDivClientMetas06 = false;
+                $scope.adminDivClientMetas07 = false;
+                $scope.adminDivClientMetas08 = false;
+                $scope.adminDivClientMetas09 = false;
+                $scope.adminDivClientMetas10 = false;
+                $scope.adminDivClientMetas11 = false;
+                $scope.adminDivClientMetas12 = true;
                 $scope.adminDivClientHistory = false;
                 $scope.adminDivClientAntropo = false;                        
                 $scope.adminDivClientQuizFunc = false;
@@ -263,6 +491,36 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         };
 
         $scope.showNewLineAntro = function() {
+            if ($scope.hist.dateString_20 == null && $scope.hist.dateString_19 != null) {
+                $scope.consult.c20 = true;
+            } 
+            if ($scope.hist.dateString_19 == null && $scope.hist.dateString_18 != null) {
+                $scope.consult.c19 = true;
+            } 
+            if ($scope.hist.dateString_18 == null && $scope.hist.dateString_17 != null) {
+                $scope.consult.c18 = true;
+            } 
+            if ($scope.hist.dateString_17 == null && $scope.hist.dateString_16 != null) {
+                $scope.consult.c17 = true;
+            } 
+            if ($scope.hist.dateString_16 == null && $scope.hist.dateString_15 != null) {
+                $scope.consult.c16 = true;
+            } 
+            if ($scope.hist.dateString_15 == null && $scope.hist.dateString_14 != null) {
+                $scope.consult.c15 = true;
+            } 
+            if ($scope.hist.dateString_14 == null && $scope.hist.dateString_13 != null) {
+                $scope.consult.c14 = true;
+            } 
+            if ($scope.hist.dateString_13 == null && $scope.hist.dateString_12 != null) {
+                $scope.consult.c13 = true;
+            } 
+            if ($scope.hist.dateString_12 == null && $scope.hist.dateString_11 != null) {
+                $scope.consult.c12 = true;
+            } 
+            if ($scope.hist.dateString_11 == null && $scope.hist.dateString_10 != null) {
+                $scope.consult.c11 = true;
+            } 
             if ($scope.hist.dateString_10 == null && $scope.hist.dateString_09 != null) {
                 $scope.consult.c10 = true;
             } 
@@ -444,6 +702,36 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.usersList = usersList;
                 for(var iii = 0; iii < usersList.length; iii++) {
                     if (typeof usersList[iii].client_history !== 'undefined') {
+                        if (usersList[iii].client_history.da_20_01 == null && usersList[iii].client_history.da_19_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_19_01;
+                        }
+                        if (usersList[iii].client_history.da_19_01 == null && usersList[iii].client_history.da_18_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_18_01;
+                        }
+                        if (usersList[iii].client_history.da_18_01 == null && usersList[iii].client_history.da_17_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_17_01;
+                        }
+                        if (usersList[iii].client_history.da_17_01 == null && usersList[iii].client_history.da_16_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_16_01;
+                        }
+                        if (usersList[iii].client_history.da_16_01 == null && usersList[iii].client_history.da_15_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_15_01;
+                        }
+                        if (usersList[iii].client_history.da_15_01 == null && usersList[iii].client_history.da_14_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_14_01;
+                        }
+                        if (usersList[iii].client_history.da_14_01 == null && usersList[iii].client_history.da_13_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_13_01;
+                        }
+                        if (usersList[iii].client_history.da_13_01 == null && usersList[iii].client_history.da_12_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_12_01;
+                        }
+                        if (usersList[iii].client_history.da_12_01 == null && usersList[iii].client_history.da_11_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_1_01;
+                        }
+                        if (usersList[iii].client_history.da_11_01 == null && usersList[iii].client_history.da_10_01 != null) {
+                            $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da10_01;
+                        }
                         if (usersList[iii].client_history.da_10_01 == null && usersList[iii].client_history.da_09_01 != null) {
                             $scope.usersList[iii].client_history.lastConsult = usersList[iii].client_history.da_09_01;
                         }
@@ -558,7 +846,27 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.hist.dateString_08 = $scope.clientHist.da_08_01; 
             $scope.hist.dateString_09 = $scope.clientHist.da_09_01; 
             $scope.hist.dateString_10 = $scope.clientHist.da_10_01; 
+            $scope.hist.dateString_11 = $scope.clientHist.da_11_01; 
+            $scope.hist.dateString_12 = $scope.clientHist.da_12_01; 
+            $scope.hist.dateString_13 = $scope.clientHist.da_13_01; 
+            $scope.hist.dateString_14 = $scope.clientHist.da_14_01; 
+            $scope.hist.dateString_15 = $scope.clientHist.da_15_01; 
+            $scope.hist.dateString_16 = $scope.clientHist.da_16_01; 
+            $scope.hist.dateString_17 = $scope.clientHist.da_17_01; 
+            $scope.hist.dateString_18 = $scope.clientHist.da_18_01; 
+            $scope.hist.dateString_19 = $scope.clientHist.da_19_01; 
+            $scope.hist.dateString_20 = $scope.clientHist.da_20_01; 
 
+            $scope.prox.proxConsult20 = $scope.clientHist.proxConsult_20;
+            $scope.prox.proxConsult19 = $scope.clientHist.proxConsult_19;
+            $scope.prox.proxConsult18 = $scope.clientHist.proxConsult_18;
+            $scope.prox.proxConsult17 = $scope.clientHist.proxConsult_17;
+            $scope.prox.proxConsult16 = $scope.clientHist.proxConsult_16;
+            $scope.prox.proxConsult15 = $scope.clientHist.proxConsult_15;
+            $scope.prox.proxConsult14 = $scope.clientHist.proxConsult_14;
+            $scope.prox.proxConsult13 = $scope.clientHist.proxConsult_13;
+            $scope.prox.proxConsult12 = $scope.clientHist.proxConsult_12;
+            $scope.prox.proxConsult11 = $scope.clientHist.proxConsult_11;
             $scope.prox.proxConsult10 = $scope.clientHist.proxConsult_10;
             $scope.prox.proxConsult9 = $scope.clientHist.proxConsult_09;
             $scope.prox.proxConsult8 = $scope.clientHist.proxConsult_08;
@@ -571,6 +879,552 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.prox.proxConsult1 = $scope.clientHist.proxConsult_01;
 
             var pos01, pos02, pos03, pos04;
+            //12
+            if ($scope.clientHist.meta12 != null) {
+                switch ($scope.clientHist.meta12.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta12.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta12.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta12.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //11
+            if ($scope.clientHist.meta11 != null) {
+                switch ($scope.clientHist.meta11.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta11.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta11.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta11.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //10
+            if ($scope.clientHist.meta10 != null) {
+                switch ($scope.clientHist.meta10.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta10.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta10.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta10.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //9
+            if ($scope.clientHist.meta09 != null) {
+                switch ($scope.clientHist.meta09.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta09.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta09.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta09.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //8
+            if ($scope.clientHist.meta08 != null) {
+                switch ($scope.clientHist.meta08.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta08.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta08.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta08.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //7
+            if ($scope.clientHist.meta07 != null) {
+                switch ($scope.clientHist.meta07.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta07.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta07.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta07.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
             //6
             if ($scope.clientHist.meta06 != null) {
                 switch ($scope.clientHist.meta06.meta_01_pos) {
@@ -1143,6 +1997,56 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                
             };
 
+            if ($scope.hist.dateString_020 != null) {
+                if (!$scope.clientHist.quizhis_20_3 || !$scope.clientHist.quizhis_20_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
+            if ($scope.hist.dateString_019 != null) {
+                if (!$scope.clientHist.quizhis_19_3 || !$scope.clientHist.quizhis_19_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
+            if ($scope.hist.dateString_018 != null) {
+                if (!$scope.clientHist.quizhis_18_3 || !$scope.clientHist.quizhis_18_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
+            if ($scope.hist.dateString_017 != null) {
+                if (!$scope.clientHist.quizhis_17_3 || !$scope.clientHist.quizhis_17_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
+            if ($scope.hist.dateString_016 != null) {
+                if (!$scope.clientHist.quizhis_16_3 || !$scope.clientHist.quizhis_16_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
+            if ($scope.hist.dateString_015 != null) {
+                if (!$scope.clientHist.quizhis_15_3 || !$scope.clientHist.quizhis_15_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
+            if ($scope.hist.dateString_014 != null) {
+                if (!$scope.clientHist.quizhis_14_3 || !$scope.clientHist.quizhis_14_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
+            if ($scope.hist.dateString_013 != null) {
+                if (!$scope.clientHist.quizhis_13_3 || !$scope.clientHist.quizhis_13_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
+            if ($scope.hist.dateString_012 != null) {
+                if (!$scope.clientHist.quizhis_12_3 || !$scope.clientHist.quizhis_12_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
+            if ($scope.hist.dateString_011 != null) {
+                if (!$scope.clientHist.quizhis_11_3 || !$scope.clientHist.quizhis_11_2) {
+                    alert('Atenção, campos vazios no histórico!!!')
+                }
+            }
             if ($scope.hist.dateString_010 != null) {
                 if (!$scope.clientHist.quizhis_10_3 || !$scope.clientHist.quizhis_10_2) {
                     alert('Atenção, campos vazios no histórico!!!')
@@ -1303,7 +2207,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 }
             }
 
-            if (!$scope.clientDetail.locConsulta && !$scope.clientDetail.proxConsult && !$scope.clientDetail.codBis && !$scope.clientDetail.online) {
+            /* if (!$scope.clientDetail.locConsulta && !$scope.clientDetail.proxConsult && !$scope.clientDetail.codBis && !$scope.clientDetail.online) {
                 alert('Atenção, Local Consulta ou Código Empresarial e Data Prox. Consulta não estão preenchidos!!!')
             }
 
@@ -1313,7 +2217,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
             if (!$scope.clientDetail.proxConsult) {
                 alert('Atenção, Data Prox. Consulta não está preenchida!!!')
-            }
+            } */
 
             $scope.showDetails = true;
 
@@ -1354,7 +2258,27 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.hist.dateString_08 = $scope.clientHist.da_08_01; 
             $scope.hist.dateString_09 = $scope.clientHist.da_09_01; 
             $scope.hist.dateString_10 = $scope.clientHist.da_10_01; 
+            $scope.hist.dateString_11 = $scope.clientHist.da_11_01; 
+            $scope.hist.dateString_12 = $scope.clientHist.da_12_01; 
+            $scope.hist.dateString_13 = $scope.clientHist.da_13_01; 
+            $scope.hist.dateString_14 = $scope.clientHist.da_14_01; 
+            $scope.hist.dateString_15 = $scope.clientHist.da_15_01; 
+            $scope.hist.dateString_16 = $scope.clientHist.da_16_01; 
+            $scope.hist.dateString_17 = $scope.clientHist.da_17_01; 
+            $scope.hist.dateString_18 = $scope.clientHist.da_18_01; 
+            $scope.hist.dateString_19 = $scope.clientHist.da_19_01; 
+            $scope.hist.dateString_20 = $scope.clientHist.da_20_01; 
 
+            $scope.prox.proxConsult20 = $scope.clientHist.proxConsult_20;
+            $scope.prox.proxConsult19 = $scope.clientHist.proxConsult_19;
+            $scope.prox.proxConsult18 = $scope.clientHist.proxConsult_18;
+            $scope.prox.proxConsult17 = $scope.clientHist.proxConsult_17;
+            $scope.prox.proxConsult16 = $scope.clientHist.proxConsult_16;
+            $scope.prox.proxConsult15 = $scope.clientHist.proxConsult_15;
+            $scope.prox.proxConsult14 = $scope.clientHist.proxConsult_14;
+            $scope.prox.proxConsult13 = $scope.clientHist.proxConsult_13;
+            $scope.prox.proxConsult12 = $scope.clientHist.proxConsult_12;
+            $scope.prox.proxConsult11 = $scope.clientHist.proxConsult_11;
             $scope.prox.proxConsult10 = $scope.clientHist.proxConsult_10;
             $scope.prox.proxConsult9 = $scope.clientHist.proxConsult_09;
             $scope.prox.proxConsult8 = $scope.clientHist.proxConsult_08;
@@ -1367,6 +2291,552 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.prox.proxConsult1 = $scope.clientHist.proxConsult_01;
 
             var pos01, pos02, pos03, pos04;
+            //12
+            if ($scope.clientHist.meta12 != null) {
+                switch ($scope.clientHist.meta12.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta12.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta12.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta12.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //11
+            if ($scope.clientHist.meta11 != null) {
+                switch ($scope.clientHist.meta11.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta11.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta11.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta11.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //10
+            if ($scope.clientHist.meta10 != null) {
+                switch ($scope.clientHist.meta10.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta10.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta10.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta10.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //9
+            if ($scope.clientHist.meta09 != null) {
+                switch ($scope.clientHist.meta09.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta09.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta09.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta09.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //8
+            if ($scope.clientHist.meta08 != null) {
+                switch ($scope.clientHist.meta08.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta08.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta08.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta08.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
+            //7
+            if ($scope.clientHist.meta07 != null) {
+                switch ($scope.clientHist.meta07.meta_01_pos) {
+                    case "1":
+                        pos01 = 0;
+                        break;
+                    case "2":
+                        pos01 = 25;
+                        break;
+                    case "3":
+                        pos01 = 50;
+                        break;
+                    case "4":
+                        pos01 = 75;
+                        break;
+                    case "5":
+                        pos01 = 100;
+                        break;
+                }
+                $scope.metaSaude = [
+                    {v: "Saude"},
+                    {v: pos01},
+                    {v: '#0886d4'}
+                ];;
+                switch ($scope.clientHist.meta07.meta_02_pos) {
+                    case "1":
+                        pos02 = 0;
+                        break;
+                    case "2":
+                        pos02 = 25;
+                        break;
+                    case "3":
+                        pos02 = 50;
+                        break;
+                    case "4":
+                        pos02 = 75;
+                        break;
+                    case "5":
+                        pos02 = 100;
+                        break;
+                }
+                $scope.metaDesporto = [
+                    {v: "Desporto"},
+                    {v: pos02},
+                    {v: '#cf0000'}
+                ];
+                switch ($scope.clientHist.meta07.meta_03_pos) {
+                    case "1":
+                        pos03 = 0;
+                        break;
+                    case "2":
+                        pos03 = 25;
+                        break;
+                    case "3":
+                        pos03 = 50;
+                        break;
+                    case "4":
+                        pos03 = 75;
+                        break;
+                    case "5":
+                        pos03 = 100;
+                        break;
+                }
+                $scope.metaPsico = [
+                    {v: "Psicologia"},
+                    {v: pos03},
+                    {v: '#ffd900'}
+                ];
+                switch ($scope.clientHist.meta07.meta_04_pos) {
+                    case "1":
+                        pos04 = 0;
+                        break;
+                    case "2":
+                        pos04 = 25;
+                        break;
+                    case "3":
+                        pos04 = 50;
+                        break;
+                    case "4":
+                        pos04 = 75;
+                        break;
+                    case "5":
+                        pos04 = 100;
+                        break;
+                }
+                $scope.metaNutri = [
+                    {v: "Nutrição"},
+                    {v: pos04},
+                    {v: '#00bd13'}
+                ];
+            }
             //6
             if ($scope.clientHist.meta06 != null) {
                 switch ($scope.clientHist.meta06.meta_01_pos) {
@@ -2099,6 +3569,39 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                 $scope.clientHist.proxConsult_10 = $scope.prox.proxConsult10;
             }
 
+            if ($scope.prox.proxConsult11) {
+                $scope.clientHist.proxConsult_11 = $scope.prox.proxConsult11;
+            }
+            if ($scope.prox.proxConsult12) {
+                $scope.clientHist.proxConsult_12 = $scope.prox.proxConsult12;
+            }
+            if ($scope.prox.proxConsult13) {
+                $scope.clientHist.proxConsult_13 = $scope.prox.proxConsult13;
+            }
+            if ($scope.prox.proxConsult14) {
+                $scope.clientHist.proxConsult_14 = $scope.prox.proxConsult14;
+            }
+            if ($scope.prox.proxConsult15) {
+                $scope.clientHist.proxConsult_15 = $scope.prox.proxConsult15;
+            }
+            if ($scope.prox.proxConsult16) {
+                $scope.clientHist.proxConsult_16 = $scope.prox.proxConsult16;
+            }
+            if ($scope.prox.proxConsult17) {
+                $scope.clientHist.proxConsult_17 = $scope.prox.proxConsult17;
+            }
+            if ($scope.prox.proxConsult18) {
+                $scope.clientHist.proxConsult_18 = $scope.prox.proxConsult18;
+            }
+            if ($scope.prox.proxConsult19) {
+                $scope.clientHist.proxConsult_19 = $scope.prox.proxConsult19;
+            }
+            if ($scope.prox.proxConsult20) {
+                $scope.clientHist.proxConsult_20 = $scope.prox.proxConsult20;
+            }
+
+
+
             if ($scope.hist.dateString_01) {
                 $scope.clientHist.da_01_01 = $scope.hist.dateString_01;
             }
@@ -2126,8 +3629,36 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             if ($scope.hist.dateString_09) {
                 $scope.clientHist.da_09_01 = $scope.hist.dateString_09;
             }
-            if ($scope.hist.dateString_10) {
-                $scope.clientHist.da_10_01 = $scope.hist.dateString_10;
+           
+            if ($scope.hist.dateString_11) {
+                $scope.clientHist.da_11_01 = $scope.hist.dateString_11;
+            }
+            if ($scope.hist.dateString_12) {
+                $scope.clientHist.da_12_01 = $scope.hist.dateString_12;
+            }
+            if ($scope.hist.dateString_13) {
+                $scope.clientHist.da_13_01 = $scope.hist.dateString_13;
+            }
+            if ($scope.hist.dateString_14) {
+                $scope.clientHist.da_14_01 = $scope.hist.dateString_14;
+            }
+            if ($scope.hist.dateString_15) {
+                $scope.clientHist.da_15_01 = $scope.hist.dateString_15;
+            }
+            if ($scope.hist.dateString_16) {
+                $scope.clientHist.da_16_01 = $scope.hist.dateString_16;
+            }
+            if ($scope.hist.dateString_17) {
+                $scope.clientHist.da_17_01 = $scope.hist.dateString_17;
+            }
+            if ($scope.hist.dateString_18) {
+                $scope.clientHist.da_18_01 = $scope.hist.dateString_18;
+            }
+            if ($scope.hist.dateString_19) {
+                $scope.clientHist.da_19_01 = $scope.hist.dateString_19;
+            }
+            if ($scope.hist.dateString_20) {
+                $scope.clientHist.da_20_01 = $scope.hist.dateString_20;
             }
             /* if ($scope.hist.dateStringConsult_01) {
                 $scope.clientHist.quizhis_1_1 = $scope.hist.dateStringConsult_01;

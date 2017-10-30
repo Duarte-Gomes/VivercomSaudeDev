@@ -309,7 +309,6 @@
     </div>
 </div>
 <div class="row" style="margin-top: 20px;">
-    
     <div class="col-sm-4">
         <button class="btn btn-primary" style="margin-top: 12px;">Enviar boas vindas(não esta a funcionar)</button>
     </div>
@@ -318,9 +317,9 @@
         <button ng-click="unblockQuizFunc()" class="btn btn-danger" style="margin-top: 12px;" ng-show="clientDetail.isQuizFuncBlock">Desbloquear Questionário Funcional</button>
     </div>
     <div class="col-sm-4">
-        <button ng-click="unblockMetasFunc()" class="btn btn-success" style="margin-top: 12px;" ng-hide="clientDetail.isMetasFuncUnblock">Desbloquear Metas Funcionais</button>
-        <button ng-click="blockMetasFunc()" class="btn btn-danger" style="margin-top: 12px;" ng-show="clientDetail.isMetasFuncUnblock">Bloquear Metas Funcionais</button>
-        </div>
+        <button ng-click="unblockMetasFunc()" class="btn btn-success" style="margin-top: 12px;" ng-hide="clientDetail.blockMetasFunc">Desbloquear Metas Funcionais</button>
+        <button ng-click="blockMetasFunc()" class="btn btn-danger" style="margin-top: 12px;" ng-show="clientDetail.blockMetasFunc">Bloquear Metas Funcionais</button>
+    </div>
 </div>
 
 <div class="row" style="margin-top: 20px;">

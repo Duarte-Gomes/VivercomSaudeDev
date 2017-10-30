@@ -99,13 +99,18 @@
                 <input type="text" class="form-control" id="InputCupon" ng-model="clientDetail.cuponPt">
             </div>
         </div>
-    
-        <div class="col-sm-4" ng-show="clientDetail.downloadURL">
-            
+        <div class="col-sm-2" ng-show="clientDetail.downloadURL">
+            <div class="col-sm-8" style="padding: 0;">
                 <label>Download Plano Nutricional</label>
+            </div>
+            <div class="col-sm-4" style="padding: 0;">
                 <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
-        
+            </div>
         </div>
+        <!-- <div class="col-sm-2" ng-show="clientDetail.oneDriveLink">
+            <label>Link OneDrive</label>
+            <a ng-href="{{clientDetail.oneDriveLink}}" target="_blank">Link OneDrive</a>
+        </div> -->
     </div>
 
     <div class="row">

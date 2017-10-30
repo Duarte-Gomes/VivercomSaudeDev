@@ -1,5 +1,5 @@
 <div class="div-height-inner">
-    <div class="div-shadow-style-pad15" style="padding-bottom: 0;">
+    <div class="div-shadow-style-pad15">
         <div class="row">
             <div class="col-sm-3">
                 <div class="dashBox text-center">
@@ -15,15 +15,17 @@
                     </button>
                 </div>
             </div>
-            <div class="col-sm-3" ng-hide="adminDash">
+            <div class="col-sm-3" ng-show="clientDetail.blockMetasFunc"><!--utilizador-->
+                <div ng-show="isUser">
                     <div class="dashBox text-center">
-                        <p class="dashTitle">Metas Funcionais</p>
+                        <p class="dashTitle">Metas Funcionais1</p>
                         <button class="button-dash" ng-click="showMetas()">    
                             <i class="fa fa-flag-checkered dashPlanoNutri" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
-            <div class="col-sm-3" ng-show="adminDash">
+            </div>
+            <div class="col-sm-3" ng-hide="isUser"><!--admin-->
                 <div class="dashBox text-center">
                     <p class="dashTitle">Metas Funcionais</p>
                     <button class="button-dash" ng-click="showLastMeta()">
@@ -52,7 +54,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" ng-show="clientDetail.blockMetasFunc">
             <div class="col-sm-12 chart-dash">  
                 <div google-chart chart="metasFuncionais"></div>
             </div>
