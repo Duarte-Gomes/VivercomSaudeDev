@@ -1,0 +1,38 @@
+<div class="row" style="padding-top: 15px;">
+    <div class="col-sm-3">
+        <div class="dashBox text-center">
+            <p class="dashTitle">Visualize aqui o seu plano nutricional</p>
+            <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o dashPlanoNutri" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <div class="col-sm-3" >
+        <div class="dashBox text-center">
+            <p class="dashTitle">Dados Antropométricos</p>
+            <button class="button-dash" ng-click="showAntropo()">    
+                <i class="fa fa-tachometer dashPlanoNutri" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="dashBox">
+            <p class="dashTitleProx">Próx. Consulta</p>
+            <p class="dashValueProx">{{tempScope.proxConsultDash}}</p>
+            <p class="dashValueProx">{{tempScope.proxConsultDashHour}}h{{tempScope.proxConsultDashMinutes}}</p>
+        </div>
+    </div>
+    <div class="col-sm-3" ng-show="clientDetail.blockMetasFunc">
+        <div class="dashBox text-center">
+            <p class="dashTitle">Metas Funcionais</p>
+            <button class="button-dash" ng-click="showLastMeta()">
+                <i class="fa fa-flag-checkered dashPlanoNutri" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row" ng-show="clientDetail.blockMetasFunc">
+    <div class="col-sm-12 chart-dash">  
+        <div google-chart chart="metasFuncionais"></div>
+    </div>
+</div>
+    

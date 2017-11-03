@@ -431,7 +431,7 @@ app.controller('HistoricoCgiCtrl', ['$scope', 'Auth', '$location', 'currentAuth'
         ]
 
         $scope.bloodTypeList = [
-            "A", "B", "AB", "O"
+            "A(+)", "A(-)", "B(+)", "B(-)", "AB(+)", "AB(-)", "O(+)", "O(-)"
         ]
 
 /////////////////////////////////////////////////////

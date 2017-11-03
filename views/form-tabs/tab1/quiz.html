@@ -44,8 +44,15 @@
     <div class="row">
         <div class="col-sm-4" ng-hide="clientDetail.codBis">
             <div class="form-group">
-                <label for="InputLConsulta">Local / Ginásio / Box</label>
-                <select ng-model="clientDetail.locConsulta" class="form-control" id="InputLConsulta" ng-options="x for x in consultLocal">
+                <label for="InputLConsulta">Local / Ginásio / Box: <span style="font-size:18px;">{{clientDetail.locConsulta}}</span></label>
+                <select ng-model="clientDetail.locConsulta" class="form-control" id="InputLConsulta">
+                    <option 
+                        ng-selected="clientDetail.locConsulta == x.local.name"
+                        ng-repeat="x in localList" 
+                        ng-value="x.local.name">
+                            {{x.local.name}}
+                    </option>
+                <!-- <select ng-model="clientDetail.locConsulta" class="form-control" id="InputLConsulta" ng-options="x for x in consultLocal"> -->
                 </select>
             </div>
         </div>
@@ -93,9 +100,9 @@
                 <input type="checkbox" id="authnewsletter" ng-model="clientDetail.authorize.newsletter"> Newsletter
             </label>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-4">
             <div class="form-group">
-                <label for="InputCupon">Cupão</label>
+                <label for="InputCupon">Cupão Promocional<span style="font-size: 11px;">(Caso possua um cupão coloque aqui)</span></label>
                 <input type="text" class="form-control" id="InputCupon" ng-model="clientDetail.cuponPt">
             </div>
         </div>
@@ -141,6 +148,7 @@
     <br>
     
     <div class="text-center">   
+        <button class="btn btn-warning button-style text-center" ng-click="home()">Voltar Atrás</button>
         <button class="btn btn-success button-style text-center" ng-click="saveUserDetails()">Gravar</button>
     </div>
 </div>

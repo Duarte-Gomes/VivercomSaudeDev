@@ -59,7 +59,7 @@
                         <ul class="nav navbar-nav navbar-right" ng-hide="firstVisit.firstVisit">
                             <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="home()">INÍCIO</a></li>
                             <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showPersonQuiz()" ng-hide="clientDetail.isQuizFuncBlock">QUESTIONÁRIO FUNCIONAL</a></li>
-                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showAntropo()" ng-show="clientHist.clientHist.da_01_01">DADOS ANTROPOMÊTRICOS</a></li>
+                            <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showAntropo()" ng-show="clientHist.da_01_01">DADOS ANTROPOMÊTRICOS</a></li>
                             <li><a href="" data-toggle="collapse" data-target=".navbar-collapse.in" class="buttonMenu" ng-click="showMetas()" ng-show="clientDetail.isMetasFuncUnblock">METAS FUNCIONAIS</a></li>
                             <!-- <li><button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-click="showPersonQuiz()">QUESTIONÁRIO FUNCIONAL</button></li> -->              
                             <!--<button data-toggle="collapse" data-target=".navbar-collapse" type="button" class="btn buttonMenu" ng-hide="spyderQuizComplete" ng-click="showPersonSpyder()">QUESTIONÁRIO PERFIL</button>-->             
@@ -84,14 +84,14 @@
         </div>
 
         <div id="isDashboard" ng-show="isDashboard" class="row div-height-fix"><!--ng-show="dashUser"-->
-            <div ng-include="'views/form-tabs/tabhistory/dashboard.html'"></div>
+            <div ng-include="'views/form-tabs/tabhistory/userDashboard.html'"></div>
         </div>
      
         <div id="personDetails" ng-show="isPersonDetails" class="row div-height-fix">
             <div class="details-style" ng-include="'views/form-tabs/tab1/quiz.html'"></div>
         </div>
 
-        <div id="personAntropo" ng-show="isPersonAntropo" class="row div-height-fix">
+        <div id="personAntropo" ng-show="isPersonAntropo" class="row">
             <div ng-include="'views/dadosantropometricosuser.html'"></div>
         </div>
 

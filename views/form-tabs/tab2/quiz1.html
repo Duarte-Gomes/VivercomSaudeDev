@@ -35,17 +35,16 @@
                 </label>
             </div>
         </div>
-        <div class="col-sm-3 no-pad-left">
-            <div class="radio">
+        <div class="col-sm-9 no-pad-left" style="display: inline-flex;">
+            <div class="radio" style="margin-right: 10px;">
                 <label>
                     <input type="radio" ng-model="clientForm.quiz01" value="4">
-                    Outro
+                    Outro/s?
                 </label>
+                <div ng-show="clientForm.quiz01 == '4'" style="display: inline-flex; width: 100%;">
+                    <input class="form-control" type="text" ng-model="clientForm.quiz01_1">
+                </div>
             </div>
-            <!-- <div class="col-sm-6" ng-show="clientForm.quiz2_7" style="display: inline-flex;">
-                <label class="label-qual">Qual?</label>
-                <input class="form-control" type="text" ng-model="clientForm.quiz2_7_1">
-            </div>-->
         </div>
     </div>
     <div class="col-sm-12" style="margin: 15px 0;">

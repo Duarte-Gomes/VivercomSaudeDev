@@ -1,39 +1,48 @@
 <div class="container">
-    <div class="row">
-        <h4>BackOffice</h4>
+    <div class="row text-center">
+        <h3>BackOffice</h3>
     </div>
     <div class="row">
-        <p>Marca de Suplementos</p>
+        <h4 style="font-weight: bold;">Locais de Consulta</h4>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="local">Novo Local</label>
+                <input type="text" class="form-control" id="local" ng-model="local.name">
+            </div>
+            <button ng-click="saveLocal()">Gravar</button>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="localList">Lista de Locais</label>
+                <select ng-model="tempLocal.name" class="form-control" id="categoria" ng-options="x.local.name for x in localList"></select>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <h4 style="font-weight: bold;">Suplementos</h4>
         <div class="col-sm-6">
             <div class="form-group">
-                <label for="marcaSup">Marca</label>
+                <label for="marcaSup">Marcas de Suplementos</label>
                 <input type="text" class="form-control" id="marcaSup" ng-model="suplementBrand.name">
             </div>
+            <button ng-click="saveSuplementBrand()">Gravar</button>
         </div>
-    </div>
-    <div class="row">
-        <button ng-click="saveSuplementBrand()">Gravar</button>
-    </div>
-
-    <br>
-
-    <div class="row">
-        <p>Categorias de Suplementos</p>
         <div class="col-sm-6">
             <div class="form-group">
-                <label for="categoriaSup">Categoria</label>
+                <label for="categoriaSup">Categorias de Suplementos </label>
                 <input type="text" class="form-control" id="categoriaSup" ng-model="suplementCategory.name">
             </div>
+            <button ng-click="saveSuplementCategory()">Gravar</button>
         </div>
-    </div>
-    <div class="row">
-        <button ng-click="saveSuplementCategory()">Gravar</button>
     </div>
 
     <br>
 
     <div class="row">
-        <p>Suplementos</p>
+        <h4 style="font-weight: bold;">Criar Suplementos</h4>
         <div class="col-sm-6">
             <div class="form-group">
                 <label for="marca">Marca</label>
@@ -70,8 +79,8 @@
                 <input  class="form-control" id="posologia" ng-model="suplement.dosage">
             </div>
         </div>
-    </div>
-    <div class="row">
-        <button ng-click="saveSuplement()">Gravar</button>
+        <div class="col-sm-3">
+            <button ng-click="saveSuplement()">Criar</button>
+        </div>
     </div>
 </div>

@@ -11,6 +11,13 @@ app.factory("usersList", ["$firebaseArray",
     }
 ]);
 
+app.factory("localList", ["$firebaseArray",
+function($firebaseArray) {
+    var ref = firebase.database().ref("local");
+    return $firebaseArray(ref);
+}
+]);
+
 app.factory("suplementsList", ["$firebaseArray",
     function($firebaseArray) {
         var ref = firebase.database().ref("suplements").child("suplementsList");

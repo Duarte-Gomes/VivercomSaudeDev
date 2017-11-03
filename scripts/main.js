@@ -1,5 +1,5 @@
-app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', '$mdSidenav', '$mdDialog', '$firebaseStorage',
-    function($scope, Auth, $location, currentAuth, usersList, $mdSidenav, $mdDialog, $firebaseStorage, $timeout) {   
+app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'localList', '$mdSidenav', '$mdDialog', '$firebaseStorage',
+    function($scope, Auth, $location, currentAuth, usersList, localList, $mdSidenav, $mdDialog, $firebaseStorage, $timeout) {   
 
         $scope.usersList = {};
         $scope.clientDetail = {"pos": 1};
@@ -12,6 +12,7 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
         $scope.clientType = {};
         $scope.saveUserDetails = {};
         $scope.getPostDetails = {};
+        $scope.tempScope = {};
 
         $scope.isUser = true;
 
@@ -39,17 +40,20 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
 
         $scope.yearList = ["2016", "2017"];
 
-        $scope.consultLocal = [
+        localList.$loaded().then(function() {  
+            $scope.localList = localList;
+        });
+        /* $scope.consultLocal = [
             "100% Natur", "Externos", "Online", "Bakery CrossFit", "Box1RM", "CGI", 
             "CrossFit 351", "CrossFit Almada", "CrossFit Coimbra", "CrossFit Fátima", 
             "CrossFit Leiria", "CrossFit Odivelas", "CrossFit Torres Vedras", "CrossFit XXI", 
             "Farmácia Uruguai", "Formas Fitness", "Gabinete de Fisioterapia no Desporto", 
             "ImpactGym Moura", "Mean Machine", "Nutriscoop", "Oeste Cross Box", "Prime Body", 
             "Silver Coast", "Wiva Tomar", "Wiva Torres Novas"
-        ];
+        ]; */
 
         $scope.bloodTypeList = [
-            "A", "B", "AB", "O"
+            "A(+)", "A(-)", "B(+)", "B(-)", "AB(+)", "AB(-)", "O(+)", "O(-)"
         ];
 
         $scope.metaProgram = [
@@ -240,7 +244,6 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                         postKey = usersList[i].$id;
                         postIndex = i;
                         $scope.clientDetail.email = $scope.firebaseUser.email;
-
                         var ageBirthday = $scope.clientDetail.dayBirth + '/' + $scope.clientDetail.monthBirth + '/' + $scope.clientDetail.yearBirth;
                         var monthBirthTemp;
 
@@ -307,6 +310,106 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                         if ($scope.clientHist.meta01 != null && $scope.clientHist.meta02 == null) {
                             $scope.metasUser = $scope.clientHist.meta01;
                         }
+
+
+                        if (typeof usersList[i].client_history !== 'undefined') {
+                            if (usersList[i].client_history.da_20_01 == null && usersList[i].client_history.da_19_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_19;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_19_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_19_Minute;
+                            }
+                            if (usersList[i].client_history.da_19_01 == null && usersList[i].client_history.da_18_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_18;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_18_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_18_Minute;
+                            }
+                            if (usersList[i].client_history.da_18_01 == null && usersList[i].client_history.da_17_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_17;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_17_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_17_Minute;
+                            }
+                            if (usersList[i].client_history.da_17_01 == null && usersList[i].client_history.da_16_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_16;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_16_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_16_Minute;
+                            }
+                            if (usersList[i].client_history.da_16_01 == null && usersList[i].client_history.da_15_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_15;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_15_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_15_Minute;
+                            }
+                            if (usersList[i].client_history.da_15_01 == null && usersList[i].client_history.da_14_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_14;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_14_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_14_Minute;
+                            }
+                            if (usersList[i].client_history.da_14_01 == null && usersList[i].client_history.da_13_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_13;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_13_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_13_Minute;
+                            }
+                            if (usersList[i].client_history.da_13_01 == null && usersList[i].client_history.da_12_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_12;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_12_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_12_Minute;
+                            }
+                            if (usersList[i].client_history.da_12_01 == null && usersList[i].client_history.da_11_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_11;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_11_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_11_Minute;
+                            }
+                            if (usersList[i].client_history.da_11_01 == null && usersList[i].client_history.da_10_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_10;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_10_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_10_Minute;
+                            }
+                            if (usersList[i].client_history.da_10_01 == null && usersList[i].client_history.da_09_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_09;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_09_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_09_Minute;
+                            }
+                            if (usersList[i].client_history.da_09_01 == null && usersList[i].client_history.da_08_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_08;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_08_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_08_Minute;
+                            }
+                            if (usersList[i].client_history.da_08_01 == null && usersList[i].client_history.da_07_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_07;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_07_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_07_Minute;
+                            }
+                            if (usersList[i].client_history.da_07_01 == null && usersList[i].client_history.da_06_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_06;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_06_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_06_Minute;
+                            }
+                            if (usersList[i].client_history.da_06_01 == null && usersList[i].client_history.da_05_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_05;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_05_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_05_Minute;
+                            }
+                            if (usersList[i].client_history.da_05_01 == null && usersList[i].client_history.da_04_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_04;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_04_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_04_Minute;
+                            }
+                            if (usersList[i].client_history.da_04_01 == null && usersList[i].client_history.da_03_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_03;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_03_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_03_Minute;
+                            }
+                            if (usersList[i].client_history.da_03_01 == null && usersList[i].client_history.da_02_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_02;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_02_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_02_Minute;
+                            }
+                            if (usersList[i].client_history.da_02_01 == null && usersList[i].client_history.da_01_01 != null) {
+                                $scope.tempScope.proxConsultDash = $scope.clientHist.proxConsult_01;
+                                $scope.tempScope.proxConsultDashHour = $scope.clientHist.proxConsult_01_Hour;
+                                $scope.tempScope.proxConsultDashMinutes = $scope.clientHist.proxConsult_01_Minute;
+                            }
+                        } 
+
 
                         if ($scope.firstVisit.firstVisit == false) {
                             if ($scope.clientHist.da_01_01 == null) {
@@ -1011,7 +1114,16 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
             } else {
                 $scope.usersList.$save(postIndex).then(function() {
                     $scope.getPostDetails(postKey);
-                    alert("Registo gravado!");  
+                    alert("Registo gravado!"); 
+
+                    $scope.isPersonDetails = false; 
+                    if ($scope.firstVisit.firstVisit == false) {
+                        if ($scope.clientHist.da_01_01 == null) {
+                            $scope.yourWelcome = true;
+                        } else {
+                            $scope.isDashboard = true;
+                        }
+                    }
                 });
             }
         };

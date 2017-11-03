@@ -58,6 +58,17 @@
                 </label>
             </div>
         </div>
+        <div class="col-sm-12" style="display: inline-flex;">
+            <div class="checkbox" style="margin-right: 10px;">
+                <label>
+                    <input type="checkbox" ng-model="clientForm.quiz11_7">
+                    Outro/s?
+                </label>
+            </div>
+            <div ng-show="clientForm.quiz11_7" style="display: inline-flex; width: 100%;">
+                <input class="form-control" type="text" ng-model="clientForm.quiz11_1">
+            </div>
+        </div>
     </div>
 </div>
 

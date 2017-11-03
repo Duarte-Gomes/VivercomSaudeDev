@@ -1,20 +1,18 @@
-app.controller('DudasCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'suplementsList', 'suplementsBrand', 'suplementsCategories', '$firebaseStorage',
-    function($scope, Auth, $location, currentAuth, usersList, suplementsList, suplementsBrand, suplementsCategories, $firebaseStorage) {
+app.controller('BackOfficeCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'localList', 'suplementsList', 'suplementsBrand', 'suplementsCategories', '$firebaseStorage',
+    function($scope, Auth, $location, currentAuth, usersList, localList, suplementsList, suplementsBrand, suplementsCategories, $firebaseStorage) {
 
-        /* $scope.suplementCategory = [
-            "Hidratos de Carbono",
-            "Pré-Treino",
-            "Aminoácidos",
-            "Whey Concentrada",
-            "Whey Isolada",
-            "Produtos Alimentares",
-            "Outros"
-        ]; */
+        localList.$loaded().then(function() {  
+            $scope.localList = localList;
+        });
 
-        /* $scope.suplementBrand = [
-            "Prozis",
-            "PrimeBody"
-        ]; */
+        $scope.saveLocal = function() {
+            $scope.localList.$add({
+                local: $scope.local,
+                timestamp: firebase.database.ServerValue.TIMESTAMP
+            }).then(function() {
+                $scope.local = {};
+            });
+        };
 
         suplementsBrand.$loaded().then(function() {  
             $scope.suplementsBrand = suplementsBrand;

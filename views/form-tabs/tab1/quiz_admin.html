@@ -137,43 +137,20 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-2">
+    <div class="col-sm-4">
         <div class="form-group">
-            <label for="InputLConsulta">Local Consulta</label>
-            <select ng-model="clientDetail.locConsulta" class="form-control" id="InputLConsulta" ng-options="x for x in consultLocal">
+            <label for="InputLConsulta">Local / Ginásio / Box: <span style="font-size:18px;">{{clientDetail.locConsulta}}</span></label>
+            <select ng-model="clientDetail.locConsulta" class="form-control" id="InputLConsulta">
+                <option 
+                    ng-selected="clientDetail.locConsulta == x.local.name"
+                    ng-repeat="x in localList" 
+                    ng-value="x.local.name">
+                        {{x.local.name}}
+                </option>
             </select>
         </div>
     </div>
-    <!--<div class="col-sm-5">
-        <div class="col-sm-4">
-            <label for="InputTurnoD">Turno dia</label>-->
-            <!--<input type="text" class="form-control" id="InputTurnoD" ng-model="clientDetail.turnoD">-->
-            <!--<select ng-model="clientDetail.turnoD" class="form-control" id="InputTurnoD" ng-options="x for x in dayList"></select>
-        </div>
-        <div class="col-sm-4">
-            <label for="InputTurnoM">Turno mes</label>-->
-            <!--<input type="text" class="form-control" id="InputTurnoM" ng-model="clientDetail.turnoM">-->
-            <!--<select ng-model="clientDetail.turnoM" class="form-control" id="InputTurnoM" ng-options="x for x in monthListN"></select>
-        </div>
-        <div class="col-sm-4">
-            <label for="InputTurnoY">Turno ano</label>-->
-            <!--<input type="text" class="form-control" id="InputTurnoY" ng-model="clientDetail.turnoY">-->
-            <!--<select ng-model="clientDetail.turnoY" class="form-control" id="InputTurnoY" ng-options="x for x in yearList"></select>
-        </div>-->
-        <!--<div class="col-sm-3">
-            <label for="InputTurnoR">T. Ronda</label>
-            <input type="text" class="form-control" id="InputTurnoR" ng-model="clientDetail.turnoR">
-        </div>-->
-    <!--</div>-->
-    <!--<div class="col-sm-1">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" ng-model="clientDetail.active">Actividade
-            </label>
-        </div>
-    </div>-->
 
-    
     <div class="col-sm-2">
         <div class="form-group">
             <label for="InputTypeClient">Tipo de Programa</label>
@@ -182,38 +159,9 @@
         </div>
     </div>
     
-
-    <!-- <div class="col-sm-1">   
-        <div class="form-group">
-            <label for="ProxConsulta">Próx. Consulta</label>
-            <input type="text" class="form-control" moment-picker="prox.proxConsult" 
-                locale="pt"
-                format="L"
-                max-view="day"
-                start-view="month"
-                autoclose="true"
-                today="true"
-                keyboard="true" id="ProxConsulta" ng-model="prox.proxConsulta">
-        </div> 
-    </div>
-
-    <div class="col-sm-2">
-        <div class="form-group">
-            <div class="col-sm-12" >
-                <label for="InputFirstConsultTime">Hora Consulta</label>
-            </div>
-            <div class="col-sm-6" style="width: 88px;">
-                <input type="number" class="form-control" style="width: 58px" min="0" max="24" step=1 id="InputFirstConsultTime" ng-model="clientDetail.proxConsultHour">
-            </div>
-            <div class="col-sm-6">
-                <input type="number" class="form-control" style="width: 58px" min="0" max="59" step=5 ng-model="clientDetail.proxConsultMinutes">
-            </div>
-        </div>
-    </div> -->
-    
     <div class="col-sm-3">
         <div class="form-group">
-            <label for="InputCupon">Cupão</label>
+            <label for="InputCupon">Cupão Promocional</label>
             <input type="text" class="form-control" id="InputCupon" ng-model="clientDetail.cuponPt">
         </div>
     </div>

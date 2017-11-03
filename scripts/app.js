@@ -10,21 +10,21 @@
  * Main module of the application.
  */
 //chave dev
-var config = {
+/* var config = {
     apiKey: "AIzaSyA7oEm_LayEi18khCi7lu7QaA4OvIXHVhA",
     authDomain: "authdemo-b5a5f.firebaseapp.com",
     databaseURL: "https://authdemo-b5a5f.firebaseio.com",
     storageBucket: "authdemo-b5a5f.appspot.com",
     messagingSenderId: "1022101485660"
-};
+}; */
 //chave producao
-/* var config = {
+var config = {
     apiKey: "AIzaSyDUe-bfOdjHuaXwq4-mrqyGrPODr3XE0Vo",
     authDomain: "app-healty-habits.firebaseapp.com",
     databaseURL: "https://app-healty-habits.firebaseio.com",
     storageBucket: "app-healty-habits.appspot.com",
     messagingSenderId: "633041698720"
-}; */
+};
 firebase.initializeApp(config);
 
 var app = angular
@@ -45,7 +45,6 @@ var app = angular
         'material.svgAssetsCache',
         'ui.bootstrap',
         'moment-picker',
-        'ksSwiper',
         'alexjoffroy.angular-loaders'
 ]);
 //'ngTouch',  
@@ -115,19 +114,149 @@ app.config(function ($routeProvider, $locationProvider, $compileProvider, $mdDat
         }
     })
     .when('/consultasmanuel', {
-        templateUrl: 'views/tabelamanuel.html',
-        controller: 'CuponManuelCtrl',
-        controllerAs: 'cuponmanuel',
+        templateUrl: 'views/parceiros/tabelamanuel.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponParceiros',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
             return Auth.$requireSignIn();
           }]
         }
     })
-    .when('/dudas', {
-        templateUrl: 'views/dudas.html',
-        controller: 'DudasCtrl',
-        controllerAs: 'dudas',
+    .when('/consultasandreia', {
+        templateUrl: 'views/parceiros/tabelaandreia.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultasneverland', {
+        templateUrl: 'views/parceiros/tabelaneverland.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultasalphaden', {
+        templateUrl: 'views/parceiros/tabelaalphaden.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultasfernando', {
+        templateUrl: 'views/parceiros/tabelafernando.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultasodivelas', {
+        templateUrl: 'views/parceiros/tabelaodivelas.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultasfilipalamas', {
+        templateUrl: 'views/parceiros/tabelafilipalamas.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultasvenceslau', {
+        templateUrl: 'views/parceiros/tabelavenceslau.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultasgeadas', {
+        templateUrl: 'views/parceiros/tabelageadas.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultasoliveira', {
+        templateUrl: 'views/parceiros/tabelaoliveira.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultassusana', {
+        templateUrl: 'views/parceiros/tabelasusana.html',
+        controller: 'CuponParceirosCtrl',
+        controllerAs: 'cuponparceiros',
+        resolve: {
+          "currentAuth": ["Auth", function(Auth) {
+            return Auth.$requireSignIn();
+          }]
+        }
+    })
+    .when('/consultassusana', {
+      templateUrl: 'views/parceiros/tabelasusana.html',
+      controller: 'CuponParceirosCtrl',
+      controllerAs: 'cuponparceiros',
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$requireSignIn();
+        }]
+      }
+    })
+    .when('/consultasphoenix', {
+      templateUrl: 'views/parceiros/tabelaphoenix.html',
+      controller: 'CuponParceirosCtrl',
+      controllerAs: 'cuponparceiros',
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$requireSignIn();
+        }]
+      }
+    })
+    .when('/consultasbarbellclub', {
+      templateUrl: 'views/parceiros/tabelabarbellclub.html',
+      controller: 'CuponParceirosCtrl',
+      controllerAs: 'cuponparceiros',
+      resolve: {
+        "currentAuth": ["Auth", function(Auth) {
+          return Auth.$requireSignIn();
+        }]
+      }
+    })
+    .when('/backoffice', {
+        templateUrl: 'views/backoffice.html',
+        controller: 'BackOfficeCtrl',
+        controllerAs: 'backoffice',
         resolve: {
           "currentAuth": ["Auth", function(Auth) {
             return Auth.$requireSignIn();

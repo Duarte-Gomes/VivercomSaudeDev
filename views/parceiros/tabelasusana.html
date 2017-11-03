@@ -1,0 +1,61 @@
+<div class="container-fluid no-pad" ng-cloak="">
+    <div class="main-welcome">
+        <div ng-hide="showDetails" style="padding: 0 15px;">
+            <h1 class="text-center">Lista de Consultas Susana Henriques</h1> 
+            <table datatable="ng" class="row-border hover">
+                <thead>
+                    <tr>
+                        <td>Nome</td>
+                        <td>Local Consulta</td>
+                        <td>Data Consulta</td>
+                        <td style="width: 60px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                        <td style="width: 80px;">Data Consulta</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in susanaList">
+                        <td>{{user.client_detail.name}}</td>
+                        <td>{{user.client_detail.locConsulta}}</td>
+                        <td ng-show="user.consultDateWithCupon_01"style="width: 60px;">{{user.consultDateWithCupon_01}}</td>
+                        <td ng-show="user.consultDateWithCupon_02">{{user.consultDateWithCupon_02}}</td>
+                        <td ng-show="user.consultDateWithCupon_03">{{user.consultDateWithCupon_03}}</td>
+                        <td ng-show="user.consultDateWithCupon_04">{{user.consultDateWithCupon_04}}</td>
+                        <td ng-show="user.consultDateWithCupon_05">{{user.consultDateWithCupon_05}}</td>
+                        <td ng-show="user.consultDateWithCupon_06">{{user.consultDateWithCupon_06}}</td>       
+                        <td ng-show="user.consultDateWithCupon_07">{{user.consultDateWithCupon_07}}</td>       
+                        <td ng-show="user.consultDateWithCupon_08">{{user.consultDateWithCupon_08}}</td>       
+                        <td ng-show="user.consultDateWithCupon_09">{{user.consultDateWithCupon_09}}</td>       
+                        <td ng-show="user.consultDateWithCupon_10">{{user.consultDateWithCupon_10}}</td>       
+                        <td ng-show="user.consultDateWithCupon_11">{{user.consultDateWithCupon_11}}</td>       
+                        <td ng-show="user.consultDateWithCupon_12">{{user.consultDateWithCupon_12}}</td>       
+                        <td ng-show="user.consultDateWithCupon_13">{{user.consultDateWithCupon_13}}</td>       
+                        <td ng-show="user.consultDateWithCupon_14">{{user.consultDateWithCupon_14}}</td>       
+                        <td ng-show="user.consultDateWithCupon_15">{{user.consultDateWithCupon_15}}</td>       
+                        <td ng-show="user.consultDateWithCupon_16">{{user.consultDateWithCupon_16}}</td>       
+                        <td ng-show="user.consultDateWithCupon_17">{{user.consultDateWithCupon_17}}</td>       
+                        <td ng-show="user.consultDateWithCupon_18">{{user.consultDateWithCupon_18}}</td>       
+                        <td ng-show="user.consultDateWithCupon_19">{{user.consultDateWithCupon_19}}</td>       
+                        <td ng-show="user.consultDateWithCupon_20">{{user.consultDateWithCupon_20}}</td>       
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,7 @@
 <div class="div-height-inner">
     <div class="div-shadow-style-pad15">
         <div class="row">
+            
             <div class="col-sm-3">
                 <div class="dashBox text-center">
                     <p class="dashTitle">Visualize aqui o seu plano nutricional</p>
@@ -15,41 +16,21 @@
                     </button>
                 </div>
             </div>
+            <div class="col-sm-3">
+                <div class="dashBox">
+                    <p class="dashTitleProx">Próx. Consulta</p>
+                    <p class="dashValueProx">{{tempScope.proxConsultDash}}</p>
+                    <p class="dashValueProx">{{tempScope.proxConsultDashHour}}h{{tempScope.proxConsultDashMinutes}}</p>
+                </div>
+            </div>
             <div class="col-sm-3" ng-show="clientDetail.blockMetasFunc"><!--utilizador-->
                 <div ng-show="isUser">
                     <div class="dashBox text-center">
-                        <p class="dashTitle">Metas Funcionais1</p>
+                        <p class="dashTitle">Metas Funcionais</p>
                         <button class="button-dash" ng-click="showMetas()">    
                             <i class="fa fa-flag-checkered dashPlanoNutri" aria-hidden="true"></i>
                         </button>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-3" ng-hide="isUser"><!--admin-->
-                <div class="dashBox text-center">
-                    <p class="dashTitle">Metas Funcionais</p>
-                    <button class="button-dash" ng-click="showLastMeta()">
-                        <i class="fa fa-flag-checkered dashPlanoNutri" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </div>
-            <!-- <div class="col-sm-3">
-                <div class="dashBox">
-                    <p class="dashTitle">Água Corporal(%)</p>
-                    <p class="dashValue">{{front.dashAgua}}</p>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="dashBox">
-                    <p class="dashTitle">Gordura Visceral(%)</p>
-                    <p class="dashValue">{{front.dashVisceral}}</p>
-                </div>
-            </div> -->
-            <div class="col-sm-3">
-                <div class="dashBox">
-                    <p class="dashTitleProx">Próx. Consulta</p>
-                    <p class="dashValueProx">{{clientDetail.proxConsult}}</p>
-                    <p class="dashValueProx">{{clientDetail.proxConsultHour}}h{{clientDetail.proxConsultMinutes}}</p>
                 </div>
             </div>
         </div>
