@@ -3622,6 +3622,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         $scope.atras = function() {
             angular.element("html, body").animate({ scrollTop: 0 }, "slow")
             //location.reload();
+            //if (logggooogggg == "G0YOVeohv3XGsCdyTJixcNF9D6E2" || logggooogggg == "MpHfoH6MVfNS4UaUChcr6czxs222") {
             if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
                 usersList.$loaded().then(function() {
                     $scope.usersList = usersList;
