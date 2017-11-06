@@ -1849,6 +1849,102 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                     '#00cc00'
                 ]
             };
+
+            //grafico grupomotiva02 peso
+            $scope.GrupoMotiva02Peso = {};
+            
+            $scope.GrupoMotiva02Peso.type = "ColumnChart";
+            
+            $scope.GrupoMotiva02Peso.data = {"cols": [
+                //nao esquecer disto
+                {id: "s", label: "Utilizadores", type: "string"},
+                {id: "t", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2Peso1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2Peso1Total,
+                        f: $scope.mediaGrupo02[0].Grupo2Peso1Total + ' Kg'
+                    }
+                ]}, //titulo e quantidade
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2Peso2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2Peso2Total,
+                        f: $scope.mediaGrupo02[0].Grupo2Peso2Total + ' Kg'
+                    }
+                ]}, //titulo e quantidade
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2Peso3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2Peso3Total,
+                        f: $scope.mediaGrupo02[0].Grupo2Peso3Total + ' Kg'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva02Peso.options = {
+                'title': 'Grupo Motivação 2 Média - Peso',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Peso em Kg'
+                },
+                'colors': [
+                    '#ff8000'
+                ]
+            };
+
+            //grafico grupomotiva03 peso
+            $scope.GrupoMotiva03Peso = {};
+            
+            $scope.GrupoMotiva03Peso.type = "ColumnChart";
+            
+            $scope.GrupoMotiva03Peso.data = {"cols": [
+                //nao esquecer disto
+                {id: "s", label: "Utilizadores", type: "string"},
+                {id: "t", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3Peso1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3Peso1Total,
+                        f: $scope.mediaGrupo03[0].Grupo3Peso1Total + ' Kg'
+                    }
+                ]}, //titulo e quantidade
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3Peso2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3Peso2Total,
+                        f: $scope.mediaGrupo03[0].Grupo3Peso2Total + ' Kg'
+                    }
+                ]}, //titulo e quantidade
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3Peso3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3Peso3Total,
+                        f: $scope.mediaGrupo03[0].Grupo3Peso3Total + ' Kg'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva03Peso.options = {
+                'title': 'Grupo Motivação 3 Média - Peso',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Peso em Kg'
+                },
+                'colors': [
+                    '#ff0000'
+                ]
+            };
             
             //grafico grupomotiva01 massa gorda
             $scope.GrupoMotiva01MassaGorda = {};
@@ -1895,6 +1991,102 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 },
                 'colors': [
                     '#00cc00'
+                ]
+            };
+
+            //grafico grupomotiva02 massa gorda
+            $scope.GrupoMotiva02MassaGorda = {};
+            
+            $scope.GrupoMotiva02MassaGorda.type = "ColumnChart";
+            
+            $scope.GrupoMotiva02MassaGorda.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2MassaG1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2MassaG1Total,
+                        f: $scope.mediaGrupo02[0].Grupo2MassaG1Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2MassaG2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2MassaG2Total,
+                        f: $scope.mediaGrupo02[0].Grupo2MassaG2Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2MassaG3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2MassaG3Total,
+                        f: $scope.mediaGrupo02[0].Grupo2MassaG3Total + ' %'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva02MassaGorda.options = {
+                'title': 'Grupo Motivação 2 Média - Massa Gorda',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Massa Gorda em %'
+                },
+                'colors': [
+                    '#ff8000'
+                ]
+            };
+
+            //grafico grupomotiva03 massa gorda
+            $scope.GrupoMotiva03MassaGorda = {};
+            
+            $scope.GrupoMotiva03MassaGorda.type = "ColumnChart";
+            
+            $scope.GrupoMotiva03MassaGorda.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3MassaG1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3MassaG1Total,
+                        f: $scope.mediaGrupo03[0].Grupo3MassaG1Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3MassaG2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3MassaG2Total,
+                        f: $scope.mediaGrupo03[0].Grupo3MassaG2Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3MassaG3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3MassaG3Total,
+                        f: $scope.mediaGrupo03[0].Grupo3MassaG3Total + ' %'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva03MassaGorda.options = {
+                'title': 'Grupo Motivação 3 Média - Massa Gorda',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Massa Gorda em %'
+                },
+                'colors': [
+                    '#ff0000'
                 ]
             };
 
@@ -1946,6 +2138,102 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 ]
             };
 
+            //grafico grupomotiva02 agua corporal
+            $scope.GrupoMotiva02AguaCorporal = {};
+            
+            $scope.GrupoMotiva02AguaCorporal.type = "ColumnChart";
+            
+            $scope.GrupoMotiva02AguaCorporal.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2AguaC1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2AguaC1Total,
+                        f: $scope.mediaGrupo02[0].Grupo2AguaC1Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2AguaC2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2AguaC2Total,
+                        f: $scope.mediaGrupo02[0].Grupo2AguaC2Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2AguaC3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2AguaC3Total,
+                        f: $scope.mediaGrupo02[0].Grupo2AguaC3Total + ' %'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva02AguaCorporal.options = {
+                'title': 'Grupo Motivação 2 Média - Agua Corporal',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Água Corporal em %'
+                },
+                'colors': [
+                    '#ff8000'
+                ]
+            };
+
+            //grafico grupomotiva03 agua corporal
+            $scope.GrupoMotiva03AguaCorporal = {};
+            
+            $scope.GrupoMotiva03AguaCorporal.type = "ColumnChart";
+            
+            $scope.GrupoMotiva03AguaCorporal.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3AguaC1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3AguaC1Total,
+                        f: $scope.mediaGrupo03[0].Grupo3AguaC1Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3AguaC2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3AguaC2Total,
+                        f: $scope.mediaGrupo03[0].Grupo3AguaC2Total + ' %'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3AguaC3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3AguaC3Total,
+                        f: $scope.mediaGrupo03[0].Grupo3AguaC3Total + ' %'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva03AguaCorporal.options = {
+                'title': 'Grupo Motivação 3 Média - Agua Corporal',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Água Corporal em %'
+                },
+                'colors': [
+                    '#ff0000'
+                ]
+            };
+
             //grafico grupomotiva01 massa magra
             $scope.GrupoMotiva01MassaMagra = {};
             
@@ -1991,6 +2279,102 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 },
                 'colors': [
                     '#00cc00'
+                ]
+            };
+
+            //grafico grupomotiva02 massa magra
+            $scope.GrupoMotiva02MassaMagra = {};
+            
+            $scope.GrupoMotiva02MassaMagra.type = "ColumnChart";
+            
+            $scope.GrupoMotiva02MassaMagra.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2MassaM1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2MassaM1Total,
+                        f: $scope.mediaGrupo02[0].Grupo2MassaM1Total + ' Kg'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2MassaM2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2MassaM2Total,
+                        f: $scope.mediaGrupo02[0].Grupo2MassaM2Total + ' Kg'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2MassaM3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2MassaM3Total,
+                        f: $scope.mediaGrupo02[0].Grupo2MassaM3Total + ' Kg'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva02MassaMagra.options = {
+                'title': 'Grupo Motivação 2 Média - Massa Magra',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Massa Magra em Kg'
+                },
+                'colors': [
+                    '#ff8000'
+                ]
+            };
+
+            //grafico grupomotiva03 massa magra
+            $scope.GrupoMotiva03MassaMagra = {};
+            
+            $scope.GrupoMotiva03MassaMagra.type = "ColumnChart";
+            
+            $scope.GrupoMotiva03MassaMagra.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3MassaM1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3MassaM1Total,
+                        f: $scope.mediaGrupo03[0].Grupo3MassaM1Total + ' Kg'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3MassaM2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3MassaM2Total,
+                        f: $scope.mediaGrupo03[0].Grupo3MassaM2Total + ' Kg'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3MassaM3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3MassaM3Total,
+                        f: $scope.mediaGrupo03[0].Grupo3MassaM3Total + ' Kg'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva03MassaMagra.options = {
+                'title': 'Grupo Motivação 3 Média - Massa Magra',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Massa Magra em Kg'
+                },
+                'colors': [
+                    '#ff0000'
                 ]
             };
 
@@ -2042,6 +2426,103 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 ]
             };
 
+            //grafico grupomotiva02 gordura visceral
+            $scope.GrupoMotiva02GorduraVisceral = {};
+            
+            $scope.GrupoMotiva02GorduraVisceral.type = "ColumnChart";
+            
+            $scope.GrupoMotiva02GorduraVisceral.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2GorduraV1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2GorduraV1Total,
+                        f: $scope.mediaGrupo02[0].Grupo2GorduraV1Total
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2GorduraV2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2GorduraV2Total,
+                        f: $scope.mediaGrupo02[0].Grupo2GorduraV2Total
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2GorduraV3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2GorduraV3Total,
+                        f: $scope.mediaGrupo02[0].Grupo2GorduraV3Total
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva02GorduraVisceral.options = {
+                'title': 'Grupo Motivação 2 Média - Gordura Visceral',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Gordura Visceral Indice (1- 20)'
+                },
+                'colors': [
+                    '#ff8000'
+                ]
+            };
+
+            //grafico grupomotiva03 gordura visceral
+            $scope.GrupoMotiva03GorduraVisceral = {};
+            
+            $scope.GrupoMotiva03GorduraVisceral.type = "ColumnChart";
+            
+            $scope.GrupoMotiva03GorduraVisceral.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3GorduraV1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3GorduraV1Total,
+                        f: $scope.mediaGrupo03[0].Grupo3GorduraV1Total
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3GorduraV2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3GorduraV2Total,
+                        f: $scope.mediaGrupo03[0].Grupo3GorduraV2Total
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3GorduraV3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3GorduraV3Total,
+                        f: $scope.mediaGrupo03[0].Grupo3GorduraV3Total
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva03GorduraVisceral.options = {
+                'title': 'Grupo Motivação 3 Média - Gordura Visceral',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Gordura Visceral Indice (1- 20)'
+                },
+                'colors': [
+                    '#ff0000'
+                ]
+            };
+
+
             //grafico grupomotiva01 perimetro abdominal
             $scope.GrupoMotiva01PerimetroAbdominal = {};
             
@@ -2090,6 +2571,101 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 ]
             };
 
+            //grafico grupomotiva02 perimetro abdominal
+            $scope.GrupoMotiva02PerimetroAbdominal = {};
+            
+            $scope.GrupoMotiva02PerimetroAbdominal.type = "ColumnChart";
+            
+            $scope.GrupoMotiva02PerimetroAbdominal.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2PerimAbdom1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2PerimAbdom1Total,
+                        f: $scope.mediaGrupo02[0].Grupo2PerimAbdom1Total + 'cm'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2PerimAbdom2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2PerimAbdom2Total,
+                        f: $scope.mediaGrupo02[0].Grupo2PerimAbdom2Total + 'cm'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo02[0].Grupo2PerimAbdom3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo02[0].Grupo2PerimAbdom3Total,
+                        f: $scope.mediaGrupo02[0].Grupo2PerimAbdom3Total + 'cm'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva02PerimetroAbdominal.options = {
+                'title': 'Grupo Motivação 2 Média - Perimetro Abdominal',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Perimetro Abdominal (cm)'
+                },
+                'colors': [
+                    '#ff8000'
+                ]
+            };
+
+            //grafico grupomotiva03 perimetro abdominal
+            $scope.GrupoMotiva03PerimetroAbdominal = {};
+            
+            $scope.GrupoMotiva03PerimetroAbdominal.type = "ColumnChart";
+            
+            $scope.GrupoMotiva03PerimetroAbdominal.data = {"cols": [
+                //nao esquecer disto
+                {id: "t", label: "Utilizadores", type: "string"},
+                {id: "s", label: "Média", type: "number"}
+                //nao esquecer disto
+            ], "rows": [
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3PerimAbdom1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3PerimAbdom1Total,
+                        f: $scope.mediaGrupo03[0].Grupo3PerimAbdom1Total + 'cm'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3PerimAbdom2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3PerimAbdom2Total,
+                        f: $scope.mediaGrupo03[0].Grupo3PerimAbdom2Total + 'cm'
+                    }
+                ]},
+                {c: [ 
+                    {v: $scope.mediaGrupo03[0].Grupo3PerimAbdom3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo03[0].Grupo3PerimAbdom3Total,
+                        f: $scope.mediaGrupo03[0].Grupo3PerimAbdom3Total + 'cm'
+                    }
+                ]}
+            ]};  
+
+            $scope.GrupoMotiva03PerimetroAbdominal.options = {
+                'title': 'Grupo Motivação 3 Média - Perimetro Abdominal',
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Perimetro Abdominal (cm)'
+                },
+                'colors': [
+                    '#ff0000'
+                ]
+            };
 
 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////

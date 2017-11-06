@@ -49,7 +49,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         var saveStatus;
         var postKey;
         var postIndex;
-        var myTimeout;
+        $scope.myTimeout = null;
 
         /* function mySaveTimeout() {
             myTimeout = setTimeout(
@@ -2355,7 +2355,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             /* setTimeout(
                 $scope.saveUserDetailsTimeout, 60000
             );  */
-            myTimeout = $interval($scope.saveUserDetailsTimeout, 60000);
+            $scope.myTimeout = $interval($scope.saveUserDetailsTimeout, 30000);
         };
 
         ////////////////////////////////////////////////////////////////////////////
@@ -3624,7 +3624,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
         $scope.atras = function() {
             angular.element("html, body").animate({ scrollTop: 0 }, "slow")
-            $interval.cancel(myTimeout);
+            $interval.cancel($scope.myTimeout);
             //location.reload();
             //if (logggooogggg == "G0YOVeohv3XGsCdyTJixcNF9D6E2" || logggooogggg == "MpHfoH6MVfNS4UaUChcr6czxs222") {
             if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
