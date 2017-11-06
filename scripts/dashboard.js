@@ -115,6 +115,8 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
         $scope.newUsersListGrupo02 = {};
         $scope.newUsersListGrupo03 = {};
         $scope.mediaGrupo01 = {};
+        $scope.mediaGrupo02 = {};
+        $scope.mediaGrupo03 = {};
 
         
         usersList.$loaded().then(function() {
@@ -703,6 +705,7 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 }  
             }
 
+            //grupo1
             //calculo da media grupo 1 peso
             var contGrupo1Peso1 = 0;
             var contGrupo1Peso2 = 0;
@@ -1009,6 +1012,622 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 totalGrupo1PerimAbdom3 = Math.round(sumGrupo1PerimAbdom3 / (contGrupo1PerimAbdom3 - 1)* 100) / 100;
             }
 
+            //grupo 2
+            //calculo da media grupo 2 peso
+            var contGrupo2Peso1 = 0;
+            var contGrupo2Peso2 = 0;
+            var contGrupo2Peso3 = 0;
+            var sumGrupo2Peso1 = 0;
+            var sumGrupo2Peso2 = 0;
+            var sumGrupo2Peso3 = 0;
+            var totalGrupo2Peso1 = 0;
+            var totalGrupo2Peso2 = 0;
+            var totalGrupo2Peso3 = 0;
+
+            for (var ii = 0; ii < contGrupo2; ii++) {
+                if ($scope.newUsersListGrupo02[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_01_03 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_01_03;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2Peso1++
+                        sumGrupo2Peso1 = sumGrupo2Peso1 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_02_03 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_02_03;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2Peso2++
+                        sumGrupo2Peso2 = sumGrupo2Peso2 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_03_03 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_03_03;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2Peso3++
+                        sumGrupo2Peso3 = sumGrupo2Peso3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo2Peso1 == 1) { 
+                totalGrupo2Peso1 = sumGrupo2Peso1;
+            } else {
+                totalGrupo2Peso1 = Math.round(sumGrupo2Peso1 / (contGrupo2Peso1 - 1)* 100) / 100;
+            }
+            if (contGrupo2Peso2 == 1) { 
+                totalGrupo2Peso2 = sumGrupo2Peso2;
+            } else {
+                totalGrupo2Peso2 = Math.round(sumGrupo2Peso2 / (contGrupo2Peso2 - 1)* 100) / 100;
+            }
+            if (contGrupo2Peso3 == 1) { 
+                totalGrupo2Peso3 = sumGrupo2Peso3;
+            } else {
+                totalGrupo2Peso3 = Math.round(sumGrupo2Peso3 / (contGrupo2Peso3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 2 massagorda
+            var contGrupo2MassaG1 = 0;
+            var contGrupo2MassaG2 = 0;
+            var contGrupo2MassaG3 = 0;
+            var sumGrupo2MassaG1 = 0;
+            var sumGrupo2MassaG2 = 0;
+            var sumGrupo2MassaG3 = 0;
+            var totalGrupo2MassaG1 = 0;
+            var totalGrupo2MassaG2 = 0;
+            var totalGrupo2MassaG3 = 0;
+            
+            for (var ii = 0; ii < contGrupo2; ii++) {
+                if ($scope.newUsersListGrupo02[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_01_04 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_01_04;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2MassaG1++
+                        sumGrupo2MassaG1 = sumGrupo2MassaG1 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_02_04 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_02_04;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2MassaG2++
+                        sumGrupo2MassaG2 = sumGrupo2MassaG2 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_03_04 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_03_04;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2MassaG3++
+                        sumGrupo2MassaG3 = sumGrupo2MassaG3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo2MassaG1 == 1) { 
+                totalGrupo2MassaG1 = sumGrupo2MassaG1;
+            } else {
+                totalGrupo2MassaG1 = Math.round(sumGrupo2MassaG1 / (contGrupo2MassaG1 - 1)* 100) / 100;
+            }
+            if (contGrupo2MassaG2 == 1) { 
+                totalGrupo2MassaG2 = sumGrupo2MassaG2;
+            } else {
+                totalGrupo2MassaG2 = Math.round(sumGrupo2MassaG2 / (contGrupo2MassaG2 - 1)* 100) / 100;
+            }
+            if (contGrupo2MassaG3 == 1) { 
+                totalGrupo2MassaG3 = sumGrupo2MassaG3;
+            } else {
+                totalGrupo2MassaG3 = Math.round(sumGrupo2MassaG3 / (contGrupo2MassaG3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 2 agua corporal
+            var contGrupo2AguaC1 = 0;
+            var contGrupo2AguaC2 = 0;
+            var contGrupo2AguaC3 = 0;
+            var sumGrupo2AguaC1 = 0;
+            var sumGrupo2AguaC2 = 0;
+            var sumGrupo2AguaC3 = 0;
+            var totalGrupo2AguaC1 = 0;
+            var totalGrupo2AguaC2 = 0;
+            var totalGrupo2AguaC3 = 0;
+            
+            for (var ii = 0; ii < contGrupo2; ii++) {
+                if ($scope.newUsersListGrupo02[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_01_05 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_01_05;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2AguaC1++
+                        sumGrupo2AguaC1 = sumGrupo2AguaC1 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_02_05 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_02_05;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2AguaC2++
+                        sumGrupo2AguaC2 = sumGrupo2AguaC2 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_03_05 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_03_05;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2AguaC3++
+                        sumGrupo2AguaC3 = sumGrupo2AguaC3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo2AguaC1 == 1) { 
+                totalGrupo2AguaC1 = sumGrupo2AguaC1;
+            } else {
+                totalGrupo2AguaC1 = Math.round(sumGrupo2AguaC1 / (contGrupo2AguaC1 - 1)* 100) / 100;
+            }
+            if (contGrupo2AguaC2 == 1) { 
+                totalGrupo2AguaC2 = sumGrupo2AguaC2;
+            } else {
+                totalGrupo2AguaC2 = Math.round(sumGrupo2AguaC2 / (contGrupo2AguaC2 - 1)* 100) / 100;
+            }
+            if (contGrupo2AguaC3 == 1) { 
+                totalGrupo2AguaC3 = sumGrupo2AguaC3;
+            } else {
+                totalGrupo2AguaC3 = Math.round(sumGrupo2AguaC3 / (contGrupo2AguaC3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 2 massa magra
+            var contGrupo2MassaM1 = 0;
+            var contGrupo2MassaM2 = 0;
+            var contGrupo2MassaM3 = 0;
+            var sumGrupo2MassaM1 = 0;
+            var sumGrupo2MassaM2 = 0;
+            var sumGrupo2MassaM3 = 0;
+            var totalGrupo2MassaM1 = 0;
+            var totalGrupo2MassaM2 = 0;
+            var totalGrupo2MassaM3 = 0;
+            
+            for (var ii = 0; ii < contGrupo2; ii++) {
+                if ($scope.newUsersListGrupo02[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_01_06 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_01_06;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2MassaM1++
+                        sumGrupo2MassaM1 = sumGrupo2MassaM1 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_02_06 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_02_06;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2MassaM2++
+                        sumGrupo2MassaM2 = sumGrupo2MassaM2 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_03_06 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_03_06;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2MassaM3++
+                        sumGrupo2MassaM3 = sumGrupo2MassaM3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo2MassaM1 == 1) { 
+                totalGrupo2MassaM1 = sumGrupo2MassaM1;
+            } else {
+                totalGrupo2MassaM1 = Math.round(sumGrupo2MassaM1 / (contGrupo2MassaM1 - 1)* 100) / 100;
+            }
+            if (contGrupo2MassaM2 == 1) { 
+                totalGrupo2MassaM2 = sumGrupo2MassaM2;
+            } else {
+                totalGrupo2MassaM2 = Math.round(sumGrupo2MassaM2 / (contGrupo2MassaM2 - 1)* 100) / 100;
+            }
+            if (contGrupo2MassaM3 == 1) { 
+                totalGrupo2MassaM3 = sumGrupo2MassaM3;
+            } else {
+                totalGrupo2MassaM3 = Math.round(sumGrupo2MassaM3 / (contGrupo2MassaM3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 2 gordura visceral
+            var contGrupo2GorduraV1 = 0;
+            var contGrupo2GorduraV2 = 0;
+            var contGrupo2GorduraV3 = 0;
+            var sumGrupo2GorduraV1 = 0;
+            var sumGrupo2GorduraV2 = 0;
+            var sumGrupo2GorduraV3 = 0;
+            var totalGrupo2GorduraV1 = 0;
+            var totalGrupo2GorduraV2 = 0;
+            var totalGrupo2GorduraV3 = 0;
+            
+            for (var ii = 0; ii < contGrupo2; ii++) {
+                if ($scope.newUsersListGrupo02[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_01_07 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_01_07;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2GorduraV1++
+                        sumGrupo2GorduraV1 = sumGrupo2GorduraV1 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_02_07 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_02_07;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2GorduraV2++
+                        sumGrupo2GorduraV2 = sumGrupo2GorduraV2 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_03_07 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_03_07;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2GorduraV3++
+                        sumGrupo2GorduraV3 = sumGrupo2GorduraV3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo2GorduraV1 == 1) { 
+                totalGrupo2GorduraV1 = sumGrupo2GorduraV1;
+            } else {
+                totalGrupo2GorduraV1 = Math.round(sumGrupo2GorduraV1 / (contGrupo2GorduraV1 - 1)* 100) / 100;
+            }
+            if (contGrupo2GorduraV2 == 1) { 
+                totalGrupo2GorduraV2 = sumGrupo2GorduraV2;
+            } else {
+                totalGrupo2GorduraV2 = Math.round(sumGrupo2GorduraV2 / (contGrupo2GorduraV2 - 1)* 100) / 100;
+            }
+            if (contGrupo2GorduraV3 == 1) { 
+                totalGrupo2GorduraV3 = sumGrupo2GorduraV3;
+            } else {
+                totalGrupo2GorduraV3 = Math.round(sumGrupo2GorduraV3 / (contGrupo2GorduraV3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 2 perimetro abdominal
+            var contGrupo2PerimAbdom1 = 0;
+            var contGrupo2PerimAbdom2 = 0;
+            var contGrupo2PerimAbdom3 = 0;
+            var sumGrupo2PerimAbdom1 = 0;
+            var sumGrupo2PerimAbdom2 = 0;
+            var sumGrupo2PerimAbdom3 = 0;
+            var totalGrupo2PerimAbdom1 = 0;
+            var totalGrupo2PerimAbdom2 = 0;
+            var totalGrupo2PerimAbdom3 = 0;
+            
+            for (var ii = 0; ii < contGrupo2; ii++) {
+                if ($scope.newUsersListGrupo02[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_01_09 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_01_09;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2PerimAbdom1++
+                        sumGrupo2PerimAbdom1 = sumGrupo2PerimAbdom1 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_02_09 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_02_09;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2PerimAbdom2++
+                        sumGrupo2PerimAbdom2 = sumGrupo2PerimAbdom2 + res;
+                    }
+                    if ($scope.newUsersListGrupo02[ii].client_history.da_03_09 != null) {
+                        var str = $scope.newUsersListGrupo02[ii].client_history.da_03_09;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo2PerimAbdom3++
+                        sumGrupo2PerimAbdom3 = sumGrupo2PerimAbdom3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo2PerimAbdom1 == 1) { 
+                totalGrupo2PerimAbdom1 = sumGrupo2PerimAbdom1;
+            } else {
+                totalGrupo2PerimAbdom1 = Math.round(sumGrupo2PerimAbdom1 / (contGrupo2PerimAbdom1 - 1)* 100) / 100;
+            }
+            if (contGrupo2PerimAbdom2 == 1) { 
+                totalGrupo2PerimAbdom2 = sumGrupo2PerimAbdom2;
+            } else {
+                totalGrupo2PerimAbdom2 = Math.round(sumGrupo2PerimAbdom2 / (contGrupo2PerimAbdom2 - 1)* 100) / 100;
+            }
+            if (contGrupo2PerimAbdom3 == 1) { 
+                totalGrupo2PerimAbdom3 = sumGrupo2PerimAbdom3;
+            } else {
+                totalGrupo2PerimAbdom3 = Math.round(sumGrupo2PerimAbdom3 / (contGrupo2PerimAbdom3 - 1)* 100) / 100;
+            }
+
+            //grupo 3
+            //calculo da media grupo 3 peso
+            var contGrupo3Peso1 = 0;
+            var contGrupo3Peso2 = 0;
+            var contGrupo3Peso3 = 0;
+            var sumGrupo3Peso1 = 0;
+            var sumGrupo3Peso2 = 0;
+            var sumGrupo3Peso3 = 0;
+            var totalGrupo3Peso1 = 0;
+            var totalGrupo3Peso2 = 0;
+            var totalGrupo3Peso3 = 0;
+
+            for (var ii = 0; ii < contGrupo3; ii++) {
+                if ($scope.newUsersListGrupo03[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_01_03 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_01_03;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3Peso1++
+                        sumGrupo3Peso1 = sumGrupo3Peso1 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_02_03 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_02_03;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3Peso2++
+                        sumGrupo3Peso2 = sumGrupo3Peso2 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_03_03 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_03_03;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3Peso3++
+                        sumGrupo3Peso3 = sumGrupo3Peso3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo3Peso1 == 1) { 
+                totalGrupo3Peso1 = sumGrupo3Peso1;
+            } else {
+                totalGrupo3Peso1 = Math.round(sumGrupo3Peso1 / (contGrupo3Peso1 - 1)* 100) / 100;
+            }
+            if (contGrupo3Peso2 == 1) { 
+                totalGrupo3Peso2 = sumGrupo3Peso2;
+            } else {
+                totalGrupo3Peso2 = Math.round(sumGrupo3Peso2 / (contGrupo3Peso2 - 1)* 100) / 100;
+            }
+            if (contGrupo3Peso3 == 1) { 
+                totalGrupo3Peso3 = sumGrupo3Peso3;
+            } else {
+                totalGrupo3Peso3 = Math.round(sumGrupo3Peso3 / (contGrupo3Peso3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 3 massagorda
+            var contGrupo3MassaG1 = 0;
+            var contGrupo3MassaG2 = 0;
+            var contGrupo3MassaG3 = 0;
+            var sumGrupo3MassaG1 = 0;
+            var sumGrupo3MassaG2 = 0;
+            var sumGrupo3MassaG3 = 0;
+            var totalGrupo3MassaG1 = 0;
+            var totalGrupo3MassaG2 = 0;
+            var totalGrupo3MassaG3 = 0;
+            
+            for (var ii = 0; ii < contGrupo3; ii++) {
+                if ($scope.newUsersListGrupo03[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_01_04 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_01_04;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3MassaG1++
+                        sumGrupo3MassaG1 = sumGrupo3MassaG1 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_02_04 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_02_04;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3MassaG2++
+                        sumGrupo3MassaG2 = sumGrupo3MassaG2 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_03_04 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_03_04;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3MassaG3++
+                        sumGrupo3MassaG3 = sumGrupo3MassaG3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo3MassaG1 == 1) { 
+                totalGrupo3MassaG1 = sumGrupo3MassaG1;
+            } else {
+                totalGrupo3MassaG1 = Math.round(sumGrupo3MassaG1 / (contGrupo3MassaG1 - 1)* 100) / 100;
+            }
+            if (contGrupo3MassaG2 == 1) { 
+                totalGrupo3MassaG2 = sumGrupo3MassaG2;
+            } else {
+                totalGrupo3MassaG2 = Math.round(sumGrupo3MassaG2 / (contGrupo3MassaG2 - 1)* 100) / 100;
+            }
+            if (contGrupo3MassaG3 == 1) { 
+                totalGrupo3MassaG3 = sumGrupo3MassaG3;
+            } else {
+                totalGrupo3MassaG3 = Math.round(sumGrupo3MassaG3 / (contGrupo3MassaG3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 3 agua corporal
+            var contGrupo3AguaC1 = 0;
+            var contGrupo3AguaC2 = 0;
+            var contGrupo3AguaC3 = 0;
+            var sumGrupo3AguaC1 = 0;
+            var sumGrupo3AguaC2 = 0;
+            var sumGrupo3AguaC3 = 0;
+            var totalGrupo3AguaC1 = 0;
+            var totalGrupo3AguaC2 = 0;
+            var totalGrupo3AguaC3 = 0;
+            
+            for (var ii = 0; ii < contGrupo3; ii++) {
+                if ($scope.newUsersListGrupo03[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_01_05 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_01_05;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3AguaC1++
+                        sumGrupo3AguaC1 = sumGrupo3AguaC1 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_02_05 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_02_05;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3AguaC2++
+                        sumGrupo3AguaC2 = sumGrupo3AguaC2 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_03_05 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_03_05;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3AguaC3++
+                        sumGrupo3AguaC3 = sumGrupo3AguaC3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo3AguaC1 == 1) { 
+                totalGrupo3AguaC1 = sumGrupo3AguaC1;
+            } else {
+                totalGrupo3AguaC1 = Math.round(sumGrupo3AguaC1 / (contGrupo3AguaC1 - 1)* 100) / 100;
+            }
+            if (contGrupo3AguaC2 == 1) { 
+                totalGrupo3AguaC2 = sumGrupo3AguaC2;
+            } else {
+                totalGrupo3AguaC2 = Math.round(sumGrupo3AguaC2 / (contGrupo3AguaC2 - 1)* 100) / 100;
+            }
+            if (contGrupo3AguaC3 == 1) { 
+                totalGrupo3AguaC3 = sumGrupo3AguaC3;
+            } else {
+                totalGrupo3AguaC3 = Math.round(sumGrupo3AguaC3 / (contGrupo3AguaC3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 3 massa magra
+            var contGrupo3MassaM1 = 0;
+            var contGrupo3MassaM2 = 0;
+            var contGrupo3MassaM3 = 0;
+            var sumGrupo3MassaM1 = 0;
+            var sumGrupo3MassaM2 = 0;
+            var sumGrupo3MassaM3 = 0;
+            var totalGrupo3MassaM1 = 0;
+            var totalGrupo3MassaM2 = 0;
+            var totalGrupo3MassaM3 = 0;
+            
+            for (var ii = 0; ii < contGrupo3; ii++) {
+                if ($scope.newUsersListGrupo03[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_01_06 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_01_06;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3MassaM1++
+                        sumGrupo3MassaM1 = sumGrupo3MassaM1 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_02_06 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_02_06;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3MassaM2++
+                        sumGrupo3MassaM2 = sumGrupo3MassaM2 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_03_06 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_03_06;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3MassaM3++
+                        sumGrupo3MassaM3 = sumGrupo3MassaM3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo3MassaM1 == 1) { 
+                totalGrupo3MassaM1 = sumGrupo3MassaM1;
+            } else {
+                totalGrupo3MassaM1 = Math.round(sumGrupo3MassaM1 / (contGrupo3MassaM1 - 1)* 100) / 100;
+            }
+            if (contGrupo3MassaM2 == 1) { 
+                totalGrupo3MassaM2 = sumGrupo3MassaM2;
+            } else {
+                totalGrupo3MassaM2 = Math.round(sumGrupo3MassaM2 / (contGrupo3MassaM2 - 1)* 100) / 100;
+            }
+            if (contGrupo3MassaM3 == 1) { 
+                totalGrupo3MassaM3 = sumGrupo3MassaM3;
+            } else {
+                totalGrupo3MassaM3 = Math.round(sumGrupo3MassaM3 / (contGrupo3MassaM3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 3 gordura visceral
+            var contGrupo3GorduraV1 = 0;
+            var contGrupo3GorduraV2 = 0;
+            var contGrupo3GorduraV3 = 0;
+            var sumGrupo3GorduraV1 = 0;
+            var sumGrupo3GorduraV2 = 0;
+            var sumGrupo3GorduraV3 = 0;
+            var totalGrupo3GorduraV1 = 0;
+            var totalGrupo3GorduraV2 = 0;
+            var totalGrupo3GorduraV3 = 0;
+            
+            for (var ii = 0; ii < contGrupo3; ii++) {
+                if ($scope.newUsersListGrupo03[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_01_07 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_01_07;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3GorduraV1++
+                        sumGrupo3GorduraV1 = sumGrupo3GorduraV1 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_02_07 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_02_07;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3GorduraV2++
+                        sumGrupo3GorduraV2 = sumGrupo3GorduraV2 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_03_07 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_03_07;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3GorduraV3++
+                        sumGrupo3GorduraV3 = sumGrupo3GorduraV3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo3GorduraV1 == 1) { 
+                totalGrupo3GorduraV1 = sumGrupo3GorduraV1;
+            } else {
+                totalGrupo3GorduraV1 = Math.round(sumGrupo3GorduraV1 / (contGrupo3GorduraV1 - 1)* 100) / 100;
+            }
+            if (contGrupo3GorduraV2 == 1) { 
+                totalGrupo3GorduraV2 = sumGrupo3GorduraV2;
+            } else {
+                totalGrupo3GorduraV2 = Math.round(sumGrupo3GorduraV2 / (contGrupo3GorduraV2 - 1)* 100) / 100;
+            }
+            if (contGrupo3GorduraV3 == 1) { 
+                totalGrupo3GorduraV3 = sumGrupo3GorduraV3;
+            } else {
+                totalGrupo3GorduraV3 = Math.round(sumGrupo3GorduraV3 / (contGrupo3GorduraV3 - 1)* 100) / 100;
+            }
+
+            //calculo da media grupo 3 perimetro abdominal
+            var contGrupo3PerimAbdom1 = 0;
+            var contGrupo3PerimAbdom2 = 0;
+            var contGrupo3PerimAbdom3 = 0;
+            var sumGrupo3PerimAbdom1 = 0;
+            var sumGrupo3PerimAbdom2 = 0;
+            var sumGrupo3PerimAbdom3 = 0;
+            var totalGrupo3PerimAbdom1 = 0;
+            var totalGrupo3PerimAbdom2 = 0;
+            var totalGrupo3PerimAbdom3 = 0;
+            
+            for (var ii = 0; ii < contGrupo3; ii++) {
+                if ($scope.newUsersListGrupo03[ii].client_detail.active == "true") {
+
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_01_09 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_01_09;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3PerimAbdom1++
+                        sumGrupo3PerimAbdom1 = sumGrupo3PerimAbdom1 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_02_09 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_02_09;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3PerimAbdom2++
+                        sumGrupo3PerimAbdom2 = sumGrupo3PerimAbdom2 + res;
+                    }
+                    if ($scope.newUsersListGrupo03[ii].client_history.da_03_09 != null) {
+                        var str = $scope.newUsersListGrupo03[ii].client_history.da_03_09;
+                        var res = Number(str.replace(",", "."));
+                        contGrupo3PerimAbdom3++
+                        sumGrupo3PerimAbdom3 = sumGrupo3PerimAbdom3 + res;
+                    }
+                }
+            };
+
+            if (contGrupo3PerimAbdom1 == 1) { 
+                totalGrupo3PerimAbdom1 = sumGrupo3PerimAbdom1;
+            } else {
+                totalGrupo3PerimAbdom1 = Math.round(sumGrupo3PerimAbdom1 / (contGrupo3PerimAbdom1 - 1)* 100) / 100;
+            }
+            if (contGrupo3PerimAbdom2 == 1) { 
+                totalGrupo3PerimAbdom2 = sumGrupo3PerimAbdom2;
+            } else {
+                totalGrupo3PerimAbdom2 = Math.round(sumGrupo3PerimAbdom2 / (contGrupo3PerimAbdom2 - 1)* 100) / 100;
+            }
+            if (contGrupo3PerimAbdom3 == 1) { 
+                totalGrupo3PerimAbdom3 = sumGrupo3PerimAbdom3;
+            } else {
+                totalGrupo3PerimAbdom3 = Math.round(sumGrupo3PerimAbdom3 / (contGrupo3PerimAbdom3 - 1)* 100) / 100;
+            }
+
+
+
             for (var t = 0; t < 1; t++) {
                 $scope.mediaGrupo01[t] = {
                     //1
@@ -1066,6 +1685,120 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                     Grupo1PerimAbdom3Cont: contGrupo1PerimAbdom3,
                     Grupo1PerimAbdom3Total: totalGrupo1PerimAbdom3
                 };
+
+                $scope.mediaGrupo02[t] = {
+                    //1
+                    Grupo2Peso1Cont: contGrupo2Peso1,
+                    Grupo2Peso1Total: totalGrupo2Peso1,
+                    //2
+                    Grupo2Peso2Cont: contGrupo2Peso2,
+                    Grupo2Peso2Total: totalGrupo2Peso2,
+                    //3
+                    Grupo2Peso3Cont: contGrupo2Peso3,
+                    Grupo2Peso3Total: totalGrupo2Peso3,
+                    //1
+                    Grupo2MassaG1Cont: contGrupo2MassaG1,
+                    Grupo2MassaG1Total: totalGrupo2MassaG1,
+                    //2
+                    Grupo2MassaG2Cont: contGrupo2MassaG2,
+                    Grupo2MassaG2Total: totalGrupo2MassaG2,
+                    //3
+                    Grupo2MassaG3Cont: contGrupo2MassaG3,                    
+                    Grupo2MassaG3Total: totalGrupo2MassaG3,
+                    //1
+                    Grupo2AguaC1Cont: contGrupo2AguaC1,
+                    Grupo2AguaC1Total: totalGrupo2AguaC1,
+                    //2
+                    Grupo2AguaC2Cont: contGrupo2AguaC2,
+                    Grupo2AguaC2Total: totalGrupo2AguaC2,
+                    //3
+                    Grupo2AguaC3Cont: contGrupo2AguaC3,
+                    Grupo2AguaC3Total: totalGrupo2AguaC3,
+                    //1
+                    Grupo2MassaM1Cont: contGrupo2MassaM1,
+                    Grupo2MassaM1Total: totalGrupo2MassaM1,
+                    //2
+                    Grupo2MassaM2Cont: contGrupo2MassaM2,
+                    Grupo2MassaM2Total: totalGrupo2MassaM2,
+                    //3
+                    Grupo2MassaM3Cont: contGrupo2MassaM3,
+                    Grupo2MassaM3Total: totalGrupo2MassaM3,
+                    //1
+                    Grupo2GorduraV1Cont: contGrupo2GorduraV1,
+                    Grupo2GorduraV1Total: totalGrupo2GorduraV1,
+                    //2
+                    Grupo2GorduraV2Cont: contGrupo2GorduraV2,
+                    Grupo2GorduraV2Total: totalGrupo2GorduraV2,
+                    //3
+                    Grupo2GorduraV3Cont: contGrupo2GorduraV3,
+                    Grupo2GorduraV3Total: totalGrupo2GorduraV3,
+                    //1
+                    Grupo2PerimAbdom1Cont: contGrupo2PerimAbdom1,
+                    Grupo2PerimAbdom1Total: totalGrupo2PerimAbdom1,
+                    //2
+                    Grupo2PerimAbdom2Cont: contGrupo2PerimAbdom2,
+                    Grupo2PerimAbdom2Total: totalGrupo2PerimAbdom2,
+                    //3
+                    Grupo2PerimAbdom3Cont: contGrupo2PerimAbdom3,
+                    Grupo2PerimAbdom3Total: totalGrupo2PerimAbdom3
+                };
+
+                $scope.mediaGrupo03[t] = {
+                    //1
+                    Grupo3Peso1Cont: contGrupo3Peso1,
+                    Grupo3Peso1Total: totalGrupo3Peso1,
+                    //2
+                    Grupo3Peso2Cont: contGrupo3Peso2,
+                    Grupo3Peso2Total: totalGrupo3Peso2,
+                    //3
+                    Grupo3Peso3Cont: contGrupo3Peso3,
+                    Grupo3Peso3Total: totalGrupo3Peso3,
+                    //1
+                    Grupo3MassaG1Cont: contGrupo3MassaG1,
+                    Grupo3MassaG1Total: totalGrupo3MassaG1,
+                    //2
+                    Grupo3MassaG2Cont: contGrupo3MassaG2,
+                    Grupo3MassaG2Total: totalGrupo3MassaG2,
+                    //3
+                    Grupo3MassaG3Cont: contGrupo3MassaG3,                    
+                    Grupo3MassaG3Total: totalGrupo3MassaG3,
+                    //1
+                    Grupo3AguaC1Cont: contGrupo3AguaC1,
+                    Grupo3AguaC1Total: totalGrupo3AguaC1,
+                    //2
+                    Grupo3AguaC2Cont: contGrupo3AguaC2,
+                    Grupo3AguaC2Total: totalGrupo3AguaC2,
+                    //3
+                    Grupo3AguaC3Cont: contGrupo3AguaC3,
+                    Grupo3AguaC3Total: totalGrupo3AguaC3,
+                    //1
+                    Grupo3MassaM1Cont: contGrupo3MassaM1,
+                    Grupo3MassaM1Total: totalGrupo3MassaM1,
+                    //2
+                    Grupo3MassaM2Cont: contGrupo3MassaM2,
+                    Grupo3MassaM2Total: totalGrupo3MassaM2,
+                    //3
+                    Grupo3MassaM3Cont: contGrupo3MassaM3,
+                    Grupo3MassaM3Total: totalGrupo3MassaM3,
+                    //1
+                    Grupo3GorduraV1Cont: contGrupo3GorduraV1,
+                    Grupo3GorduraV1Total: totalGrupo3GorduraV1,
+                    //2
+                    Grupo3GorduraV2Cont: contGrupo3GorduraV2,
+                    Grupo3GorduraV2Total: totalGrupo3GorduraV2,
+                    //3
+                    Grupo3GorduraV3Cont: contGrupo3GorduraV3,
+                    Grupo3GorduraV3Total: totalGrupo3GorduraV3,
+                    //1
+                    Grupo3PerimAbdom1Cont: contGrupo3PerimAbdom1,
+                    Grupo3PerimAbdom1Total: totalGrupo3PerimAbdom1,
+                    //2
+                    Grupo3PerimAbdom2Cont: contGrupo3PerimAbdom2,
+                    Grupo3PerimAbdom2Total: totalGrupo3PerimAbdom2,
+                    //3
+                    Grupo3PerimAbdom3Cont: contGrupo3PerimAbdom3,
+                    Grupo3PerimAbdom3Total: totalGrupo3PerimAbdom3
+                };
             }
 
 
@@ -1081,21 +1814,21 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 //nao esquecer disto
             ], "rows": [
                 {c: [ 
-                    {v: 'Média: ' + $scope.mediaGrupo01[0].Grupo1Peso1Total + ' Kg / ' + $scope.mediaGrupo01[0].Grupo1Peso1Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1Peso1Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1Peso1Total,
                         f: $scope.mediaGrupo01[0].Grupo1Peso1Total + ' Kg'
                     }
                 ]}, //titulo e quantidade
                 {c: [ 
-                    {v: 'Média: ' + $scope.mediaGrupo01[0].Grupo1Peso2Total + ' Kg / ' + $scope.mediaGrupo01[0].Grupo1Peso2Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1Peso2Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1Peso2Total,
                         f: $scope.mediaGrupo01[0].Grupo1Peso2Total + ' Kg'
                     }
                 ]}, //titulo e quantidade
                 {c: [ 
-                    {v: 'Média: ' + $scope.mediaGrupo01[0].Grupo1Peso3Total + ' Kg / ' + $scope.mediaGrupo01[0].Grupo1Peso3Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1Peso3Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1Peso3Total,
                         f: $scope.mediaGrupo01[0].Grupo1Peso3Total + ' Kg'
@@ -1107,8 +1840,14 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 'title': 'Grupo Motivação 1 Média - Peso',
                 'legend': 'none',
                 'hAxis': {
-                    'title': 'Média por consulta'
-                }
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Peso em Kg'
+                },
+                'colors': [
+                    '#00cc00'
+                ]
             };
             
             //grafico grupomotiva01 massa gorda
@@ -1123,21 +1862,21 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 //nao esquecer disto
             ], "rows": [
                 {c: [ 
-                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaG1Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1MassaG1Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1MassaG1Total,
                         f: $scope.mediaGrupo01[0].Grupo1MassaG1Total + ' %'
                     }
                 ]},
                 {c: [ 
-                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaG2Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1MassaG2Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1MassaG2Total,
                         f: $scope.mediaGrupo01[0].Grupo1MassaG2Total + ' %'
                     }
                 ]},
                 {c: [ 
-                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaG3Cont+ ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1MassaG3Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1MassaG3Total,
                         f: $scope.mediaGrupo01[0].Grupo1MassaG3Total + ' %'
@@ -1147,7 +1886,16 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
 
             $scope.GrupoMotiva01MassaGorda.options = {
                 'title': 'Grupo Motivação 1 Média - Massa Gorda',
-                'legend': 'none'
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Massa Gorda em %'
+                },
+                'colors': [
+                    '#00cc00'
+                ]
             };
 
             //grafico grupomotiva01 agua corporal
@@ -1162,22 +1910,40 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 //nao esquecer disto
             ], "rows": [
                 {c: [ 
-                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1AguaC1Cont + ' utilizadores'},
-                    {v: $scope.mediaGrupo01[0].Grupo1AguaC1Total}
+                    {v: $scope.mediaGrupo01[0].Grupo1AguaC1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1AguaC1Total,
+                        f: $scope.mediaGrupo01[0].Grupo1AguaC1Total + ' %'
+                    }
                 ]},
                 {c: [ 
-                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1AguaC2Cont + ' utilizadores'},
-                    {v: $scope.mediaGrupo01[0].Grupo1AguaC2Total}
+                    {v: $scope.mediaGrupo01[0].Grupo1AguaC2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1AguaC2Total,
+                        f: $scope.mediaGrupo01[0].Grupo1AguaC2Total + ' %'
+                    }
                 ]},
                 {c: [ 
-                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1AguaC3Cont + ' utilizadores'},
-                    {v: $scope.mediaGrupo01[0].Grupo1AguaC3Total}
+                    {v: $scope.mediaGrupo01[0].Grupo1AguaC3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1AguaC3Total,
+                        f: $scope.mediaGrupo01[0].Grupo1AguaC3Total + ' %'
+                    }
                 ]}
             ]};  
 
             $scope.GrupoMotiva01AguaCorporal.options = {
                 'title': 'Grupo Motivação 1 Média - Agua Corporal',
-                'legend': 'none'
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Água Corporal em %'
+                },
+                'colors': [
+                    '#00cc00'
+                ]
             };
 
             //grafico grupomotiva01 massa magra
@@ -1192,31 +1958,40 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 //nao esquecer disto
             ], "rows": [
                 {c: [ 
-                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaM1Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1MassaM1Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1MassaM1Total,
-                        f: $scope.mediaGrupo01[0].Grupo1MassaM1Total + ' %'
+                        f: $scope.mediaGrupo01[0].Grupo1MassaM1Total + ' Kg'
                     }
                 ]},
                 {c: [ 
-                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaM2Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1MassaM2Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1MassaM2Total,
-                        f: $scope.mediaGrupo01[0].Grupo1MassaM2Total + ' %'
+                        f: $scope.mediaGrupo01[0].Grupo1MassaM2Total + ' Kg'
                     }
                 ]},
                 {c: [ 
-                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1MassaM3Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1MassaM3Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1MassaM3Total,
-                        f: $scope.mediaGrupo01[0].Grupo1MassaM3Total + ' %'
+                        f: $scope.mediaGrupo01[0].Grupo1MassaM3Total + ' Kg'
                     }
                 ]}
             ]};  
 
             $scope.GrupoMotiva01MassaMagra.options = {
                 'title': 'Grupo Motivação 1 Média - Massa Magra',
-                'legend': 'none'
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Massa Magra em Kg'
+                },
+                'colors': [
+                    '#00cc00'
+                ]
             };
 
             //grafico grupomotiva01 gordura visceral
@@ -1231,22 +2006,40 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 //nao esquecer disto
             ], "rows": [
                 {c: [ 
-                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1GorduraV1Cont + ' utilizadores'},
-                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV1Total}
+                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV1Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1GorduraV1Total,
+                        f: $scope.mediaGrupo01[0].Grupo1GorduraV1Total
+                    }
                 ]},
                 {c: [ 
-                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1GorduraV2Cont + ' utilizadores'},
-                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV2Total}
+                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV2Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1GorduraV2Total,
+                        f: $scope.mediaGrupo01[0].Grupo1GorduraV2Total
+                    }
                 ]},
                 {c: [ 
-                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1GorduraV3Cont + ' utilizadores'},
-                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV3Total}
+                    {v: $scope.mediaGrupo01[0].Grupo1GorduraV3Cont + ' utilizadores'},
+                    {
+                        v: $scope.mediaGrupo01[0].Grupo1GorduraV3Total,
+                        f: $scope.mediaGrupo01[0].Grupo1GorduraV3Total
+                    }
                 ]}
             ]};  
 
             $scope.GrupoMotiva01GorduraVisceral.options = {
                 'title': 'Grupo Motivação 1 Média - Gordura Visceral',
-                'legend': 'none'
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Gordura Visceral Indice (1- 20)'
+                },
+                'colors': [
+                    '#00cc00'
+                ]
             };
 
             //grafico grupomotiva01 perimetro abdominal
@@ -1261,21 +2054,21 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
                 //nao esquecer disto
             ], "rows": [
                 {c: [ 
-                    {v: '1ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1PerimAbdom1Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1PerimAbdom1Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1PerimAbdom1Total,
                         f: $scope.mediaGrupo01[0].Grupo1PerimAbdom1Total + 'cm'
                     }
                 ]},
                 {c: [ 
-                    {v: '2ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1PerimAbdom2Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1PerimAbdom2Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1PerimAbdom2Total,
                         f: $scope.mediaGrupo01[0].Grupo1PerimAbdom2Total + 'cm'
                     }
                 ]},
                 {c: [ 
-                    {v: '3ª Consulta - ' + $scope.mediaGrupo01[0].Grupo1PerimAbdom3Cont + ' utilizadores'},
+                    {v: $scope.mediaGrupo01[0].Grupo1PerimAbdom3Cont + ' utilizadores'},
                     {
                         v: $scope.mediaGrupo01[0].Grupo1PerimAbdom3Total,
                         f: $scope.mediaGrupo01[0].Grupo1PerimAbdom3Total + 'cm'
@@ -1285,7 +2078,16 @@ app.controller('DashCtrl', ['$scope', '$filter', 'Auth', '$location', 'currentAu
 
             $scope.GrupoMotiva01PerimetroAbdominal.options = {
                 'title': 'Grupo Motivação 1 Média - Perimetro Abdominal',
-                'legend': 'none'
+                'legend': 'none',
+                'hAxis': {
+                    'title': 'Consultas'
+                },
+                'vAxis': {
+                    'title': 'Perimetro Abdominal (cm)'
+                },
+                'colors': [
+                    '#00cc00'
+                ]
             };
 
 

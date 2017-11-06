@@ -17,7 +17,6 @@
                         <td>Data 5ª Consulta</td>
                         <td>Data 6ª Consulta</td>
                         <td>Data Prox. Consulta</td>
-                        <!-- <td></td> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -33,166 +32,10 @@
                         <td>{{user.client_history.da_04_01}}</td>
                         <td>{{user.client_history.da_05_01}}</td>
                         <td>{{user.client_history.da_06_01}}</td>   
-                        <td>{{user.client_detail.proxConsult}}</td>
-                        <!-- <td>
-                            <button type="button" class="btn btn-default" ng-click="getDetails(user.$id)">
-                                <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            </button>
-                        </td>  -->         
+                        <td>{{user.client_detail.proxConsult}}</td>     
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <div ng-show="showDetails">
-            <!--<p>Form result: {{client_form}}</p>-->
-
-            <div class="col-sm-2" style="position: fixed; display: grid; padding: 20px 15px 40px 15px; height: calc(100vh - 75px); background-color: grey;">
-                <button type="button" class="btn btn-default btn-menu" ng-click="atras()">Inicio</button>
-                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientHistory()" ng-class="{adminButtonNG: adminDivClientHistory}">Histórico</button>
-                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientAntropo()" ng-class="{adminButtonNG: adminDivClientAntropo}">Dados Antropométricos</button>
-                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientDetails()" ng-class="{adminButtonNG: adminDivClientDetails}">Dados Pessoais</button>
-                <button type="button" class="btn btn-default btn-menu" ng-click="adminHome()" ng-class="{adminButtonNG: adminDivHome}">Dashboard</button>
-                <button type="button" class="btn btn-default btn-menu" ng-click="showLastMeta()" ng-class="{adminButtonNG: adminDivClientMetas01 || adminDivClientMetas0 || adminDivClientMetas03 || adminDivClientMetas04 || adminDivClientMetas05 || adminDivClientMetas06}">Ultima Meta</button>
-                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientMetas()" ng-class="{adminButtonNG: adminDivClientMetasList}">Metas Funcionais</button>
-                <button type="button" class="btn btn-default btn-menu" ng-click="adminClientQuizFunc()" ng-class="{adminButtonNG: adminDivClientQuizFunc}">Questionário Funcional</button>
-                <button type="button" class="btn btn-success btn-save" ng-click="saveUserDetailsAdmin(user.$id)">Gravar</button>
-            </div>
-            
-            <div class="col-sm-10 margin-admin-menu" ng-show="adminDivHome">
-                <div ng-include="'views/form-tabs/tabhistory/dashboard.html'"></div>
-            </div>
-
-            <div class="col-sm-10 margin-admin-menu" ng-show="adminDivClientDetails">
-                <div ng-include="'views/form-tabs/tab1/quiz_admin.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-            </div>
-
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetasList">
-                <div ng-include="'views/metas/metasList.html'"></div>
-            </div>
-
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas01">
-                <div ng-include="'views/metas/metas01.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas02">
-                <div ng-include="'views/metas/metas02.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas03">
-                <div ng-include="'views/metas/metas03.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas04">
-                <div ng-include="'views/metas/metas04.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas05">
-                <div ng-include="'views/metas/metas05.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-            <div class="col-sm-10 margin-admin-menu metas-main-class" ng-show="adminDivClientMetas06">
-                <div ng-include="'views/metas/metas06.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-                <!-- <button ng-click="generate()">PDF</button> -->
-            </div>
-
-            <div class="col-sm-10 margin-admin-menu" ng-show="adminDivClientHistory">
-                <div ng-include="'views/form-tabs/tabhistory/history.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-            </div>
-
-            <div class="col-sm-10 margin-admin-menu" ng-show="adminDivClientAntropo">
-                <div ng-include="'views/form-tabs/tabhistory/dados_antropometricos.html'"></div>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-            </div>
-
-            <div class="col-sm-10 margin-admin-menu" ng-show="adminDivClientQuizFunc"> 
-                <div style="padding-top: 15px;">
-                </div>
-                <md-content>
-                    <md-tabs md-dynamic-height md-border-bottom>
-                        <md-tab label="Objectivos e Motivação">
-                            <md-content class="md-padding">  
-                                <div class="row" style="background-color: #ffff99; padding: 15px 0;">
-                                    <div ng-include="'views/form-tabs/tab2/quiz1.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab2/quiz2.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab2/quiz3.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab2/quiz3_2.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab2/quiz19.html'"></div>
-
-                                    <div ng-include="'views/form-tabs/tab2/quiz24.html'"></div>  
-                                </div>
-                            </md-content>
-                        </md-tab>
-                        <md-tab label="Medicina Funcional">
-                            <md-content class="md-padding">  
-                                <div class="row" style="background-color: #cce0ff; padding: 15px 0;">
-                                    <div ng-include="'views/form-tabs/tab4/quiz11.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz12.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz13.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz14.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz15.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz23.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz28.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz16.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab4/quiz21.html'"></div>
-
-                                    <div ng-include="'views/form-tabs/tab4/quiz26.html'"></div>             
-                                </div>
-                            </md-content>
-                        </md-tab>
-                        <md-tab label="Actividade Fisica e Desporto">
-                            <md-content class="md-padding"> 
-                                <div class="row" style="background-color: #ffe6e6; padding: 15px 0;"> 
-                                    <div ng-include="'views/form-tabs/tab5/quiz17.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab5/quiz18.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab5/quiz22.html'"></div>
-
-                                    <div ng-include="'views/form-tabs/tab5/quiz27.html'"></div>    
-                                </div>
-                            </md-content>
-                        </md-tab>
-                        <md-tab label="Nutrição Funcional">
-                            <md-content class="md-padding">  
-                                <div class="row" style="background-color: #ccffe5; padding: 15px 0;">
-                                    <div ng-include="'views/form-tabs/tab3/quiz04.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz05.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz06.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz07.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz08.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz09.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz10.html'"></div>
-                                    <div ng-include="'views/form-tabs/tab3/quiz20.html'"></div>
-
-                                    <div ng-include="'views/form-tabs/tab3/quiz25.html'"></div>
-                                </div>
-                            </md-content>
-                        </md-tab>
-                    </md-tabs>
-                </md-content>
-                <br>
-                <!--<button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>-->
-                <!--<button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button>--> 
-            </div>
-            <!--<div class="navbar-fixed-bottom">
-                <button class="btn btn-success" ng-click="saveUserDetails2(user.$id)">Gravar</button>
-                <button class="btn btn-success" ng-click="atras()">Voltar Atrâs</button> 
-            </div>-->
         </div>
     </div>
 </div>
