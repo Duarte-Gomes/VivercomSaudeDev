@@ -11,8 +11,8 @@ app.directive('fileModel',['$parse', function ($parse){
     }
 }]);
   
-app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'localList', 'suplementsList', 'clientsAppointmentsHistorical', '$firebaseStorage',
-    function($scope, Auth, $location, currentAuth, usersList, localList, suplementsList, clientsAppointmentsHistorical, $firebaseStorage) {
+app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'localList', 'suplementsList', 'clientsAppointmentsHistorical', '$firebaseStorage', '$interval',
+    function($scope, Auth, $location, currentAuth, usersList, localList, suplementsList, clientsAppointmentsHistorical, $firebaseStorage, $interval) {
 
         $scope.uploadFile = function(file) {
 
@@ -51,12 +51,12 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         var postIndex;
         var myTimeout;
 
-        function mySaveTimeout() {
+        /* function mySaveTimeout() {
             myTimeout = setTimeout(
                 $scope.saveUserDetailsTimeout, 60000
             ); 
-        }
-        
+        } */
+
         $scope.showDetails = false;
         $scope.adminDivClientHistory = true;
 
@@ -2351,10 +2351,11 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
             $scope.showDetails = true;
 
-            mySaveTimeout();
+            /* mySaveTimeout(); */
             /* setTimeout(
                 $scope.saveUserDetailsTimeout, 60000
             );  */
+            myTimeout = $interval($scope.saveUserDetailsTimeout, 60000);
         };
 
         ////////////////////////////////////////////////////////////////////////////
@@ -3613,14 +3614,17 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
             $scope.showDetails = true;
 
-            mySaveTimeout();
+            /* mySaveTimeout(); */
+          
             /* setTimeout(
                 $scope.saveUserDetailsTimeout, 60000
             );  */
+            /* myTimeout = $interval($scope.saveUserDetailsTimeout, 60000); */
         };
 
         $scope.atras = function() {
             angular.element("html, body").animate({ scrollTop: 0 }, "slow")
+            $interval.cancel(myTimeout);
             //location.reload();
             //if (logggooogggg == "G0YOVeohv3XGsCdyTJixcNF9D6E2" || logggooogggg == "MpHfoH6MVfNS4UaUChcr6czxs222") {
             if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
@@ -3745,7 +3749,6 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
                         } 
                     }
                 });
-                clearTimeout(myTimeout);
             } else {
                 $location.path('/');
             }
