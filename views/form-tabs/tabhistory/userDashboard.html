@@ -1,14 +1,19 @@
 <div class="div-height-inner">
     <div class="div-shadow-style-pad15">
         <div class="row">
-            
+            <div class="col-sm-12">
+                <h3 class="text-center" style="margin-top: 0;">Olá {{clientDetail.name}} !</h3>
+                <h4 class="text-center" style="margin-bottom: 15px;">Consulte aos seus dados selecionando o símbolo correspondente à área pretendida.</h4>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-3">
                 <div class="dashBox text-center">
                     <p class="dashTitle">Visualize aqui o seu plano nutricional</p>
                     <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o dashPlanoNutri" aria-hidden="true"></i></a>
                 </div>
             </div>
-            <div class="col-sm-3" >
+            <div class="col-sm-3">
                 <div class="dashBox text-center">
                     <p class="dashTitle">Dados Antropométricos</p>
                     <button class="button-dash" ng-click="showAntropo()">    
@@ -16,7 +21,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3" ng-show="tempScope.proxConsultDash">
                 <div class="dashBox">
                     <p class="dashTitleProx">Próx. Consulta</p>
                     <p class="dashValueProx">{{tempScope.proxConsultDash}}</p>
@@ -34,7 +39,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row" ng-show="clientDetail.blockMetasFunc">
             <div class="col-sm-12 chart-dash">  
                 <div google-chart chart="metasFuncionais"></div>
