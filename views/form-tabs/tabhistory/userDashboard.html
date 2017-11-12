@@ -7,14 +7,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-3 col-sm-offset-3" ng-hide="tempScope.proxConsultDash || clientDetail.blockMetasFunc">
+            <div class="col-sm-3 col-sm-offset-3" ng-hide="tempScope.proxConsultDash || clientDetail.isMetasFuncUnblock">
                 <div class="dashBox text-center">
                     <p class="dashTitle">Visualize aqui o seu plano nutricional</p>
                     <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o dashPlanoNutri" aria-hidden="true"></i></a>
                 </div>
             </div>
 
-            <div class="col-sm-3" ng-show="tempScope.proxConsultDash || clientDetail.blockMetasFunc">
+            <div class="col-sm-3" ng-show="tempScope.proxConsultDash || clientDetail.isMetasFuncUnblock">
                 <div class="dashBox text-center">
                     <p class="dashTitle">Visualize aqui o seu plano nutricional</p>
                     <a ng-href="{{clientDetail.downloadURL}}" target="_blank"><i class="fa fa-file-pdf-o dashPlanoNutri" aria-hidden="true"></i></a>
@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="col-sm-3" ng-show="clientDetail.blockMetasFunc"><!--utilizador-->
+            <div class="col-sm-3" ng-show="clientDetail.isMetasFuncUnblock"><!--utilizador-->
                 <div ng-show="isUser">
                     <div class="dashBox text-center">
                         <p class="dashTitle">Metas Funcionais</p>
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="row" ng-show="clientDetail.blockMetasFunc">
+        <div class="row" ng-show="clientDetail.isMetasFuncUnblock">
             <div class="col-sm-12 chart-dash">  
                 <div google-chart chart="metasFuncionais"></div>
             </div>

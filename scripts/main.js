@@ -1,6 +1,9 @@
 app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'localList', '$mdSidenav', '$mdDialog', '$firebaseStorage',
     function($scope, Auth, $location, currentAuth, usersList, localList, $mdSidenav, $mdDialog, $firebaseStorage, $timeout) {   
 
+        var contQuiz = 0;
+        var contQuizTotal = 0;
+
         $scope.usersList = {};
         $scope.clientDetail = {"pos": 1};
         $scope.clientForm = {"pos": 1};
@@ -311,6 +314,835 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                             $scope.metasUser = $scope.clientHist.meta01;
                         }
 
+                        if (typeof usersList[i].client_form !== 'undefined') {
+                            //#1
+                            if (usersList[i].client_form.quiz01) {
+                                console.log("#1: " + usersList[i].client_form.quiz01);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                contQuizTotal++;
+                            }
+
+                            //#2
+                            if (usersList[i].client_detail.clientType == 'ProgramaSaude') {
+                                if (
+                                    //usersList[i].client_form.quiz02_1 == true ||
+                                    //usersList[i].client_form.quiz02_2 == true ||
+                                    usersList[i].client_form.quiz02_3 == true ||
+                                    //usersList[i].client_form.quiz02_4 == true ||
+                                    //usersList[i].client_form.quiz02_5 == true ||
+                                    //usersList[i].client_form.quiz02_6 == true ||
+                                    //usersList[i].client_form.quiz02_7 == true || 
+                                    usersList[i].client_form.quiz02_8 == true ||
+                                    usersList[i].client_form.quiz02_9 == true ||
+                                    usersList[i].client_form.quiz02_10 == true ||
+                                    usersList[i].client_form.quiz02_11 == true
+                                    //usersList[i].client_form.quiz02_12 == true ||
+                                    //usersList[i].client_form.quiz02_13 == true
+                                ) {
+                                    console.log('#2 saude');
+                                    contQuiz++;
+                                    contQuizTotal++;                                
+                                } else {
+                                    console.log('não contabilizar 2 saude')
+                                    contQuizTotal++;    
+                                }
+                            }
+                            if (usersList[i].client_detail.clientType == 'ProgramaFit') {
+                                if (
+                                    //usersList[i].client_form.quiz02_1 == true ||
+                                    usersList[i].client_form.quiz02_2 == true ||
+                                    //usersList[i].client_form.quiz02_3 == true ||
+                                    //usersList[i].client_form.quiz02_4 == true ||
+                                    //usersList[i].client_form.quiz02_5 == true ||
+                                    usersList[i].client_form.quiz02_6 == true ||
+                                    usersList[i].client_form.quiz02_7 == true ||
+                                    //usersList[i].client_form.quiz02_8 == true ||
+                                    //usersList[i].client_form.quiz02_9 == true ||
+                                    //usersList[i].client_form.quiz02_10 == true ||
+                                    //usersList[i].client_form.quiz02_11 == true ||
+                                    usersList[i].client_form.quiz02_12 == true ||
+                                    usersList[i].client_form.quiz02_13 == true
+                                ) {
+                                    console.log('#2 fit');
+                                    contQuiz++;
+                                    contQuizTotal++;                                
+                                } else {
+                                    console.log('não contabilizar 2 fit')
+                                    contQuizTotal++;    
+                                }
+                            }
+                            if (usersList[i].client_detail.clientType == 'ProgramaGestaoDePeso') {
+                                console.log('não contabilizar 2 peso') 
+                            }
+
+                            //#3
+                            if (usersList[i].client_form.quiz03 != null) {
+                                console.log(usersList[i].client_form.quiz03);
+                                contQuiz++;
+                                contQuizTotal++;    
+                            } else {
+                                console.log('não contabilizar 3')
+                                contQuizTotal++;    
+                            }
+
+                            //#4
+                            if (usersList[i].client_detail.clientType == 'ProgramaGestaoDePeso' || 
+                                usersList[i].client_detail.clientType == 'ProgramaSaude' || 
+                                usersList[i].client_detail.clientType == 'ProgramaFit'
+                            ) {
+                                if (usersList[i].client_form.quiz04_6) {
+                                    console.log(usersList[i].client_form.quiz04_6);
+                                    contQuiz++;
+                                    contQuizTotal++;    
+                                } else {
+                                    console.log('não contabilizar 4')
+                                    contQuizTotal++;    
+                                }
+                            } else {
+                                if (usersList[i].client_form.quiz04_6) {
+                                    console.log(usersList[i].client_form.quiz04_6);
+                                    contQuiz++;
+                                    contQuizTotal++;    
+                                } else {
+                                    console.log('não contabilizar 4')
+                                    contQuizTotal++;    
+                                }
+                            }
+
+                            //#5
+                            if (usersList[i].client_form.quiz05_1_1 != null || usersList[i].client_form.quiz05_1_2 != null) {
+                                console.log(usersList[i].client_form.quiz05);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar 5')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz05_2_1 != null || usersList[i].client_form.quiz05_2_2 != null) {
+                                console.log(usersList[i].client_form.quiz05);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar 5')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz05_3_1 != null || usersList[i].client_form.quiz05_3_2 != null) {
+                                console.log(usersList[i].client_form.quiz05);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar 5')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz05_4_1 != null || usersList[i].client_form.quiz05_4_2 != null) {
+                                console.log(usersList[i].client_form.quiz05);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar 5')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz05_5_1 != null || usersList[i].client_form.quiz05_5_2 != null) {
+                                console.log(usersList[i].client_form.quiz05);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar 5')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz05_6_1 != null || usersList[i].client_form.quiz05_6_2 != null) {
+                                console.log(usersList[i].client_form.quiz05);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar 5')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz05_7_1 != null || usersList[i].client_form.quiz05_7_2 != null) {
+                                console.log(usersList[i].client_form.quiz05);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar 5')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz05_8_1 != null || usersList[i].client_form.quiz05_8_2 != null) {
+                                console.log(usersList[i].client_form.quiz05);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar 5')
+                                contQuizTotal++; 
+                            }
+
+                            //#6
+                            if (usersList[i].client_form.quiz06) {
+                                console.log(usersList[i].client_form.quiz06);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar 6')
+                                contQuizTotal++;
+                            }
+
+                            //#7
+                            if (usersList[i].client_form.quiz07_9) {
+                                console.log(usersList[i].client_form.quiz07);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;
+                            }
+                            if (usersList[i].client_form.quiz07) {
+                                console.log(usersList[i].client_form.quiz07);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;
+                            }
+                            if (usersList[i].client_form.quiz07_2) {
+                                console.log(usersList[i].client_form.quiz07);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;
+                            }
+                            if (usersList[i].client_form.quiz07_4) {
+                                console.log(usersList[i].client_form.quiz07);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;
+                            }
+                            if (usersList[i].client_form.quiz07_5) {
+                                console.log(usersList[i].client_form.quiz07);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;
+                            }
+                            if (usersList[i].client_form.quiz07_6) {
+                                console.log(usersList[i].client_form.quiz07);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;
+                            }
+                            if (usersList[i].client_form.quiz07_7) {
+                                console.log(usersList[i].client_form.quiz07);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;
+                            }
+                            if (usersList[i].client_form.quiz07_8) {
+                                console.log(usersList[i].client_form.quiz07);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;
+                            }
+
+                            //#8
+                            if (usersList[i].client_form.quiz08_1) {
+                                console.log(usersList[i].client_form.quiz08);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;                                
+                            }
+                            if (usersList[i].client_form.quiz08_2) {
+                                console.log(usersList[i].client_form.quiz08);
+                                contQuiz++;
+                                contQuizTotal++;
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++;                                
+                            }
+
+                            //#9
+                            if (usersList[i].client_form.quiz09) {
+                                console.log(usersList[i].client_form.quiz09);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+
+                            //#10
+                            if (usersList[i].client_form.quiz10_1) {
+                                console.log(usersList[i].client_form.quiz010);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz10_2) {
+                                console.log(usersList[i].client_form.quiz010);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz10_3) {
+                                console.log(usersList[i].client_form.quiz010);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz10_4) {
+                                console.log(usersList[i].client_form.quiz010);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz10_5) {
+                                console.log(usersList[i].client_form.quiz010);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz10_6) {
+                                console.log(usersList[i].client_form.quiz010);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz10_7) {
+                                console.log(usersList[i].client_form.quiz010);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz10_8) {
+                                console.log(usersList[i].client_form.quiz010);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+                            if (usersList[i].client_form.quiz10_9) {
+                                console.log(usersList[i].client_form.quiz010);
+                                contQuiz++;
+                                contQuizTotal++; 
+                            } else {
+                                console.log('não contabilizar')
+                                contQuizTotal++; 
+                            }
+
+                            //#11
+                            if (
+                                usersList[i].client_detail.clientType == 'ProgramaGestaoDePeso' || 
+                                usersList[i].client_detail.clientType == 'ProgramaSaude' || 
+                                usersList[i].client_detail.clientType == 'ProgramaFit'
+                            ) {
+                                if (usersList[i].client_form.quiz11) {
+                                    console.log(usersList[i].client_form.quiz011);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                            } else {
+                                if (usersList[i].client_form.quiz11_1) {
+                                    console.log(usersList[i].client_form.quiz011);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz11_2) {
+                                    console.log(usersList[i].client_form.quiz011);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz11_3) {
+                                    console.log(usersList[i].client_form.quiz011);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz11_4) {
+                                    console.log(usersList[i].client_form.quiz011);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz11_5) {
+                                    console.log(usersList[i].client_form.quiz011);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz11_6) {
+                                    console.log(usersList[i].client_form.quiz011);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                            }
+
+                            //#12
+                            if (
+                                usersList[i].client_detail.clientType == 'ProgramaGestaoDePeso' || 
+                                usersList[i].client_detail.clientType == 'ProgramaSaude' || 
+                                usersList[i].client_detail.clientType == 'ProgramaFit'
+                            ) {
+                                if (usersList[i].client_form.quiz12) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                            } else {
+                                if (usersList[i].client_form.quiz12_1) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_2) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_3) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_4) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_5) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_6) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_7) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_8) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_9) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_10) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_12) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_13) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_14) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_15) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz12_16) {
+                                    console.log(usersList[i].client_form.quiz012);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                            }
+
+                            //#13
+                            if (
+                                usersList[i].client_detail.clientType == 'ProgramaGestaoDePeso' || 
+                                usersList[i].client_detail.clientType == 'ProgramaSaude' || 
+                                usersList[i].client_detail.clientType == 'ProgramaFit'
+                            ) {
+                                if (usersList[i].client_form.quiz13) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                            } else {
+                                if (usersList[i].client_form.quiz13_1) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_2) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_3) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_4) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_5) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_6) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_7) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_8) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_9) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_10) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz13_11) {
+                                    console.log(usersList[i].client_form.quiz013);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                            }
+
+                            //#14
+                            if (
+                                usersList[i].client_detail.clientType == 'ProgramaGestaoDePeso' || 
+                                usersList[i].client_detail.clientType == 'ProgramaSaude' || 
+                                usersList[i].client_detail.clientType == 'ProgramaFit'
+                            ) {
+                                if (usersList[i].client_form.quiz14) {
+                                    console.log(usersList[i].client_form.quiz14);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                            } else {
+                                if (usersList[i].client_form.quiz14_1) {
+                                    console.log(usersList[i].client_form.quiz14);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz14_2) {
+                                    console.log(usersList[i].client_form.quiz14);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz14_3) {
+                                    console.log(usersList[i].client_form.quiz14);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz14_4) {
+                                    console.log(usersList[i].client_form.quiz14);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz14_5) {
+                                    console.log(usersList[i].client_form.quiz14);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz14_6) {
+                                    console.log(usersList[i].client_form.quiz14);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz14_7) {
+                                    console.log(usersList[i].client_form.quiz14);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                                if (usersList[i].client_form.quiz14_8) {
+                                    console.log(usersList[i].client_form.quiz14);
+                                    contQuiz++;
+                                    contQuizTotal++;
+                                } else {
+                                    console.log('não contabilizar')
+                                    contQuizTotal++;
+                                }
+                            }
+
+                            //#15
+                            if (usersList[i].client_form.quiz015) {
+                                console.log(usersList[i].client_form.quiz015);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#16
+                            if (usersList[i].client_form.quiz016) {
+                                console.log(usersList[i].client_form.quiz016);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#17
+                            if (usersList[i].client_form.quiz017) {
+                                console.log(usersList[i].client_form.quiz017);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#18
+                            if (usersList[i].client_form.quiz018) {
+                                console.log(usersList[i].client_form.quiz018);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }//#19
+                            if (usersList[i].client_form.quiz019) {
+                                console.log(usersList[i].client_form.quiz019);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#20
+                            if (usersList[i].client_form.quiz020) {
+                                console.log(usersList[i].client_form.quiz020);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#21
+                            if (usersList[i].client_form.quiz021) {
+                                console.log(usersList[i].client_form.quiz021);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#22
+                            if (usersList[i].client_form.quiz022) {
+                                console.log(usersList[i].client_form.quiz022);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#23
+                            if (usersList[i].client_form.quiz023) {
+                                console.log(usersList[i].client_form.quiz023);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#24
+                            if (usersList[i].client_form.quiz024) {
+                                console.log(usersList[i].client_form.quiz024);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#25
+                            if (usersList[i].client_form.quiz025) {
+                                console.log(usersList[i].client_form.quiz025);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#26
+                            if (usersList[i].client_form.quiz026) {
+                                console.log(usersList[i].client_form.quiz026);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#27
+                            if (usersList[i].client_form.quiz027) {
+                                console.log(usersList[i].client_form.quiz027);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+                            //#28
+                            if (usersList[i].client_form.quiz028) {
+                                console.log(usersList[i].client_form.quiz028);
+                                contQuiz++;
+                            } else {
+                                console.log('não contabilizar')
+                            }
+
+
+                        }
 
                         if (typeof usersList[i].client_history !== 'undefined') {
                             if (usersList[i].client_history.da_20_01 == null && usersList[i].client_history.da_19_01 != null) {
