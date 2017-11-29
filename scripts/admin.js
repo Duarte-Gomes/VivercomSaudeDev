@@ -825,7 +825,7 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
         //
         //if (logggooogggg == "G0YOVeohv3XGsCdyTJixcNF9D6E2" || logggooogggg == "MpHfoH6MVfNS4UaUChcr6czxs222") {
-        if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
+        if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2" || logggooogggg == "gBVyW1jW66T7Zchqv6S5puVPPc73" || logggooogggg == "9YDJ1r4aRRPySlSgwGA5v7taHG82") {
             usersList.$loaded().then(function() {
                 $scope.usersList = usersList;
                 for(var iii = 0; iii < usersList.length; iii++) {
