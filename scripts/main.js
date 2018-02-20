@@ -314,7 +314,7 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                             $scope.metasUser = $scope.clientHist.meta01;
                         }
 
-                        if (typeof usersList[i].client_form !== 'undefined') {
+                        /* if (typeof usersList[i].client_form !== 'undefined') {
                             //#1
                             if (usersList[i].client_form.quiz01) {
                                 console.log("#1: " + usersList[i].client_form.quiz01);
@@ -1142,7 +1142,7 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                             }
 
 
-                        }
+                        } */
 
                         if (typeof usersList[i].client_history !== 'undefined') {
                             if (usersList[i].client_history.da_20_01 == null && usersList[i].client_history.da_19_01 != null) {
@@ -1242,8 +1242,15 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                             }
                         } 
 
-
-                        if ($scope.firstVisit.firstVisit == false) {
+                        if (typeof $scope.firstVisit !== 'undefined') {
+                            if ($scope.firstVisit.firstVisit == false) {
+                                if ($scope.clientHist.da_01_01 == null) {
+                                    $scope.yourWelcome = true;
+                                } else {
+                                    $scope.isDashboard = true;
+                                }
+                            }
+                        } else {
                             if ($scope.clientHist.da_01_01 == null) {
                                 $scope.yourWelcome = true;
                             } else {
@@ -1862,8 +1869,8 @@ app.controller('MainCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'users
                                 timestamp: firebase.database.ServerValue.TIMESTAMP,
                                 save_status: saveStatus 
                             }).then(function() {
-                                postIndex = ci;
-                                postKey = usersList.$keyAt(ci);
+                                postIndex = ci - 3;
+                                postKey = usersList.$keyAt(postIndex);
                                 $scope.getPostDetails(postKey);
                                 //location.reload();
                             });

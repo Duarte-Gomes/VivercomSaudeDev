@@ -103,7 +103,7 @@
         <div ng-show="showDetails">
             <!--<p>Form result: {{client_form}}</p>-->
 
-            <div class="col-sm-2" style="position: fixed; display: grid; padding: 20px 15px 40px 15px; height: calc(100vh - 75px); background-color: grey;">
+            <!-- <div class="col-sm-2" style="position: fixed; display: grid; padding: 20px 15px 40px 15px; height: calc(100vh - 75px); background-color: grey;">
                 <button type="button" class="btn btn-default btn-menu" ng-click="atras()">Inicio</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientHistory()" ng-class="{adminButtonNG: adminDivClientHistory}">Histórico</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientAntropo()" ng-class="{adminButtonNG: adminDivClientAntropo}">Dados Antropométricos</button>
@@ -113,8 +113,58 @@
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientMetas()" ng-class="{adminButtonNG: adminDivClientMetasList}">Metas Funcionais</button>
                 <button type="button" class="btn btn-default btn-menu" ng-click="adminClientQuizFunc()" ng-class="{adminButtonNG: adminDivClientQuizFunc}">Questionário Funcional</button>
                 <button type="button" class="btn btn-success btn-save" ng-click="saveUserDetailsAdmin(user.$id)">Gravar</button>
-            </div>
+            </div> -->
             
+            <div class="col-sm-2" style="position: fixed; padding: 20px 15px 40px 15px; height: calc(100vh - 75px); background-color: grey;">
+                <table class="table-admin">
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default btn-menu" ng-click="atras()">Inicio</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default btn-menu" ng-click="adminClientHistory()" ng-class="{adminButtonNG: adminDivClientHistory}">Histórico</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default btn-menu" ng-click="adminClientAntropo()" ng-class="{adminButtonNG: adminDivClientAntropo}">Dados Antropométricos</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default btn-menu" ng-click="adminClientDetails()" ng-class="{adminButtonNG: adminDivClientDetails}">Dados Pessoais</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default btn-menu" ng-click="adminHome()" ng-class="{adminButtonNG: adminDivHome}">Dashboard</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default btn-menu" ng-click="showLastMeta()" ng-class="{adminButtonNG: adminDivClientMetas01 || adminDivClientMetas0 || adminDivClientMetas03 || adminDivClientMetas04 || adminDivClientMetas05 || adminDivClientMetas06}">Ultima Meta</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default btn-menu" ng-click="adminClientMetas()" ng-class="{adminButtonNG: adminDivClientMetasList}">Metas Funcionais</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-default btn-menu" ng-click="adminClientQuizFunc()" ng-class="{adminButtonNG: adminDivClientQuizFunc}">Questionário Funcional</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn btn-success btn-save" ng-click="saveUserDetailsAdmin(user.$id)">Gravar</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
             <div class="col-sm-10 margin-admin-menu" ng-show="adminDivHome">
                 <div ng-include="'views/form-tabs/tabhistory/adminDashboard.html'"></div>
             </div>
