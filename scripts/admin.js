@@ -11,8 +11,8 @@ app.directive('fileModel',['$parse', function ($parse){
     }
 }]);
   
-app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'localList', 'suplementsList', 'clientsAppointmentsHistorical', '$firebaseStorage', '$interval',
-    function($scope, Auth, $location, currentAuth, usersList, localList, suplementsList, clientsAppointmentsHistorical, $firebaseStorage, $interval) {
+app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'usersList', 'localList', 'suplementsList', 'clientsAppointmentsHistorical', '$firebaseStorage', '$timeout', '$interval',
+    function($scope, Auth, $location, currentAuth, usersList, localList, suplementsList, clientsAppointmentsHistorical, $firebaseStorage, $timeout, $interval) {
 
         $scope.uploadFile = function(file) {
 
@@ -49,13 +49,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
         var saveStatus;
         var postKey;
         var postIndex;
-        $scope.myTimeout = null;
 
-        /* function mySaveTimeout() {
-            myTimeout = setTimeout(
-                $scope.saveUserDetailsTimeout, 60000
-            ); 
-        } */
+        var iii = 0;
+        var timing;
 
         $scope.showDetails = false;
         $scope.adminDivClientHistory = true;
@@ -1016,6 +1012,9 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             $scope.clientForm = record.client_form;
             $scope.clientHist = record.client_history;
             
+            timing = true;
+            $scope.timer();
+
             $scope.hist.dateString_01 = $scope.clientHist.da_01_01;
             $scope.hist.dateString_02 = $scope.clientHist.da_02_01;
             $scope.hist.dateString_03 = $scope.clientHist.da_03_01;
@@ -2350,12 +2349,6 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             }
 
             $scope.showDetails = true;
-
-            /* mySaveTimeout(); */
-            /* setTimeout(
-                $scope.saveUserDetailsTimeout, 60000
-            );  */
-            $scope.myTimeout = $interval($scope.saveUserDetailsTimeout, 30000);
         };
 
         ////////////////////////////////////////////////////////////////////////////
@@ -2379,7 +2372,10 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
 
             $scope.clientForm = record.client_form;
             $scope.clientHist = record.client_history;
-     
+            
+            timing = true;
+            $scope.timer();
+            
             $scope.hist.dateString_01 = $scope.clientHist.da_01_01;
             $scope.hist.dateString_02 = $scope.clientHist.da_02_01;
             $scope.hist.dateString_03 = $scope.clientHist.da_03_01;
@@ -3613,19 +3609,31 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             }
 
             $scope.showDetails = true;
+        };
 
-            /* mySaveTimeout(); */
-          
-            /* setTimeout(
-                $scope.saveUserDetailsTimeout, 60000
-            );  */
-            /* myTimeout = $interval($scope.saveUserDetailsTimeout, 60000); */
+        $scope.timer = function() {
+            if (iii === 20) {
+                $scope.saveUserDetailsTimeout();
+                iii = 0;
+                $scope.timer();
+            } else {
+                if(timing === false) {
+                    iii = 0;
+                } else {
+                    iii++;
+                    $timeout(function () {
+                        $scope.timer()
+                    }, 10000);
+                }
+            }
         };
 
         $scope.atras = function() {
-            angular.element("html, body").animate({ scrollTop: 0 }, "slow")
-            $interval.cancel($scope.myTimeout);
-            //location.reload();
+            angular.element("html, body").animate({ scrollTop: 0 }, "slow");
+
+            timing = false;
+            iii = 0;
+
             //if (logggooogggg == "G0YOVeohv3XGsCdyTJixcNF9D6E2" || logggooogggg == "MpHfoH6MVfNS4UaUChcr6czxs222") {
             if (logggooogggg == "3LAlHoqUTsV73YM4THWnBH33Aix2" || logggooogggg == "LBTDdC5l3TgENbAJL6uN0BMousZ2" || logggooogggg == "li2tT7oiPZZKyjlrJoN9wrVvsRm2") {
                 usersList.$loaded().then(function() {
@@ -3896,24 +3904,6 @@ app.controller('AdminCtrl', ['$scope', 'Auth', '$location', 'currentAuth', 'user
             if ($scope.hist.dateString_20) {
                 $scope.clientHist.da_20_01 = $scope.hist.dateString_20;
             }
-            /* if ($scope.hist.dateStringConsult_01) {
-                $scope.clientHist.quizhis_1_1 = $scope.hist.dateStringConsult_01;
-            }
-            if ($scope.hist.dateStringConsult_02) {
-                $scope.clientHist.quizhis_2_1 = $scope.hist.dateStringConsult_02;
-            }
-            if ($scope.hist.dateStringConsult_03) {
-                $scope.clientHist.quizhis_3_1 = $scope.hist.dateStringConsult_03;
-            }
-            if ($scope.hist.dateStringConsult_04) {
-                $scope.clientHist.quizhis_4_1 = $scope.hist.dateStringConsult_04;
-            }
-            if ($scope.hist.dateStringConsult_05) {
-                $scope.clientHist.quizhis_5_1 = $scope.hist.dateStringConsult_05;
-            }
-            if ($scope.hist.dateStringConsult_06) {
-                $scope.clientHist.quizhis_6_1 = $scope.hist.dateStringConsult_06;
-            } */
         }
 
         $scope.saveUserDetailsAdmin = function() {
